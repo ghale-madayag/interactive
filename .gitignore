@@ -1,0 +1,13 @@
+# Scanned source module pages — kept local only (copyrighted, large)
+IMG_*.jpg
+
+# Test / tooling artifacts
+.playwright-mcp/
+.vscode/
+.idea/
+*.log
+
+# OS junk
+Thumbs.db
+.DS_Store
+desktop.ini

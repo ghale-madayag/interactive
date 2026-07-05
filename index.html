@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="fil">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interaktibong Reviewer — Filipino 5</title>
+<style>
+  :root{
+    --bg1:#4f46e5; --bg2:#7c3aed; --card:#ffffff; --ink:#1f2937; --muted:#6b7280;
+    --accent:#f59e0b; --accent2:#ec4899; --good:#16a34a; --bad:#dc2626;
+    --soft:#eef2ff; --soft2:#faf5ff; --ring:#c7d2fe;
+    --a1:#ef4444; --a2:#8b5cf6; --a3:#0ea5e9;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(135deg,var(--bg1),var(--bg2)) fixed;
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:820px;margin:0 auto;padding:18px 16px 60px}
+  .topbar{display:flex;align-items:center;gap:12px;color:#fff;margin:6px 2px 18px}
+  .topbar .logo{font-size:34px;line-height:1}
+  .topbar h1{font-size:20px;margin:0;font-weight:800;letter-spacing:.2px}
+  .topbar p{margin:2px 0 0;font-size:12.5px;opacity:.85}
+  .btn{
+    cursor:pointer;border:none;border-radius:16px;font-weight:700;font-size:16px;
+    padding:14px 18px;transition:transform .06s ease, box-shadow .15s ease, background .15s;
+    background:var(--accent);color:#3b2600;box-shadow:0 4px 0 #b8791f;
+  }
+  .btn:active{transform:translateY(3px);box-shadow:0 1px 0 #b8791f}
+  .btn.secondary{background:#fff;color:var(--ink);box-shadow:0 4px 0 #cbd5e1}
+  .btn.secondary:active{box-shadow:0 1px 0 #cbd5e1}
+  .btn.ghost{background:rgba(255,255,255,.16);color:#fff;box-shadow:none;font-weight:600}
+  .btn.small{font-size:14px;padding:9px 14px;border-radius:12px}
+  .btn[disabled]{opacity:.5;cursor:not-allowed}
+  .card{background:var(--card);border-radius:22px;padding:22px;box-shadow:0 12px 30px rgba(0,0,0,.18);margin-bottom:16px}
+  .grid{display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:620px){.grid{grid-template-columns:1fr 1fr 1fr}}
+
+  .lesson-card{cursor:pointer;border-radius:20px;padding:18px;color:#fff;position:relative;overflow:hidden;border:none;text-align:left;transition:transform .08s}
+  .lesson-card:active{transform:scale(.98)}
+  .lesson-card .num{font-size:13px;opacity:.9;font-weight:700}
+  .lesson-card h3{margin:6px 0 6px;font-size:18px;line-height:1.25}
+  .lesson-card .meta{font-size:12.5px;opacity:.92}
+  .lesson-card .emoji{position:absolute;right:12px;top:10px;font-size:40px;opacity:.35}
+  .prog{height:8px;border-radius:99px;background:rgba(255,255,255,.35);margin-top:12px;overflow:hidden}
+  .prog > i{display:block;height:100%;background:#fff;border-radius:99px;width:0}
+
+  .pill{display:inline-flex;align-items:center;gap:6px;background:var(--soft);color:#4338ca;border-radius:99px;padding:5px 12px;font-size:12.5px;font-weight:700}
+  .crumbs{color:#e9e7ff;font-size:13px;margin:0 2px 12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .crumbs a{color:#fff;cursor:pointer;text-decoration:underline;font-weight:600}
+
+  h2.title{font-size:22px;margin:2px 0 4px}
+  .sub{color:var(--muted);font-size:14px;margin:0 0 14px}
+
+  .menu-row{display:flex;gap:12px;flex-wrap:wrap}
+  .act-item{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--soft);border:2px solid transparent;border-radius:16px;padding:14px;cursor:pointer;transition:.12s;margin-bottom:10px}
+  .act-item:hover{border-color:var(--ring)}
+  .act-item .ic{font-size:26px}
+  .act-item .txt{flex:1}
+  .act-item .txt b{display:block;font-size:15.5px}
+  .act-item .txt span{font-size:12.5px;color:var(--muted)}
+  .act-item .tag{font-size:11px;font-weight:800;padding:4px 9px;border-radius:99px}
+  .tag.auto{background:#dcfce7;color:#166534}
+  .tag.self{background:#fef9c3;color:#854d0e}
+  .tag.read{background:#e0f2fe;color:#075985}
+  .tick{color:var(--good);font-weight:800;font-size:18px}
+
+  /* passages */
+  .passage{background:var(--soft2);border-radius:16px;padding:18px;line-height:1.7;font-size:16px}
+  .passage.poem{white-space:pre-line;font-style:italic}
+  .passage h4{margin:0 0 2px;font-size:19px;text-align:center;font-style:normal}
+  .passage .by{text-align:center;color:var(--muted);font-size:13px;margin-bottom:14px;font-style:normal}
+  .ingredients{background:#fff;border-radius:12px;padding:12px 16px;margin-top:12px}
+  .ingredients li{margin:3px 0}
+
+  /* quiz */
+  .qhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .qcount{font-size:13px;color:var(--muted);font-weight:700}
+  .qbar{height:8px;background:#eee;border-radius:99px;overflow:hidden;margin-bottom:18px}
+  .qbar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .3s}
+  .qtext{font-size:18px;font-weight:700;line-height:1.4;margin:2px 0 16px}
+  .qtext .idx{color:var(--accent2)}
+  .opt{display:block;width:100%;text-align:left;background:#fff;border:2px solid #e5e7eb;border-radius:14px;padding:14px 16px;margin-bottom:10px;font-size:16px;cursor:pointer;transition:.1s}
+  .opt:hover{border-color:var(--ring);background:var(--soft)}
+  .opt.correct{border-color:var(--good);background:#f0fdf4}
+  .opt.wrong{border-color:var(--bad);background:#fef2f2}
+  .opt .lead{font-weight:800;color:var(--muted);margin-right:8px}
+  .opt.correct .lead{color:var(--good)}
+  .opt.wrong .lead{color:var(--bad)}
+  .fb{border-radius:12px;padding:12px 14px;font-size:14.5px;margin:4px 0 14px;font-weight:600}
+  .fb.ok{background:#f0fdf4;color:#166534}
+  .fb.no{background:#fef2f2;color:#991b1b}
+  .navq{display:flex;justify-content:space-between;gap:10px;margin-top:6px}
+
+  /* matching */
+  .match-wrap{display:flex;gap:12px}
+  .match-col{flex:1}
+  .match-col h5{margin:0 0 8px;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+  .chip{display:block;width:100%;text-align:left;border:2px solid #e5e7eb;background:#fff;border-radius:12px;padding:11px 12px;margin-bottom:9px;cursor:pointer;font-size:14.5px;transition:.1s}
+  .chip:hover{border-color:var(--ring)}
+  .chip.sel{border-color:var(--accent2);background:#fdf2f8}
+  .chip.done{border-color:var(--good);background:#f0fdf4;cursor:default;opacity:.85}
+  .chip .badge{float:right;font-weight:800;color:var(--accent2)}
+  .chip.done .badge{color:var(--good)}
+
+  /* sequencing */
+  .seq-item{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid #e5e7eb;border-radius:12px;padding:10px 12px;margin-bottom:8px}
+  .seq-item .pos{font-weight:800;background:var(--soft);color:#4338ca;border-radius:9px;min-width:30px;height:30px;display:flex;align-items:center;justify-content:center}
+  .seq-item .body{flex:1;font-size:14px;line-height:1.35}
+  .seq-item .arrows{display:flex;flex-direction:column;gap:3px}
+  .seq-item .arrows button{border:none;background:var(--soft);border-radius:7px;width:30px;height:22px;cursor:pointer;font-size:12px;font-weight:800;color:#4338ca}
+  .seq-item.ok{border-color:var(--good);background:#f0fdf4}
+  .seq-item.bad{border-color:var(--bad);background:#fef2f2}
+
+  /* fillblank */
+  .fbq{font-size:16px;line-height:2.1;margin-bottom:14px}
+  .fbq select{font-size:15px;padding:6px 8px;border-radius:10px;border:2px solid var(--ring);background:#fff;margin:0 4px}
+  .fbq select.ok{border-color:var(--good);background:#f0fdf4}
+  .fbq select.no{border-color:var(--bad);background:#fef2f2}
+  .wordbox{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+  .wordbox span{background:var(--soft);color:#4338ca;border-radius:99px;padding:6px 12px;font-size:13px;font-weight:700}
+
+  /* truefalse */
+  .tf-row{background:#fff;border:2px solid #e5e7eb;border-radius:14px;padding:12px 14px;margin-bottom:10px}
+  .tf-row .st{font-size:15.5px;margin-bottom:9px;line-height:1.4}
+  .tf-row .opts{display:flex;gap:8px}
+  .tf-row .opts button{flex:1;border:2px solid #e5e7eb;background:#fff;border-radius:10px;padding:9px;font-weight:700;cursor:pointer;font-size:14px}
+  .tf-row .opts button.pick{border-color:var(--accent2);background:#fdf2f8}
+  .tf-row.ok{border-color:var(--good);background:#f0fdf4}
+  .tf-row.bad{border-color:var(--bad);background:#fef2f2}
+
+  /* shortcheck */
+  .sc-q{font-size:16px;font-weight:700;margin:14px 0 8px;line-height:1.4}
+  .sc-q .n{color:var(--accent2)}
+  textarea{width:100%;border:2px solid #e5e7eb;border-radius:12px;padding:12px;font-size:15px;font-family:inherit;resize:vertical;min-height:70px}
+  textarea:focus{outline:none;border-color:var(--ring)}
+  .model{background:#ecfeff;border:1px dashed #06b6d4;border-radius:12px;padding:12px 14px;margin-top:8px;font-size:14.5px;line-height:1.5}
+  .model b{color:#0e7490}
+
+  /* results */
+  .result{text-align:center;padding:8px 4px}
+  .result .big{font-size:64px}
+  .result .score{font-size:44px;font-weight:900;margin:6px 0}
+  .result .score small{font-size:20px;color:var(--muted)}
+  .result .msg{font-size:16px;color:var(--muted);margin-bottom:18px}
+  .stars{font-size:30px;letter-spacing:6px;margin:4px 0 8px}
+
+  .note{background:#fffbeb;border:1px solid #fcd34d;border-radius:12px;padding:10px 14px;font-size:13px;color:#92400e;margin-top:12px}
+  .center{text-align:center}
+  .mt{margin-top:14px}
+  a.origlink{display:inline-block;margin-top:12px;font-size:13px;color:#4338ca;font-weight:700}
+  .hide{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="logo">📚</div>
+    <div>
+      <h1>Interaktibong Reviewer sa Filipino 5</h1>
+      <p>Aralin 1–3 · Magbasa, magsanay, at subukan ang iyong sarili!</p>
+    </div>
+  </div>
+  <div id="app"></div>
+</div>
+
+<!-- =================== DATA =================== -->
+<script id="data">
+const DATA = {
+  lessons: [
+    {
+      id:"a1", color:"var(--a1)", emoji:"👻",
+      title:"Kuwentong Kababalaghan",
+      blurb:"Ang maikling kuwento at ang kwentong “Ang Aswang ng San Andres”",
+      activities:[
+        {
+          id:"a1-read", type:"passage", tag:"read", icon:"📖",
+          name:"Basahin: Ang Aswang ng San Andres",
+          desc:"Maikling kuwento ni Irish May Ignacio",
+          orig:"IMG_20260705_180733.jpg",
+          heading:"Ang Aswang ng San Andres", by:"ni Irish May Ignacio",
+          body:
+`Lahat tayo ay may mga kuwentong hindi natin malilimutan. Minsan, ito ay dahil sa sobrang saya, o ’di kaya naman ay sobrang lungkot, takot, o hiya. Mayroon din akong kuwentong gustong kalimutan, pero parang bangungot na laging bumabalik. Ito ay tungkol sa aking unang pagbisita sa probinsiya ng aking lolo sa Bisayas, mga sampung taon na ang nakalipas. Kailangan naming sumakay ng bapor para makarating doon.
+
+Minsan, puwede namang mag-eroplano, pero masyadong mahal ang pamasahe. Pagdating sa daungan, sumakay kami ng bus at tumagal pa kami ng dalawang oras sa bangka bago marating ang maliit na nayon ng San Andres.
+
+Ibang-iba ang lugar kumpara sa Maynila. Maraming bahay ang walang kuryente. Maagang natutulog ang mga tao at maaga rin silang nagigising. Kadalasan, kalabaw lang na may kariton ang makikita. Kakaunti lang ang bumibiyaheng sasakyan.
+
+Madalas, magkakakilala ang mga tao roon, kaya madaling mapansin ang mga dayong-katulad ko. Isang araw, may isang matandang babae na nagtanong sa aking lolo, “Lope, apo mo ba ang batang ’yan?” Tumango siya. “Ingatan mo, takaw-pansin. Halatang dayo,” sabi ng babae. Hindi ko agad naintindihan ang sinabi niya.
+
+Lumipas ang mga unang araw ng bakasyon at masaya naman ako. Sariwa ang hangin at masarap ang pagkain. Ang lolo ko ay nagbigay-daan sa mga kalaro na maglaro at manghuli ng mga isda sa ilog. Ngunit may isang bahay na hindi kami pinapayagang lapitan. May isang babae roon na hindi normal.
+
+Sabi ng lolo ko, “Huwag na huwag kayong pupunta roon. May isang babae roon na nakatira sa bahay na iyon. Nasa tatlumpung taong gulang na siya at mukhang madungis. Minsan, bigla na lang siyang tatawa nang malakas, tapos bigla ring aatungal, at kapag napagod, nagagalit. Wala na raw siyang pamilya at maraming haka-haka ang mga tao tungkol sa kaniya.” “Parang aswang po?” tanong ko. “Ang sabi,” sagot ng lolo.
+
+Isang araw, nagpasya akong tingnan ang bahay ni Soleng kasama ang aking kaibigan, si Manolo. “Ayoko nga, baka kainin tayo ng aswang!” sagot ni Manolo. Umabot na ako sa kaniya, “Binata na tayo at naniniwala ka pa rin sa aswang?” Sinabi ko na siya na lamang ang pumunta sa bahay ni Soleng.
+
+Nakita ko siya sa loob, nakaupo at parang walang iniisip. Pero nang bigla siyang tumingin sa akin, natakot ako. Para bang may kakaibang nangyari sa mga mata niya. Tumayo ang balahibo ko at lalo akong nangilabot nang magsimula siyang humakbang papalapit sa akin. Huwag… Huwag… Hindi ako makasigaw dahil tila nakulong sa lalamunan ko ang aking boses.
+
+Napatingin ako sa kaniyang mga kuko at sa aking isip ay tila ba unti-unting humahaba ang mga ito. Kumikislap sa talim. At sa kaniyang bibig naman ay tila ba lumilitaw na ang kaniyang mga pangil. Nangangain daw ng mga bata ’yung babaeng nakatira roon. Halos mabingi na ako sa lakas ng kabog ng aking dibdib.
+
+Nang magawa kong iatras ang aking mga paa, tila lalong bumilis ang mga paghakbang ni Soleng. Sa isang maling tapak ng aking paa ay nadulas ako at napahiga. Tumama ang aking siko at ito ay nagdugo. Napaiyak ako sa hapdi, ngunit higit lalo na sa takot. Abot-kamay na ako ni Soleng nang magawa kong sumigaw. Ubod ng lakas.
+
+Biglang nagsulputan ang mga lokal mula sa kung saan-saang panig. Nagpaulan sila ng mga bato kay Soleng at ang babaeng “aswang” ay walang nagawa kundi proteksyunan ang kaniyang sarili gamit ang kaniyang mga bisig. Humihiyaw siya sa sakit sa tuwing tatamaan siya ng malalaking bato. Napaluhod siya sa lupa. Gumaganti na rin si Soleng sa mga lokal. Ang mga sumaklolo sa akin ay unti-unting nabawasan hanggang sa tuluyan nang maglaho. Kami na lamang ni Soleng ang naiwan.
+
+Ang babaeng “aswang” naman ay may matinding lungkot. Hindi na nanlilisik ang kaniyang mata. Wala na rin ang mahaba at matatalim niyang kuko, maging ang kaniyang mga pangil. Isa na lamang siya ngayong pangkaraniwang babaeng tinakasan ng bait. Tinitigan niya ako at kitang-kita ko kung paanong ang mga mata niya ay lumuha.
+
+Nang mula sa kung saan ay dinampot ako ng aking lolo. Nagagalit siya sa akin, matigas daw ang ulo ko. Sinabi na raw na huwag kong pupuntahan ang bahay ng babaeng “aswang.” Bitbit na niya ako palayo kaya naman hindi ko na nakita ang pagtalikod ni Soleng. Iyon na pala ang huling beses na makikita siya sa San Andres.
+
+Ngayong binabalikan ko ang kwentong ito ay hindi ko maiwasan na matakot at mapahiya sa aking sarili. Si Soleng… ano ba ang naging kasalanan niya sa akin at sa mga lokal upang danasin niya ang ganoong kalupitan? Isa lamang siyang babaeng naging biktima ng pagkakataon at ng kaniyang sakit sa pag-iisip. Pang-unawa ang kaniyang kailangan, hindi panlilibak at kung ano-anong mga haka-haka. Kung tutuusin, mas nakapangingilabot pa ako kaysa kay Soleng sampu ng lahat ng mga nanakit sa kaniya. Kung tutuusin, mas masahol pa kami sa mga aswang.`
+        },
+        {
+          id:"a1-mcq", type:"mcq", tag:"auto", icon:"✅",
+          name:"Pagtataya: 10 Tanong (Pumili)",
+          desc:"Maramihang pagpipilian tungkol sa kuwento",
+          items:[
+            {q:"Anong uri ng tunggalian mayroon sa binasang akda?",
+             o:["tao laban sa tao","tao laban sa sarili","tao laban sa hayop","tao laban sa kalikasan"],a:0,
+             e:"Ang bata at ang mga taganayon laban kay Soleng (isang tao) — tao laban sa tao."},
+            {q:"Sino ang katunggali ng tauhan sa kuwento?",
+             o:["Soleng","Soledad","Sioning","Sitang"],a:0,e:"Si Soleng ang tinaguriang “aswang” sa nayon."},
+            {q:"Sa anong uri ng maikling kuwento maihahanay ang binasang akda?",
+             o:["Romansa","Katutubong Kulay","Katatakutan","Kababalaghan"],a:3,
+             e:"Puno ng misteryo at takot — kuwentong kababalaghan."},
+            {q:"Saan nagsimula ang kuwento?",
+             o:["sa pagsakay sa trak","sa pagsakay sa bapor","sa pagsakay sa tren","sa pagsakay sa eroplano"],a:1,
+             e:"“Kailangan naming sumakay ng bapor para makarating doon.”"},
+            {q:"Alin sa mga sumusunod ang nagpapakita ng tunggaliang tao laban sa tao sa akda?",
+             o:["pag-iyak ng bata","pagtatagpo ng bata at ni Soleng","pagkuha ng bata ng sampalok sa bukid","pagtatanong ng babae kay lolo Lope"],a:1,
+             e:"Ang harapang pagtatagpo ng bata at ni Soleng ang tunggaliang tao laban sa tao."},
+            {q:"Anong damdamin ang nanaig sa bata nang mahawakan siya ni Soleng?",
+             o:["saya","takot","sigla","poot"],a:1,e:"Sobrang takot ang naramdaman ng bata."},
+            {q:"Ano ang nais ipabatid ng manunulat sa babasa ng kaniyang akda?",
+             o:["Maging makasarili","Brutal na paglaban sa kapwa","Takutin ang sarili sa lahat ng pagkakataon","Matutong sumunod sa payo ng nakatatanda"],a:3,
+             e:"Sumuway ang bata sa bilin ng lolo at napahamak — mahalagang sumunod sa payo ng nakatatanda.",flag:true},
+            {q:"Sino ang naging bagong kaibigan ng bata sa San Andres?",
+             o:["Nardo","Manolo","Menardo","Manuling"],a:1,e:"Si Manolo ang bagong kaibigan ng bata."},
+            {q:"Anong katangian ng bata ang ipinakikita nang mag-isa siyang nagpunta sa bahay ni Soleng?",
+             o:["katapangan","kaduwagan","kasipagan","katalinuhan"],a:0,
+             e:"Nangahas siyang pumunta kahit mag-isa — katapangan (bagaman padalos-dalos).",flag:true},
+            {q:"Paano masasalamin sa realidad ang mga pangyayaring naganap sa kwento?",
+             o:["sumunod sa payo ng nakakatanda","kung mayaman, dapat siya ang panigan","magtanong o magsiyasat muna bago magdesisyon","magdesisyon agad kahit walang matibay na ebidensiya"],a:2,
+             e:"Huwag humatol agad — magsiyasat muna bago maniwala sa haka-haka."}
+          ]
+        },
+        {
+          id:"a1-match", type:"matching", tag:"auto", icon:"🔗",
+          name:"Tugma-tugma: Elemento ng Kuwento",
+          desc:"Itugma ang Hanay A sa Hanay B",
+          left:[
+            "Tumutukoy sa maayos na pagkakasunod-sunod ng mga pangyayari sa kuwento.",
+            "Sa bahaging ito malalaman kung nagtagumpay ba o hindi ang pangunahing tauhan.",
+            "Pinakamataas na uri ng pananabik sa kuwento.",
+            "Ito ang iniiwan ng manunulat matapos basahin ang maikling kuwento.",
+            "Tumutukoy sa mga salitang ginagamit ng mga tauhan sa maikling kuwento."
+          ],
+          right:["banghay","kakalasan","kasukdulan","mensahe","diyalogo"],
+          answer:[0,1,2,3,4]
+        },
+        {
+          id:"a1-seq", type:"sequencing", tag:"auto", icon:"🔢",
+          name:"Pagkakasunod-sunod ng Pangyayari",
+          desc:"Iayos ang mga pangyayari mula una hanggang huli",
+          items:[
+            "Sumakay ang bata sa bapor upang dumalaw sa kaniyang lolong si Lope sa San Andres sa Bisayas.",
+            "Isang babae ang nagtanong kay Lope kung apo niya ang batang iyon.",
+            "Madalas na manghuli ng isda ang bata sa ilog.",
+            "Ikinuwento ni Lolo Lope ang tungkol kay Soleng at pinagbilinan ang bata na huwag pumunta sa tahanan nito.",
+            "Inanyayahan ng bata ang kaniyang bagong kaibigang si Manolo na samahan siya sa pagbisita sa tahanan ni Soleng.",
+            "Umayaw si Manolo, kaya nagdesisyon ang bata na siya na lamang ang pumunta sa bahay ni Soleng.",
+            "Nang marating ng bata ang tahanan ni Soleng, agad niyang nakita ang panlilisik ng mga mata nito at pagbabago sa kaniyang anyo.",
+            "Nagmamadaling umatras ang bata, nadulas siya at nahulog kaya muntik na siyang mahuli ni Soleng.",
+            "Dumating ang mga tao at pinagbabato si Soleng.",
+            "Matapos ang gulo, nagkatinginan ang bata at si Soleng at nakaramdam ng pagkabahala."
+          ],
+          flag:true
+        },
+        {
+          id:"a1-comp", type:"shortcheck", tag:"self", icon:"✍️",
+          name:"Pagtalakay sa Nilalaman",
+          desc:"Isulat ang sagot, saka i-check sa modelong sagot",
+          items:[
+            {q:"Ano ang kasarian ng pangunahing tauhan sa kuwento?",
+             m:"Lalaki. Ang tagapagsalaysay ay isang batang lalaki (tinawag na “binata na tayo”)."},
+            {q:"Saan at kailan naganap ang kuwento?",
+             m:"Sa maliit na nayon ng San Andres sa Bisayas, noong bakasyon, mga sampung taon na ang nakalipas."},
+            {q:"Ano ang dalawang kuwento sa buhay ni Soleng, at paano nito naipapakita ang kaniyang karakter?",
+             m:"Ang haka-haka ng mga tao na siya ay aswang na nangangain ng bata; at ang totoo — siya ay may sakit sa pag-iisip at walang pamilya. Ipinakikita nitong siya ay biktima, hindi halimaw."},
+            {q:"Ilarawan ang tirahan ni Soleng. Ano ang mga detalye sa bahay na nagpapakita ng kaniyang kalagayan?",
+             m:"Isang bukod na bahay na hindi pinapayagang lapitan, tahimik, tila pinabayaan — sumasalamin sa pag-iisa at pagkalimot ng lipunan sa kaniya."},
+            {q:"Anong kaisipan ang nais ipabatid ng kuwento?",
+             m:"Huwag humatol batay sa haka-haka. Ang mga taong may sakit o kaibahan ay nangangailangan ng pang-unawa at malasakit, hindi kalupitan."}
+          ]
+        }
+      ]
+    },
+
+    {
+      id:"a2", color:"var(--a2)", emoji:"🌙",
+      title:"Metapora o Pagwawangis",
+      blurb:"Ang tayutay at ang tulang “Diwa ng Metapora o Pagwawangis”",
+      activities:[
+        {
+          id:"a2-pre", type:"mcq", tag:"auto", icon:"✅",
+          name:"Panimula: Kahulugan ng Salita",
+          desc:"Piliin ang tamang kahulugan ng metapora",
+          items:[
+            {q:"Bola ang tiyan niya sa laki. Ano ang ipinahihiwatig ng salitang bola?",
+             o:["maliit ang tiyan","mahaba ang tiyan","matigas ang tiyan","malaki at bilog ang tiyan"],a:3,e:"Ang “bola” ay malaki at bilog."},
+            {q:"Bakal ang kaniyang kamay. Ano ang kahulugan ng salitang bakal sa pangungusap?",
+             o:["madumi ang kamay","may hawak na bakal","malambot ang kamay","malakas ang kamay"],a:3,e:"Ang “bakal” dito ay nangangahulugang malakas."},
+            {q:"Palasyo ang kanilang bahay. Ano ang ibig sabihin ng salitang palasyo?",
+             o:["luma ang bahay","madilim ang bahay","payak ang bahay","malaki ang bahay"],a:3,e:"Ang “palasyo” ay tumutukoy sa malaking bahay."},
+            {q:"Ilaw ka sa gabing madilim. Ano ang ipinahihiwatig ng salitang ilaw?",
+             o:["maingay","mapanganib","nakatatakot","nagbibigay ng pag-asa at gabay"],a:3,e:"Ang “ilaw” ay nagbibigay ng pag-asa at gabay."},
+            {q:"Isang anghel ang kaniyang tagapag-alaga. Ano ang kahulugan ng salitang anghel?",
+             o:["matangkad na tao","mahigpit magbantay","mabait at mapagkalinga","may pakpak at lumilipad"],a:2,e:"Ang “anghel” dito ay mabait at mapagkalinga."}
+          ]
+        },
+        {
+          id:"a2-read", type:"passage", tag:"read", icon:"📖", poem:true,
+          name:"Basahin: Diwa ng Metapora o Pagwawangis",
+          desc:"Tula ni Jaypee T. Reyes",
+          orig:"IMG_20260705_180905.jpg",
+          heading:"Diwa ng Metapora o Pagwawangis", by:"ni Jaypee T. Reyes",
+          body:
+`Hindi pangkaraniwang salita ang ating ginagamit
+Masalimuot, mahirap kung iyong iisipin
+Iba’t ibang halimbawa, iba’t ibang pagpapakahulugan
+Ano ka nga ba at saan nanggaling?
+
+Tala ka sa dilim ng gabi
+Tamis ng kahulugan mo’y aking nanaisin
+Mahirap man aking aaralin
+Malaman lamang ang ibig mong iparating.
+
+Perlas ka sa aking buhay kapag ika’y nakamit
+Hintay ka lamang at ako’y parating
+Malapit nang mawari ang iyong nais
+Ikaw lamang at ako ang dapat na magwagi.
+
+Pumarito ka lagi akong samahan
+Sa oras ng kagipitan ’wag mo akong iwan
+Kailangang-kailangan sa oras ng laban
+Laban ng usapan at ng karangalan.
+
+Bagay ka talaga sa pakikipagtalastasan
+Tago man ang kahulugan hindi ka kayang iwanan
+Huwag kang mag-alala at hindi kita iiwan
+Pagwawangis kang laging nasa isipan.`
+        },
+        {
+          id:"a2-fill", type:"fillblank", tag:"auto", icon:"🧩",
+          name:"Punan ng Angkop na Salita",
+          desc:"Piliin ang tamang metapora para sa bawat patlang",
+          wordbox:["haligi ng tahanan","maamong tupa","malaking palasyo","bituin","anghel"],
+          items:[
+            {before:"Ang anak ni Aling Myrna ay ", after:". Palagi siyang sumusunod sa kaniyang ina.", a:"maamong tupa"},
+            {before:"Si Mang Joel ang ", after:". Maaga siyang pumapasok upang suportahan ang pangangailangan ng kaniyang pamilya.", a:"haligi ng tahanan"},
+            {before:"", after:" ang tahanan ng kaniyang kaibigan.", a:"malaking palasyo"},
+            {before:"Palagi siyang tumutulong sa mga nangangailangan. Isa siyang ", after:" para sa mga nakararami.", a:"anghel"},
+            {before:"Ang mananayaw ay ", after:" na kumikislap dahil sa kasikatan.", a:"bituin"}
+          ]
+        },
+        {
+          id:"a2-pair", type:"mcq", tag:"auto", icon:"✅",
+          name:"Pagtataya: Dalawang Pinagtutulad",
+          desc:"Aling dalawang bagay ang pinagtutulad?",
+          items:[
+            {q:"Si Joseph ang itinuturing na anghel sa kanilang pamilya.",
+             o:["Joseph at anghel","Joseph at pamilya","anghel at pamilya","itinuturing at pamilya"],a:0},
+            {q:"Pag-asa ang hatid ng kanilang bagong kasamahan.",
+             o:["hatid at bago","pag-asa at kasamahan","kasamahan at hatid","bago at pag-asa"],a:1},
+            {q:"Siya ang puting tupa sa loob ng kanilang silid-aralan.",
+             o:["tupa at silid-aralan","siya at silid-aralan","siya at puting tupa","puti at loob"],a:2},
+            {q:"Bakal sa tigas ang mga kamao ng bagong boksingero.",
+             o:["bakal at kamao","bakal at tigas","kamao at boksingero","tigas at boksingero"],a:0},
+            {q:"Ang kaniyang mga daliri ay hugis kandila.",
+             o:["daliri at hugis","kandila at hugis","daliri at kamay","daliri at kandila"],a:3},
+            {q:"Tinik sa lalamunan ang magnanakaw sa kanilang nayon.",
+             o:["tinik at magnanakaw","tinik at lalamunan","magnanakaw at nayon","lalamunan at nayon"],a:0},
+            {q:"Pagong si Armando sa kaniyang ginagawa.",
+             o:["pagong at ginagawa","Armando at ginagawa","pagong at Armando","pagong at bilis"],a:2},
+            {q:"Bato sa tigas ang dibdib nang nagagalit na ama.",
+             o:["bato at tigas","bato at dibdib","dibdib at ama","tigas at ama"],a:1},
+            {q:"Kawayan si Nestor sa kaniyang tangkad.",
+             o:["kawayan at tangkad","kawayan at Nestor","Nestor at tangkad","kawayan at taas"],a:1},
+            {q:"Pulang rosas ang ganda ng bagong dating na dalaga.",
+             o:["rosas at ganda","dalaga at ganda","pulang rosas at dalaga","pula at dalaga"],a:2}
+          ]
+        },
+        {
+          id:"a2-comp", type:"shortcheck", tag:"self", icon:"✍️",
+          name:"Pagtalakay sa Tula",
+          desc:"Isagot at i-check sa modelong sagot",
+          items:[
+            {q:"Ano ang paksa ng tulang binasa?",
+             m:"Ang metapora o pagwawangis — kung ano ito, bakit mahalaga, at paano ito ginagamit sa pagpapahayag."},
+            {q:"Magbigay ng linya mula sa tula na nagpapakita ng pagkukumpara.",
+             m:"Halimbawa: “Tala ka sa dilim ng gabi” o “Perlas ka sa aking buhay” — tuwirang inihahambing ang metapora sa tala o perlas."},
+            {q:"Sa pagwawakas ng tula, ano ang nais ipabatid ng manunulat?",
+             m:"Na ang pagwawangis ay palaging bahagi ng pahayag — kahit tago ang kahulugan, mahalaga ito sa mabisang pakikipagtalastasan."},
+            {q:"Anong uri ng tayutay ang nais ipabatid ng persona buhat sa binasang tula?",
+             m:"Ang metapora o pagwawangis — tuwirang paghahambing ng dalawang bagay na walang salitang naghahambing."},
+            {q:"Batay sa binasa, saan ginagamit ang pagwawangis bilang uri ng tayutay?",
+             m:"Sa pang-araw-araw na komunikasyon at pakikipagtalastasan upang maging masining at mas malinaw ang pahayag."}
+          ]
+        }
+      ]
+    },
+
+    {
+      id:"a3", color:"var(--a3)", emoji:"📋",
+      title:"Tekstong Impormatibo",
+      blurb:"Pagsunod sa panuto, hakbang at proseso",
+      activities:[
+        {
+          id:"a3-read", type:"passage", tag:"read", icon:"📖", recipe:true,
+          name:"Basahin: Tinolang Manok ni Ruthie",
+          desc:"Reseta at paraan ng pagluluto",
+          orig:"IMG_20260705_180954.jpg",
+          heading:"Tinolang Manok ni Ruthie", by:"Tekstong nagbibigay ng panuto at hakbang",
+          ingredients:[
+            "1 kilong manok, hiwain sa piraso ayon sa gustong sukat",
+            "2 tbsp mantika","5 pisngi ng bawang, dinikdik",
+            "1 gahinlalaking luya, pinitpit at hiniwang pahaba",
+            "1 sibuyas, hiniwa","1 kutsarang patis (opsiyonal)","1 litro ng tubig",
+            "1 kutsaritang asin","½ kutsaritang pamintang durog",
+            "1 maliit na hilaw na papaya, binalatan at hiniwa",
+            "2-3 pirasong siling berde","1 chicken cube (opsiyonal)","1/2 tasa ng dahon ng sili"
+          ],
+          steps:[
+            "Hugasan nang maigi ang manok at patuluin ito sa salaan.",
+            "Lagyan ng mantika ang kawali at painitin ito sa katamtamang init.",
+            "Igisa ang dinikdik na bawang, hiniwang luya, at sibuyas hanggang sa maging mabango at bahagyang mag-golden brown.",
+            "Isunod ang manok sa kawali at haluin ito hanggang sa ma-coat ng mantika ang lahat ng piraso.",
+            "Takpan ang kawali at haluin paminsan-minsan. Hintaying mawala ang kulay pinkish ng karne (5–7 minuto).",
+            "Kapag puti na ang kulay ng manok, lagyan ito ng patis. Igisa hanggang matuyo ang katas (3–5 minuto).",
+            "Idagdag ang tubig, takpan, at hintaying kumulo. Kapag kumulo na, hinaan ang apoy at hayaang kumulo ng 20 minuto.",
+            "Timplahan ng asin at kalahating kutsaritang pamintang durog. Tikman at ayusin ang lasa kung kinakailangan.",
+            "Ihulog ang hiniwang papaya at siling berde. Lagyan ng chicken cube kung nais. Takpan at hayaang kumulo muli.",
+            "Huling ihulog ang dahon ng sili at tikman.",
+            "Kapag kumulo na muli ang sabaw, patayin ang kalan upang hindi ma-overcook ang mga gulay."
+          ]
+        },
+        {
+          id:"a3-tf", type:"truefalse", tag:"auto", icon:"✅",
+          name:"Binanggit ba sa Reseta?",
+          desc:"Piliin ang B kung binanggit sa pagluluto, HB kung hindi",
+          items:[
+            {st:"Igisa ang bawang, luya, at sibuyas.", a:true},
+            {st:"Ibabad sa kalamansi at suka ang manok bago igisa.", a:false},
+            {st:"Ilagay ang carrot matapos itong sabawan.", a:false},
+            {st:"Timplahan ng asin at kalahating kutsarang paminta ang pinakukuluang manok.", a:true},
+            {st:"Ihulog ang siling-berde. Lagyan ng chicken cube. Takpan at hayaan itong kumulo.", a:true}
+          ]
+        },
+        {
+          id:"a3-mcq", type:"mcq", tag:"auto", icon:"✅",
+          name:"Pagsunod sa Panuto",
+          desc:"Sundin ang panuto sa bawat tanong",
+          items:[
+            {q:"May dalawang malaking titik S. Sa pagitan nito ay may maliit na i. Alin ang tama?",
+             o:["SSI","ssi","SiS","iss"],a:2,e:"Dalawang malaking S na may maliit na i sa gitna: S i S."}
+          ]
+        },
+        {
+          id:"a3-comp", type:"shortcheck", tag:"self", icon:"✍️",
+          name:"Karagdagang Pagtalakay",
+          desc:"Isagot at i-check sa modelong sagot",
+          items:[
+            {q:"Ano ang tekstong impormatibo?",
+             m:"Isang teksto na nagbibigay ng kaalaman, panuto, o proseso upang matutunan o magawa nang tama ang isang bagay."},
+            {q:"Bakit mahalaga ang pagsunod sa tamang panuto?",
+             m:"Upang maiwasan ang pagkakamali at panganib, at nang maayos at ligtas na maisagawa ang gawain."},
+            {q:"Ano ang mga karaniwang salita na ginagamit sa pagsunod-sunod ng hakbang?",
+             m:"Una, ikalawa, ikatlo, kasunod, panghuli, at iba pang pang-ugnay na nagpapakita ng pagkakasunod-sunod."},
+            {q:"Paano nakatutulong ang pagsasalaysay at paglalahad sa komunikasyon?",
+             m:"Nagbibigay ang mga ito ng malinaw na daloy ng ideya kaya mas nauunawaan ng tagapakinig o mambabasa ang mensahe."}
+          ]
+        }
+      ]
+    }
+  ]
+};
+</script>
+
+<!-- =================== APP =================== -->
+<script>
+const app = document.getElementById('app');
+const STORE = 'fil5_reviewer_progress';
+let progress = load();
+
+function load(){ try{return JSON.parse(localStorage.getItem(STORE))||{};}catch(e){return {};} }
+function save(){ try{localStorage.setItem(STORE,JSON.stringify(progress));}catch(e){} }
+function keyFor(a){return a.id;}
+function setBest(a,pct){
+  const k=keyFor(a); const cur=progress[k]||{};
+  progress[k]={done:true, best:Math.max(cur.best||0,pct)};
+  save();
+}
+function markDone(a){ const k=keyFor(a); progress[k]=Object.assign({done:true},progress[k]||{}); save(); }
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function shuffle(arr){const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor((i+1)* (hashStep(i)) )%(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
+// deterministic-ish shuffle avoiding Math.random dependency issues; fine for classroom use
+let _seed=7;
+function hashStep(){ _seed=(_seed*1103515245+12345)&0x7fffffff; return _seed/0x7fffffff; }
+
+/* ---------- lesson progress ---------- */
+function lessonPct(l){
+  const acts=l.activities; let done=0;
+  acts.forEach(a=>{ if((progress[keyFor(a)]||{}).done) done++; });
+  return Math.round(done/acts.length*100);
+}
+function overallPct(){
+  let all=0,done=0;
+  DATA.lessons.forEach(l=>l.activities.forEach(a=>{all++; if((progress[keyFor(a)]||{}).done)done++;}));
+  return all?Math.round(done/all*100):0;
+}
+
+/* ---------- HOME ---------- */
+function home(){
+  const cards = DATA.lessons.map((l,i)=>{
+    const pct=lessonPct(l);
+    return `<button class="lesson-card" style="background:linear-gradient(135deg,${l.color},#0000002e)" onclick="lesson('${l.id}')">
+      <span class="emoji">${l.emoji}</span>
+      <div class="num">ARALIN ${i+1}</div>
+      <h3>${esc(l.title)}</h3>
+      <div class="meta">${esc(l.blurb)}</div>
+      <div class="prog"><i style="width:${pct}%"></i></div>
+      <div class="meta" style="margin-top:6px">${pct}% tapos</div>
+    </button>`;
+  }).join('');
+  app.innerHTML = `
+    <div class="card">
+      <h2 class="title">Kumusta, mag-aaral! 👋</h2>
+      <p class="sub">Pumili ng aralin sa ibaba. Magbasa muna, tapos subukan ang mga pagsasanay. Sinusubaybayan ang iyong progreso sa device na ito.</p>
+      <div class="pill">🌟 Kabuuang progreso: ${overallPct()}%</div>
+    </div>
+    <div class="grid">${cards}</div>
+    <div class="card note">Tandaan: Ang ilang tanong (sanaysay, repleksiyon, pagguhit) ay <b>sarili mong ususuriin</b> — isulat ang sagot sa papel, tapos ihambing sa modelong sagot.</div>
+  `;
+  window.scrollTo(0,0);
+}
+
+/* ---------- LESSON MENU ---------- */
+function lesson(id){
+  const l=DATA.lessons.find(x=>x.id===id);
+  const idx=DATA.lessons.indexOf(l)+1;
+  const items=l.activities.map(a=>{
+    const done=(progress[keyFor(a)]||{}).done;
+    const best=(progress[keyFor(a)]||{}).best;
+    const tagTxt = a.tag==='auto'?'Iiskoran':a.tag==='self'?'Sariling suri':'Babasahin';
+    const bestTxt = (a.tag==='auto'&&best!=null)?` · Pinakamataas: ${best}%`:'';
+    return `<button class="act-item" onclick="openAct('${l.id}','${a.id}')">
+      <div class="ic">${a.icon}</div>
+      <div class="txt"><b>${esc(a.name)}</b><span>${esc(a.desc)}${bestTxt}</span></div>
+      <div class="tag ${a.tag}">${tagTxt}</div>
+      ${done?'<div class="tick">✓</div>':''}
+    </button>`;
+  }).join('');
+  app.innerHTML=`
+    <div class="crumbs"><a onclick="home()">🏠 Home</a> <span>›</span> <span>Aralin ${idx}</span></div>
+    <div class="card">
+      <span class="pill">${l.emoji} Aralin ${idx}</span>
+      <h2 class="title" style="margin-top:10px">${esc(l.title)}</h2>
+      <p class="sub">${esc(l.blurb)}</p>
+      ${items}
+    </div>`;
+  window.scrollTo(0,0);
+}
+
+/* ---------- open activity dispatcher ---------- */
+let CTX={}; let LASTWRONG=null;
+function openAct(lid,aid){
+  const l=DATA.lessons.find(x=>x.id===lid);
+  const a=l.activities.find(x=>x.id===aid);
+  CTX={l,a,review:false}; LASTWRONG=null;
+  _seed=7; // reset pseudo-shuffle each open for consistency
+  ({passage:renderPassage, mcq:renderMCQ, matching:renderMatching,
+    sequencing:renderSeq, fillblank:renderFill, truefalse:renderTF,
+    shortcheck:renderShort})[a.type]();
+  window.scrollTo(0,0);
+}
+function crumbs(){
+  const idx=DATA.lessons.indexOf(CTX.l)+1;
+  return `<div class="crumbs"><a onclick="home()">🏠</a> <span>›</span> <a onclick="lesson('${CTX.l.id}')">Aralin ${idx}</a> <span>›</span> <span>${esc(CTX.a.name)}</span></div>`;
+}
+function backBtn(){return `<button class="btn secondary" onclick="lesson('${CTX.l.id}')">‹ Bumalik sa aralin</button>`;}
+
+/* ---------- PASSAGE ---------- */
+function renderPassage(){
+  const a=CTX.a; let bodyHtml='';
+  if(a.recipe){
+    bodyHtml=`<div class="passage">
+      <h4>${esc(a.heading)}</h4><div class="by">${esc(a.by)}</div>
+      <b>Mga Sangkap:</b>
+      <ul class="ingredients">${a.ingredients.map(i=>`<li>${esc(i)}</li>`).join('')}</ul>
+      <b>Paraan ng Pagluluto:</b>
+      <ol style="line-height:1.7;margin-top:8px">${a.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol>
+    </div>`;
+  } else {
+    bodyHtml=`<div class="passage ${a.poem?'poem':''}">
+      <h4>${esc(a.heading)}</h4><div class="by">${esc(a.by)}</div>${esc(a.body)}</div>`;
+  }
+  app.innerHTML=`${crumbs()}
+    <div class="card">
+      ${bodyHtml}
+      ${a.orig?`<a class="origlink" href="${a.orig}" target="_blank">🖼️ Tingnan ang orihinal na pahina</a>`:''}
+      <div class="mt" style="display:flex;gap:10px;flex-wrap:wrap">
+        ${backBtn()}
+        <button class="btn" onclick="finishRead()">Tapos na akong magbasa ✓</button>
+      </div>
+    </div>`;
+}
+function finishRead(){ markDone(CTX.a); lesson(CTX.l.id); }
+
+/* ---------- MCQ ---------- */
+function renderMCQ(){
+  const items=CTX.a.items; let i=0, score=0, answered=false; const wrong=[];
+  function draw(){
+    answered=false;
+    const it=items[i];
+    app.innerHTML=`${crumbs()}
+      <div class="card">
+        <div class="qhead"><span class="qcount">Tanong ${i+1} / ${items.length}</span><span class="qcount">Puntos: ${score}</span></div>
+        <div class="qbar"><i style="width:${(i)/items.length*100}%"></i></div>
+        <div class="qtext"><span class="idx">${i+1}.</span> ${esc(it.q)}</div>
+        <div id="opts">${it.o.map((o,k)=>`<button class="opt" onclick="window._pick(${k})"><span class="lead">${'ABCD'[k]}.</span>${esc(o)}</button>`).join('')}</div>
+        <div id="fb"></div>
+        <div class="navq"><span></span><button class="btn" id="nx" disabled onclick="window._next()">${i+1<items.length?'Susunod ›':'Tapusin'}</button></div>
+      </div>`;
+  }
+  window._pick=function(k){
+    if(answered)return; answered=true;
+    const it=items[i]; const opts=document.querySelectorAll('#opts .opt');
+    opts.forEach((el,idx)=>{el.style.pointerEvents='none';
+      if(idx===it.a)el.classList.add('correct');
+      if(idx===k&&k!==it.a)el.classList.add('wrong');});
+    const ok=k===it.a; if(ok)score++; else wrong.push(it);
+    document.getElementById('fb').innerHTML=`<div class="fb ${ok?'ok':'no'}">${ok?'✅ Tama!':'❌ Mali.'} ${it.e?esc(it.e):''}${it.flag?' <em>(Maaaring talakayin ng guro.)</em>':''}</div>`;
+    document.getElementById('nx').disabled=false;
+  };
+  window._next=function(){ if(i+1<items.length){i++;draw();} else { LASTWRONG=wrong.length?{type:'mcq',items:wrong}:null; finishQuiz(score,items.length); } };
+  draw();
+}
+
+/* ---------- MATCHING ---------- */
+function renderMatching(){
+  const a=CTX.a; const left=a.left;
+  const order = shuffle(a.right.map((r,i)=>i)); // display order of right col
+  let selLeft=null; const pairs={}; // leftIdx -> rightIdx
+  function draw(){
+    const leftHtml=left.map((t,i)=>{
+      const done=pairs[i]!=null;
+      const cls=done?'chip done':(selLeft===i?'chip sel':'chip');
+      const badge=done?`<span class="badge">✓ ${'ABCDE'[order.indexOf(pairs[i])]}</span>`:(selLeft===i?'<span class="badge">…</span>':'');
+      return `<button class="${cls}" onclick="window._L(${i})">${badge}${esc(t)}</button>`;
+    }).join('');
+    const usedRight=Object.values(pairs);
+    const rightHtml=order.map((ri,pos)=>{
+      const used=usedRight.includes(ri);
+      const cls=used?'chip done':'chip';
+      return `<button class="${cls}" ${used?'':`onclick="window._R(${ri})"`}><span class="badge" style="float:left;margin-right:8px">${'ABCDE'[pos]}</span>${esc(a.right[ri])}</button>`;
+    }).join('');
+    const all=Object.keys(pairs).length===left.length;
+    app.innerHTML=`${crumbs()}
+      <div class="card">
+        <div class="qtext" style="font-size:16px">Pindutin ang isang pahayag sa <b>Hanay A</b>, tapos ang katugma nito sa <b>Hanay B</b>.</div>
+        <div class="match-wrap">
+          <div class="match-col"><h5>Hanay A</h5>${leftHtml}</div>
+          <div class="match-col"><h5>Hanay B</h5>${rightHtml}</div>
+        </div>
+        <div class="navq mt">${backBtn()}<button class="btn" ${all?'':'disabled'} onclick="window._check()">Suriin</button></div>
+      </div>`;
+  }
+  window._L=function(i){ if(pairs[i]!=null){delete pairs[i];selLeft=null;draw();return;} selLeft=i; draw(); };
+  window._R=function(ri){ if(selLeft==null)return; pairs[selLeft]=ri; selLeft=null; draw(); };
+  window._check=function(){
+    let score=0; const wL=[], wA=[];
+    left.forEach((t,i)=>{ if(pairs[i]===a.answer[i])score++; else { wL.push(t); wA.push(a.answer[i]); } });
+    LASTWRONG = wL.length?{type:'matching', left:wL, answer:wA}:null;
+    // show feedback inline
+    const rows=left.map((t,i)=>{
+      const ok=pairs[i]===a.answer[i];
+      return `<div class="seq-item ${ok?'ok':'bad'}"><span class="pos">${ok?'✓':'✗'}</span>
+        <div class="body">${esc(t)}<br><small style="color:var(--muted)">Sagot: <b>${esc(a.right[a.answer[i]])}</b></small></div></div>`;
+    }).join('');
+    app.innerHTML=`${crumbs()}<div class="card"><h3>Resulta ng pagtutugma</h3>${rows}
+      <div class="navq mt">${backBtn()}<button class="btn" onclick="finishQuiz(${score},${left.length})">Ipakita ang iskor</button></div></div>`;
+  };
+  draw();
+}
+
+/* ---------- SEQUENCING ---------- */
+function renderSeq(){
+  const a=CTX.a; const correct=a.items.slice();
+  let order=shuffle(correct.map((_,i)=>i));
+  // avoid starting fully correct
+  if(order.every((v,i)=>v===i)) order.reverse();
+  function move(pos,dir){
+    const np=pos+dir; if(np<0||np>=order.length)return;
+    [order[pos],order[np]]=[order[np],order[pos]]; draw();
+  }
+  window._mv=move;
+  function draw(checked){
+    const rows=order.map((ci,pos)=>{
+      let cls='seq-item';
+      if(checked)cls+= (ci===pos?' ok':' bad');
+      return `<div class="${cls}"><span class="pos">${pos+1}</span>
+        <div class="body">${esc(correct[ci])}</div>
+        ${checked?'':`<div class="arrows"><button onclick="window._mv(${pos},-1)">▲</button><button onclick="window._mv(${pos},1)">▼</button></div>`}</div>`;
+    }).join('');
+    app.innerHTML=`${crumbs()}
+      <div class="card">
+        <div class="qtext" style="font-size:16px">Iayos ang mga pangyayari mula <b>una (1)</b> hanggang <b>huli</b>. Gamitin ang ▲▼.</div>
+        ${rows}
+        ${a.flag&&checked?'<div class="note">Ang ilang gitnang pangyayari ay maaaring bahagyang magkaiba ang pagkakasunod — tanungin ang iyong guro kung may pagdududa.</div>':''}
+        <div class="navq mt">${backBtn()}
+        ${checked?`<button class="btn" onclick="finishQuiz(${order.filter((ci,pos)=>ci===pos).length},${order.length})">Ipakita ang iskor</button>`
+                 :`<button class="btn" onclick="window._chk()">Suriin</button>`}</div>
+      </div>`;
+  }
+  window._chk=function(){draw(true);};
+  draw(false);
+}
+
+/* ---------- FILL IN THE BLANK ---------- */
+function renderFill(){
+  const a=CTX.a; const opts=a.wordbox;
+  function draw(){
+    const box=`<div class="wordbox">${opts.map(w=>`<span>${esc(w)}</span>`).join('')}</div>`;
+    const rows=a.items.map((it,i)=>{
+      return `<div class="fbq">${i+1}. ${esc(it.before)}
+        <select id="s${i}">
+          <option value="">— pumili —</option>
+          ${opts.map(w=>`<option value="${esc(w)}">${esc(w)}</option>`).join('')}
+        </select>${esc(it.after)}</div>`;
+    }).join('');
+    app.innerHTML=`${crumbs()}
+      <div class="card">
+        <div class="qtext" style="font-size:16px">Piliin ang angkop na salita mula sa kahon.</div>
+        ${box}${rows}
+        <div class="navq mt">${backBtn()}<button class="btn" onclick="window._chk()">Suriin</button></div>
+      </div>`;
+  }
+  window._chk=function(){
+    let score=0; const w=[];
+    a.items.forEach((it,i)=>{
+      const sel=document.getElementById('s'+i); const val=sel.value;
+      if(val===it.a){score++;sel.className='ok';}else{sel.className='no';w.push(it);}
+      sel.disabled=true;
+      // append correct answer note
+      const note=document.createElement('small');
+      note.style.color='var(--muted)'; note.style.marginLeft='6px';
+      note.innerHTML= val===it.a?' ✓':` ✗ (${esc(it.a)})`;
+      sel.parentNode.appendChild(note);
+    });
+    LASTWRONG = w.length?{type:'fillblank', items:w}:null;
+    const bar=document.querySelector('.navq');
+    bar.innerHTML=`${backBtn()}<button class="btn" onclick="finishQuiz(${score},${a.items.length})">Ipakita ang iskor</button>`;
+  };
+  draw();
+}
+
+/* ---------- TRUE / FALSE (B / HB) ---------- */
+function renderTF(){
+  const a=CTX.a; const picks={};
+  function draw(){
+    const rows=a.items.map((it,i)=>{
+      return `<div class="tf-row" id="tf${i}">
+        <div class="st">${i+1}. ${esc(it.st)}</div>
+        <div class="opts">
+          <button id="b${i}t" class="${picks[i]===true?'pick':''}" onclick="window._p(${i},true)">B — Binanggit</button>
+          <button id="b${i}f" class="${picks[i]===false?'pick':''}" onclick="window._p(${i},false)">HB — Hindi</button>
+        </div></div>`;
+    }).join('');
+    const all=Object.keys(picks).length===a.items.length;
+    app.innerHTML=`${crumbs()}
+      <div class="card">
+        <div class="qtext" style="font-size:16px">Piliin ang <b>B</b> kung binanggit sa reseta, <b>HB</b> kung hindi.</div>
+        ${rows}
+        <div class="navq mt">${backBtn()}<button class="btn" ${all?'':'disabled'} onclick="window._chk()">Suriin</button></div>
+      </div>`;
+  }
+  window._p=function(i,v){picks[i]=v;draw();};
+  window._chk=function(){
+    let score=0; const w=[];
+    a.items.forEach((it,i)=>{
+      const row=document.getElementById('tf'+i);
+      const ok=picks[i]===it.a; if(ok)score++; else w.push(it);
+      row.classList.add(ok?'ok':'bad');
+      const s=document.createElement('div'); s.style.marginTop='6px'; s.style.fontWeight='700';
+      s.style.color=ok?'var(--good)':'var(--bad)';
+      s.innerHTML= ok?'✓ Tama':`✗ Tamang sagot: ${it.a?'B (Binanggit)':'HB (Hindi binanggit)'}`;
+      row.appendChild(s);
+    });
+    LASTWRONG = w.length?{type:'truefalse', items:w}:null;
+    document.querySelector('.navq').innerHTML=`${backBtn()}<button class="btn" onclick="finishQuiz(${score},${a.items.length})">Ipakita ang iskor</button>`;
+  };
+  draw();
+}
+
+/* ---------- SHORTCHECK (self-check) ---------- */
+function renderShort(){
+  const a=CTX.a;
+  const rows=a.items.map((it,i)=>`
+    <div>
+      <div class="sc-q"><span class="n">${i+1}.</span> ${esc(it.q)}</div>
+      <textarea id="ta${i}" placeholder="Isulat dito ang iyong sagot…"></textarea>
+      <div style="margin:8px 0 4px"><button class="btn small secondary" onclick="window._rev(${i})">👁️ Ipakita ang modelong sagot</button></div>
+      <div class="model hide" id="m${i}"><b>Modelong sagot:</b> ${esc(it.m)}</div>
+    </div>`).join('');
+  app.innerHTML=`${crumbs()}
+    <div class="card">
+      <div class="qtext" style="font-size:16px">Ito ay <b>sariling pagsusuri</b>. Isulat muna ang iyong sagot, saka ihambing sa modelong sagot.</div>
+      ${rows}
+      <div class="navq mt">${backBtn()}<button class="btn" onclick="finishRead();">Tapos na ✓</button></div>
+    </div>`;
+  window._rev=function(i){ document.getElementById('m'+i).classList.remove('hide'); };
+}
+
+/* ---------- RESULTS ---------- */
+function finishQuiz(score,total){
+  const pct=Math.round(score/total*100);
+  if(!CTX.review) setBest(CTX.a,pct);
+  const stars = pct>=90?'⭐⭐⭐':pct>=70?'⭐⭐':pct>=50?'⭐':'✨';
+  const msg = pct>=90?'Napakahusay! Bihasa ka na!':pct>=70?'Magaling! Kaunti na lang!':pct>=50?'Mabuti! Ulitin pa natin.':'Kaya mo ’yan — subukan muli!';
+  const emoji = pct>=90?'🏆':pct>=70?'🎉':pct>=50?'👍':'💪';
+  const w=LASTWRONG; const wc = w?(w.items?w.items.length:(w.left?w.left.length:0)):0;
+  const reviewBtn = wc>0 ? `<button class="btn" style="background:var(--accent2);box-shadow:0 4px 0 #a21c6b;color:#fff" onclick="reviewWrong()">🎯 Balikan ang mali (${wc})</button>` : '';
+  app.innerHTML=`${crumbs()}
+    <div class="card result">
+      ${CTX.review?'<span class="pill" style="margin-bottom:10px">🎯 Balik-aral sa mga naunang mali</span>':''}
+      <div class="big">${emoji}</div>
+      <div class="stars">${stars}</div>
+      <div class="score">${score}<small>/${total}</small></div>
+      <div class="score" style="font-size:22px;color:var(--accent2);margin-top:-6px">${pct}%</div>
+      <div class="msg">${msg}${(wc===0&&CTX.review)?' Lahat ay naitama na! 🌟':''}</div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        ${reviewBtn}
+        <button class="btn secondary" onclick="openAct('${CTX.l.id}','${CTX.a.id}')">🔁 Ulitin lahat</button>
+        <button class="btn" onclick="lesson('${CTX.l.id}')">Bumalik sa aralin ›</button>
+      </div>
+    </div>`;
+  window.scrollTo(0,0);
+}
+
+/* review only the items answered wrong; keeps drilling until none left */
+function reviewWrong(){
+  const w=LASTWRONG; if(!w) return;
+  const clone = w.type==='matching'
+    ? Object.assign({},CTX.a,{left:w.left,answer:w.answer})
+    : Object.assign({},CTX.a,{items:w.items});
+  CTX.a=clone; CTX.review=true; LASTWRONG=null; _seed=7;
+  ({mcq:renderMCQ,matching:renderMatching,fillblank:renderFill,truefalse:renderTF})[w.type]();
+  window.scrollTo(0,0);
+}
+
+home();
+</script>
+</body>
+</html>
