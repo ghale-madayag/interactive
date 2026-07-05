@@ -160,9 +160,9 @@
 <div class="wrap">
   <div class="topbar">
     <div class="logo">📚</div>
-    <div>
-      <h1>Interaktibong Reviewer sa Filipino 5</h1>
-      <p>Aralin 1–3 · Magbasa, magsanay, at subukan ang iyong sarili!</p>
+    <div style="cursor:pointer" onclick="home()">
+      <h1>Interaktibong Reviewer</h1>
+      <p>Piliin ang asignatura at magsimulang mag-aral!</p>
     </div>
   </div>
   <div id="app"></div>
@@ -171,7 +171,11 @@
 <!-- =================== DATA =================== -->
 <script id="data">
 const DATA = {
-  lessons: [
+  subjects: [
+  {
+    id:"fil5", name:"Filipino 5", short:"Filipino", emoji:"📚", color:"#4f46e5",
+    tagline:"Magbasa, magsanay, at subukan ang iyong sarili!",
+    lessons: [
     {
       id:"a1", color:"var(--a1)", emoji:"👻",
       title:"Kuwentong Kababalaghan",
@@ -484,6 +488,14 @@ Pagwawangis kang laging nasa isipan.`
         }
       ]
     }
+    ]
+  },
+  {
+    id:"epp", name:"EPP · ICT", short:"EPP ICT", emoji:"💻", color:"#0d9488",
+    tagline:"Edukasyong Pantahanan at Pangkabuhayan · Information & Communication Technology",
+    comingSoon:true,
+    lessons: []
+  }
   ]
 };
 </script>
@@ -509,21 +521,62 @@ function shuffle(arr){const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=
 let _seed=7;
 function hashStep(){ _seed=(_seed*1103515245+12345)&0x7fffffff; return _seed/0x7fffffff; }
 
+/* ---------- session drafts: remember answers until submit / complete ---------- */
+const DRAFTS='reviewer_drafts';
+let drafts=loadDrafts();
+function loadDrafts(){ try{return JSON.parse(localStorage.getItem(DRAFTS))||{};}catch(e){return {};} }
+function saveDrafts(){ try{localStorage.setItem(DRAFTS,JSON.stringify(drafts));}catch(e){} }
+function getDraft(id){ return drafts[id]||null; }
+function setDraft(id,o){ drafts[id]=o; saveDrafts(); }
+function clearDraft(id){ if(drafts[id]){ delete drafts[id]; saveDrafts(); } }
+
+/* ---------- lookups ---------- */
+function findLesson(id){ for(const s of DATA.subjects){ const l=s.lessons.find(x=>x.id===id); if(l) return {l,s}; } return {}; }
+function subjectPct(s){ let all=0,done=0; s.lessons.forEach(l=>l.activities.forEach(a=>{all++; if((progress[keyFor(a)]||{}).done)done++;})); return all?Math.round(done/all*100):0; }
+
 /* ---------- lesson progress ---------- */
 function lessonPct(l){
   const acts=l.activities; let done=0;
   acts.forEach(a=>{ if((progress[keyFor(a)]||{}).done) done++; });
   return Math.round(done/acts.length*100);
 }
-function overallPct(){
-  let all=0,done=0;
-  DATA.lessons.forEach(l=>l.activities.forEach(a=>{all++; if((progress[keyFor(a)]||{}).done)done++;}));
-  return all?Math.round(done/all*100):0;
+/* ---------- HOME: pick a subject ---------- */
+function home(){
+  const cards = DATA.subjects.map(s=>{
+    const soon = s.comingSoon || !s.lessons.length;
+    const pct = subjectPct(s);
+    return `<button class="lesson-card" style="background:linear-gradient(135deg,${s.color},#0000002e);${soon?'opacity:.72':''}" ${soon?'':`onclick="subject('${s.id}')"`}>
+      <span class="emoji">${s.emoji}</span>
+      <div class="num">ASIGNATURA</div>
+      <h3>${esc(s.name)}</h3>
+      <div class="meta">${soon?'⏳ Malapit nang idagdag…':`${s.lessons.length} na aralin`}</div>
+      ${soon?'':`<div class="prog"><i style="width:${pct}%"></i></div><div class="meta" style="margin-top:6px">${pct}% tapos</div>`}
+    </button>`;
+  }).join('');
+  app.innerHTML = `
+    <div class="card">
+      <h2 class="title">Kumusta, mag-aaral! 👋</h2>
+      <p class="sub">Pumili ng asignatura sa ibaba. Ang iyong progreso at mga nasagutan ay awtomatikong naiaalala sa device na ito.</p>
+    </div>
+    <div class="grid">${cards}</div>
+    <div class="card note">Tandaan: Ang ilang tanong (sanaysay, repleksiyon, pagguhit) ay <b>sarili mong ususuriin</b> — isulat ang sagot sa papel, tapos ihambing sa modelong sagot.</div>
+  `;
+  window.scrollTo(0,0);
 }
 
-/* ---------- HOME ---------- */
-function home(){
-  const cards = DATA.lessons.map((l,i)=>{
+/* ---------- SUBJECT: list its lessons ---------- */
+function subject(sid){
+  const s=DATA.subjects.find(x=>x.id===sid);
+  if(!s.lessons.length){
+    app.innerHTML=`<div class="crumbs"><a onclick="home()">🏠 Home</a> <span>›</span> <span>${esc(s.name)}</span></div>
+      <div class="card center"><div style="font-size:52px">${s.emoji}</div>
+      <h2 class="title">${esc(s.name)}</h2>
+      <p class="sub">${esc(s.tagline)}</p>
+      <div class="note" style="text-align:left">⏳ Wala pang aralin dito. Idadagdag ito kapag naihanda na ang nilalaman.</div>
+      <div class="mt"><button class="btn secondary" onclick="home()">‹ Bumalik</button></div></div>`;
+    window.scrollTo(0,0); return;
+  }
+  const cards=s.lessons.map((l,i)=>{
     const pct=lessonPct(l);
     return `<button class="lesson-card" style="background:linear-gradient(135deg,${l.color},#0000002e)" onclick="lesson('${l.id}')">
       <span class="emoji">${l.emoji}</span>
@@ -534,36 +587,37 @@ function home(){
       <div class="meta" style="margin-top:6px">${pct}% tapos</div>
     </button>`;
   }).join('');
-  app.innerHTML = `
+  app.innerHTML=`
+    <div class="crumbs"><a onclick="home()">🏠 Home</a> <span>›</span> <span>${esc(s.name)}</span></div>
     <div class="card">
-      <h2 class="title">Kumusta, mag-aaral! 👋</h2>
-      <p class="sub">Pumili ng aralin sa ibaba. Magbasa muna, tapos subukan ang mga pagsasanay. Sinusubaybayan ang iyong progreso sa device na ito.</p>
-      <div class="pill">🌟 Kabuuang progreso: ${overallPct()}%</div>
+      <span class="pill">${s.emoji} ${esc(s.name)}</span>
+      <h2 class="title" style="margin-top:10px">Mga Aralin</h2>
+      <p class="sub">${esc(s.tagline)}</p>
+      <div class="pill">🌟 Progreso sa asignatura: ${subjectPct(s)}%</div>
     </div>
-    <div class="grid">${cards}</div>
-    <div class="card note">Tandaan: Ang ilang tanong (sanaysay, repleksiyon, pagguhit) ay <b>sarili mong ususuriin</b> — isulat ang sagot sa papel, tapos ihambing sa modelong sagot.</div>
-  `;
+    <div class="grid">${cards}</div>`;
   window.scrollTo(0,0);
 }
 
 /* ---------- LESSON MENU ---------- */
 function lesson(id){
-  const l=DATA.lessons.find(x=>x.id===id);
-  const idx=DATA.lessons.indexOf(l)+1;
+  const {l,s}=findLesson(id);
+  const idx=s.lessons.indexOf(l)+1;
   const items=l.activities.map(a=>{
     const done=(progress[keyFor(a)]||{}).done;
     const best=(progress[keyFor(a)]||{}).best;
+    const inprog=!!getDraft(a.id);
     const tagTxt = a.tag==='auto'?'Iiskoran':a.tag==='self'?'Sariling suri':'Babasahin';
     const bestTxt = (a.tag==='auto'&&best!=null)?` · Pinakamataas: ${best}%`:'';
     return `<button class="act-item" onclick="openAct('${l.id}','${a.id}')">
       <div class="ic">${a.icon}</div>
-      <div class="txt"><b>${esc(a.name)}</b><span>${esc(a.desc)}${bestTxt}</span></div>
+      <div class="txt"><b>${esc(a.name)}</b><span>${esc(a.desc)}${bestTxt}${inprog?' · ⏳ may naiwang sagot':''}</span></div>
       <div class="tag ${a.tag}">${tagTxt}</div>
       ${done?'<div class="tick">✓</div>':''}
     </button>`;
   }).join('');
   app.innerHTML=`
-    <div class="crumbs"><a onclick="home()">🏠 Home</a> <span>›</span> <span>Aralin ${idx}</span></div>
+    <div class="crumbs"><a onclick="home()">🏠</a> <span>›</span> <a onclick="subject('${s.id}')">${esc(s.short||s.name)}</a> <span>›</span> <span>Aralin ${idx}</span></div>
     <div class="card">
       <span class="pill">${l.emoji} Aralin ${idx}</span>
       <h2 class="title" style="margin-top:10px">${esc(l.title)}</h2>
@@ -576,9 +630,9 @@ function lesson(id){
 /* ---------- open activity dispatcher ---------- */
 let CTX={}; let LASTWRONG=null;
 function openAct(lid,aid){
-  const l=DATA.lessons.find(x=>x.id===lid);
+  const {l,s}=findLesson(lid);
   const a=l.activities.find(x=>x.id===aid);
-  CTX={l,a,review:false}; LASTWRONG=null;
+  CTX={l,a,s,review:false}; LASTWRONG=null;
   _seed=7; // reset pseudo-shuffle each open for consistency
   ({passage:renderPassage, mcq:renderMCQ, matching:renderMatching,
     sequencing:renderSeq, fillblank:renderFill, truefalse:renderTF,
@@ -586,8 +640,8 @@ function openAct(lid,aid){
   window.scrollTo(0,0);
 }
 function crumbs(){
-  const idx=DATA.lessons.indexOf(CTX.l)+1;
-  return `<div class="crumbs"><a onclick="home()">🏠</a> <span>›</span> <a onclick="lesson('${CTX.l.id}')">Aralin ${idx}</a> <span>›</span> <span>${esc(CTX.a.name)}</span></div>`;
+  const s=CTX.s; const idx=s.lessons.indexOf(CTX.l)+1;
+  return `<div class="crumbs"><a onclick="home()">🏠</a> <span>›</span> <a onclick="subject('${s.id}')">${esc(s.short||s.name)}</a> <span>›</span> <a onclick="lesson('${CTX.l.id}')">Aralin ${idx}</a> <span>›</span> <span>${esc(CTX.a.name)}</span></div>`;
 }
 function backBtn(){return `<button class="btn secondary" onclick="lesson('${CTX.l.id}')">‹ Bumalik sa aralin</button>`;}
 
@@ -616,13 +670,15 @@ function renderPassage(){
       </div>
     </div>`;
 }
-function finishRead(){ markDone(CTX.a); lesson(CTX.l.id); }
+function finishRead(){ clearDraft(CTX.a.id); markDone(CTX.a); lesson(CTX.l.id); }
 
 /* ---------- MCQ ---------- */
 function renderMCQ(){
-  const items=CTX.a.items; let i=0, score=0, answered=false; const wrong=[];
+  const items=CTX.a.items; const dkey=CTX.a.id; const useDraft=!CTX.review;
+  let i=0, score=0, answered=false; let wrong=[]; const answers=[]; let curPick=null;
+  function saveD(){ if(useDraft) setDraft(dkey,{answers:answers.slice(), curPick}); }
   function draw(){
-    answered=false;
+    answered=false; curPick=null;
     const it=items[i];
     app.innerHTML=`${crumbs()}
       <div class="card">
@@ -634,25 +690,42 @@ function renderMCQ(){
         <div class="navq"><span></span><button class="btn" id="nx" disabled onclick="window._next()">${i+1<items.length?'Susunod ›':'Tapusin'}</button></div>
       </div>`;
   }
-  window._pick=function(k){
-    if(answered)return; answered=true;
+  function reveal(k){
     const it=items[i]; const opts=document.querySelectorAll('#opts .opt');
     opts.forEach((el,idx)=>{el.style.pointerEvents='none';
       if(idx===it.a)el.classList.add('correct');
       if(idx===k&&k!==it.a)el.classList.add('wrong');});
-    const ok=k===it.a; if(ok)score++; else wrong.push(it);
+    const ok=k===it.a;
     document.getElementById('fb').innerHTML=`<div class="fb ${ok?'ok':'no'}">${ok?'✅ Tama!':'❌ Mali.'} ${it.e?esc(it.e):''}${it.flag?' <em>(Maaaring talakayin ng guro.)</em>':''}</div>`;
     document.getElementById('nx').disabled=false;
+    return ok;
+  }
+  window._pick=function(k){
+    if(answered)return; answered=true; curPick=k;
+    const ok=reveal(k); if(ok)score++; else wrong.push(items[i]);
+    saveD();
   };
-  window._next=function(){ if(i+1<items.length){i++;draw();} else { LASTWRONG=wrong.length?{type:'mcq',items:wrong}:null; finishQuiz(score,items.length); } };
-  draw();
+  window._next=function(){
+    answers.push(curPick);
+    if(i+1<items.length){ i++; draw(); saveD(); }
+    else { if(useDraft) clearDraft(dkey); LASTWRONG=wrong.length?{type:'mcq',items:wrong}:null; finishQuiz(score,items.length); }
+  };
+  // restore any in-progress answers
+  const d=useDraft?getDraft(dkey):null;
+  if(d && d.answers){
+    d.answers.forEach(k=>{ const it=items[i]; if(k===it.a)score++; else wrong.push(it); answers.push(k); i++; });
+    draw();
+    if(d.curPick!=null){ answered=true; curPick=d.curPick; const ok=reveal(d.curPick); if(ok)score++; else wrong.push(items[i]); }
+  } else { draw(); }
 }
 
 /* ---------- MATCHING ---------- */
 function renderMatching(){
-  const a=CTX.a; const left=a.left;
-  const order = shuffle(a.right.map((r,i)=>i)); // display order of right col
-  let selLeft=null; const pairs={}; // leftIdx -> rightIdx
+  const a=CTX.a; const left=a.left; const dkey=CTX.a.id; const useDraft=!CTX.review;
+  const order = shuffle(a.right.map((r,i)=>i)); // display order of right col (deterministic)
+  const d=useDraft?getDraft(dkey):null;
+  let selLeft=null; const pairs=(d&&d.pairs)?Object.assign({},d.pairs):{}; // leftIdx -> rightIdx
+  function saveD(){ if(useDraft) setDraft(dkey,{pairs}); }
   function draw(){
     const leftHtml=left.map((t,i)=>{
       const done=pairs[i]!=null;
@@ -677,9 +750,10 @@ function renderMatching(){
         <div class="navq mt">${backBtn()}<button class="btn" ${all?'':'disabled'} onclick="window._check()">Suriin</button></div>
       </div>`;
   }
-  window._L=function(i){ if(pairs[i]!=null){delete pairs[i];selLeft=null;draw();return;} selLeft=i; draw(); };
-  window._R=function(ri){ if(selLeft==null)return; pairs[selLeft]=ri; selLeft=null; draw(); };
+  window._L=function(i){ if(pairs[i]!=null){delete pairs[i];selLeft=null;saveD();draw();return;} selLeft=i; draw(); };
+  window._R=function(ri){ if(selLeft==null)return; pairs[selLeft]=ri; selLeft=null; saveD(); draw(); };
   window._check=function(){
+    if(useDraft) clearDraft(dkey);
     let score=0; const wL=[], wA=[];
     left.forEach((t,i)=>{ if(pairs[i]===a.answer[i])score++; else { wL.push(t); wA.push(a.answer[i]); } });
     LASTWRONG = wL.length?{type:'matching', left:wL, answer:wA}:null;
@@ -697,13 +771,15 @@ function renderMatching(){
 
 /* ---------- SEQUENCING ---------- */
 function renderSeq(){
-  const a=CTX.a; const correct=a.items.slice();
-  let order=shuffle(correct.map((_,i)=>i));
-  // avoid starting fully correct
-  if(order.every((v,i)=>v===i)) order.reverse();
+  const a=CTX.a; const correct=a.items.slice(); const dkey=CTX.a.id; const useDraft=!CTX.review;
+  const d=useDraft?getDraft(dkey):null;
+  let order;
+  if(d && Array.isArray(d.order) && d.order.length===correct.length){ order=d.order.slice(); }
+  else { order=shuffle(correct.map((_,i)=>i)); if(order.every((v,i)=>v===i)) order.reverse(); }
+  function saveD(){ if(useDraft) setDraft(dkey,{order:order.slice()}); }
   function move(pos,dir){
     const np=pos+dir; if(np<0||np>=order.length)return;
-    [order[pos],order[np]]=[order[np],order[pos]]; draw();
+    [order[pos],order[np]]=[order[np],order[pos]]; saveD(); draw();
   }
   window._mv=move;
   function draw(checked){
@@ -724,18 +800,19 @@ function renderSeq(){
                  :`<button class="btn" onclick="window._chk()">Suriin</button>`}</div>
       </div>`;
   }
-  window._chk=function(){draw(true);};
+  window._chk=function(){ if(useDraft) clearDraft(dkey); draw(true); };
   draw(false);
 }
 
 /* ---------- FILL IN THE BLANK ---------- */
 function renderFill(){
-  const a=CTX.a; const opts=a.wordbox;
+  const a=CTX.a; const opts=a.wordbox; const dkey=CTX.a.id; const useDraft=!CTX.review;
+  window._fv=function(){ if(useDraft) setDraft(dkey,{values:a.items.map((_,i)=>{const el=document.getElementById('s'+i);return el?el.value:'';})}); };
   function draw(){
     const box=`<div class="wordbox">${opts.map(w=>`<span>${esc(w)}</span>`).join('')}</div>`;
     const rows=a.items.map((it,i)=>{
       return `<div class="fbq">${i+1}. ${esc(it.before)}
-        <select id="s${i}">
+        <select id="s${i}" onchange="window._fv()">
           <option value="">— pumili —</option>
           ${opts.map(w=>`<option value="${esc(w)}">${esc(w)}</option>`).join('')}
         </select>${esc(it.after)}</div>`;
@@ -746,8 +823,11 @@ function renderFill(){
         ${box}${rows}
         <div class="navq mt">${backBtn()}<button class="btn" onclick="window._chk()">Suriin</button></div>
       </div>`;
+    const d=useDraft?getDraft(dkey):null;
+    if(d&&d.values){ a.items.forEach((_,i)=>{ const el=document.getElementById('s'+i); if(el&&d.values[i]) el.value=d.values[i]; }); }
   }
   window._chk=function(){
+    if(useDraft) clearDraft(dkey);
     let score=0; const w=[];
     a.items.forEach((it,i)=>{
       const sel=document.getElementById('s'+i); const val=sel.value;
@@ -768,7 +848,10 @@ function renderFill(){
 
 /* ---------- TRUE / FALSE (B / HB) ---------- */
 function renderTF(){
-  const a=CTX.a; const picks={};
+  const a=CTX.a; const dkey=CTX.a.id; const useDraft=!CTX.review;
+  const d=useDraft?getDraft(dkey):null;
+  const picks=(d&&d.picks)?Object.assign({},d.picks):{};
+  function saveD(){ if(useDraft) setDraft(dkey,{picks}); }
   function draw(){
     const rows=a.items.map((it,i)=>{
       return `<div class="tf-row" id="tf${i}">
@@ -786,8 +869,9 @@ function renderTF(){
         <div class="navq mt">${backBtn()}<button class="btn" ${all?'':'disabled'} onclick="window._chk()">Suriin</button></div>
       </div>`;
   }
-  window._p=function(i,v){picks[i]=v;draw();};
+  window._p=function(i,v){picks[i]=v;saveD();draw();};
   window._chk=function(){
+    if(useDraft) clearDraft(dkey);
     let score=0; const w=[];
     a.items.forEach((it,i)=>{
       const row=document.getElementById('tf'+i);
@@ -806,27 +890,30 @@ function renderTF(){
 
 /* ---------- SHORTCHECK (self-check) ---------- */
 function renderShort(){
-  const a=CTX.a;
+  const a=CTX.a; const dkey=CTX.a.id;
   const rows=a.items.map((it,i)=>`
     <div>
       <div class="sc-q"><span class="n">${i+1}.</span> ${esc(it.q)}</div>
-      <textarea id="ta${i}" placeholder="Isulat dito ang iyong sagot…"></textarea>
+      <textarea id="ta${i}" oninput="window._sc()" placeholder="Isulat dito ang iyong sagot…"></textarea>
       <div style="margin:8px 0 4px"><button class="btn small secondary" onclick="window._rev(${i})">👁️ Ipakita ang modelong sagot</button></div>
       <div class="model hide" id="m${i}"><b>Modelong sagot:</b> ${esc(it.m)}</div>
     </div>`).join('');
   app.innerHTML=`${crumbs()}
     <div class="card">
-      <div class="qtext" style="font-size:16px">Ito ay <b>sariling pagsusuri</b>. Isulat muna ang iyong sagot, saka ihambing sa modelong sagot.</div>
+      <div class="qtext" style="font-size:16px">Ito ay <b>sariling pagsusuri</b>. Isulat muna ang iyong sagot, saka ihambing sa modelong sagot. Naiaalala ang iyong sinulat hanggang pindutin ang “Tapos na”.</div>
       ${rows}
       <div class="navq mt">${backBtn()}<button class="btn" onclick="finishRead();">Tapos na ✓</button></div>
     </div>`;
   window._rev=function(i){ document.getElementById('m'+i).classList.remove('hide'); };
+  window._sc=function(){ setDraft(dkey,{texts:a.items.map((_,i)=>{const el=document.getElementById('ta'+i);return el?el.value:'';})}); };
+  const d=getDraft(dkey);
+  if(d&&d.texts){ a.items.forEach((_,i)=>{ const el=document.getElementById('ta'+i); if(el&&d.texts[i]!=null) el.value=d.texts[i]; }); }
 }
 
 /* ---------- RESULTS ---------- */
 function finishQuiz(score,total){
   const pct=Math.round(score/total*100);
-  if(!CTX.review) setBest(CTX.a,pct);
+  if(!CTX.review){ setBest(CTX.a,pct); clearDraft(CTX.a.id); }
   const stars = pct>=90?'⭐⭐⭐':pct>=70?'⭐⭐':pct>=50?'⭐':'✨';
   const msg = pct>=90?'Napakahusay! Bihasa ka na!':pct>=70?'Magaling! Kaunti na lang!':pct>=50?'Mabuti! Ulitin pa natin.':'Kaya mo ’yan — subukan muli!';
   const emoji = pct>=90?'🏆':pct>=70?'🎉':pct>=50?'👍':'💪';
