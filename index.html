@@ -71,6 +71,7 @@
 
   /* passages */
   .passage{background:var(--soft2);border-radius:16px;padding:18px;line-height:1.7;font-size:16px}
+  .passage .ptext{white-space:pre-line}
   .passage.poem{white-space:pre-line;font-style:italic}
   .passage h4{margin:0 0 2px;font-size:19px;text-align:center;font-style:normal}
   .passage .by{text-align:center;color:var(--muted);font-size:13px;margin-bottom:14px;font-style:normal}
@@ -493,8 +494,202 @@ Pagwawangis kang laging nasa isipan.`
   {
     id:"epp", name:"EPP · ICT", short:"EPP ICT", emoji:"💻", color:"#0d9488",
     tagline:"Edukasyong Pantahanan at Pangkabuhayan · Information & Communication Technology",
-    comingSoon:true,
-    lessons: []
+    lessons: [
+      {
+        id:"epp1", color:"#0d9488", emoji:"🌐",
+        title:"Digital Citizenship at Netiquette",
+        blurb:"Tamang pag-uugali at responsableng paggamit ng internet",
+        activities:[
+          {
+            id:"epp1-read", type:"passage", tag:"read", icon:"📖",
+            name:"Basahin: Digital Citizenship at Netiquette",
+            desc:"Konsepto at mga panuntunan ng netiquette",
+            orig:"epp/IMG_20260705_184103.jpg",
+            heading:"Digital Citizenship at Netiquette", by:"Aralin 1 · EPP-ICT",
+            body:
+`Ang digital citizenship ay tumutukoy sa kakayahan ng isang indibidwal na gumamit ng computer at iba pang digital device sa ligtas at responsableng pamamaraan. Digital citizen ang tawag sa taong nakapagsasagawa ng responsableng paggamit ng makabagong teknolohiya.
+
+Ang Netiquette ay salitang nabuo sa pagsasama ng mga salitang internet at etiquette. Ito ay tumutukoy sa mga alituntunin, gabay o pamantayan ng katanggap-tanggap na pag-uugali habang gumagamit ng internet.
+
+Mga Panuntunan ng Netiquette:
+1. Makisalamuha nang tama at kumilos nang angkop sa lipunan.
+2. Manatiling laging ligtas — tiyaking ligtas ang website (may https).
+3. Panatilihin ang integridad at respeto sa kapwa.
+4. Isaisip ang pakikisalamuhang nakatutulong.
+5. Pahalagahan ang oras.
+6. Umaayon sa tunay na buhay at panatilihin ang tunay na dahilan ng pakikipag-ugnayan.
+7. Gamitin ang mga emoticon sa tamang pamamaraan.
+8. Isaisip ang tamang baybay, sukat, kulay at bantas ng mga salita.
+9. Manatili sa makabuluhang paksa lamang at gamitin nang wasto ang pagkakataon.
+10. Alamin ang magiging epekto ng pakikipag-ugnayan.
+11. Isaisip ang iyong digital footprint (bakas na naiiwan sa tuwing gumagamit ng internet).
+
+Mahalaga ang netiquette upang mapanatili ang maayos at magalang na komunikasyon sa digital space at maiwasan ang di-pagkakaunawaan. Ang cybercrime naman ay ang pagsasagawa ng mga bagay na ipinagbabawal o ilegal gamit ang computer at internet.`
+          },
+          {
+            id:"epp1-tf", type:"truefalse", tag:"auto", icon:"✅",
+            name:"Lagumang Pagsusulit A: Tama o Mali",
+            desc:"Nagpapakita ba ng tamang netiquette?",
+            prompt:"Piliin kung <b>Tama</b> o <b>Mali</b> ang pagsasagawa ng netiquette sa bawat pahayag.",
+            tLabel:"Tama ✓", fLabel:"Mali ✗", tWord:"Tama", fWord:"Mali",
+            items:[
+              {st:"Si Alea ay gumagamit nang maaayos na salita sa pakikipag-usap sa kaniyang mga kagrupo gamit ang internet.", a:true},
+              {st:"Tiniyak ni Elnard na tama ang mga bantas at baybay ng mga salita sa kaniyang mensahe bago niya ipinadala ito sa kaniyang kaibigan gamit ang social media.", a:true},
+              {st:"Malalaking titik (ALL CAPS) ang ginamit ni Delfin sa pagsagot niya sa mensaheng ipinadala sa kaniya ni Nica.", a:false},
+              {st:"Hindi sinagot ni Aia ang mensahe na ipinadala sa kaniya sa social media ng isang taong hindi niya nakilala.", a:true, flag:true},
+              {st:"Ibinabahagi ni Carlo sa kaniyang social media account ang mga balitang hindi tiyak ang pinanggalingan.", a:false},
+              {st:"Masusing sinusuri ni Lina ang mga nilalaman ng bawat mensahe bago siya magpahayag ng reaksiyon o bago niya ito sagutin.", a:true},
+              {st:"Ang magkapatid na sina Miguel at Ayie ay gumagamit ng angkop na mga emoticon upang ipahayag ang kanilang nararamdaman habang nag-uusap sa social media.", a:true},
+              {st:"Ibinahagi ni Arthur ang isang mensahe na walang pasok sa kanilang paaralan kahit hindi niya alam kung ito ay totoo o hindi.", a:false},
+              {st:"Nagpakita si Lyndon ng angry face emoticon bilang reaksiyon sa mensahe ni Flora sa group chat nang hindi binabasa ang kabuuan ng mga mensahe.", a:false},
+              {st:"Nagpadala ng maraming thumbs up na emoticon si Cheska sa kaibigan niya upang makuha ang atensyon nito.", a:false, flag:true}
+            ]
+          },
+          {
+            id:"epp1-fill", type:"fillblank", tag:"auto", icon:"🧩",
+            name:"Lagumang Pagsusulit B: Punan ang Patlang",
+            desc:"Piliin ang tamang salita mula sa kahon",
+            wordbox:["cyber world","digital citizens","digital citizenship","digital footprints","emoticons","etiquette","integridad","internet","netiquette","online presence","respeto","responsibilidad"],
+            items:[
+              {before:"Ang mga ", after:" ay inaasahang magpakita ng nararapat at mabuting pakikitungo sa mga makakasalamuha gamit ang internet.", a:"digital citizens"},
+              {before:"Kailangang pangalagaan ang kanilang ", after:" ng mga taong gumagamit ng internet.", a:"online presence"},
+              {before:"Ang mga taong nakapagsasagawa ng responsableng paggamit ng internet ay tinatawag na ", after:".", a:"digital citizens"},
+              {before:"Ang ", after:" ay ang mga gabay, pamantayan o alituntunin na tumulong sa mga tao upang maging responsable sa paggamit ng internet.", a:"netiquette"},
+              {before:"Ang digital space o tinatawag ding ", after:" ay isa pang tawag kung saan nagaganap ang pakikipag-ugnayan gamit ang internet.", a:"cyber world"},
+              {before:"", after:" ang tawag sa mga representasyong ginagamit upang maipahayag ang ekspresyon ng mukha habang nakikipagsalamuha gamit ang internet.", a:"emoticons"},
+              {before:"Ang mga bakas o bagay na naiiwan sa tuwing gumagamit ng internet ay tinatawag na ", after:".", a:"digital footprints"},
+              {before:"Ang digital citizenship ay komunikasyon gamit ang internet na may (1) ", after:",", a:["integridad","respeto","responsibilidad"]},
+              {before:"(2) ", after:",", a:["integridad","respeto","responsibilidad"]},
+              {before:"at (3) ", after:".", a:["integridad","respeto","responsibilidad"]}
+            ]
+          },
+          {
+            id:"epp1-ref", type:"shortcheck", tag:"self", icon:"✍️",
+            name:"Repleksiyon",
+            desc:"Isagot at i-check sa modelong sagot",
+            items:[
+              {q:"Ang netiquette para sa akin ay nangangahulugang…",
+               m:"Ang netiquette ay ang mga alituntunin ng tamang pag-uugali habang gumagamit ng internet — pagpapakita ng respeto, integridad, at responsibilidad sa kapwa online."},
+              {q:"Ang pinakamahalagang panuntunan ng netiquette sa aking palagay ay…",
+               m:"(Sariling sagot.) Halimbawa: ang pagpapanatili ng respeto sa kapwa, dahil dito nagsisimula ang maayos at ligtas na komunikasyon online."},
+              {q:"Bilang isang mag-aaral, mahalagang isagawa ang netiquette sapagkat…",
+               m:"…nakatutulong ito upang maiwasan ang di-pagkakaunawaan, mapanatili ang magandang relasyon, at maging ligtas at responsableng digital citizen."}
+            ]
+          }
+        ]
+      },
+      {
+        id:"epp2", color:"#0284c7", emoji:"🖥️",
+        title:"Responsableng Paggamit ng Internet",
+        blurb:"Web browser, search engine, at email",
+        activities:[
+          {
+            id:"epp2-read1", type:"passage", tag:"read", icon:"📖",
+            name:"Basahin: Ang Web Browser",
+            desc:"Uri at mga bahagi ng web browser",
+            orig:"epp/IMG_20260705_184222.jpg",
+            heading:"Ang Web Browser", by:"Aralin 2 · EPP-ICT",
+            body:
+`Ang web browser ay isang software na ginagamit upang mag-browse o mag-navigate sa internet. Ito ang nagkokonekta sa mga tao sa iba't ibang website mula sa World Wide Web (www).
+
+Ang World Wide Web ay bahagi ng internet na ginagamit upang makapag-access ng impormasyon tulad ng teksto, larawan, at video. Ang website ay koleksyon ng magkakaugnay na webpage sa ilalim ng iisang domain; ang webpage naman ay isang partikular na pahina sa loob ng website.
+
+Iba't ibang Uri ng Web Browser:
+1. Google Chrome — libre / open source, gawa ng Google (2008).
+2. Mozilla Firefox — libre at open source, gawa ng Mozilla Foundation; kilala sa bilis at seguridad.
+3. Opera Web — mabilis, may built-in ad blocker at VPN (1995, Opera Software).
+4. Safari — itinuturing na pinakamabilis; gawa ng Apple.
+5. Internet Explorer — gawa ng Microsoft; nagretiro noong Hunyo 15, 2022.
+6. Microsoft Edge — bagong browser ng Microsoft (2015).
+7. Samsung Internet — gawa ng Samsung Electronics (2012).
+
+Mga Bahagi ng Web Browser: Menu Bar, Browser Tool Bar (Address Bar, Back button, Forward button, Extension, Refresh button, Bookmark button, Menu button), at Main Viewing Panel.`
+          },
+          {
+            id:"epp2-read2", type:"passage", tag:"read", icon:"📖",
+            name:"Basahin: Search Engine at Email",
+            desc:"Paghahanap ng impormasyon at paggamit ng email",
+            orig:"epp/IMG_20260705_184304.jpg",
+            heading:"Search Engine at Email", by:"Aralin 2 · EPP-ICT",
+            body:
+`Ang search engine ay isang programa na tumutulong sa paghahanap ng impormasyon mula sa malawak na database na konektado sa internet. Gumagamit ito ng keyword. Iba ang web browser sa search engine — kailangan munang gumamit ng web browser bago maka-access ng search engine. Mga halimbawa: Google, Bing, at Yahoo.
+
+Apat na pangunahing bahagi ng search engine: (1) Search Interface, (2) Web Crawler, (3) Indexer, at (4) Database.
+
+Ang email (electronic mail) ay isang uri ng mensaheng ipinapadala at tinatanggap sa pamamagitan ng elektronikong pamamaraan. Bawat email ay ipinapadala gamit ang isang email address.
+
+Mga Bahagi ng Email Address: (1) Username, (2) At Symbol (@) na naghihiwalay sa username at domain, at (3) Domain (hal. gmail.com, yahoo.com, hotmail.com).
+
+Ayon sa COPPA, kailangan ng pahintulot ng magulang bago gumawa ng email ang mga batang wala pang 13 taong gulang.
+
+Mga Bahagi ng Email: Recipient, Cc at Bcc, Subject Line, Salutation, Email Body, Closing, Signature, Formatting Tool, More Options, at Delete Icon. Sa pag-attach ng file, karaniwang 10MB hanggang 25MB lamang ang limitasyon sa sukat.`
+          },
+          {
+            id:"epp2-match", type:"matching", tag:"auto", icon:"🔗",
+            name:"Tugma-tugma: Browser at Kumpanya",
+            desc:"Itugma ang web browser sa gumawang kumpanya",
+            left:["Google Chrome","Mozilla Firefox","Safari","Microsoft Edge","Samsung Internet","Opera Web"],
+            right:["Google","Mozilla Foundation","Apple","Microsoft","Samsung Electronics","Opera Software"],
+            answer:[0,1,2,3,4,5]
+          },
+          {
+            id:"epp2-mcq", type:"mcq", tag:"auto", icon:"✅",
+            name:"Pagsusulit: Internet, Browser, at Email",
+            desc:"Maramihang pagpipilian",
+            items:[
+              {q:"Ano ang tawag sa software na ginagamit upang mag-browse o mag-navigate sa internet?",
+               o:["web browser","search engine","email","digital footprint"],a:0,e:"Ang web browser ang software para mag-navigate sa internet."},
+              {q:"Alin sa mga sumusunod ang HINDI isang web browser?",
+               o:["Google Chrome","DuckDuckGo","Mozilla Firefox","Safari"],a:1,e:"Ang DuckDuckGo ay isang search engine, hindi web browser."},
+              {q:"Aling web browser ang gawa ng Apple at itinuturing na pinakamabilis sa mundo?",
+               o:["Google Chrome","Safari","Microsoft Edge","Opera"],a:1,e:"Ang Safari ay gawa ng Apple."},
+              {q:"Ano ang tawag sa programa na tumutulong sa paghahanap ng impormasyon gamit ang keyword?",
+               o:["web browser","search engine","domain","email"],a:1},
+              {q:"Alin sa mga sumusunod ang halimbawa ng search engine?",
+               o:["Google","Safari","Microsoft Edge","Firefox"],a:0},
+              {q:"Ilan ang pangunahing bahagi ng isang search engine?",
+               o:["dalawa (2)","tatlo (3)","apat (4)","lima (5)"],a:2,e:"Search Interface, Web Crawler, Indexer, at Database."},
+              {q:"Ano ang simbolong naghihiwalay sa username at domain ng isang email address?",
+               o:["#","@",".","/"],a:1,e:"Ang At Symbol (@)."},
+              {q:"Alin ang halimbawa ng isang domain name?",
+               o:["gmail.com","www","https","Chrome"],a:0},
+              {q:"Sa email, ano ang tawag sa carbon copy na nakikita pa rin ng recipient?",
+               o:["Cc","Bcc","Subject","Signature"],a:0,e:"Cc = carbon copy; Bcc = blind carbon copy (hindi nakikita ng iba)."},
+              {q:"Ayon sa COPPA, ang mga batang wala pang anong edad ay kailangan ng pahintulot ng magulang bago gumawa ng email?",
+               o:["10 taong gulang","13 taong gulang","18 taong gulang","21 taong gulang"],a:1,e:"Wala pang 13 taong gulang."}
+            ]
+          },
+          {
+            id:"epp2-tf", type:"truefalse", tag:"auto", icon:"✅",
+            name:"Tamang Paggamit ng Email",
+            desc:"Tama o Mali ang pahayag?",
+            prompt:"Piliin kung <b>Tama</b> o <b>Mali</b> ang pahayag tungkol sa tamang paggawa ng email.",
+            tLabel:"Tama ✓", fLabel:"Mali ✗", tWord:"Tama", fWord:"Mali",
+            items:[
+              {st:"Palaging maglagay ng paksa sa subject line upang maipabatid ang nilalaman ng email.", a:true},
+              {st:"Gumamit ng mga salitang slang sa paggawa ng email dahil ito ay uso at magandang pakinggan.", a:false},
+              {st:"Gumamit ng tamang gramatika at iwasan ang abbreviation sa email.", a:true},
+              {st:"Gumamit ng mga salitang may dalawang kahulugan sa paggawa ng subject ng email.", a:false},
+              {st:"Huwag kalimutan ang panimula at pangwakas na pagbati sa email.", a:true},
+              {st:"Iwasang suriin ang baybay ng mga salita bago ipadala ang email.", a:false}
+            ]
+          },
+          {
+            id:"epp2-ref", type:"shortcheck", tag:"self", icon:"✍️",
+            name:"Repleksiyon",
+            desc:"Isagot at i-check sa modelong sagot",
+            items:[
+              {q:"Ano ang pagkakaiba ng web browser at search engine?",
+               m:"Ang web browser ay software na ginagamit upang maka-access sa internet (hal. Chrome, Safari); ang search engine ay website/programa na ginagamit upang maghanap ng impormasyon gamit ang keyword (hal. Google, Bing). Kailangan munang gumamit ng browser bago maka-access ng search engine."},
+              {q:"Bakit mahalagang maging maingat sa mga website na binibisita?",
+               m:"Upang maiwasan ang malware at mapanlinlang na impormasyon. Tiyaking ligtas ang website — halimbawa, may https ito sa web address."},
+              {q:"Anong mga hakbang ang tama sa pagpapadala ng magalang na email?",
+               m:"Maglagay ng malinaw na subject, gumamit ng tamang gramatika at pagbati, panatilihin ang propesyunal at magalang na tono, at suriin ang baybay bago ipadala."}
+            ]
+          }
+        ]
+      }
+    ]
   }
   ]
 };
@@ -658,7 +853,7 @@ function renderPassage(){
     </div>`;
   } else {
     bodyHtml=`<div class="passage ${a.poem?'poem':''}">
-      <h4>${esc(a.heading)}</h4><div class="by">${esc(a.by)}</div>${esc(a.body)}</div>`;
+      <h4>${esc(a.heading)}</h4><div class="by">${esc(a.by)}</div><div class="ptext">${esc(a.body)}</div></div>`;
   }
   app.innerHTML=`${crumbs()}
     <div class="card">
@@ -831,12 +1026,13 @@ function renderFill(){
     let score=0; const w=[];
     a.items.forEach((it,i)=>{
       const sel=document.getElementById('s'+i); const val=sel.value;
-      if(val===it.a){score++;sel.className='ok';}else{sel.className='no';w.push(it);}
+      const ok = Array.isArray(it.a) ? it.a.includes(val) : val===it.a;
+      if(ok){score++;sel.className='ok';}else{sel.className='no';w.push(it);}
       sel.disabled=true;
       // append correct answer note
       const note=document.createElement('small');
       note.style.color='var(--muted)'; note.style.marginLeft='6px';
-      note.innerHTML= val===it.a?' ✓':` ✗ (${esc(it.a)})`;
+      note.innerHTML= ok?' ✓':` ✗ (${esc(Array.isArray(it.a)?it.a.join(' / '):it.a)})`;
       sel.parentNode.appendChild(note);
     });
     LASTWRONG = w.length?{type:'fillblank', items:w}:null;
@@ -851,20 +1047,22 @@ function renderTF(){
   const a=CTX.a; const dkey=CTX.a.id; const useDraft=!CTX.review;
   const d=useDraft?getDraft(dkey):null;
   const picks=(d&&d.picks)?Object.assign({},d.picks):{};
+  const tLabel=a.tLabel||'B — Binanggit', fLabel=a.fLabel||'HB — Hindi';
+  const prompt=a.prompt||'Piliin ang <b>B</b> kung binanggit sa reseta, <b>HB</b> kung hindi.';
   function saveD(){ if(useDraft) setDraft(dkey,{picks}); }
   function draw(){
     const rows=a.items.map((it,i)=>{
       return `<div class="tf-row" id="tf${i}">
         <div class="st">${i+1}. ${esc(it.st)}</div>
         <div class="opts">
-          <button id="b${i}t" class="${picks[i]===true?'pick':''}" onclick="window._p(${i},true)">B — Binanggit</button>
-          <button id="b${i}f" class="${picks[i]===false?'pick':''}" onclick="window._p(${i},false)">HB — Hindi</button>
+          <button id="b${i}t" class="${picks[i]===true?'pick':''}" onclick="window._p(${i},true)">${tLabel}</button>
+          <button id="b${i}f" class="${picks[i]===false?'pick':''}" onclick="window._p(${i},false)">${fLabel}</button>
         </div></div>`;
     }).join('');
     const all=Object.keys(picks).length===a.items.length;
     app.innerHTML=`${crumbs()}
       <div class="card">
-        <div class="qtext" style="font-size:16px">Piliin ang <b>B</b> kung binanggit sa reseta, <b>HB</b> kung hindi.</div>
+        <div class="qtext" style="font-size:16px">${prompt}</div>
         ${rows}
         <div class="navq mt">${backBtn()}<button class="btn" ${all?'':'disabled'} onclick="window._chk()">Suriin</button></div>
       </div>`;
@@ -879,7 +1077,7 @@ function renderTF(){
       row.classList.add(ok?'ok':'bad');
       const s=document.createElement('div'); s.style.marginTop='6px'; s.style.fontWeight='700';
       s.style.color=ok?'var(--good)':'var(--bad)';
-      s.innerHTML= ok?'✓ Tama':`✗ Tamang sagot: ${it.a?'B (Binanggit)':'HB (Hindi binanggit)'}`;
+      s.innerHTML= ok?'✓ Tama':`✗ Tamang sagot: ${it.a?(a.tWord||'B (Binanggit)'):(a.fWord||'HB (Hindi binanggit)')}`;
       row.appendChild(s);
     });
     LASTWRONG = w.length?{type:'truefalse', items:w}:null;

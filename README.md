@@ -5,8 +5,8 @@ learning modules. Everything lives in a single file: [`index.html`](index.html) 
 no dependencies, no internet required.
 
 Pick a **subject** from the home screen, then a lesson. Currently:
-- **Filipino 5** — 3 lessons (ready)
-- **EPP · ICT** — placeholder, content to follow
+- **Filipino 5** — 3 lessons (Kuwentong Kababalaghan, Metapora, Tekstong Impormatibo)
+- **EPP · ICT** — 2 lessons (Digital Citizenship & Netiquette, Responsableng Paggamit ng Internet)
 
 ## Paano gamitin (How to use)
 
