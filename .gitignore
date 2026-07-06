@@ -11,3 +11,8 @@ IMG_*.jpg
 Thumbs.db
 .DS_Store
 desktop.ini
+
+# Installed AI skills (impeccable / skills.sh) — not part of the app
+.agents/
+.claude/
+skills-lock.json
