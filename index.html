@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Interaktibong Reviewer — Filipino 5</title>
+<title>Interaktibong Reviewer — Grade 5</title>
 <style>
   :root{
     --bg1:#4f46e5; --bg2:#7c3aed; --card:#ffffff; --ink:#1f2937; --muted:#6b7280;
@@ -685,6 +685,390 @@ Mga Bahagi ng Email: Recipient, Cc at Bcc, Subject Line, Salutation, Email Body,
                m:"Upang maiwasan ang malware at mapanlinlang na impormasyon. Tiyaking ligtas ang website — halimbawa, may https ito sa web address."},
               {q:"Anong mga hakbang ang tama sa pagpapadala ng magalang na email?",
                m:"Maglagay ng malinaw na subject, gumamit ng tamang gramatika at pagbati, panatilihin ang propesyunal at magalang na tono, at suriin ang baybay bago ipadala."}
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id:"math", name:"Math 5", short:"Math", emoji:"➗", color:"#ea580c",
+    tagline:"Oras, time zones, GMDAS, at pagpaparami ng praksiyon!",
+    lessons: [
+      {
+        id:"m1", color:"#ea580c", emoji:"⏰",
+        title:"12- and 24-Hour Clocks",
+        blurb:"Reading and converting between the 12-hour and 24-hour clock systems",
+        activities:[
+          {
+            id:"m1-read", type:"passage", tag:"read", icon:"📖",
+            name:"Read: Understanding 12- and 24-Hour Clocks",
+            desc:"Chapter 1 · Lesson 1.1",
+            orig:"math/IMG_20260706_201009.jpg",
+            heading:"Understanding 12- and 24-Hour Clock Systems", by:"Chapter 1 · Lesson 1.1",
+            body:
+`Time is measured using two systems: the 12-hour clock and the 24-hour clock. Learning to use and convert between them helps you follow schedules, catch a jeepney, watch TV programs, and read airport or bus-station timetables.
+
+The 12-hour clock (analog clock) divides the day into two periods: a.m. (ante meridiem, "before midday") and p.m. (post meridiem, "after midday"). It uses a dial numbered 1 to 12 with an hour hand and a minute hand. This system is common in everyday life in the Philippines.
+
+The 24-hour clock (military or international time) shows time as a continuous cycle from 00:00 (midnight) to 23:59, without a.m. or p.m. It is written as HH:MM, where HH ranges from 00 to 23. For example, 14:30 is 2:30 p.m.
+
+Key hours to remember: midnight is 00:00, noon is 12:00, and 1:00 p.m. is 13:00.
+
+To convert 12-hour to 24-hour: keep the hour for morning (a.m.) times and remove "a.m."; for afternoon or evening (p.m.) times, add 12 to the hour. To convert 24-hour to 12-hour: for any hour greater than 12, subtract 12 and add "p.m."; morning hours stay the same with "a.m." Noon stays 12:00 in both formats.`
+          },
+          {
+            id:"m1-mcq", type:"mcq", tag:"auto", icon:"✅",
+            name:"Quiz: Converting Between Clocks",
+            desc:"10 items on 12- and 24-hour conversions",
+            items:[
+              {q:"What is 3:30 p.m. in the 24-hour clock format?",
+               o:["13:30","15:30","03:30","14:30"],a:1,e:"Add 12 to the p.m. hour: 3 + 12 = 15, so 15:30."},
+              {q:"What is 08:45 in the 12-hour clock format?",
+               o:["8:45 p.m.","8:45 a.m.","20:45","9:45 a.m."],a:1,e:"Morning times under 12 stay the same: 8:45 a.m."},
+              {q:"What is 1:25 a.m. in the 24-hour clock format?",
+               o:["13:25","01:25","11:25","00:25"],a:1,e:"Morning hour 1 becomes 01, so 01:25."},
+              {q:"What is 20:15 in the 12-hour clock format?",
+               o:["10:15 p.m.","8:15 a.m.","8:15 p.m.","2:15 p.m."],a:2,e:"Subtract 12: 20 - 12 = 8, afternoon so 8:15 p.m."},
+              {q:"In the 24-hour clock, what time is midnight?",
+               o:["12:00","01:00","00:00","23:00"],a:2,e:"Midnight is 00:00, the start of a new day."},
+              {q:"What is 15:45 in the 12-hour clock format?",
+               o:["5:45 p.m.","3:45 a.m.","3:45 p.m.","5:45 a.m."],a:2,e:"15 - 12 = 3, afternoon so 3:45 p.m."},
+              {q:"What is 23:25 in the 12-hour clock format?",
+               o:["11:25 a.m.","1:25 p.m.","11:25 p.m.","9:25 p.m."],a:2,e:"23 - 12 = 11, afternoon so 11:25 p.m."},
+              {q:"What is 7:00 a.m. in the 24-hour clock format?",
+               o:["07:00","17:00","19:00","70:00"],a:0,e:"Morning hours stay the same: 07:00."},
+              {q:"What is 9:30 p.m. in the 24-hour clock format?",
+               o:["09:30","19:30","21:30","20:30"],a:2,e:"9 + 12 = 21, so 21:30."},
+              {q:"What is 2:45 p.m. in the 24-hour clock format?",
+               o:["12:45","14:45","02:45","16:45"],a:1,e:"2 + 12 = 14, so 14:45."}
+            ]
+          },
+          {
+            id:"m1-tf", type:"truefalse", tag:"auto", icon:"✅",
+            name:"True or False: Clock Conversions",
+            desc:"Piliin ang Tama o Mali",
+            prompt:"Piliin ang <b>Tama</b> kung palaging tama ang pahayag, <b>Mali</b> kung hindi.",
+            tLabel:"Tama (True)", fLabel:"Mali (False)", tWord:"Tama (True)", fWord:"Mali (False)",
+            items:[
+              {st:"14:00 in the 24-hour clock is the same as 2:00 p.m. in the 12-hour clock.", a:true},
+              {st:"00:00 is the same as 12:00 a.m.", a:true},
+              {st:"16:30 in the 24-hour clock is the same as 4:30 p.m.", a:true},
+              {st:"03:30 in the 24-hour clock is the same as 3:30 p.m.", a:false},
+              {st:"03:30 in the 24-hour clock is the same as 15:30.", a:false}
+            ]
+          },
+          {
+            id:"m1-match", type:"matching", tag:"auto", icon:"🔗",
+            name:"Match: 12-hour to 24-hour Time",
+            desc:"Itugma ang 12-hour sa tamang 24-hour na oras",
+            left:["11:30 a.m.","4:00 p.m.","8:45 p.m.","12:15 a.m.","6:20 a.m."],
+            right:["00:15","16:00","20:45","06:20","11:30"],
+            answer:[4,1,2,0,3]
+          },
+          {
+            id:"m1-comp", type:"shortcheck", tag:"self", icon:"✍️",
+            name:"Word Problems: Elapsed Time",
+            desc:"Isulat ang sagot, saka i-check sa modelong sagot",
+            items:[
+              {q:"A PNR train departs at 23:15 and travels for 8 hours. What time will it arrive? Give both the 12-hour and 24-hour answers.",
+               m:"23:15 + 8 hours = 31:15. Subtract 24: 31:15 - 24:00 = 07:15 the next day, which is 7:15 a.m."},
+              {q:"A barangay basketball game starts at 19:45 and lasts 2 hours and 15 minutes. What time will it end? Give both formats.",
+               m:"19:45 + 2:15 = 22:00, which is 10:00 p.m."},
+              {q:"Your school bus leaves for a field trip at 6:30 a.m. If the trip takes 3 hours and 45 minutes, what time will you arrive?",
+               m:"6:30 a.m. + 3 hours 45 minutes = 10:15 a.m. (10:15 in both formats)."},
+              {q:"Ana's movie starts at 14:15 and lasts 2 hours and 30 minutes. What time will it end? Give both formats.",
+               m:"14:15 + 2:30 = 16:45, which is 4:45 p.m."},
+              {q:"Juan's favorite show starts at 7:30 p.m., but he must leave by 20:00. How many minutes of the show can he watch, and what is 20:00 in the 12-hour clock?",
+               m:"7:30 p.m. is 19:30. From 19:30 to 20:00 is 30 minutes. 20:00 is 8:00 p.m."}
+            ]
+          }
+        ]
+      },
+      {
+        id:"m2", color:"#0891b2", emoji:"🌏",
+        title:"World Time Zones",
+        blurb:"Comparing global clocks to Philippine time (UTC+8)",
+        activities:[
+          {
+            id:"m2-read", type:"passage", tag:"read", icon:"📖",
+            name:"Read: Time Zones and Philippine Time",
+            desc:"Chapter 1 · Lesson 1.2",
+            orig:"math/IMG_20260706_201114.jpg",
+            heading:"Exploring Time Zones and Philippine Time", by:"Chapter 1 · Lesson 1.2",
+            body:
+`Different parts of the world experience different times of the day because the Earth is divided into 24 time zones, each covering about 15 degrees of its 360-degree rotation. Time zones are measured in hours ahead of or behind Coordinated Universal Time (UTC), the starting point for all time calculations.
+
+The Philippines operates in the UTC+8 time zone, meaning it is 8 hours ahead of UTC. This one time zone is used across the whole country, from Luzon to Mindanao.
+
+To compare another city with Philippine time, find its UTC offset on a world time zone map. If the city is ahead of Manila, add the difference; if it is behind, subtract it. Examples: Tokyo (UTC+9) is 1 hour ahead of Manila; Sydney (UTC+11) is 3 hours ahead; New York (UTC-5) is 13 hours behind; Paris (UTC+1) is 7 hours behind.
+
+So if it is 3:00 p.m. in Manila, it is 4:00 p.m. in Tokyo and 2:00 a.m. in New York (the next day).
+
+Understanding time zones helps with travel, calling family who live abroad, and scheduling online classes or international events.`
+          },
+          {
+            id:"m2-mcq", type:"mcq", tag:"auto", icon:"✅",
+            name:"Quiz: Comparing Time Zones",
+            desc:"10 items on world time zones vs. Manila",
+            items:[
+              {q:"If it is 3:00 p.m. in Manila, what time is it in Tokyo, Japan (UTC+9)?",
+               o:["2:00 p.m.","4:00 p.m.","3:00 p.m.","5:00 p.m."],a:1,e:"Tokyo is 1 hour ahead of Manila: 3:00 + 1 = 4:00 p.m."},
+              {q:"If it is 9:00 a.m. in Manila, what time is it in Sydney, Australia (UTC+11)?",
+               o:["6:00 a.m.","11:00 a.m.","12:00 noon","10:00 a.m."],a:2,e:"Sydney is 3 hours ahead of Manila: 9:00 a.m. + 3 = 12:00 noon."},
+              {q:"If it is 7:00 a.m. in Cebu City, what time is it in Sydney (UTC+11)?",
+               o:["10:00 a.m.","4:00 a.m.","9:00 a.m.","11:00 a.m."],a:0,e:"Sydney is 3 hours ahead: 7:00 + 3 = 10:00 a.m."},
+              {q:"How many hours ahead is Manila (UTC+8) compared to New York City (UTC-5)?",
+               o:["3 hours","8 hours","13 hours","5 hours"],a:2,e:"8 - (-5) = 13 hours ahead."},
+              {q:"The Philippines is in which UTC time zone?",
+               o:["UTC+7","UTC+9","UTC+8","UTC+5"],a:2,e:"The Philippines uses UTC+8, from Luzon to Mindanao."},
+              {q:"If it is 5:00 p.m. in Manila, what time is it in Tokyo, Japan (UTC+9)?",
+               o:["6:00 p.m.","4:00 p.m.","5:00 p.m.","7:00 p.m."],a:0,e:"Tokyo is 1 hour ahead: 5:00 + 1 = 6:00 p.m."},
+              {q:"If it is 6:00 p.m. in Manila, what time is it in Paris, France (UTC+1)?",
+               o:["11:00 a.m.","1:00 p.m.","7:00 p.m.","5:00 p.m."],a:0,e:"Paris is 7 hours behind Manila: 6:00 p.m. - 7 = 11:00 a.m."},
+              {q:"If it is 2:00 p.m. in Manila, what time is it in Beijing, China (UTC+8)?",
+               o:["1:00 p.m.","2:00 p.m.","3:00 p.m.","12:00 noon"],a:1,e:"Beijing is also UTC+8, the same as Manila: 2:00 p.m."},
+              {q:"Into how many time zones is the Earth divided?",
+               o:["12","60","24","8"],a:2,e:"The Earth is divided into 24 time zones, each about 15 degrees of longitude."},
+              {q:"If it is 3:00 p.m. in Manila, what time is it in New York (UTC-5)?",
+               o:["2:00 a.m.","4:00 a.m.","2:00 p.m.","8:00 p.m."],a:0,e:"New York is 13 hours behind: 3:00 p.m. (15:00) - 13 = 2:00 a.m."}
+            ]
+          },
+          {
+            id:"m2-fill", type:"fillblank", tag:"auto", icon:"🧩",
+            name:"Fill in the Blank: Time Zone Facts",
+            desc:"Piliin ang tamang sagot para sa bawat patlang",
+            wordbox:["24","11:00 a.m.","15-degree longitude","Coordinated Universal Time (UTC)","8 hours"],
+            items:[
+              {before:"The Earth is divided into ", after:" time zones, each representing a 15-degree longitude section.", a:"24"},
+              {before:"If it is 8:00 a.m. in Cebu City, it is ", after:" in Sydney, Australia (UTC+11).", a:"11:00 a.m."},
+              {before:"Each time zone corresponds to a ", after:" section of the Earth.", a:"15-degree longitude"},
+              {before:"Each time zone is set relative to ", after:", the starting point for all time calculations.", a:"Coordinated Universal Time (UTC)"},
+              {before:"UTC+8 indicates that the local time is ", after:" ahead of UTC.", a:"8 hours"}
+            ]
+          },
+          {
+            id:"m2-tf", type:"truefalse", tag:"auto", icon:"✅",
+            name:"True or False: Time Zones",
+            desc:"Piliin ang Tama o Mali",
+            prompt:"Piliin ang <b>Tama</b> kung tama ang pahayag, <b>Mali</b> kung hindi.",
+            tLabel:"Tama (True)", fLabel:"Mali (False)", tWord:"Tama (True)", fWord:"Mali (False)",
+            items:[
+              {st:"The Philippines operates in the UTC+8 time zone.", a:true},
+              {st:"Tokyo, Japan (UTC+9) is 1 hour behind Manila.", a:false},
+              {st:"New York (UTC-5) is 13 hours behind Manila time.", a:true},
+              {st:"Sydney, Australia (UTC+11) is 3 hours behind Manila.", a:false},
+              {st:"Beijing, China and Manila share the same local time.", a:true}
+            ]
+          },
+          {
+            id:"m2-comp", type:"shortcheck", tag:"self", icon:"✍️",
+            name:"Word Problems: Time Zone Calls",
+            desc:"Isulat ang sagot, saka i-check sa modelong sagot",
+            items:[
+              {q:"Jenine needs to call her mother in Beijing, China (UTC+8). If it is 2:00 p.m. in Manila, what time is it in Beijing?",
+               m:"Beijing is also UTC+8, the same as Manila, so it is 2:00 p.m. in Beijing."},
+              {q:"Jessie has a video call scheduled at 2:00 p.m. in Seoul, South Korea (UTC+9). What time will it be in Manila?",
+               m:"Seoul is 1 hour ahead of Manila, so Manila is 1 hour behind: 2:00 p.m. - 1 = 1:00 p.m. in Manila."},
+              {q:"Danica's favorite TV show starts at 11:00 p.m. in Bangkok, Thailand (UTC+7). What time will it be in Manila?",
+               m:"Bangkok is 1 hour behind Manila, so Manila is 1 hour ahead: 11:00 p.m. + 1 = 12:00 midnight in Manila."},
+              {q:"A game is scheduled to start at 9:00 a.m. in Toronto, Canada (UTC-5). What time will it be in Manila?",
+               m:"Manila is 13 hours ahead of Toronto: 9:00 a.m. + 13 = 10:00 p.m. in Manila."},
+              {q:"A game is scheduled at 11:00 a.m. in New York City (UTC-5). What time will it be in Manila?",
+               m:"Manila is 13 hours ahead: 11:00 a.m. + 13 = 12:00 midnight (00:00) in Manila."}
+            ]
+          }
+        ]
+      },
+      {
+        id:"m3", color:"#7c3aed", emoji:"🧮",
+        title:"GMDAS: Order of Operations",
+        blurb:"Solving expressions with grouping, multiply, divide, add, subtract",
+        activities:[
+          {
+            id:"m3-read", type:"passage", tag:"read", icon:"📖",
+            name:"Read: Mastering GMDAS",
+            desc:"Chapter 2 · Lesson 2.1",
+            orig:"math/IMG_20260706_201204.jpg",
+            heading:"Mastering GMDAS: The Order of Operations", by:"Chapter 2 · Lesson 2.1",
+            body:
+`When a math problem has more than one operation, we must follow a set order so everyone gets the same, correct answer. That order is called GMDAS: Grouping symbols, Multiplication, Division, Addition, and Subtraction.
+
+1. Grouping symbols (G) - parentheses ( ), brackets [ ], and braces { }. Always solve inside grouping symbols first, starting from the innermost group.
+
+2. Multiplication (M) and Division (D) come next. They have the same priority, so perform them from left to right.
+
+3. Addition (A) and Subtraction (S) come last. They also share priority, so perform them from left to right.
+
+For example, in 8 + 6 × 2, do the multiplication first (6 × 2 = 12), then the addition (8 + 12 = 20).
+
+Another example: (4 - 3) × 49 ÷ 7. Solve the parentheses first (4 - 3 = 1), then multiply (1 × 49 = 49), then divide (49 ÷ 7 = 7).
+
+GMDAS is useful in real life - budgeting money, adjusting a recipe, or planning a schedule - anywhere precise calculation matters. Solving operations in the wrong order leads to incorrect results.`
+          },
+          {
+            id:"m3-mcq", type:"mcq", tag:"auto", icon:"✅",
+            name:"Quiz: Solve Using GMDAS",
+            desc:"10 items applying the order of operations",
+            items:[
+              {q:"Solve using GMDAS: 8 × 5 - 12 + 4",
+               o:["28","32","48","24"],a:1,e:"8 × 5 = 40; 40 - 12 + 4 = 32."},
+              {q:"Solve using GMDAS: 36 ÷ 6 × 3 + 15",
+               o:["33","17","23","5"],a:0,e:"36 ÷ 6 = 6; 6 × 3 = 18; 18 + 15 = 33."},
+              {q:"Solve using GMDAS: 8 × 7 - 4 ÷ 2",
+               o:["26","54","52","24"],a:1,e:"8 × 7 = 56; 4 ÷ 2 = 2; 56 - 2 = 54."},
+              {q:"Solve using GMDAS: 25 - 15 ÷ 3 × 2",
+               o:["15","20","5","0"],a:0,e:"15 ÷ 3 = 5; 5 × 2 = 10; 25 - 10 = 15."},
+              {q:"Solve using GMDAS: 50 + 14 × 3 - 8",
+               o:["84","112","134","76"],a:0,e:"14 × 3 = 42; 50 + 42 - 8 = 84."},
+              {q:"Solve using GMDAS: (4 - 3) × 49 ÷ 7",
+               o:["21","7","28","1"],a:1,e:"(4 - 3) = 1; 1 × 49 = 49; 49 ÷ 7 = 7."},
+              {q:"Solve using GMDAS: 20 ÷ 5 × 4 - (3 + 1)",
+               o:["0","12","20","4"],a:1,e:"(3 + 1) = 4; 20 ÷ 5 = 4; 4 × 4 = 16; 16 - 4 = 12."},
+              {q:"Solve using GMDAS: (13 × 2) ÷ 26 × 4 ÷ 2",
+               o:["2","4","8","1"],a:0,e:"(13 × 2) = 26; 26 ÷ 26 = 1; 1 × 4 = 4; 4 ÷ 2 = 2."},
+              {q:"In the expression 8 + 6 × 2, which operation is done first?",
+               o:["addition","multiplication","from left to right","subtraction"],a:1,e:"Multiplication before addition: 6 × 2 = 12, then 8 + 12 = 20."},
+              {q:"Solve using GMDAS: 8 + (5 × 3) - 4",
+               o:["19","28","15","23"],a:0,e:"(5 × 3) = 15; 8 + 15 = 23; 23 - 4 = 19."}
+            ]
+          },
+          {
+            id:"m3-mcq2", type:"mcq", tag:"auto", icon:"✅",
+            name:"Quiz: Find the Missing Value",
+            desc:"10 items on GMDAS puzzles and missing numbers",
+            items:[
+              {q:"(18 × 3) + 45 ÷ 9 - 6 + ___ = 70. What is the missing number?",
+               o:["17","6","10","2"],a:0,e:"54 + 5 - 6 = 53; 70 - 53 = 17."},
+              {q:"___ + 50 ÷ 5 - 12 = 0. What is the missing number?",
+               o:["12","2","10","0"],a:1,e:"50 ÷ 5 = 10; x + 10 - 12 = 0, so x = 2."},
+              {q:"(5 × 4) + 36 ÷ 6 - 3 = ___",
+               o:["17","20","23","29"],a:2,e:"20 + 6 - 3 = 23."},
+              {q:"Which operation is performed LAST in 8 + (3 × 2) - 4?",
+               o:["multiplication","addition","subtraction","grouping"],a:2,e:"After 3 × 2 = 6, do 8 + 6 = 14, then 14 - 4. Subtraction is last."},
+              {q:"16 × 4 + (60 ÷ 6) - 12 + ___ = 85. What is the missing number?",
+               o:["23","11","9","3"],a:0,e:"64 + 10 - 12 = 62; 85 - 62 = 23."},
+              {q:"(5 + 2) × (8 ÷ 4) - 3 + ___ = 15. What is the missing number?",
+               o:["4","2","6","3"],a:0,e:"7 × 2 = 14; 14 - 3 = 11; 15 - 11 = 4."},
+              {q:"(5 × 2) × 8 ÷ 4 - 3 - 7 = ___",
+               o:["10","6","20","0"],a:0,e:"(5 × 2) = 10; 10 × 8 = 80; 80 ÷ 4 = 20; 20 - 3 - 7 = 10."},
+              {q:"Which operation is performed FIRST in (10 - 4) + 7 × 3?",
+               o:["grouping (the parentheses)","multiplication","addition","subtraction"],a:0,e:"Always solve inside grouping symbols first: 10 - 4 = 6."},
+              {q:"5 + 2 × 5 ÷ (1 + 4) = ___",
+               o:["7","3","6","10"],a:0,e:"(1 + 4) = 5; 2 × 5 = 10; 10 ÷ 5 = 2; 5 + 2 = 7."},
+              {q:"(8 ÷ 2) + (4 × 1) - 3 + ___ = 11. What is the missing number?",
+               o:["6","4","3","2"],a:0,e:"4 + 4 - 3 = 5; 11 - 5 = 6."}
+            ]
+          },
+          {
+            id:"m3-fill", type:"fillblank", tag:"auto", icon:"🧩",
+            name:"Fill in the Blank: What GMDAS Stands For",
+            desc:"Piliin ang tamang salita para sa bawat letra",
+            wordbox:["Grouping symbols","Multiplication","Division","Addition","Subtraction"],
+            items:[
+              {before:"In GMDAS, the letter G stands for ", after:".", a:"Grouping symbols"},
+              {before:"In GMDAS, the letter M stands for ", after:".", a:"Multiplication"},
+              {before:"In GMDAS, the letter D stands for ", after:".", a:"Division"},
+              {before:"In GMDAS, the letter A stands for ", after:".", a:"Addition"},
+              {before:"In GMDAS, the letter S stands for ", after:".", a:"Subtraction"}
+            ]
+          },
+          {
+            id:"m3-comp", type:"shortcheck", tag:"self", icon:"✍️",
+            name:"Word Problems: GMDAS in Real Life",
+            desc:"Isulat ang sagot, saka i-check sa modelong sagot",
+            items:[
+              {q:"Kieffer solved 5 + (3 × 2) ÷ 3 - 1 and got 4. Is he correct? If not, correct the mistake.",
+               m:"Not correct. GMDAS: (3 × 2) = 6; 6 ÷ 3 = 2; 5 + 2 = 7; 7 - 1 = 6. The correct answer is 6, not 4."},
+              {q:"You plan an event with a budget of P2,000. You spend P500 on food, P300 on decorations, and P200 on transportation, then add P100 for drinks. How much money is left? Use GMDAS.",
+               m:"P2,000 - (P500 + P300 + P200 + P100) = P2,000 - P1,100 = P900 left."},
+              {q:"Jenifer needs to adjust a recipe that costs P150 for 5 servings to make 10 servings. Show the steps using GMDAS.",
+               m:"(P150 ÷ 5) × 10 = P30 × 10 = P300. The total cost is P300."},
+              {q:"If you have P1,000 and spend P250 on groceries, P100 on transportation, and P50 on snacks, how much money is left? Use GMDAS.",
+               m:"P1,000 - (P250 + P100 + P50) = P1,000 - P400 = P600 left."},
+              {q:"Why is it important to follow the GMDAS rule when solving expressions with many operations?",
+               m:"It makes sure everyone solves an expression the same way and gets the same, correct answer. Solving in the wrong order gives incorrect results."}
+            ]
+          }
+        ]
+      },
+      {
+        id:"m4", color:"#db2777", emoji:"🍰",
+        title:"Multiplying Fractions",
+        blurb:"Using models and steps to multiply fractions",
+        activities:[
+          {
+            id:"m4-read", type:"passage", tag:"read", icon:"📖",
+            name:"Read: Multiplying Fractions",
+            desc:"Chapter 2 · Lesson 2.2",
+            orig:"math/IMG_20260706_201252.jpg",
+            heading:"Multiplying Fractions: Models and Steps", by:"Chapter 2 · Lesson 2.2",
+            body:
+`Multiplying fractions helps you solve everyday problems about measuring, recipes, and sharing. In mathematics, the word "of" usually means multiplication - for example, 1/2 of 3/4 means 1/2 × 3/4.
+
+You can picture fraction multiplication with an area model. Draw a rectangle and shade one fraction with horizontal stripes and the other with vertical stripes. The overlapping (double-shaded) part shows the product. For 1/2 × 1/4, the rectangle is split into 8 equal parts and 1 part is double-shaded, so 1/2 × 1/4 = 1/8.
+
+The quick method: multiply the numerators to get the new numerator, and multiply the denominators to get the new denominator. Example: 3/5 × 2/3 = (3 × 2)/(5 × 3) = 6/15, which simplifies to 2/5.
+
+You can also use cancellation: if a numerator and a denominator share a common factor, divide both by it before multiplying. Example: 4/5 × 5/8 becomes 1/1 × 1/2 = 1/2.
+
+To multiply a whole number by a fraction, write the whole number over 1. Example: 2/3 × 4 = 2/3 × 4/1 = 8/3. For multi-step problems, follow GMDAS and simplify your final answer.`
+          },
+          {
+            id:"m4-mcq", type:"mcq", tag:"auto", icon:"✅",
+            name:"Quiz: Multiply the Fractions",
+            desc:"10 items on fraction multiplication",
+            items:[
+              {q:"Multiply: 1/2 × 1/4",
+               o:["2/6","1/8","2/8","1/6"],a:1,e:"Multiply numerators (1 × 1 = 1) and denominators (2 × 4 = 8): 1/8."},
+              {q:"Multiply and simplify: 3/5 × 2/3",
+               o:["6/15 or 2/5","5/8","6/8","5/15"],a:0,e:"3 × 2 = 6, 5 × 3 = 15, so 6/15, which simplifies to 2/5."},
+              {q:"Multiply: 5/8 × 1/6",
+               o:["6/14","5/48","6/48","5/14"],a:1,e:"5 × 1 = 5, 8 × 6 = 48, so 5/48."},
+              {q:"Multiply: 1/2 × 3/4",
+               o:["3/8","4/6","3/6","4/8"],a:0,e:"1 × 3 = 3, 2 × 4 = 8, so 3/8."},
+              {q:"Multiply and simplify: 4/5 × 5/8",
+               o:["9/13","20/40","1/2","5/8"],a:2,e:"4 × 5 = 20, 5 × 8 = 40, so 20/40 = 1/2."},
+              {q:"Multiply: 1/5 × 2/3",
+               o:["2/15","3/8","2/8","3/15"],a:0,e:"1 × 2 = 2, 5 × 3 = 15, so 2/15."},
+              {q:"Multiply: 1/2 × 5/4",
+               o:["6/6","5/8","6/8","5/6"],a:1,e:"1 × 5 = 5, 2 × 4 = 8, so 5/8."},
+              {q:"Multiply and simplify: 7/6 × 4/8",
+               o:["11/14","28/48 or 7/12","11/48","28/14"],a:1,e:"7 × 4 = 28, 6 × 8 = 48, so 28/48 = 7/12."},
+              {q:"Multiply and simplify: 4/5 × 3/4",
+               o:["7/9","12/20 or 3/5","7/20","12/9"],a:1,e:"4 × 3 = 12, 5 × 4 = 20, so 12/20 = 3/5."},
+              {q:"Multiply (write 4 as 4/1): 2/3 × 4",
+               o:["6/4","8/3","6/3","8/4"],a:1,e:"2/3 × 4/1 = (2 × 4)/(3 × 1) = 8/3."}
+            ]
+          },
+          {
+            id:"m4-fill", type:"fillblank", tag:"auto", icon:"🧩",
+            name:"Fill in the Blank: Fraction Concepts",
+            desc:"Piliin ang tamang salita para sa bawat patlang",
+            wordbox:["numerators","denominators","of","area model","cancellation"],
+            items:[
+              {before:"To multiply fractions, you first multiply the ", after:" (the top numbers).", a:"numerators"},
+              {before:"To finish multiplying fractions, you multiply the ", after:" (the bottom numbers).", a:"denominators"},
+              {before:"The word that usually signals multiplication with fractions is ", after:".", a:"of"},
+              {before:"You can visualize a product by shading a rectangle using an ", after:".", a:"area model"},
+              {before:"Dividing a numerator and denominator by a common factor before multiplying is called ", after:".", a:"cancellation"}
+            ]
+          },
+          {
+            id:"m4-comp", type:"shortcheck", tag:"self", icon:"✍️",
+            name:"Word Problems: Fractions Around Us",
+            desc:"Isulat ang sagot, saka i-check sa modelong sagot",
+            items:[
+              {q:"Lyza's puto recipe requires 2/3 cup of sugar. If she makes 3/4 of the recipe, how much sugar does she need?",
+               m:"2/3 × 3/4 = 6/12 = 1/2 cup of sugar."},
+              {q:"Julius will decorate 5/6 of a hall with parol. If 2/3 of the parol are red, what fraction of the entire hall will have red parol?",
+               m:"5/6 × 2/3 = 10/18 = 5/9 of the hall."},
+              {q:"Erica bought 4/5 of a meter of abaca and used 1/3 of it for one part of a project. How much abaca did she use?",
+               m:"4/5 × 1/3 = 4/15 of a meter."},
+              {q:"Catherine has 7/10 of a box of taho and plans to serve 3/5 of it. How much of the box will be used?",
+               m:"7/10 × 3/5 = 21/50 of the box."},
+              {q:"Mika uses 4/5 of a pack of cheese for one full sandwich pack. If she makes only 3/4 of a pack, how much cheese will she use?",
+               m:"4/5 × 3/4 = 12/20 = 3/5 of a pack of cheese."}
             ]
           }
         ]
