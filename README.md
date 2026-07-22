@@ -7,7 +7,7 @@ no dependencies, no internet required.
 Pick a **subject** from the home screen, then a lesson. Currently:
 - **Filipino 5** — 3 lessons (Kuwentong Kababalaghan, Metapora, Tekstong Impormatibo)
 - **EPP · ICT** — 2 lessons (Digital Citizenship & Netiquette, Responsableng Paggamit ng Internet)
-- **Math 5** — 4 lessons (12- & 24-Hour Clocks, World Time Zones, GMDAS / Order of Operations, Multiplying Fractions)
+- **Math 5** — 5 lessons (12- & 24-Hour Clocks, World Time Zones, GMDAS / Order of Operations, Multiplying Fractions, Exploring Shapes)
 
 > The Math content is in **English**, matching its English-medium source module (Philippine Grade 5
 > Math is taught in English). The app's navigation labels stay in Filipino.

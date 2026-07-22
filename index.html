@@ -1077,6 +1077,155 @@ To multiply a whole number by a fraction, write the whole number over 1. Example
             ]
           }
         ]
+      },
+      {
+        id:"m5", color:"#16a34a", emoji:"📐",
+        title:"Exploring Shapes",
+        blurb:"Triangles, parallelograms, and trapezoids: base, height, and properties",
+        activities:[
+          {
+            id:"m5-read1", type:"passage", tag:"read", icon:"📖",
+            name:"Read: Triangles",
+            desc:"Chapter 3 · Lesson 3.1",
+            orig:"math/IMG_20260722_173315.jpg",
+            heading:"Triangles: Base, Height, Types, and Properties", by:"Chapter 3 · Lesson 3.1",
+            body:
+`A triangle is a polygon with three sides and three angles. A polygon is a plane figure, or two-dimensional shape, that is bounded by line segments - for example a triangle, a rectangle, or a square.
+
+THE BASE. The base of a triangle is any one of its three sides. You can choose any side to be the base, depending on which side you are interested in for calculating the area. The term "base" refers to both the side itself and its length (the measurement).
+
+THE HEIGHT. A triangle's height, also called its altitude, is the perpendicular distance from the chosen base to the opposite vertex. This line is drawn at a right angle (90 degrees) to the base. The height is always perpendicular to the base, no matter how the triangle is turned.
+
+TYPES OF TRIANGLES ACCORDING TO SIDES
+Equilateral triangle - all three sides and all three angles are congruent. Hash marks on the sides show that the sides are congruent to each other, and hash marks on the angles show that the angles are congruent.
+Isosceles triangle - has at least two sides of equal length and two equal angles.
+Scalene triangle - all sides and all angles are different. Since there are no hash marks, there are no equal sides or congruent angles.
+Note: Use the symbol for congruent when comparing two figures. Use the equal sign when comparing measures of lengths.
+
+PROPERTIES OF A TRIANGLE
+1. The sum of the measures of all interior angles is always 180. This can be written as m∠1 + m∠2 + m∠3 = 180, where the symbol ∠ represents an angle.
+2. The sum of the lengths of any two sides must be greater than the length of the remaining side: side 1 + side 2 is greater than side 3; side 2 + side 3 is greater than side 1; and side 3 + side 1 is greater than side 2.
+
+Triangles are everywhere in Filipino culture. Think about the beautiful buntings used in fiestas - they often have triangle shapes. You might also see triangles in the traditional bahay-kubo, where they help make the roof strong. Even in crafts and designs like the parol (Christmas lantern), triangles play a big role. Triangular frameworks in bridges give them strength, which is why understanding triangles helps engineers and architects build structures that are both strong and beautiful.`
+          },
+          {
+            id:"m5-read2", type:"passage", tag:"read", icon:"📖",
+            name:"Read: Parallelograms and Trapezoids",
+            desc:"Chapter 3 · Lesson 3.1",
+            orig:"math/IMG_20260722_173404.jpg",
+            heading:"Parallelograms and Trapezoids", by:"Chapter 3 · Lesson 3.1",
+            body:
+`PARALLELOGRAM
+A parallelogram is a four-sided figure in geometry where opposite sides are equal in length and parallel to each other. Rectangles, rhombuses, and squares are all special types of parallelograms, so all the properties below apply to them as well.
+
+Properties of a parallelogram:
+1. Opposite sides are congruent. Opposite sides are equal in length, so side 1 = side 2 and side 3 = side 4. Hash marks on the sides indicate that opposite sides are equal.
+2. Opposite angles are congruent. The angles directly across from each other are always the same.
+3. Opposite sides are parallel. They run in the same direction and will never intersect. Arrows on the sides indicate that they are parallel, and the symbol ∥ represents "parallel."
+4. Any two consecutive angles are supplementary. Angles next to each other add up to 180 degrees. For example, if one angle measures 20 degrees, the angle next to it measures 160 degrees.
+5. A diagonal of a parallelogram forms two congruent triangles. The diagonals - lines drawn from one corner to the opposite corner - cut each other in half. The diagonals bisect each other, which means the point where they intersect is the midpoint of each diagonal. To bisect means to divide a segment or angle into two equivalent parts.
+
+TRAPEZOID
+Unlike parallelograms, trapezoids have only one pair of parallel sides. A trapezoid is a quadrilateral, a four-sided polygon, with exactly one pair of parallel sides. These parallel sides are called the bases of the trapezoid, while the non-parallel sides are known as the legs. The distance between the two parallel sides is called the height of the trapezoid.
+
+Properties of an isosceles trapezoid:
+1. One pair of parallel sides. The defining feature of a trapezoid is that it has exactly one pair of sides that are parallel, so side 1 is parallel to side 2 while side 3 is not parallel to side 4. If you extend side 3 and side 4, they will intersect at some point.
+2. Consecutive angles are supplementary. Angles next to each other add up to 180 degrees, given that the angles are between the parallel sides. Angles that are not between the parallel sides will not be supplementary.
+3. Midsegment. A line segment connecting the midpoints of the legs - the sides that are not parallel to each other - is called the midsegment, and it is parallel to the bases. The length of the midsegment is the average of the lengths of the two bases. For example, if base 1 = 6 cm and base 2 = 10 cm, then the midsegment is (6 + 10) divided by 2, which is 8 cm.`
+          },
+          {
+            id:"m5-mcq", type:"mcq", tag:"auto", icon:"✅",
+            name:"Quiz: Shapes and Their Properties",
+            desc:"10 items on triangles, parallelograms, and trapezoids",
+            items:[
+              {q:"What is a triangle?",
+               o:["A polygon with four sides and four angles","A polygon with three sides and three angles","A shape with one pair of parallel sides","Any closed curved figure"],a:1,e:"A triangle is a polygon with three sides and three angles."},
+              {q:"The height of a triangle is always ______ to the base.",
+               o:["parallel","equal","perpendicular","opposite"],a:2,e:"The height (altitude) is drawn at a right angle, so it is always perpendicular to the base."},
+              {q:"What is the sum of the measures of all interior angles of a triangle?",
+               o:["90","180","270","360"],a:1,e:"m∠1 + m∠2 + m∠3 = 180 for every triangle."},
+              {q:"Which triangle has all three sides and all three angles congruent?",
+               o:["Scalene","Isosceles","Equilateral","Right"],a:2,e:"An equilateral triangle has all three sides and angles congruent, shown by hash marks."},
+              {q:"A triangle with at least two sides of equal length and two equal angles is called:",
+               o:["Isosceles","Scalene","Equilateral","Trapezoid"],a:0,e:"An isosceles triangle has at least two sides of equal length and two equal angles."},
+              {q:"Which set of side lengths CANNOT form a triangle?",
+               o:["3, 4, 5","6, 8, 10","2, 3, 10","5, 5, 8"],a:2,e:"The sum of any two sides must be greater than the third. Here 2 + 3 = 5, which is not greater than 10."},
+              {q:"Which best describes a parallelogram?",
+               o:["A four-sided figure with exactly one pair of parallel sides","A four-sided figure whose opposite sides are equal and parallel","A polygon with three equal sides","A figure whose diagonals are always equal"],a:1,e:"A parallelogram is a four-sided figure where opposite sides are equal in length and parallel."},
+              {q:"In a parallelogram, one angle measures 20 degrees. What is the measure of the angle next to it?",
+               o:["20 degrees","70 degrees","90 degrees","160 degrees"],a:3,e:"Consecutive angles are supplementary, so 180 - 20 = 160 degrees."},
+              {q:"How many pairs of parallel sides does a trapezoid have?",
+               o:["Exactly one","Exactly two","Three","None"],a:0,e:"A trapezoid is a quadrilateral with exactly one pair of parallel sides."},
+              {q:"A trapezoid has bases of 6 cm and 10 cm. How long is its midsegment?",
+               o:["4 cm","8 cm","16 cm","10 cm"],a:1,e:"The midsegment is the average of the bases: (6 + 10) / 2 = 8 cm."}
+            ]
+          },
+          {
+            id:"m5-tf", type:"truefalse", tag:"auto", icon:"✅",
+            name:"True or False: Shape Facts",
+            desc:"Piliin ang Tama o Mali",
+            prompt:"Piliin ang <b>Tama</b> kung palaging tama ang pahayag, <b>Mali</b> kung hindi.",
+            tLabel:"Tama (True)", fLabel:"Mali (False)", tWord:"Tama (True)", fWord:"Mali (False)",
+            items:[
+              {st:"The height of a triangle is always perpendicular to the base.", a:true},
+              {st:"Any one of a triangle's three sides can be chosen as the base.", a:true},
+              {st:"A scalene triangle has two sides of equal length.", a:false},
+              {st:"In a parallelogram, opposite angles are congruent.", a:true},
+              {st:"The diagonals of a parallelogram bisect each other.", a:true},
+              {st:"A trapezoid has two pairs of parallel sides.", a:false},
+              {st:"The midsegment of a trapezoid is parallel to its bases.", a:true},
+              {st:"A square is a special type of parallelogram.", a:true}
+            ]
+          },
+          {
+            id:"m5-match", type:"matching", tag:"auto", icon:"🔗",
+            name:"Match: Shape to Its Description",
+            desc:"Itugma ang hugis sa tamang paglalarawan",
+            left:["Equilateral triangle","Isosceles triangle","Scalene triangle","Parallelogram","Trapezoid","Midsegment"],
+            right:[
+              "Exactly one pair of parallel sides",
+              "All three sides and angles are congruent",
+              "Connects the midpoints of the legs; equals the average of the bases",
+              "All sides and all angles are different",
+              "Opposite sides are both parallel and equal",
+              "At least two sides of equal length and two equal angles"
+            ],
+            answer:[1,5,3,4,0,2]
+          },
+          {
+            id:"m5-fill", type:"fillblank", tag:"auto", icon:"🧩",
+            name:"Fill in the Blank: Shape Vocabulary",
+            desc:"Piliin ang tamang salita para sa bawat patlang",
+            wordbox:["polygon","base","height","perpendicular","180","bases","legs","bisect"],
+            items:[
+              {before:"A triangle is a ", after:" with three sides and three angles.", a:"polygon"},
+              {before:"Any one of the three sides of a triangle can be chosen as the ", after:".", a:"base"},
+              {before:"The perpendicular distance from the base to the opposite vertex is the ", after:".", a:"height"},
+              {before:"The height of a triangle is always ", after:" to the base.", a:"perpendicular"},
+              {before:"The sum of the measures of the interior angles of a triangle is always ", after:".", a:"180"},
+              {before:"In a trapezoid, the two parallel sides are called the ", after:".", a:"bases"},
+              {before:"In a trapezoid, the non-parallel sides are called the ", after:".", a:"legs"},
+              {before:"The diagonals of a parallelogram ", after:" each other, meeting at the midpoint.", a:"bisect"}
+            ]
+          },
+          {
+            id:"m5-comp", type:"shortcheck", tag:"self", icon:"✍️",
+            name:"Problem Solving: Shapes Around Us",
+            desc:"Isulat ang sagot, saka i-check sa modelong sagot",
+            items:[
+              {q:"A trapezoid has bases measuring 12 cm and 18 cm. How long is its midsegment?",
+               m:"The midsegment is the average of the two bases: (12 + 18) / 2 = 30 / 2 = 15 cm."},
+              {q:"Two angles of a triangle measure 60 degrees and 70 degrees. What is the measure of the third angle?",
+               m:"The interior angles add up to 180. So 180 - (60 + 70) = 180 - 130 = 50 degrees."},
+              {q:"One angle of a parallelogram measures 115 degrees. Give the measures of the other three angles and explain why.",
+               m:"The opposite angle is also 115 degrees because opposite angles are congruent. The two consecutive angles are each 180 - 115 = 65 degrees because consecutive angles are supplementary. So the angles are 115, 65, 115, and 65 degrees."},
+              {q:"Can a triangle have sides measuring 4 cm, 5 cm, and 12 cm? Explain your answer.",
+               m:"No. The sum of any two sides must be greater than the remaining side, but 4 + 5 = 9, which is not greater than 12. So these lengths cannot form a triangle."},
+              {q:"Name at least two places in Filipino culture or in your community where you can see triangles, and explain why the triangle is used there.",
+               m:"Sample answer: the buntings used in fiestas are triangle-shaped, the roof of a bahay-kubo uses triangles to stay strong, and the parol (Christmas lantern) is built from triangles. Triangles are used because a triangular frame is rigid and strong, which is also why bridges use triangular frameworks."}
+            ]
+          }
+        ]
       }
     ]
   }
