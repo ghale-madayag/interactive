@@ -423,6 +423,48 @@
   .chip .badge{float:right;font-weight:800;color:#6d28d9}
   .chip.done .badge{color:#15803d}
 
+  /* matching — from Matching Quiz.dc.html */
+  .mtq-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:start}
+  .mtq-col{display:flex;flex-direction:column;gap:12px}
+  .mtq-lbl{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--h-eyebrow);padding-left:4px}
+  .mtq-card{background:#fff;border:2px solid #e9e2fb;border-radius:18px;padding:16px 18px;
+    box-shadow:0 2px 10px rgba(109,40,217,.05);cursor:pointer;display:flex;gap:12px;
+    align-items:center;transition:all .15s ease;text-align:left;font:inherit;color:inherit;width:100%}
+  .mtq-card:hover{border-color:#c4b0f5}
+  .mtq-card p{margin:0;font-size:16px;line-height:1.6;font-weight:600;flex:1}
+  .mtq-card.sel{border-color:#7c3aed;background:#f4f0ff;box-shadow:0 4px 14px rgba(109,40,217,.16)}
+  .mtq-card.ok{border-color:#86d9a5;background:#f2fbf5;cursor:default}
+  .mtq-card.no{border-color:#f5a7b6;background:#fdf1f3}
+  .mtq-card.used{border-color:#cbb8f5;background:#faf8ff;opacity:.75}
+  .mtq-card.target{border-style:dashed;border-color:#a78bfa;background:#faf8ff}
+  .mtq-badge{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:800;font-size:15px;
+    border-radius:999px;padding:4px 12px;flex-shrink:0;background:#6d28d9;color:#fff}
+  .mtq-badge.ok{background:#16a34a}
+  .mtq-badge.no{background:#dc2626}
+  .mtq-letter{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;
+    font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:800;font-size:16px;
+    flex-shrink:0;background:#ede9fe;color:#6d28d9}
+  .mtq-letter.ok{background:#16a34a;color:#fff}
+  .mtq-letter.no{background:#dc2626;color:#fff}
+  .mtq-b p{font-weight:700;line-height:1.5}
+  .mtq-perfect{background:#e8f7ee;border:2px solid #86d9a5;border-radius:24px;padding:24px 28px;text-align:center}
+  .mtq-perfect .em{font-size:36px}
+  .mtq-perfect .h{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:800;font-size:24px;color:#15803d}
+  .mtq-perfect .s{font-size:15px;font-weight:600;color:#3f7a53;margin-top:4px}
+  .mtq-partial{background:#fdeef0;border:2px solid #f5b8c4;border-radius:24px;padding:20px 26px;
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .mtq-partial .em{font-size:28px}
+  .mtq-partial .txt{flex:1;min-width:220px}
+  .mtq-partial .h{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:800;font-size:19px;color:#9f1239}
+  .mtq-partial .s{font-size:14px;font-weight:600;color:#b5566c}
+  .mtq-fix{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:700;font-size:15px;
+    color:#fff;background:#dc2626;border:2px solid #dc2626;border-radius:999px;padding:10px 22px;cursor:pointer}
+  .mtq-fix:hover{background:#b91c1c}
+  @media(max-width:640px){
+    .mtq-grid{grid-template-columns:1fr;gap:14px}
+  }
+
   /* sequencing */
   .seq-item{background:#fff;border:2px solid #e9e2fb;border-radius:14px;padding:12px 14px;margin-bottom:9px}
   .seq-item .pos{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:800;
@@ -430,6 +472,12 @@
   .seq-item .body{font-size:15px;line-height:1.5}
   .seq-item .arrows button{background:#f4f0ff;color:#6d28d9;border-radius:8px;width:32px;height:24px;font-weight:800}
   .seq-item .arrows button:hover{background:#ede9fe}
+  .seq-item .grip{cursor:grab;touch-action:none;color:#b9a9e8;font-size:19px;line-height:1;
+    padding:6px 2px;user-select:none;-webkit-user-select:none}
+  .seq-item .grip:active{cursor:grabbing}
+  .seq-item.dragging{opacity:.85;border-color:#8b5cf6;background:#f4f0ff;
+    box-shadow:0 10px 24px rgba(109,40,217,.18);transform:scale(1.01)}
+  .seq-list.dragging-any .seq-item:not(.dragging){transition:transform .12s ease}
   .seq-item.ok{border-color:#16a34a;background:#e8f7ee}
   .seq-item.bad{border-color:#dc2626;background:#fef2f2}
 
@@ -441,6 +489,45 @@
   .fbq select.no{border-color:#dc2626;background:#fef2f2;color:#991b1b}
   .wordbox span{background:#f1ecff;color:#6d28d9;border-radius:999px;padding:7px 14px;font-size:13.5px;font-weight:800}
 
+  /* true or false — from True or False Quiz.dc.html */
+  .rd-prog .sc{font-weight:800;font-size:14px;color:#15803d;white-space:nowrap}
+  .tfq{background:#fff;border:1px solid var(--h-line);border-radius:24px;padding:24px 28px;
+    box-shadow:0 2px 12px rgba(109,40,217,.05);display:flex;flex-direction:column;gap:16px}
+  .tfq-head{display:flex;gap:14px;align-items:flex-start}
+  .tfq-num{width:40px;height:40px;border-radius:14px;background:#ede9fe;color:#6d28d9;display:grid;
+    place-items:center;font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:800;
+    font-size:18px;flex-shrink:0}
+  .tfq-head p{margin:4px 0 0;font-size:18px;line-height:1.65;font-weight:600}
+  .tfq-opts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .tfb{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:700;font-size:17px;
+    border-radius:999px;padding:12px 20px;cursor:pointer;transition:all .15s ease;
+    color:#4c3591;background:#fff;border:2px solid #ded3f9}
+  .tfb:hover{background:#f4f0ff}
+  .tfb.right{color:#fff;background:#16a34a;border-color:#16a34a}
+  .tfb.wrong{color:#fff;background:#dc2626;border-color:#dc2626}
+  .tfb.reveal{color:#15803d;background:#e8f7ee;border-color:#86d9a5}
+  .tfb.dim{color:#b3abcc;background:#f5f2fd;border-color:#ece7f8;cursor:default}
+  .tfb.right,.tfb.wrong,.tfb.reveal,.tfb.dim{cursor:default}
+  .tfb.right:hover,.tfb.wrong:hover,.tfb.reveal:hover,.tfb.dim:hover{filter:none}
+  .tf-fb{border-radius:14px;padding:12px 16px;font-size:16px;line-height:1.6;font-weight:600}
+  .tf-fb.ok{background:#e8f7ee;border:1px solid #a9e3bf;color:#166534}
+  .tf-fb.no{background:#fdeef0;border:1px solid #f5b8c4;color:#9f1239}
+  .tf-done{background:linear-gradient(120deg,#f4f0ff,#eef6ff);border:2px solid #cbb8f5;
+    border-radius:24px;padding:28px 32px;text-align:center}
+  .tf-done .em{font-size:40px}
+  .tf-done .h{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:800;font-size:26px;
+    color:var(--h-head);margin-top:4px}
+  .tf-done .s{font-size:16px;font-weight:600;color:var(--h-body);margin-top:4px}
+  .tf-done .acts{display:flex;justify-content:center;gap:12px;margin-top:18px;flex-wrap:wrap}
+  .tf-again{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:700;font-size:16px;
+    color:#fff;background:#6d28d9;border:2px solid #6d28d9;border-radius:999px;padding:12px 26px;cursor:pointer}
+  .tf-again:hover{background:#5b21b6}
+  @media(max-width:520px){
+    .tfq{padding:20px}
+    .tfq-opts{grid-template-columns:1fr}
+    .tfq-head p{font-size:17px}
+  }
+
   /* truefalse */
   .tf-row{background:#fff;border:2px solid #e9e2fb;border-radius:16px;padding:14px 16px;margin-bottom:10px}
   .tf-row .st{font-size:16px;margin-bottom:10px;line-height:1.5;font-weight:600}
@@ -450,6 +537,45 @@
   .tf-row .opts button.pick{border-color:#8b5cf6;background:#f4f0ff;color:#6d28d9}
   .tf-row.ok{border-color:#16a34a;background:#e8f7ee}
   .tf-row.bad{border-color:#dc2626;background:#fef2f2}
+
+  /* self-check — from Self-Check Essay.dc.html */
+  .rd-prog .save{font-weight:800;font-size:14px;color:var(--h-eyebrow);white-space:nowrap}
+  .scq{background:#fff;border:1px solid var(--h-line);border-radius:24px;padding:24px 28px;
+    box-shadow:0 2px 12px rgba(109,40,217,.05);display:flex;flex-direction:column;gap:14px}
+  .scq-head{display:flex;gap:14px;align-items:flex-start}
+  .scq-num{width:40px;height:40px;border-radius:14px;background:#ede9fe;color:#6d28d9;display:grid;
+    place-items:center;font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:800;
+    font-size:18px;flex-shrink:0}
+  .scq-head h2{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:700;font-size:20px;
+    margin:6px 0 0;color:var(--h-head);line-height:1.4;text-wrap:pretty}
+  .scq textarea{font-family:inherit;font-size:17px;line-height:1.6;color:var(--h-ink);background:#faf8ff;
+    border:2px solid var(--h-line);border-radius:16px;padding:14px 16px;resize:vertical;width:100%;
+    box-sizing:border-box;min-height:104px}
+  .scq textarea:focus{outline:2px solid #a78bfa;outline-offset:0;border-color:#a78bfa}
+  .scq-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .sc-show{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:700;font-size:15px;
+    border-radius:999px;padding:10px 20px;cursor:pointer;color:#6d28d9;background:#fff;border:2px solid #d9ccf8}
+  .sc-show:hover{background:#f4f0ff}
+  .sc-show[disabled]{color:var(--h-eyebrow);background:#ece7f8;border-color:#ece7f8;cursor:not-allowed}
+  .sc-nudge{font-size:13px;font-weight:700;color:var(--h-eyebrow)}
+  .sc-model{background:#f4f0ff;border:1px solid #ded3f9;border-radius:16px;padding:16px 18px}
+  .sc-model .lbl{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+    color:#6d28d9;margin-bottom:6px}
+  .sc-model p{margin:0;font-size:16px;line-height:1.7;color:#4c3591}
+  .sc-ask{font-size:15px;font-weight:800;color:var(--h-head)}
+  .sc-rate{font-family:inherit;font-weight:800;font-size:15px;border-radius:999px;padding:8px 18px;cursor:pointer}
+  .sc-rate.good{color:#15803d;background:#e8f7ee;border:2px solid #a9e3bf}
+  .sc-rate.good:hover{background:#d8f2e2}
+  .sc-rate.retry{color:#b45309;background:#fff4e0;border:2px solid #fde4b8}
+  .sc-rate.retry:hover{background:#ffecc7}
+  .sc-chip{font-size:14px;font-weight:800;border-radius:999px;padding:6px 16px;align-self:flex-start}
+  .sc-chip.good{color:#15803d;background:#e8f7ee}
+  .sc-chip.retry{color:#b45309;background:#fff4e0}
+  .sc-finished{background:#e8f7ee;border:2px solid #86d9a5;border-radius:24px;padding:22px 28px;text-align:center}
+  .sc-finished .em{font-size:32px}
+  .sc-finished .h{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:800;font-size:22px;color:#15803d}
+  .sc-finished .s{font-size:15px;font-weight:600;color:#3f7a53;margin-top:4px}
+  @media(max-width:520px){ .scq{padding:20px} .scq-head h2{font-size:18px} }
 
   /* shortcheck */
   .sc-q{font-size:17px;font-weight:700;margin:16px 0 8px;line-height:1.5;color:var(--h-head)}
@@ -819,6 +945,12 @@ Pagwawangis kang laging nasa isipan.`
             desc:"Konsepto at mga panuntunan ng netiquette",
             orig:"epp/IMG_20260705_184103.jpg",
             heading:"Digital Citizenship at Netiquette", by:"Aralin 1 · EPP-ICT",
+            introP:[0,0],
+            sections:[
+              {ic:"🤝", title:"Ano ang Netiquette?", p:[1,1]},
+              {ic:"📋", title:"Mga Panuntunan ng Netiquette", p:[2,2]}
+            ],
+            closingP:[3,3],
             body:
 `Ang digital citizenship ay tumutukoy sa kakayahan ng isang indibidwal na gumamit ng computer at iba pang digital device sa ligtas at responsableng pamamaraan. Digital citizen ang tawag sa taong nakapagsasagawa ng responsableng paggamit ng makabagong teknolohiya.
 
@@ -902,6 +1034,12 @@ Mahalaga ang netiquette upang mapanatili ang maayos at magalang na komunikasyon 
             desc:"Uri at mga bahagi ng web browser",
             orig:"epp/IMG_20260705_184222.jpg",
             heading:"Ang Web Browser", by:"Aralin 2 · EPP-ICT",
+            introP:[0,0],
+            sections:[
+              {ic:"🌐", title:"Ang World Wide Web", p:[1,1]},
+              {ic:"🧭", title:"Iba't Ibang Uri ng Web Browser", p:[2,2]},
+              {ic:"🧩", title:"Mga Bahagi ng Web Browser", p:[3,3]}
+            ],
             body:
 `Ang web browser ay isang software na ginagamit upang mag-browse o mag-navigate sa internet. Ito ang nagkokonekta sa mga tao sa iba't ibang website mula sa World Wide Web (www).
 
@@ -924,6 +1062,14 @@ Mga Bahagi ng Web Browser: Menu Bar, Browser Tool Bar (Address Bar, Back button,
             desc:"Paghahanap ng impormasyon at paggamit ng email",
             orig:"epp/IMG_20260705_184304.jpg",
             heading:"Search Engine at Email", by:"Aralin 2 · EPP-ICT",
+            introP:[0,0],
+            sections:[
+              {ic:"⚙️", title:"Apat na Bahagi ng Search Engine", p:[1,1]},
+              {ic:"✉️", title:"Ano ang Email?", p:[2,2]},
+              {ic:"🔤", title:"Mga Bahagi ng Email Address", p:[3,3]},
+              {ic:"🔒", title:"COPPA: Pahintulot ng Magulang", p:[4,4]},
+              {ic:"📬", title:"Mga Bahagi ng Email", p:[5,5]}
+            ],
             body:
 `Ang search engine ay isang programa na tumutulong sa paghahanap ng impormasyon mula sa malawak na database na konektado sa internet. Gumagamit ito ng keyword. Iba ang web browser sa search engine — kailangan munang gumamit ng web browser bago maka-access ng search engine. Mga halimbawa: Google, Bing, at Yahoo.
 
@@ -1019,6 +1165,13 @@ Mga Bahagi ng Email: Recipient, Cc at Bcc, Subject Line, Salutation, Email Body,
             desc:"Chapter 1 · Lesson 1.1",
             orig:"math/IMG_20260706_201009.jpg",
             heading:"Understanding 12- and 24-Hour Clock Systems", by:"Chapter 1 · Lesson 1.1",
+            introP:[0,0],
+            sections:[
+              {ic:"🕛", title:"The 12-Hour Clock", p:[1,1]},
+              {ic:"🕓", title:"The 24-Hour Clock", p:[2,2]},
+              {ic:"⭐", title:"Key Hours to Remember", p:[3,3]},
+              {ic:"🔄", title:"Converting Between the Two", p:[4,4]}
+            ],
             body:
 `Time is measured using two systems: the 12-hour clock and the 24-hour clock. Learning to use and convert between them helps you follow schedules, catch a jeepney, watch TV programs, and read airport or bus-station timetables.
 
@@ -1109,6 +1262,13 @@ To convert 12-hour to 24-hour: keep the hour for morning (a.m.) times and remove
             desc:"Chapter 1 · Lesson 1.2",
             orig:"math/IMG_20260706_201114.jpg",
             heading:"Exploring Time Zones and Philippine Time", by:"Chapter 1 · Lesson 1.2",
+            introP:[0,0],
+            sections:[
+              {ic:"🇵🇭", title:"Philippine Standard Time (UTC+8)", p:[1,1]},
+              {ic:"🗺️", title:"Comparing Another City", p:[2,2]},
+              {ic:"🧮", title:"A Worked Example", p:[3,3]}
+            ],
+            closingP:[4,4],
             body:
 `Different parts of the world experience different times of the day because the Earth is divided into 24 time zones, each covering about 15 degrees of its 360-degree rotation. Time zones are measured in hours ahead of or behind Coordinated Universal Time (UTC), the starting point for all time calculations.
 
@@ -1204,6 +1364,15 @@ Understanding time zones helps with travel, calling family who live abroad, and 
             desc:"Chapter 2 · Lesson 2.1",
             orig:"math/IMG_20260706_201204.jpg",
             heading:"Mastering GMDAS: The Order of Operations", by:"Chapter 2 · Lesson 2.1",
+            introP:[0,0],
+            sections:[
+              {ic:"🔠", title:"G — Grouping Symbols", p:[1,1]},
+              {ic:"✖️", title:"M and D — Multiplication and Division", p:[2,2]},
+              {ic:"➕", title:"A and S — Addition and Subtraction", p:[3,3]},
+              {ic:"🧮", title:"Example: 8 + 6 × 2", p:[4,4]},
+              {ic:"🧮", title:"Example: (4 − 3) × 49 ÷ 7", p:[5,5]}
+            ],
+            closingP:[6,6],
             body:
 `When a math problem has more than one operation, we must follow a set order so everyone gets the same, correct answer. That order is called GMDAS: Grouping symbols, Multiplication, Division, Addition, and Subtraction.
 
@@ -1316,6 +1485,13 @@ GMDAS is useful in real life - budgeting money, adjusting a recipe, or planning 
             desc:"Chapter 2 · Lesson 2.2",
             orig:"math/IMG_20260706_201252.jpg",
             heading:"Multiplying Fractions: Models and Steps", by:"Chapter 2 · Lesson 2.2",
+            introP:[0,0],
+            sections:[
+              {ic:"🟪", title:"The Area Model", p:[1,1]},
+              {ic:"⚡", title:"The Quick Method", p:[2,2]},
+              {ic:"✂️", title:"Cancelling Common Factors", p:[3,3]},
+              {ic:"🔢", title:"Whole and Mixed Numbers", p:[4,4]}
+            ],
             body:
 `Multiplying fractions helps you solve everyday problems about measuring, recipes, and sharing. In mathematics, the word "of" usually means multiplication - for example, 1/2 of 3/4 means 1/2 × 3/4.
 
@@ -1397,6 +1573,14 @@ To multiply a whole number by a fraction, write the whole number over 1. Example
             desc:"Chapter 3 · Lesson 3.1",
             orig:"math/IMG_20260722_173315.jpg",
             heading:"Triangles: Base, Height, Types, and Properties", by:"Chapter 3 · Lesson 3.1",
+            introP:[0,0],
+            sections:[
+              {ic:"📐", title:"The Base", p:[1,1]},
+              {ic:"📏", title:"The Height", p:[2,2]},
+              {ic:"🔺", title:"Types of Triangles", p:[3,3]},
+              {ic:"✅", title:"Properties of a Triangle", p:[4,4]}
+            ],
+            closingP:[5,5],
             body:
 `A triangle is a polygon with three sides and three angles. A polygon is a plane figure, or two-dimensional shape, that is bounded by line segments - for example a triangle, a rectangle, or a square.
 
@@ -1422,6 +1606,12 @@ Triangles are everywhere in Filipino culture. Think about the beautiful buntings
             desc:"Chapter 3 · Lesson 3.1",
             orig:"math/IMG_20260722_173404.jpg",
             heading:"Parallelograms and Trapezoids", by:"Chapter 3 · Lesson 3.1",
+            sections:[
+              {ic:"▱", title:"Parallelogram", p:[0,0]},
+              {ic:"✅", title:"Properties of a Parallelogram", p:[1,1]},
+              {ic:"⏢", title:"Trapezoid", p:[2,2]},
+              {ic:"✅", title:"Properties of an Isosceles Trapezoid", p:[3,3]}
+            ],
             body:
 `PARALLELOGRAM
 A parallelogram is a four-sided figure in geometry where opposite sides are equal in length and parallel to each other. Rectangles, rhombuses, and squares are all special types of parallelograms, so all the properties below apply to them as well.
@@ -1703,6 +1893,14 @@ Properties of an isosceles trapezoid:
             desc:"Chapter 2 · Lesson 1 (pp. 28-33)",
             orig:"img/science/IMG_20260827_122405.jpg",
             heading:"How Can Matter Be Measured?", by:"Chapter 2 · Lesson 1",
+            introP:[0,1],
+            sections:[
+              {ic:"📏", title:"Length", p:[2,2]},
+              {ic:"⚖️", title:"Mass", p:[3,3]},
+              {ic:"🧪", title:"Volume", p:[4,4]},
+              {ic:"🌡️", title:"Temperature", p:[5,5]},
+              {ic:"💡", title:"Why Measuring Matters", p:[6,6]}
+            ],
             body:
 `Measuring means comparing an unknown quantity to a known, fixed, or standard quantity. A measurement is composed of two parts: the numerical value and the unit of measure. Here is an example: an individual is 178 centimeters tall. The number 178 is the numerical value, and centimeters is the unit of measurement.
 
@@ -1827,6 +2025,13 @@ Why measuring matters. Measuring is a crucial skill in cooking and baking. If yo
             desc:"Chapter 4 · Lesson 1 (pp. 78-79)",
             orig:"img/science/IMG_20260827_122156.jpg",
             heading:"How Are Plants Classified? Part 1: Flowering Plants", by:"Chapter 4 · Lesson 1",
+            introP:[0,1],
+            sections:[
+              {ic:"🌸", title:"Flowering Plants (Angiosperms)", p:[2,2]},
+              {ic:"🌺", title:"Familiar Flowering Plants", p:[3,3]},
+              {ic:"🍵", title:"Food, Beauty, and Perfume", p:[4,4]},
+              {ic:"🌳", title:"Trees That Bear Flowers and Fruits", p:[5,5]}
+            ],
             body:
 `Living things have characteristics that make them similar, but they also differ in some ways. They are classified depending on the complexity of their structures and their means of reproduction. Living things can be grouped as plants, animals, and microorganisms. Plants are further grouped as flowering and nonflowering plants.
 
@@ -1846,6 +2051,16 @@ Some trees also bear flowers and fruits. Guavas have white flowers that mature i
             desc:"Chapter 4 · Lesson 1 (pp. 81-84)",
             orig:"img/science/IMG_20260827_122214.jpg",
             heading:"How Are Plants Classified? Part 2: Nonflowering Plants", by:"Chapter 4 · Lesson 1",
+            introP:[0,0],
+            sections:[
+              {ic:"🌲", title:"Gymnosperms", p:[1,1]},
+              {ic:"🌲", title:"Conifers", p:[2,2]},
+              {ic:"🌴", title:"Cycads", p:[3,3]},
+              {ic:"🍃", title:"Ginkgo", p:[4,4]},
+              {ic:"🌿", title:"Spore-Bearing Plants", p:[5,5]},
+              {ic:"🟢", title:"Mosses", p:[6,6]},
+              {ic:"🌾", title:"Ferns", p:[7,7]}
+            ],
             body:
 `Nonflowering plants do not produce flowers or fruits. Instead, they reproduce using other methods, such as cones or spores. There are two main types of nonflowering plants: cone-bearing plants and spore-bearing plants.
 
@@ -1959,6 +2174,16 @@ Ferns are another type of nonflowering plant that reproduce using spores. They c
             name:"Read: How Are Animals Classified?",
             desc:"Chapter 4 · Lesson 2",
             heading:"How Are Animals Classified?", by:"Chapter 4 · Lesson 2",
+            introP:[0,0],
+            sections:[
+              {ic:"🦴", title:"Vertebrates", p:[1,1]},
+              {ic:"🐛", title:"Invertebrates", p:[2,2]},
+              {ic:"🐕", title:"Mammals", p:[3,3]},
+              {ic:"🐦", title:"Birds", p:[4,4]},
+              {ic:"🐊", title:"Reptiles", p:[5,5]},
+              {ic:"🐸", title:"Amphibians", p:[6,6]},
+              {ic:"🐟", title:"Fishes", p:[7,7]}
+            ],
             body:
 `Animals are classified according to their similar characteristics: their body structure, their body covering, how they breathe, how they control their body temperature, and how they reproduce. The first and biggest division separates animals into vertebrates and invertebrates.
 
@@ -2065,6 +2290,13 @@ Fishes are vertebrates that live in water. Their body is covered with scales, an
             name:"Read: What Are Fungi and Bacteria?",
             desc:"Chapter 4 · Lesson 3",
             heading:"What Are Fungi and Bacteria?", by:"Chapter 4 · Lesson 3",
+            introP:[0,0],
+            sections:[
+              {ic:"🍄", title:"Fungi", p:[1,1]},
+              {ic:"⚖️", title:"Helpful and Harmful Fungi", p:[2,2]},
+              {ic:"🦠", title:"Bacteria", p:[3,3]},
+              {ic:"⚖️", title:"Helpful and Harmful Bacteria", p:[4,4]}
+            ],
             body:
 `Microorganisms are very small living things. Most of them cannot be seen by the naked eye, so a microscope is needed to observe them. Even though they are tiny, microorganisms are everywhere: in the air, in water, in the soil, on the surfaces you touch, and even inside your body. Fungi and bacteria are two important groups of microorganisms.
 
@@ -2149,6 +2381,13 @@ Bacteria can also be helpful or harmful. Helpful bacteria turn milk into yogurt,
             name:"Read: Specialized Structures of Plants",
             desc:"Adaptations of roots, stems, and leaves",
             heading:"Specialized Structures of Plants", by:"Chapter 4 · Extension",
+            introP:[0,0],
+            sections:[
+              {ic:"🌱", title:"Specialized Roots", p:[1,1]},
+              {ic:"🎋", title:"Specialized Stems", p:[2,2]},
+              {ic:"🍃", title:"Specialized Leaves", p:[3,3]}
+            ],
+            closingP:[4,4],
             body:
 `All plants have roots, stems, and leaves, but some plants have parts that are changed, or modified, to do a special job. These are called specialized structures. They are adaptations that help the plant get food, water, and sunlight, protect itself, store food, or reproduce in the place where it lives.
 
@@ -2253,6 +2492,14 @@ Each of these structures is an adaptation, which means a feature that helps a li
             desc:"Chapter 5 · Lesson 2 (pp. 110-111)",
             orig:"img/science/IMG_20260827_122516.jpg",
             heading:"What Are the Stages in the Life Cycle of Plants?", by:"Chapter 5 · Lesson 2",
+            introP:[0,0],
+            sections:[
+              {ic:"🌰", title:"Parts of a Seed", p:[1,1]},
+              {ic:"🌱", title:"Germination", p:[2,2]},
+              {ic:"🌿", title:"Growing into an Adult Plant", p:[3,3]},
+              {ic:"🐝", title:"Flowers and Pollination", p:[4,4]},
+              {ic:"🍅", title:"Fruits and New Seeds", p:[5,5]}
+            ],
             body:
 `The life cycle of most seed-bearing plants begins with a seed. Every seed houses an immature plant called an embryo. The embryo consists of the young leaves, called the plumule, and the young root, called the radicle.
 
@@ -2390,12 +2637,34 @@ const STR={
     check:"Suriin", showScore:"Ipakita ang iskor",
     matchHint:"Pindutin ang isang pahayag sa <b>Hanay A</b>, tapos ang katugma nito sa <b>Hanay B</b>.",
     matchResult:"Resulta ng pagtutugma", answerLbl:"Sagot", colA:"Hanay A", colB:"Hanay B",
-    seqHint:"Iayos ang mga pangyayari mula <b>una (1)</b> hanggang <b>huli</b>. Gamitin ang ▲▼.",
+    mtMatched:"🔗 %c sa %n naitugma", mtHintB:"👉 Ngayon, pumili sa Hanay B", mtHintCheck:"Pindutin ang Suriin!",
+    mtPerfect:"Perpekto! Lahat ng pares ay tama!", mtPerfectSub:"Magaling! Handa ka na sa susunod na gawain.",
+    mtScore:"%r sa %n ang tama", mtWrongSub:"Ang mga pulang kahon ay mali — subukan muli!",
+    mtFix:"🔄 Ituwid ang mali",
+    seqHint:"<b>Hilahin</b> (drag) ang mga hakbang upang iayos mula <b>una (1)</b> hanggang <b>huli</b> — o gamitin ang ▲▼.",
+    dragHint:"Hilahin upang iayos", moveUp:"Itaas", moveDown:"Ibaba",
+    stepLabel:"Bahagi %n", markRead:"☐ Nabasa ko na ito", markDone:"✓ Tapos na!",
+    progRead:"📖 %c sa %n bahaging nabasa", lockedMsg:"🔒 Basahin muna ang lahat ng %n bahagi (%r pa)",
+    doneTitle:"Magaling! Tapos na ang pagbabasa.", doneSub:"Handa ka na sa pagsasanay. Pindutin ang “%b” upang magpatuloy.",
+    sectionsTag:"📚 %n bahagi", checkOffTag:"✓ Markahan ang bawat bahagi habang nagbabasa",
     seqNote:"Ang ilang gitnang pangyayari ay maaaring bahagyang magkaiba ang pagkakasunod — tanungin ang iyong guro kung may pagdududa.",
     fillHint:"Piliin ang angkop na salita mula sa kahon.", choose:"— pumili —",
     tfRight:"✓ Tama", tfWrong:"✗ Tamang sagot:",
+    tfAnswered:"✅ %c sa %n nasagutan", tfScore:"⭐ Puntos: %s",
+    tfCorrect:"🎉 Tama!", tfIncorrect:"Hindi tama — ang sagot ay <b>%a</b>.",
+    tfScored:"Nakakuha ka ng %s sa %n!", tfAgain:"🔄 Subukan muli",
+    tfMsgTop:"Perpekto! Ang galing mo!", tfMsgMid:"Magaling! Konting basa pa.",
+    tfMsgLow:"Ayos lang! Balikan ang babasahin at subukan muli.",
     scPlaceholder:"Isulat dito ang iyong sagot…", scShow:"👁️ Ipakita ang modelong sagot",
     scModel:"Modelong sagot:", scDone:"Tapos na ✓",
+    scChecked:"✍️ %c sa %n nasuri", scSaved:"💾 Awtomatikong nai-save",
+    scShowBtn:"🔍 Ipakita ang modelong sagot", scNeedAnswer:"Sumulat muna ng sagot bago tingnan 😉",
+    scModelLbl:"💡 Modelong sagot", scCompare:"Ihambing: kumusta ang sagot mo?",
+    scGood:"😀 Nakuha ko!", scRetry:"🤔 Kulang pa",
+    scGoodChip:"😀 Nakuha ko! ✓", scRetryChip:"🤔 Kulang pa — balikan ang babasahin 📖",
+    scFinished:"Tapos na! Nasuri mo na ang lahat ng sagot mo.",
+    scFinishedSub:"Balik sa aralin para sa susunod na gawain.",
+    scLocked:"🔒 Suriin muna ang lahat ng %n",
     scHint:"Ito ay <b>sariling pagsusuri</b>. Isulat muna ang iyong sagot, saka ihambing sa modelong sagot. Naiaalala ang iyong sinulat hanggang pindutin ang “Tapos na”.",
     msg90:"Napakahusay! Bihasa ka na!", msg70:"Magaling! Kaunti na lang!",
     msg50:"Mabuti! Ulitin pa natin.", msg0:"Kaya mo ’yan — subukan muli!",
@@ -2414,12 +2683,34 @@ const STR={
     check:"Check", showScore:"Show my score",
     matchHint:"Tap an item in <b>Column A</b>, then tap its match in <b>Column B</b>.",
     matchResult:"Matching results", answerLbl:"Answer", colA:"Column A", colB:"Column B",
-    seqHint:"Put the steps in order from <b>first (1)</b> to <b>last</b>. Use the ▲▼ buttons.",
+    mtMatched:"🔗 %c of %n matched", mtHintB:"👉 Now tap its match in Column B", mtHintCheck:"Press Check!",
+    mtPerfect:"Perfect! Every pair is correct!", mtPerfectSub:"Great work — you're ready for the next activity.",
+    mtScore:"%r out of %n correct", mtWrongSub:"The red cards are wrong — try those again!",
+    mtFix:"🔄 Fix the wrong ones",
+    seqHint:"<b>Drag</b> the steps into order from <b>first (1)</b> to <b>last</b> — or use the ▲▼ buttons.",
+    dragHint:"Drag to reorder", moveUp:"Move up", moveDown:"Move down",
+    stepLabel:"Step %n", markRead:"☐ I've read this step", markDone:"✓ Done reading!",
+    progRead:"📖 %c of %n steps read", lockedMsg:"🔒 Read all %n steps to finish (%r to go)",
+    doneTitle:"Great job! You finished the reading.", doneSub:"You're ready for the quiz. Press “%b” to continue.",
+    sectionsTag:"📚 %n sections", checkOffTag:"✓ Check off each section as you read",
     seqNote:"Some of the middle steps may be ordered slightly differently — ask your teacher if you are unsure.",
     fillHint:"Choose the right word from the box.", choose:"— choose —",
     tfRight:"✓ Correct", tfWrong:"✗ Correct answer:",
+    tfAnswered:"✅ %c of %n answered", tfScore:"⭐ Score: %s",
+    tfCorrect:"🎉 Correct!", tfIncorrect:"Not quite — the answer is <b>%a</b>.",
+    tfScored:"You scored %s out of %n!", tfAgain:"🔄 Try again",
+    tfMsgTop:"Perfect! You have mastered this!", tfMsgMid:"Well done! A little more reading and it's perfect.",
+    tfMsgLow:"That's okay! Go back to the reading and try again.",
     scPlaceholder:"Write your answer here…", scShow:"👁️ Show the model answer",
     scModel:"Model answer:", scDone:"Done ✓",
+    scChecked:"✍️ %c of %n checked", scSaved:"💾 Auto-saved",
+    scShowBtn:"🔍 Show the model answer", scNeedAnswer:"Write your own answer first 😉",
+    scModelLbl:"💡 Model answer", scCompare:"Compare: how did you do?",
+    scGood:"😀 I got it!", scRetry:"🤔 Not quite yet",
+    scGoodChip:"😀 I got it! ✓", scRetryChip:"🤔 Not quite — revisit the reading 📖",
+    scFinished:"All done! You've checked every answer.",
+    scFinishedSub:"Head back to the lesson for the next activity.",
+    scLocked:"🔒 Check all %n first",
     scHint:"This is a <b>self-check</b>. Write your own answer first, then compare it with the model answer. What you type is saved until you press “Done”.",
     msg90:"Excellent! You have mastered this!", msg70:"Well done! Almost there!",
     msg50:"Good! Let's go over it again.", msg0:"You can do this — try again!",
@@ -2428,6 +2719,7 @@ const STR={
   }
 };
 function t(k){ const d=STR[LANG]||STR.fil; return d[k]!=null?d[k]:STR.fil[k]; }
+function tf(k,map){ let s=t(k); for(const x in map) s=s.split('%'+x).join(map[x]); return s; }
 function setLang(s){ LANG=(s&&s.lang)||'fil'; }
 
 /* ---------- HOME: pick a subject ---------- */
@@ -2605,7 +2897,21 @@ function backBtn(){return `<button class="btn secondary" onclick="lesson('${CTX.
 function renderPassage(){
   const a=CTX.a, s=CTX.s, l=CTX.l;
   const idx=s.lessons.indexOf(l)+1;
-  const steps=(Array.isArray(a.steps)&&a.steps.length&&typeof a.steps[0]==='object')?a.steps:null;
+  const paras=a.body?a.body.split(/\n\n+/):[];
+  const pTxt=r=>paras.slice(r[0],r[1]+1).map(esc).join('</p><p>');
+  /* a passage either carries hand-authored `steps`, or labels ranges of its
+     own body paragraphs with `sections` — no content is duplicated */
+  let steps=(Array.isArray(a.steps)&&a.steps.length&&typeof a.steps[0]==='object')?a.steps:null;
+  let intro=a.intro||null, closing=a.closing||null, tags=a.tags||null;
+  if(!steps && Array.isArray(a.sections) && paras.length){
+    steps=a.sections.map(sec=>({ic:sec.ic,title:sec.title,body:pTxt(sec.p)}));
+    if(a.introP) intro=pTxt(a.introP);
+    if(a.closingP) closing={ic:a.closingIc||'🌟', html:pTxt(a.closingP)};
+  }
+  if(steps&&!tags) tags=[
+    {t:tf('sectionsTag',{n:steps.length}), bg:'#f1ecff', c:'#6d28d9'},
+    {t:t('checkOffTag'), bg:'#e8f7ee', c:'#15803d'}
+  ];
   const dkey=a.id;
   const d=getDraft(dkey);
   let read = (d&&Array.isArray(d.read)&&steps&&d.read.length===steps.length) ? d.read.slice()
@@ -2633,7 +2939,7 @@ function renderPassage(){
         <div class="rd-stephead">
           <div class="rd-num">${i+1}</div>
           <div>
-            <div class="rd-steplbl">Step ${i+1} · ${st.ic||''}</div>
+            <div class="rd-steplbl">${tf('stepLabel',{n:i+1})} · ${st.ic||''}</div>
             <h2>${esc(st.title)}</h2>
           </div>
         </div>
@@ -2641,7 +2947,7 @@ function renderPassage(){
         ${st.quote?`<div class="rd-quote">${esc(st.quote)}</div>`:''}
         ${st.bullets?`<div class="rd-bullets">${st.bullets.map(b=>`
           <div class="rd-bullet" style="background:${b.bg}"><div class="dot" style="background:${b.dot}"></div><p>${b.text}</p></div>`).join('')}</div>`:''}
-        <button class="rd-mark ${read[i]?'done':''}" onclick="window._rdStep(${i})">${read[i]?"✓ Done reading!":"☐ I've read this step"}</button>
+        <button class="rd-mark ${read[i]?'done':''}" onclick="window._rdStep(${i})">${read[i]?t('markDone'):t('markRead')}</button>
       </div>`).join('');
   }
 
@@ -2675,7 +2981,7 @@ function renderPassage(){
 
       ${steps?`<div class="rd-prog">
         <div class="rd-prog-in">
-          <div class="lbl">📖 ${count} of ${total} steps read</div>
+          <div class="lbl">${tf('progRead',{c:count,n:total})}</div>
           <div class="track"><i style="width:${pct}%"></i></div>
           <div class="pc">${pct}%</div>
         </div>
@@ -2685,30 +2991,30 @@ function renderPassage(){
         <div class="rd-card rd-title">
           <div class="rd-eyebrow">${esc(a.desc||'')}</div>
           <h1>${esc(a.heading)}</h1>
-          ${a.by&&!a.tags?`<div class="by">${esc(a.by)}</div>`:''}
-          ${a.tags?`<div class="rd-tags">${a.tags.map(x=>`<span style="background:${x.bg};color:${x.c}">${esc(x.t)}</span>`).join('')}</div>`:''}
+          ${a.by&&!tags?`<div class="by">${esc(a.by)}</div>`:''}
+          ${tags?`<div class="rd-tags">${tags.map(x=>`<span style="background:${x.bg};color:${x.c}">${esc(x.t)}</span>`).join('')}</div>`:''}
         </div>
 
-        ${a.intro?`<div class="rd-card">
-          <p>${a.intro}</p>
+        ${intro?`<div class="rd-card">
+          <p>${intro}</p>
           ${a.callout?`<div class="rd-callout"><div class="ic">${a.callout.ic}</div><p>${esc(a.callout.text)}</p></div>`:''}
         </div>`:''}
 
         ${steps?stepCards():bodyCards()}
 
-        ${a.closing?`<div class="rd-closing"><div class="ic">${a.closing.ic}</div><p>${esc(a.closing.text)}</p></div>`:''}
+        ${closing?`<div class="rd-closing"><div class="ic">${closing.ic}</div><p>${closing.html||esc(closing.text)}</p></div>`:''}
 
         ${(steps&&allRead)?`<div class="rd-celebrate">
           <div class="big">🎉</div>
-          <div class="h">Great job! You finished the reading.</div>
-          <div class="s">You're ready for the quiz. Press “${t('doneReading')}” to continue.</div>
+          <div class="h">${t('doneTitle')}</div>
+          <div class="s">${tf('doneSub',{b:t('doneReading')})}</div>
         </div>`:''}
 
         <div class="rd-foot">
           <button class="rd-btn back" onclick="lesson('${l.id}')">${t('backLesson')}</button>
           ${allRead
             ?`<button class="rd-btn finish" onclick="finishRead()">${t('doneReading')}</button>`
-            :`<button class="rd-btn locked" disabled>🔒 Read all ${total} steps to finish (${total-count} to go)</button>`}
+            :`<button class="rd-btn locked" disabled>${tf('lockedMsg',{n:total,r:total-count})}</button>`}
           ${a.orig?`<a class="rd-orig" href="${a.orig}" target="_blank">${t('viewOrig')}</a>`:''}
         </div>
       </div>`;
@@ -2767,50 +3073,103 @@ function renderMCQ(){
 /* ---------- MATCHING ---------- */
 function renderMatching(){
   const a=CTX.a; const left=a.left; const dkey=CTX.a.id; const useDraft=!CTX.review;
-  const order = shuffle(a.right.map((r,i)=>i)); // display order of right col (deterministic)
+  const order = shuffle(a.right.map((r,i)=>i)); // display order of the right column (deterministic)
+  const LETTERS='ABCDEFGHIJ';
   const d=useDraft?getDraft(dkey):null;
   let selLeft=null; const pairs=(d&&d.pairs)?Object.assign({},d.pairs):{}; // leftIdx -> rightIdx
+  let checked=false, recorded=false;
   function saveD(){ if(useDraft) setDraft(dkey,{pairs}); }
-  function draw(){
-    const leftHtml=left.map((t,i)=>{
-      const done=pairs[i]!=null;
-      const cls=done?'chip done':(selLeft===i?'chip sel':'chip');
-      const badge=done?`<span class="badge">✓ ${'ABCDEFGHIJ'[order.indexOf(pairs[i])]}</span>`:(selLeft===i?'<span class="badge">…</span>':'');
-      return `<button class="${cls}" onclick="window._L(${i})">${badge}${esc(t)}</button>`;
-    }).join('');
-    const usedRight=Object.values(pairs);
-    const rightHtml=order.map((ri,pos)=>{
-      const used=usedRight.includes(ri);
-      const cls=used?'chip done':'chip';
-      return `<button class="${cls}" ${used?'':`onclick="window._R(${ri})"`}><span class="badge" style="float:left;margin-right:8px">${'ABCDEFGHIJ'[pos]}</span>${esc(a.right[ri])}</button>`;
-    }).join('');
-    const all=Object.keys(pairs).length===left.length;
-    app.innerHTML=`${crumbs()}
-      <div class="card">
-        <div class="qtext" style="font-size:16px">${t('matchHint')}</div>
-        <div class="match-wrap">
-          <div class="match-col"><h5>${t('colA')}</h5>${leftHtml}</div>
-          <div class="match-col"><h5>${t('colB')}</h5>${rightHtml}</div>
-        </div>
-        <div class="navq mt">${backBtn()}<button class="btn" ${all?'':'disabled'} onclick="window._check()">${t('check')}</button></div>
-      </div>`;
-  }
-  window._L=function(i){ if(pairs[i]!=null){delete pairs[i];selLeft=null;saveD();draw();return;} selLeft=i; draw(); };
-  window._R=function(ri){ if(selLeft==null)return; pairs[selLeft]=ri; selLeft=null; saveD(); draw(); };
-  window._check=function(){
-    if(useDraft) clearDraft(dkey);
-    let score=0; const wL=[], wA=[];
-    left.forEach((t,i)=>{ if(pairs[i]===a.answer[i])score++; else { wL.push(t); wA.push(a.answer[i]); } });
-    LASTWRONG = wL.length?{type:'matching', left:wL, answer:wA}:null;
-    // show feedback inline
-    const rows=left.map((t,i)=>{
-      const ok=pairs[i]===a.answer[i];
-      return `<div class="seq-item ${ok?'ok':'bad'}"><span class="pos">${ok?'✓':'✗'}</span>
-        <div class="body">${esc(t)}<br><small style="color:var(--muted)">${t('answerLbl')}: <b>${esc(a.right[a.answer[i]])}</b></small></div></div>`;
-    }).join('');
-    app.innerHTML=`${crumbs()}<div class="card"><h3>${t('matchResult')}</h3>${rows}
-      <div class="navq mt">${backBtn()}<button class="btn" onclick="finishQuiz(${score},${left.length})">${t('showScore')}</button></div></div>`;
+  const isRight=i=>pairs[i]===a.answer[i];
+
+  window._L=function(i){
+    if(checked&&isRight(i))return;                 // a correct pair is locked
+    if(pairs[i]!=null){ delete pairs[i]; selLeft=null; saveD(); draw(); return; }
+    selLeft = selLeft===i?null:i; draw();
   };
+  window._R=function(pos){
+    if(selLeft==null)return;
+    const ri=order[pos];
+    Object.keys(pairs).forEach(k=>{ if(pairs[k]===ri) delete pairs[k]; });   // a card can only be used once
+    pairs[selLeft]=ri; selLeft=null; saveD(); draw();
+  };
+  window._mtCheck=function(){ if(useDraft) clearDraft(dkey); checked=true; selLeft=null; draw(); };
+  window._mtFix=function(){
+    checked=false; recorded=false; selLeft=null;
+    left.forEach((_,i)=>{ if(pairs[i]!=null && !isRight(i)) delete pairs[i]; });
+    saveD(); draw();
+  };
+
+  function draw(){
+    const matched=left.filter((_,i)=>pairs[i]!=null).length;
+    const total=left.length;
+    const rightCount=left.filter((_,i)=>isRight(i)).length;
+    const allMatched=matched===total;
+    const pct=total?Math.round(matched/total*100):0;
+    const hint = selLeft!=null ? t('mtHintB') : (allMatched&&!checked ? t('mtHintCheck') : '');
+
+    const colA=left.map((txt,i)=>{
+      const has=pairs[i]!=null;
+      const ok=checked&&has&&isRight(i), no=checked&&has&&!isRight(i);
+      const cls='mtq-card'+(selLeft===i?' sel':'')+(ok?' ok':'')+(no?' no':'');
+      const badge=has?`<span class="mtq-badge${ok?' ok':''}${no?' no':''}">${ok?'✓ ':''}${no?'✗ ':''}${LETTERS[order.indexOf(pairs[i])]}</span>`:'';
+      return `<button class="${cls}" onclick="window._L(${i})"><p>${esc(txt)}</p>${badge}</button>`;
+    }).join('');
+
+    const colB=order.map((ri,pos)=>{
+      const usedBy=left.findIndex((_,i)=>pairs[i]===ri);
+      let cls='mtq-card mtq-b', lcls='mtq-letter';
+      if(usedBy!==-1){
+        const ok=checked&&a.answer[usedBy]===ri, no=checked&&!ok;
+        cls+= ok?' ok':(no?' no':' used');
+        if(ok)lcls+=' ok'; if(no)lcls+=' no';
+      } else if(selLeft!=null){ cls+=' target'; }
+      return `<button class="${cls}" onclick="window._R(${pos})">
+        <span class="${lcls}">${LETTERS[pos]}</span><p>${esc(a.right[ri])}</p></button>`;
+    }).join('');
+
+    app.innerHTML=`${crumbs()}
+      <div class="rd-prog">
+        <div class="rd-prog-in">
+          <div class="lbl">${tf('mtMatched',{c:matched,n:total})}</div>
+          <div class="track"><i style="width:${pct}%"></i></div>
+          <div class="pc">${esc(hint)}</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="rd-eyebrow">${esc(CTX.s.short||CTX.s.name)} · ${t('Lesson')} ${CTX.s.lessons.indexOf(CTX.l)+1}</div>
+        <h2 class="title" style="margin-top:8px">${esc(a.name)}</h2>
+        <p class="sub" style="margin:0">👆 ${t('matchHint')}</p>
+      </div>
+      <div class="mtq-grid">
+        <div class="mtq-col"><div class="mtq-lbl">${t('colA')}</div>${colA}</div>
+        <div class="mtq-col"><div class="mtq-lbl">${t('colB')}</div>${colB}</div>
+      </div>
+      ${(checked&&rightCount===total)?`<div class="mtq-perfect">
+        <div class="em">🏆</div>
+        <div class="h">${t('mtPerfect')}</div>
+        <div class="s">${t('mtPerfectSub')}</div>
+      </div>`:''}
+      ${(checked&&rightCount<total)?`<div class="mtq-partial">
+        <div class="em">💪</div>
+        <div class="txt">
+          <div class="h">${tf('mtScore',{r:rightCount,n:total})}</div>
+          <div class="s">${t('mtWrongSub')}</div>
+        </div>
+        <button class="mtq-fix" onclick="window._mtFix()">${t('mtFix')}</button>
+      </div>`:''}
+      <div class="navq mt">
+        ${backBtn()}
+        ${checked?'':`<button class="btn" ${allMatched?'':'disabled'} onclick="window._mtCheck()">${t('check')} ✓</button>`}
+      </div>`;
+
+    if(checked&&!recorded){
+      recorded=true;
+      const wL=[],wA=[];
+      left.forEach((txt,i)=>{ if(!isRight(i)){ wL.push(txt); wA.push(a.answer[i]); } });
+      LASTWRONG = wL.length?{type:'matching', left:wL, answer:wA}:null;
+      if(!CTX.review){ setBest(CTX.a,Math.round(rightCount/total*100)); markDone(CTX.a); }
+    }
+  }
   draw();
 }
 
@@ -2821,32 +3180,94 @@ function renderSeq(){
   let order;
   if(d && Array.isArray(d.order) && d.order.length===correct.length){ order=d.order.slice(); }
   else { order=shuffle(correct.map((_,i)=>i)); if(order.every((v,i)=>v===i)) order.reverse(); }
+  let checked=false;
   function saveD(){ if(useDraft) setDraft(dkey,{order:order.slice()}); }
-  function move(pos,dir){
-    const np=pos+dir; if(np<0||np>=order.length)return;
-    [order[pos],order[np]]=[order[np],order[pos]]; saveD(); draw();
-  }
-  window._mv=move;
-  function draw(checked){
+
+  function draw(){
     const rows=order.map((ci,pos)=>{
       let cls='seq-item';
       if(checked)cls+= (ci===pos?' ok':' bad');
-      return `<div class="${cls}"><span class="pos">${pos+1}</span>
+      return `<div class="${cls}" data-ci="${ci}"${checked?'':' draggable="true"'}>
+        <span class="pos">${checked?(ci===pos?'✓':'✗'):pos+1}</span>
         <div class="body">${esc(correct[ci])}</div>
-        ${checked?'':`<div class="arrows"><button onclick="window._mv(${pos},-1)">▲</button><button onclick="window._mv(${pos},1)">▼</button></div>`}</div>`;
+        ${checked?'':`<div class="arrows">
+          <button type="button" aria-label="${t('moveUp')}" onclick="window._mv(${pos},-1)">▲</button>
+          <button type="button" aria-label="${t('moveDown')}" onclick="window._mv(${pos},1)">▼</button>
+        </div><span class="grip" aria-hidden="true" title="${t('dragHint')}">⠿</span>`}
+      </div>`;
     }).join('');
     app.innerHTML=`${crumbs()}
       <div class="card">
         <div class="qtext" style="font-size:16px">${t('seqHint')}</div>
-        ${rows}
+        <div id="seqlist" class="seq-list">${rows}</div>
         ${a.flag&&checked?'<div class="note">'+t('seqNote')+'</div>':''}
         <div class="navq mt">${backBtn()}
         ${checked?`<button class="btn" onclick="finishQuiz(${order.filter((ci,pos)=>ci===pos).length},${order.length})">${t('showScore')}</button>`
                  :`<button class="btn" onclick="window._chk()">${t('check')}</button>`}</div>
       </div>`;
+    if(!checked) wireDrag();
   }
-  window._chk=function(){ if(useDraft) clearDraft(dkey); draw(true); };
-  draw(false);
+
+  window._mv=function(pos,dir){
+    const np=pos+dir; if(np<0||np>=order.length)return;
+    [order[pos],order[np]]=[order[np],order[pos]]; saveD(); draw();
+  };
+  window._chk=function(){ if(useDraft) clearDraft(dkey); checked=true; draw(); };
+
+  /* drag to reorder — native DnD for mouse, pointer events (via the grip) for touch */
+  function wireDrag(){
+    const list=document.getElementById('seqlist');
+    if(!list) return;
+    let dragEl=null;
+    const rowsArr=()=>Array.prototype.slice.call(list.querySelectorAll('.seq-item'));
+    function renumber(){ rowsArr().forEach((el,i)=>{ const p=el.querySelector('.pos'); if(p)p.textContent=i+1; }); }
+    function commit(){ order=rowsArr().map(el=>+el.dataset.ci); saveD(); renumber(); }
+    function placeAt(y){
+      let after=null, best=Number.NEGATIVE_INFINITY;
+      rowsArr().forEach(el=>{
+        if(el===dragEl)return;
+        const box=el.getBoundingClientRect();
+        const off=y-box.top-box.height/2;
+        if(off<0 && off>best){ best=off; after=el; }
+      });
+      if(after==null) list.appendChild(dragEl); else list.insertBefore(dragEl,after);
+      renumber();
+    }
+    function start(el){ dragEl=el; el.classList.add('dragging'); list.classList.add('dragging-any'); }
+    function end(){
+      if(!dragEl)return;
+      dragEl.classList.remove('dragging'); list.classList.remove('dragging-any');
+      dragEl=null; commit();
+    }
+
+    list.addEventListener('dragstart',e=>{
+      const el=e.target.closest('.seq-item'); if(!el)return;
+      start(el);
+      try{ e.dataTransfer.effectAllowed='move'; e.dataTransfer.setData('text/plain',''); }catch(_){}
+    });
+    list.addEventListener('dragover',e=>{ if(!dragEl)return; e.preventDefault(); placeAt(e.clientY); });
+    list.addEventListener('drop',e=>{ if(!dragEl)return; e.preventDefault(); });
+    list.addEventListener('dragend',end);
+
+    let pid=null,startY=0,moved=false;
+    list.addEventListener('pointerdown',e=>{
+      if(e.pointerType==='mouse')return;                 // mouse uses native drag and drop
+      if(!e.target.classList.contains('grip'))return;    // touch drags only from the handle
+      const el=e.target.closest('.seq-item'); if(!el)return;
+      pid=e.pointerId; startY=e.clientY; moved=false; start(el);
+      try{ e.target.setPointerCapture(pid); }catch(_){}
+    });
+    list.addEventListener('pointermove',e=>{
+      if(!dragEl||e.pointerId!==pid)return;
+      if(!moved && Math.abs(e.clientY-startY)<6)return;
+      moved=true; e.preventDefault(); placeAt(e.clientY);
+    });
+    function ptrEnd(e){ if(!dragEl||e.pointerId!==pid)return; pid=null; end(); }
+    list.addEventListener('pointerup',ptrEnd);
+    list.addEventListener('pointercancel',ptrEnd);
+  }
+
+  draw();
 }
 
 /* ---------- FILL IN THE BLANK ---------- */
@@ -2899,63 +3320,166 @@ function renderTF(){
   const picks=(d&&d.picks)?Object.assign({},d.picks):{};
   const tLabel=a.tLabel||'B — Binanggit', fLabel=a.fLabel||'HB — Hindi';
   const prompt=a.prompt||'Piliin ang <b>B</b> kung binanggit sa reseta, <b>HB</b> kung hindi.';
+  const total=a.items.length;
+  let recorded=false;
   function saveD(){ if(useDraft) setDraft(dkey,{picks}); }
-  function draw(){
-    const rows=a.items.map((it,i)=>{
-      return `<div class="tf-row" id="tf${i}">
-        <div class="st">${i+1}. ${esc(it.st)}</div>
-        <div class="opts">
-          <button id="b${i}t" class="${picks[i]===true?'pick':''}" onclick="window._p(${i},true)">${tLabel}</button>
-          <button id="b${i}f" class="${picks[i]===false?'pick':''}" onclick="window._p(${i},false)">${fLabel}</button>
-        </div></div>`;
-    }).join('');
-    const all=Object.keys(picks).length===a.items.length;
-    app.innerHTML=`${crumbs()}
-      <div class="card">
-        <div class="qtext" style="font-size:16px">${prompt}</div>
-        ${rows}
-        <div class="navq mt">${backBtn()}<button class="btn" ${all?'':'disabled'} onclick="window._chk()">${t('check')}</button></div>
-      </div>`;
-  }
-  window._p=function(i,v){picks[i]=v;saveD();draw();};
-  window._chk=function(){
-    if(useDraft) clearDraft(dkey);
-    let score=0; const w=[];
-    a.items.forEach((it,i)=>{
-      const row=document.getElementById('tf'+i);
-      const ok=picks[i]===it.a; if(ok)score++; else w.push(it);
-      row.classList.add(ok?'ok':'bad');
-      const s=document.createElement('div'); s.style.marginTop='6px'; s.style.fontWeight='700';
-      s.style.color=ok?'var(--good)':'var(--bad)';
-      s.innerHTML= ok?t('tfRight'):`${t('tfWrong')} ${it.a?(a.tWord||'B (Binanggit)'):(a.fWord||'HB (Hindi binanggit)')}`;
-      row.appendChild(s);
-    });
-    LASTWRONG = w.length?{type:'truefalse', items:w}:null;
-    document.querySelector('.navq').innerHTML=`${backBtn()}<button class="btn" onclick="finishQuiz(${score},${a.items.length})">${t('showScore')}</button>`;
+
+  window._p=function(i,v){
+    if(picks[i]!=null)return;      // each item is answered once, then locked
+    picks[i]=v; saveD(); draw();
   };
+  window._tfAgain=function(){ openAct(CTX.l.id,CTX.a.id); };
+
+  function draw(){
+    const answered=a.items.filter((_,i)=>picks[i]!=null).length;
+    let score=0; a.items.forEach((it,i)=>{ if(picks[i]===it.a) score++; });
+    const allDone=answered===total;
+    const pct=total?Math.round(answered/total*100):0;
+
+    const cards=a.items.map((it,i)=>{
+      const picked=picks[i], done=picked!=null, right=done&&picked===it.a;
+      const kind=v=>{
+        if(!done)return '';
+        if(picked===v)return right?'right':'wrong';
+        return it.a===v?'reveal':'dim';
+      };
+      const tick=v=>(done&&it.a===v)?' ✓':'';
+      const fb = !done ? '' : (right
+        ? `<div class="tf-fb ok">${t('tfCorrect')}${it.e?' '+esc(it.e):''}</div>`
+        : `<div class="tf-fb no">${tf('tfIncorrect',{a:esc(it.a?(a.tWord||tLabel):(a.fWord||fLabel))})}${it.e?' '+esc(it.e):''}</div>`);
+      return `<div class="tfq" id="tf${i}">
+        <div class="tfq-head">
+          <div class="tfq-num">${i+1}</div>
+          <p>${esc(it.st)}</p>
+        </div>
+        <div class="tfq-opts">
+          <button class="tfb ${kind(true)}" ${done?'disabled':''} onclick="window._p(${i},true)">${esc(tLabel)}${tick(true)}</button>
+          <button class="tfb ${kind(false)}" ${done?'disabled':''} onclick="window._p(${i},false)">${esc(fLabel)}${tick(false)}</button>
+        </div>
+        ${fb}
+      </div>`;
+    }).join('');
+
+    const emoji = score===total?'🏆':(score/total>=.8?'🎉':(score/total>=.5?'💪':'📖'));
+    const msg = score===total?t('tfMsgTop'):(score/total>=.5?t('tfMsgMid'):t('tfMsgLow'));
+    const wrongItems=a.items.filter((it,i)=>picks[i]!=null&&picks[i]!==it.a);
+
+    app.innerHTML=`${crumbs()}
+      <div class="rd-prog">
+        <div class="rd-prog-in">
+          <div class="lbl">${tf('tfAnswered',{c:answered,n:total})}</div>
+          <div class="track"><i style="width:${pct}%"></i></div>
+          <div class="sc">${tf('tfScore',{s:score})}</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="rd-eyebrow">${esc(CTX.s.short||CTX.s.name)} · ${t('Lesson')} ${CTX.s.lessons.indexOf(CTX.l)+1}</div>
+        <h2 class="title" style="margin-top:8px">${esc(a.name)}</h2>
+        <p class="sub" style="margin:0">${prompt}</p>
+      </div>
+      ${cards}
+      ${allDone?`<div class="tf-done">
+        <div class="em">${emoji}</div>
+        <div class="h">${tf('tfScored',{s:score,n:total})}</div>
+        <div class="s">${msg}</div>
+        <div class="acts">
+          ${wrongItems.length?`<button class="btn retry" onclick="reviewWrong()">${t('retryWrong')} (${wrongItems.length})</button>`:''}
+          <button class="tf-again" onclick="window._tfAgain()">${t('tfAgain')}</button>
+          <button class="btn secondary" onclick="lesson('${CTX.l.id}')">${t('backLesson')}</button>
+        </div>
+      </div>`:`<div class="navq">${backBtn()}<span></span></div>`}`;
+
+    if(allDone&&!recorded){
+      recorded=true;
+      LASTWRONG = wrongItems.length?{type:'truefalse', items:wrongItems}:null;
+      if(!CTX.review){ setBest(CTX.a,Math.round(score/total*100)); markDone(CTX.a); clearDraft(dkey); }
+    }
+    window.scrollTo(0,0);
+  }
   draw();
 }
 
 /* ---------- SHORTCHECK (self-check) ---------- */
 function renderShort(){
-  const a=CTX.a; const dkey=CTX.a.id;
-  const rows=a.items.map((it,i)=>`
-    <div>
-      <div class="sc-q"><span class="n">${i+1}.</span> ${esc(it.q)}</div>
-      <textarea id="ta${i}" oninput="window._sc()" placeholder="${t('scPlaceholder')}"></textarea>
-      <div style="margin:8px 0 4px"><button class="btn small secondary" onclick="window._rev(${i})">${t('scShow')}</button></div>
-      <div class="model hide" id="m${i}"><b>${t('scModel')}</b> ${esc(it.m)}</div>
-    </div>`).join('');
-  app.innerHTML=`${crumbs()}
-    <div class="card">
-      <div class="qtext" style="font-size:16px">${t('scHint')}</div>
-      ${rows}
-      <div class="navq mt">${backBtn()}<button class="btn" onclick="finishRead();">${t('scDone')}</button></div>
-    </div>`;
-  window._rev=function(i){ document.getElementById('m'+i).classList.remove('hide'); };
-  window._sc=function(){ setDraft(dkey,{texts:a.items.map((_,i)=>{const el=document.getElementById('ta'+i);return el?el.value:'';})}); };
-  const d=getDraft(dkey);
-  if(d&&d.texts){ a.items.forEach((_,i)=>{ const el=document.getElementById('ta'+i); if(el&&d.texts[i]!=null) el.value=d.texts[i]; }); }
+  const a=CTX.a; const dkey=CTX.a.id; const total=a.items.length;
+  const d=getDraft(dkey)||{};
+  let texts=Array.isArray(d.texts)&&d.texts.length===total?d.texts.slice():a.items.map(()=>'');
+  let shown=Array.isArray(d.shown)&&d.shown.length===total?d.shown.slice():a.items.map(()=>false);
+  let rating=Array.isArray(d.rating)&&d.rating.length===total?d.rating.slice():a.items.map(()=>null);
+  function saveD(){ setDraft(dkey,{texts:texts.slice(),shown:shown.slice(),rating:rating.slice()}); }
+
+  /* typing must not re-render (it would steal the caret) — save and nudge the button instead */
+  window._sc=function(i){
+    const el=document.getElementById('ta'+i); if(!el)return;
+    texts[i]=el.value; saveD();
+    const btn=document.getElementById('sh'+i);
+    const nudge=document.getElementById('nd'+i);
+    const has=el.value.trim().length>0;
+    if(btn) btn.disabled=!has;
+    if(nudge) nudge.style.display=has?'none':'';
+  };
+  window._scShow=function(i){ if(!texts[i]||!texts[i].trim())return; shown[i]=true; saveD(); draw(); };
+  window._scRate=function(i,v){ rating[i]=v; saveD(); draw(); };
+
+  function draw(){
+    const rated=rating.filter(r=>r!=null).length;
+    const pct=total?Math.round(rated/total*100):0;
+    const allRated=rated===total;
+
+    const cards=a.items.map((it,i)=>{
+      const has=(texts[i]||'').trim().length>0;
+      const body = shown[i] ? `
+        <div class="sc-model">
+          <div class="lbl">${t('scModelLbl')}</div>
+          <p>${esc(it.m)}</p>
+        </div>
+        ${rating[i]==null?`<div class="scq-row">
+          <span class="sc-ask">${t('scCompare')}</span>
+          <button class="sc-rate good" onclick="window._scRate(${i},'good')">${t('scGood')}</button>
+          <button class="sc-rate retry" onclick="window._scRate(${i},'retry')">${t('scRetry')}</button>
+        </div>`:`<span class="sc-chip ${rating[i]}">${rating[i]==='good'?t('scGoodChip'):t('scRetryChip')}</span>`}`
+        : `<div class="scq-row">
+          <button class="sc-show" id="sh${i}" ${has?'':'disabled'} onclick="window._scShow(${i})">${t('scShowBtn')}</button>
+          <span class="sc-nudge" id="nd${i}" ${has?'style="display:none"':''}>${t('scNeedAnswer')}</span>
+        </div>`;
+      return `<div class="scq">
+        <div class="scq-head">
+          <div class="scq-num">${i+1}</div>
+          <h2>${esc(it.q)}</h2>
+        </div>
+        <textarea id="ta${i}" rows="4" oninput="window._sc(${i})" placeholder="${t('scPlaceholder')}"></textarea>
+        ${body}
+      </div>`;
+    }).join('');
+
+    app.innerHTML=`${crumbs()}
+      <div class="rd-prog">
+        <div class="rd-prog-in">
+          <div class="lbl">${tf('scChecked',{c:rated,n:total})}</div>
+          <div class="track"><i style="width:${pct}%"></i></div>
+          <div class="save">${t('scSaved')}</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="rd-eyebrow">${esc(CTX.s.short||CTX.s.name)} · ${t('Lesson')} ${CTX.s.lessons.indexOf(CTX.l)+1}</div>
+        <h2 class="title" style="margin-top:8px">${esc(a.name)}</h2>
+        <p class="sub" style="margin:0">${t('scHint')}</p>
+      </div>
+      ${cards}
+      ${allRated?`<div class="sc-finished">
+        <div class="em">🎉</div>
+        <div class="h">${t('scFinished')}</div>
+        <div class="s">${t('scFinishedSub')}</div>
+      </div>`:''}
+      <div class="navq mt">
+        ${backBtn()}
+        ${allRated?`<button class="btn" onclick="finishRead()">${t('scDone')}</button>`
+                  :`<button class="btn" disabled>${tf('scLocked',{n:total})}</button>`}
+      </div>`;
+
+    a.items.forEach((_,i)=>{ const el=document.getElementById('ta'+i); if(el) el.value=texts[i]||''; });
+  }
+  draw();
 }
 
 /* ---------- RESULTS ---------- */
