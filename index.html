@@ -895,11 +895,11 @@ Pagwawangis kang laging nasa isipan.`
           name:"Binanggit ba sa Reseta?",
           desc:"Piliin ang B kung binanggit sa pagluluto, HB kung hindi",
           items:[
-            {st:"Igisa ang bawang, luya, at sibuyas.", a:true},
-            {st:"Ibabad sa kalamansi at suka ang manok bago igisa.", a:false},
-            {st:"Ilagay ang carrot matapos itong sabawan.", a:false},
-            {st:"Timplahan ng asin at kalahating kutsarang paminta ang pinakukuluang manok.", a:true},
-            {st:"Ihulog ang siling-berde. Lagyan ng chicken cube. Takpan at hayaan itong kumulo.", a:true}
+            {st:"Igisa ang bawang, luya, at sibuyas.", a:true, e:"Binanggit sa reseta: igisa ang bawang, luya, at sibuyas bago ihalo ang manok."},
+            {st:"Ibabad sa kalamansi at suka ang manok bago igisa.", a:false, e:"Wala nito sa reseta — diretsong iginigisa ang manok, walang pagbabad sa kalamansi at suka."},
+            {st:"Ilagay ang carrot matapos itong sabawan.", a:false, e:"Papaya (hilaw) ang inihuhulog sa sabaw sa resetang ito, hindi carrot."},
+            {st:"Timplahan ng asin at kalahating kutsarang paminta ang pinakukuluang manok.", a:true, e:"Binanggit: timplahan ng asin at kalahating kutsarang durog na paminta."},
+            {st:"Ihulog ang siling-berde. Lagyan ng chicken cube. Takpan at hayaan itong kumulo.", a:true, e:"Binanggit: ihulog ang siling-berde, lagyan ng chicken cube, takpan at pakuluan."}
           ]
         },
         {
@@ -978,16 +978,16 @@ Mahalaga ang netiquette upang mapanatili ang maayos at magalang na komunikasyon 
             prompt:"Piliin kung <b>Tama</b> o <b>Mali</b> ang pagsasagawa ng netiquette sa bawat pahayag.",
             tLabel:"Tama ✓", fLabel:"Mali ✗", tWord:"Tama", fWord:"Mali",
             items:[
-              {st:"Si Alea ay gumagamit nang maaayos na salita sa pakikipag-usap sa kaniyang mga kagrupo gamit ang internet.", a:true},
-              {st:"Tiniyak ni Elnard na tama ang mga bantas at baybay ng mga salita sa kaniyang mensahe bago niya ipinadala ito sa kaniyang kaibigan gamit ang social media.", a:true},
-              {st:"Malalaking titik (ALL CAPS) ang ginamit ni Delfin sa pagsagot niya sa mensaheng ipinadala sa kaniya ni Nica.", a:false},
-              {st:"Hindi sinagot ni Aia ang mensahe na ipinadala sa kaniya sa social media ng isang taong hindi niya nakilala.", a:true, flag:true},
-              {st:"Ibinabahagi ni Carlo sa kaniyang social media account ang mga balitang hindi tiyak ang pinanggalingan.", a:false},
-              {st:"Masusing sinusuri ni Lina ang mga nilalaman ng bawat mensahe bago siya magpahayag ng reaksiyon o bago niya ito sagutin.", a:true},
-              {st:"Ang magkapatid na sina Miguel at Ayie ay gumagamit ng angkop na mga emoticon upang ipahayag ang kanilang nararamdaman habang nag-uusap sa social media.", a:true},
-              {st:"Ibinahagi ni Arthur ang isang mensahe na walang pasok sa kanilang paaralan kahit hindi niya alam kung ito ay totoo o hindi.", a:false},
-              {st:"Nagpakita si Lyndon ng angry face emoticon bilang reaksiyon sa mensahe ni Flora sa group chat nang hindi binabasa ang kabuuan ng mga mensahe.", a:false},
-              {st:"Nagpadala ng maraming thumbs up na emoticon si Cheska sa kaibigan niya upang makuha ang atensyon nito.", a:false, flag:true}
+              {st:"Si Alea ay gumagamit nang maaayos na salita sa pakikipag-usap sa kaniyang mga kagrupo gamit ang internet.", a:true, e:"Bahagi ng netiquette ang paggamit ng maayos at magalang na salita sa kahit anong usapan online."},
+              {st:"Tiniyak ni Elnard na tama ang mga bantas at baybay ng mga salita sa kaniyang mensahe bago niya ipinadala ito sa kaniyang kaibigan gamit ang social media.", a:true, e:"Ang pagsusuri ng baybay at bantas bago magpadala ay tanda ng respeto sa babasa."},
+              {st:"Malalaking titik (ALL CAPS) ang ginamit ni Delfin sa pagsagot niya sa mensaheng ipinadala sa kaniya ni Nica.", a:false, e:"Ang ALL CAPS ay parang pagsigaw sa online — iwasan ito."},
+              {st:"Hindi sinagot ni Aia ang mensahe na ipinadala sa kaniya sa social media ng isang taong hindi niya nakilala.", a:true, flag:true, e:"Tama ang hindi pagsagot sa mensahe ng hindi kilalang tao — pananatilihin ka nitong ligtas."},
+              {st:"Ibinabahagi ni Carlo sa kaniyang social media account ang mga balitang hindi tiyak ang pinanggalingan.", a:false, e:"Huwag magbahagi ng balitang walang tiyak na pinagmulan — maaari itong maling impormasyon."},
+              {st:"Masusing sinusuri ni Lina ang mga nilalaman ng bawat mensahe bago siya magpahayag ng reaksiyon o bago niya ito sagutin.", a:true, e:"Basahin at unawain muna ang buong mensahe bago magpahayag ng reaksiyon."},
+              {st:"Ang magkapatid na sina Miguel at Ayie ay gumagamit ng angkop na mga emoticon upang ipahayag ang kanilang nararamdaman habang nag-uusap sa social media.", a:true, e:"Nakatutulong ang angkop na emoticon upang maging malinaw ang damdaming ipinapahayag."},
+              {st:"Ibinahagi ni Arthur ang isang mensahe na walang pasok sa kanilang paaralan kahit hindi niya alam kung ito ay totoo o hindi.", a:false, e:"Ang pagpapakalat ng balitang hindi mo alam kung totoo ay pagkalat ng fake news."},
+              {st:"Nagpakita si Lyndon ng angry face emoticon bilang reaksiyon sa mensahe ni Flora sa group chat nang hindi binabasa ang kabuuan ng mga mensahe.", a:false, e:"Hindi dapat magreact nang galit, lalo na kung hindi pa nababasa ang buong usapan."},
+              {st:"Nagpadala ng maraming thumbs up na emoticon si Cheska sa kaibigan niya upang makuha ang atensyon nito.", a:false, flag:true, e:"Ang paulit-ulit na pagpapadala ng emoticon ay nakaaabala — ito ay spamming."}
             ]
           },
           {
@@ -1125,12 +1125,12 @@ Mga Bahagi ng Email: Recipient, Cc at Bcc, Subject Line, Salutation, Email Body,
             prompt:"Piliin kung <b>Tama</b> o <b>Mali</b> ang pahayag tungkol sa tamang paggawa ng email.",
             tLabel:"Tama ✓", fLabel:"Mali ✗", tWord:"Tama", fWord:"Mali",
             items:[
-              {st:"Palaging maglagay ng paksa sa subject line upang maipabatid ang nilalaman ng email.", a:true},
-              {st:"Gumamit ng mga salitang slang sa paggawa ng email dahil ito ay uso at magandang pakinggan.", a:false},
-              {st:"Gumamit ng tamang gramatika at iwasan ang abbreviation sa email.", a:true},
-              {st:"Gumamit ng mga salitang may dalawang kahulugan sa paggawa ng subject ng email.", a:false},
-              {st:"Huwag kalimutan ang panimula at pangwakas na pagbati sa email.", a:true},
-              {st:"Iwasang suriin ang baybay ng mga salita bago ipadala ang email.", a:false}
+              {st:"Palaging maglagay ng paksa sa subject line upang maipabatid ang nilalaman ng email.", a:true, e:"Ang subject line ang nagbibigay-alam agad kung tungkol saan ang email."},
+              {st:"Gumamit ng mga salitang slang sa paggawa ng email dahil ito ay uso at magandang pakinggan.", a:false, e:"Iwasan ang slang sa email — gumamit ng malinaw at magalang na salita."},
+              {st:"Gumamit ng tamang gramatika at iwasan ang abbreviation sa email.", a:true, e:"Malinaw na gramatika at buong salita ang nararapat sa email, hindi abbreviation."},
+              {st:"Gumamit ng mga salitang may dalawang kahulugan sa paggawa ng subject ng email.", a:false, e:"Dapat tiyak at malinaw ang subject, hindi malabo o may dalawang kahulugan."},
+              {st:"Huwag kalimutan ang panimula at pangwakas na pagbati sa email.", a:true, e:"Bahagi ng magalang na email ang panimulang pagbati at ang pangwakas."},
+              {st:"Iwasang suriin ang baybay ng mga salita bago ipadala ang email.", a:false, e:"Suriin ang baybay bago ipadala — hindi na mababawi ang email pagkatapos."}
             ]
           },
           {
@@ -1217,11 +1217,11 @@ To convert 12-hour to 24-hour: keep the hour for morning (a.m.) times and remove
             prompt:"Choose <b>True</b> if the statement is always correct, <b>False</b> if it is not.",
             tLabel:"True", fLabel:"False", tWord:"True", fWord:"False",
             items:[
-              {st:"14:00 in the 24-hour clock is the same as 2:00 p.m. in the 12-hour clock.", a:true},
-              {st:"00:00 is the same as 12:00 a.m.", a:true},
-              {st:"16:30 in the 24-hour clock is the same as 4:30 p.m.", a:true},
-              {st:"03:30 in the 24-hour clock is the same as 3:30 p.m.", a:false},
-              {st:"03:30 in the 24-hour clock is the same as 15:30.", a:false}
+              {st:"14:00 in the 24-hour clock is the same as 2:00 p.m. in the 12-hour clock.", a:true, e:"For a 24-hour hour above 12, subtract 12: 14 - 12 = 2, so 14:00 is 2:00 p.m."},
+              {st:"00:00 is the same as 12:00 a.m.", a:true, e:"Midnight starts the day at 00:00, which is written 12:00 a.m. on the 12-hour clock."},
+              {st:"16:30 in the 24-hour clock is the same as 4:30 p.m.", a:true, e:"16 - 12 = 4, and it is afternoon, so 16:30 is 4:30 p.m."},
+              {st:"03:30 in the 24-hour clock is the same as 3:30 p.m.", a:false, e:"03:30 is a morning time, 3:30 a.m. The afternoon 3:30 p.m. is 15:30."},
+              {st:"03:30 in the 24-hour clock is the same as 15:30.", a:false, e:"03:30 and 15:30 are 12 hours apart — one is morning, the other afternoon."}
             ]
           },
           {
@@ -1327,11 +1327,11 @@ Understanding time zones helps with travel, calling family who live abroad, and 
             prompt:"Choose <b>True</b> if the statement is correct, <b>False</b> if it is not.",
             tLabel:"True", fLabel:"False", tWord:"True", fWord:"False",
             items:[
-              {st:"The Philippines operates in the UTC+8 time zone.", a:true},
-              {st:"Tokyo, Japan (UTC+9) is 1 hour behind Manila.", a:false},
-              {st:"New York (UTC-5) is 13 hours behind Manila time.", a:true},
-              {st:"Sydney, Australia (UTC+11) is 3 hours behind Manila.", a:false},
-              {st:"Beijing, China and Manila share the same local time.", a:true}
+              {st:"The Philippines operates in the UTC+8 time zone.", a:true, e:"Philippine Standard Time is UTC+8, and one time zone covers the whole country."},
+              {st:"Tokyo, Japan (UTC+9) is 1 hour behind Manila.", a:false, e:"Tokyo is UTC+9, which is 1 hour AHEAD of Manila, not behind."},
+              {st:"New York (UTC-5) is 13 hours behind Manila time.", a:true, e:"From UTC+8 to UTC-5 is a difference of 13 hours, so New York is 13 hours behind Manila."},
+              {st:"Sydney, Australia (UTC+11) is 3 hours behind Manila.", a:false, e:"Sydney at UTC+11 is 3 hours AHEAD of Manila (UTC+8), not behind."},
+              {st:"Beijing, China and Manila share the same local time.", a:true, e:"Beijing is also in UTC+8, so its local time is the same as Manila time."}
             ]
           },
           {
@@ -1665,14 +1665,14 @@ Properties of an isosceles trapezoid:
             prompt:"Choose <b>True</b> if the statement is always correct, <b>False</b> if it is not.",
             tLabel:"True", fLabel:"False", tWord:"True", fWord:"False",
             items:[
-              {st:"The height of a triangle is always perpendicular to the base.", a:true},
-              {st:"Any one of a triangle's three sides can be chosen as the base.", a:true},
-              {st:"A scalene triangle has two sides of equal length.", a:false},
-              {st:"In a parallelogram, opposite angles are congruent.", a:true},
-              {st:"The diagonals of a parallelogram bisect each other.", a:true},
-              {st:"A trapezoid has two pairs of parallel sides.", a:false},
-              {st:"The midsegment of a trapezoid is parallel to its bases.", a:true},
-              {st:"A square is a special type of parallelogram.", a:true}
+              {st:"The height of a triangle is always perpendicular to the base.", a:true, e:"The height, or altitude, is the perpendicular distance from the base to the opposite vertex."},
+              {st:"Any one of a triangle's three sides can be chosen as the base.", a:true, e:"Any of the three sides may be chosen as the base; the height is then measured from that side."},
+              {st:"A scalene triangle has two sides of equal length.", a:false, e:"A scalene triangle has no two sides equal. Two equal sides would make it isosceles."},
+              {st:"In a parallelogram, opposite angles are congruent.", a:true, e:"Opposite angles of a parallelogram are congruent, and consecutive angles are supplementary."},
+              {st:"The diagonals of a parallelogram bisect each other.", a:true, e:"The diagonals of a parallelogram cut each other into two equal parts."},
+              {st:"A trapezoid has two pairs of parallel sides.", a:false, e:"A trapezoid has only ONE pair of parallel sides. Two pairs would make it a parallelogram."},
+              {st:"The midsegment of a trapezoid is parallel to its bases.", a:true, e:"The midsegment joins the midpoints of the legs and runs parallel to both bases."},
+              {st:"A square is a special type of parallelogram.", a:true, e:"A square has two pairs of parallel, congruent sides, so it is a special parallelogram."}
             ]
           },
           {
@@ -1841,12 +1841,12 @@ Properties of an isosceles trapezoid:
             prompt:"Choose <b>True</b> if the statement is correct, <b>False</b> if it is not.",
             tLabel:"True", fLabel:"False", tWord:"True", fWord:"False",
             items:[
-              {st:"A hypothesis is an intelligent guess that needs to be tested by conducting an experiment.", a:true},
-              {st:"In a fair experiment, you may change several conditions at the same time.", a:false},
-              {st:"The control setup is the one that receives no treatment.", a:true},
-              {st:"An experiment must be conducted to find out whether the hypothesis is supported or rejected by actual observations.", a:true},
-              {st:"Gathering information about the problem comes after making a hypothesis.", a:false},
-              {st:"A conclusion answers the problem that was identified in the first step.", a:true}
+              {st:"A hypothesis is an intelligent guess that needs to be tested by conducting an experiment.", a:true, e:"A hypothesis is an intelligent guess, and an experiment is how you test it."},
+              {st:"In a fair experiment, you may change several conditions at the same time.", a:false, e:"Change only ONE condition at a time, so you know what caused the result."},
+              {st:"The control setup is the one that receives no treatment.", a:true, e:"The control setup receives no treatment; the experimental setup receives the change."},
+              {st:"An experiment must be conducted to find out whether the hypothesis is supported or rejected by actual observations.", a:true, e:"The experiment shows whether actual observations support or reject the hypothesis."},
+              {st:"Gathering information about the problem comes after making a hypothesis.", a:false, e:"Gathering information is Step 2 — it comes BEFORE making a hypothesis in Step 3."},
+              {st:"A conclusion answers the problem that was identified in the first step.", a:true, e:"The conclusion answers the problem identified in Step 1 and says if the hypothesis was supported."}
             ]
           },
           {
@@ -1987,12 +1987,12 @@ Why measuring matters. Measuring is a crucial skill in cooking and baking. If yo
             prompt:"Choose <b>True</b> if the statement is correct, <b>False</b> if it is not.",
             tLabel:"True", fLabel:"False", tWord:"True", fWord:"False",
             items:[
-              {st:"One cubic centimeter is the same as one milliliter.", a:true},
-              {st:"A beaker gives a more exact volume than a graduated cylinder.", a:false},
-              {st:"The freezing point of water is 0 degrees Celsius, which is equal to 32 degrees Fahrenheit.", a:true},
-              {st:"Mass is the amount of space occupied by matter.", a:false},
-              {st:"A meterstick can measure objects longer than a ruler can.", a:true},
-              {st:"Measurement is a quantitative observation because its details are expressed in numerical form.", a:true}
+              {st:"One cubic centimeter is the same as one milliliter.", a:true, e:"One cubic centimeter and one milliliter are the same amount of space."},
+              {st:"A beaker gives a more exact volume than a graduated cylinder.", a:false, e:"A beaker gives only a rough volume. The graduated cylinder is the exact one."},
+              {st:"The freezing point of water is 0 degrees Celsius, which is equal to 32 degrees Fahrenheit.", a:true, e:"Water freezes at 0 degrees Celsius, which is 32 degrees Fahrenheit."},
+              {st:"Mass is the amount of space occupied by matter.", a:false, e:"That describes volume. Mass is the amount of matter an object has."},
+              {st:"A meterstick can measure objects longer than a ruler can.", a:true, e:"A meterstick measures in centimeters and meters, so it handles objects longer than a ruler can."},
+              {st:"Measurement is a quantitative observation because its details are expressed in numerical form.", a:true, e:"A measurement has a numerical value and a unit, which makes it a quantitative observation."}
             ]
           },
           {
@@ -2122,12 +2122,12 @@ Ferns are another type of nonflowering plant that reproduce using spores. They c
             prompt:"Choose <b>True</b> if the statement is correct, <b>False</b> if it is not.",
             tLabel:"True", fLabel:"False", tWord:"True", fWord:"False",
             items:[
-              {st:"Angiosperms are plants that bear flowers.", a:true},
-              {st:"Gymnosperm seeds are enclosed inside fruits.", a:false},
-              {st:"Pine trees, cycads, and Ginkgo biloba are all gymnosperms.", a:true},
-              {st:"Mosses have true roots, stems, and leaves.", a:false},
-              {st:"Conifers have needlelike leaves and stay green all year round.", a:true},
-              {st:"A fern's young curled-up frond is called a fiddlehead.", a:true}
+              {st:"Angiosperms are plants that bear flowers.", a:true, e:"Angiosperm means flowering plant, and its seeds develop inside a fruit."},
+              {st:"Gymnosperm seeds are enclosed inside fruits.", a:false, e:"Gymnosperm means naked seed — the seeds sit exposed in cones, not inside fruits."},
+              {st:"Pine trees, cycads, and Ginkgo biloba are all gymnosperms.", a:true, e:"Conifers, cycads, and ginkgo are the three groups of gymnosperms in this lesson."},
+              {st:"Mosses have true roots, stems, and leaves.", a:false, e:"Mosses have no true roots, stems, or leaves. They anchor themselves with rhizoids."},
+              {st:"Conifers have needlelike leaves and stay green all year round.", a:true, e:"Conifers are evergreen, with needlelike leaves that stay green all year round."},
+              {st:"A fern's young curled-up frond is called a fiddlehead.", a:true, e:"A young curled-up fern frond is called a fiddlehead, and it uncurls as it grows."}
             ]
           },
           {
@@ -2245,12 +2245,12 @@ Fishes are vertebrates that live in water. Their body is covered with scales, an
             prompt:"Choose <b>True</b> if the statement is correct, <b>False</b> if it is not.",
             tLabel:"True", fLabel:"False", tWord:"True", fWord:"False",
             items:[
-              {st:"Sharks are mammals.", a:false},
-              {st:"Some mammals lay eggs.", a:true},
-              {st:"Tarsiers lay eggs instead of giving birth to live young.", a:false},
-              {st:"Most reptiles lay their eggs in a nest to keep them safe and warm.", a:true},
-              {st:"Amphibians are ectothermic animals that breathe through gills when young.", a:true},
-              {st:"All invertebrates have a backbone made of soft cartilage.", a:false}
+              {st:"Sharks are mammals.", a:false, e:"Sharks are fishes — they breathe through gills and have fins and scales."},
+              {st:"Some mammals lay eggs.", a:true, e:"A few mammals, such as the platypus and echidna, lay eggs but still feed their young with milk."},
+              {st:"Tarsiers lay eggs instead of giving birth to live young.", a:false, e:"Tarsiers are mammals, so they give birth to live young and feed them with milk."},
+              {st:"Most reptiles lay their eggs in a nest to keep them safe and warm.", a:true, e:"Most reptiles lay leathery eggs in a nest that keeps them safe and warm."},
+              {st:"Amphibians are ectothermic animals that breathe through gills when young.", a:true, e:"Amphibians are cold-blooded, and a tadpole breathes through gills before it grows lungs."},
+              {st:"All invertebrates have a backbone made of soft cartilage.", a:false, e:"Invertebrates have NO backbone at all. Many have a hard exoskeleton on the outside instead."}
             ]
           },
           {
@@ -2346,12 +2346,12 @@ Bacteria can also be helpful or harmful. Helpful bacteria turn milk into yogurt,
             prompt:"Choose <b>True</b> if the statement is correct, <b>False</b> if it is not.",
             tLabel:"True", fLabel:"False", tWord:"True", fWord:"False",
             items:[
-              {st:"All microorganisms are harmful and cause disease.", a:false},
-              {st:"Yeast is a one-celled fungus.", a:true},
-              {st:"Many fungi are decomposers that break down dead matter and return nutrients to the soil.", a:true},
-              {st:"Bacteria are made of many cells and have a true nucleus.", a:false},
-              {st:"Alipunga, or athlete's foot, is caused by a fungus.", a:true},
-              {st:"Antibiotics such as penicillin were first made from a mold.", a:true}
+              {st:"All microorganisms are harmful and cause disease.", a:false, e:"Many microorganisms are helpful — they make bread rise, turn milk into yogurt, and enrich the soil."},
+              {st:"Yeast is a one-celled fungus.", a:true, e:"Yeast is a fungus made of only one cell, and it makes bread dough rise."},
+              {st:"Many fungi are decomposers that break down dead matter and return nutrients to the soil.", a:true, e:"Decomposers break down dead plants and animals and return nutrients to the soil."},
+              {st:"Bacteria are made of many cells and have a true nucleus.", a:false, e:"A bacterium is made of only one cell and has no true nucleus."},
+              {st:"Alipunga, or athlete's foot, is caused by a fungus.", a:true, e:"Alipunga is a fungal infection of the skin, like an-an and buni."},
+              {st:"Antibiotics such as penicillin were first made from a mold.", a:true, e:"The antibiotic penicillin was first made from the mold Penicillium."}
             ]
           },
           {
