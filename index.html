@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Interaktibong Reviewer — Grade 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg1:#4f46e5; --bg2:#7c3aed; --card:#ffffff; --ink:#1f2937; --muted:#6b7280;
@@ -160,6 +163,170 @@
   .mt{margin-top:14px}
   a.origlink{display:inline-block;margin-top:12px;font-size:13px;color:#4338ca;font-weight:700}
   .hide{display:none}
+
+  /* =========================================================
+     HOME THEME — from the Claude Design project
+     "Interactive app redesign for students" / Homepage.dc.html
+     Scoped to body.home-theme so inner screens are untouched.
+     ========================================================= */
+  :root{
+    --h-ink:#2a2440; --h-head:#3b2a6d; --h-body:#6b6288; --h-eyebrow:#8a7fb0;
+    --h-line:#e9e2fb; --h-track:#f2edfc;
+  }
+  body.home-theme{
+    background:linear-gradient(180deg,#f1ecff 0%,#f8f6ff 380px,#f8f6ff 100%) fixed;
+    font-family:"Nunito","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+    color:var(--h-ink);
+  }
+  body.home-theme .wrap{max-width:none;margin:0;padding:0}
+  body.home-theme .topbar{display:none}
+
+  .hs-hero{background:linear-gradient(120deg,#6d28d9,#7c3aed 55%,#8b5cf6);padding:34px 24px 76px}
+  .hs-hero-in{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+  .hs-brand{display:flex;align-items:center;gap:12px;background:none;border:none;padding:0;text-align:left;cursor:pointer;color:inherit;font:inherit}
+  .hs-brand .mark{width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.16);display:grid;place-items:center;font-size:22px;flex-shrink:0}
+  .hs-brand .name{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:800;font-size:22px;color:#fff;line-height:1.1}
+  .hs-brand .sub{font-size:13px;color:#ddd2ff;font-weight:600;margin-top:1px}
+  .hs-hero h1{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:800;font-size:34px;margin:0;color:#fff;line-height:1.15;text-wrap:pretty}
+  .hs-hero p{margin:8px 0 0;font-size:17px;line-height:1.6;color:#e6ddff;font-weight:600;max-width:560px}
+
+  .hs-body{max-width:860px;margin:-48px auto 0;padding:0 24px 60px;display:flex;flex-direction:column;gap:18px}
+  .hs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+
+  .hs-card{
+    background:#fff;border:1px solid var(--h-line);border-radius:24px;padding:22px 24px;
+    box-shadow:0 4px 16px rgba(109,40,217,.08);
+    display:flex;flex-direction:column;gap:14px;text-align:left;font:inherit;color:inherit;
+    cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;
+  }
+  .hs-card:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(109,40,217,.14)}
+  .hs-card:focus-visible{outline:3px solid #8b5cf6;outline-offset:3px}
+  .hs-card.soon{opacity:.72;cursor:default}
+  .hs-card.soon:hover{transform:none;box-shadow:0 4px 16px rgba(109,40,217,.08)}
+  .hs-top{display:flex;align-items:center;gap:12px}
+  .hs-ico{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-size:26px;flex-shrink:0}
+  .hs-eyebrow{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--h-eyebrow)}
+  .hs-name{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:800;font-size:21px;color:var(--h-head);line-height:1.15}
+  .hs-meter{display:flex;flex-direction:column;gap:7px}
+  .hs-stat{display:flex;justify-content:space-between;gap:10px;font-size:13px;font-weight:700}
+  .hs-stat .lessons{color:var(--h-body)}
+  .hs-bar{height:10px;background:var(--h-track);border-radius:999px;overflow:hidden}
+  .hs-bar i{display:block;height:100%;border-radius:999px;transition:width .4s ease}
+  .hs-go{font-size:14px;font-weight:800}
+  .hs-soon{font-size:14px;font-weight:700;color:var(--h-body)}
+
+  .hs-note{background:#fff8ec;border:1px solid #fde4b8;border-radius:18px;padding:16px 20px;display:flex;gap:12px;align-items:flex-start}
+  .hs-note .ic{font-size:22px;line-height:1}
+  .hs-note p{margin:0;font-size:15px;line-height:1.65;color:#7a5410;font-weight:600}
+
+  @media(max-width:520px){
+    .hs-hero{padding:26px 18px 68px}
+    .hs-hero h1{font-size:28px}
+    .hs-hero p{font-size:16px}
+    .hs-body{padding:0 18px 48px}
+    .hs-card{padding:20px}
+  }
+
+  /* =========================================================
+     READING PAGE THEME — from the Claude Design project
+     "Interactive app redesign for students" / Reading Page.dc.html
+     ========================================================= */
+  body.read-theme{
+    background:linear-gradient(180deg,#f1ecff 0%,#f8f6ff 340px,#f8f6ff 100%) fixed;
+    font-family:"Nunito","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+    color:var(--h-ink);
+  }
+  body.read-theme .wrap{max-width:none;margin:0;padding:0}
+  body.read-theme .topbar{display:none}
+
+  .rd-hero{background:linear-gradient(120deg,#6d28d9,#7c3aed 55%,#8b5cf6);padding:18px 24px 16px}
+  .rd-hero-in{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+  .rd-brand{display:flex;align-items:center;gap:12px;background:none;border:none;padding:0;text-align:left;cursor:pointer;color:inherit;font:inherit}
+  .rd-brand .mark{width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.16);display:grid;place-items:center;font-size:20px;flex-shrink:0}
+  .rd-brand .name{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:800;font-size:20px;color:#fff;line-height:1.1}
+  .rd-brand .sub{font-size:13px;color:#ddd2ff;font-weight:600;margin-top:1px}
+  .rd-crumbs{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;font-weight:700}
+  .rd-crumbs .sep{color:#c4b0f5}
+  .rd-chip{background:rgba(255,255,255,.14);color:#efe9ff;padding:5px 12px;border-radius:999px;border:none;font:inherit;cursor:pointer}
+  .rd-chip:hover{background:rgba(255,255,255,.24)}
+  .rd-chip.here{background:#fff;color:#6d28d9;cursor:default}
+
+  .rd-prog{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--h-line);box-shadow:0 2px 10px rgba(109,40,217,.06);padding:12px 24px}
+  .rd-prog-in{max-width:860px;margin:0 auto;display:flex;align-items:center;gap:14px}
+  .rd-prog .lbl{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:700;font-size:15px;color:#6d28d9;white-space:nowrap}
+  .rd-prog .track{flex:1;height:12px;background:#ede8fb;border-radius:999px;overflow:hidden}
+  .rd-prog .track i{display:block;height:100%;background:linear-gradient(90deg,#8b5cf6,#6d28d9);border-radius:999px;transition:width .4s ease}
+  .rd-prog .pc{font-weight:800;font-size:14px;color:var(--h-eyebrow);white-space:nowrap}
+
+  .rd-body{max-width:860px;margin:0 auto;padding:28px 24px 60px;display:flex;flex-direction:column;gap:18px}
+  .rd-card{background:#fff;border:1px solid var(--h-line);border-radius:24px;padding:26px 30px;box-shadow:0 2px 12px rgba(109,40,217,.05)}
+  .rd-card p{margin:0;font-size:18px;line-height:1.75}
+  .rd-card p + p{margin-top:14px}
+  .rd-card b{color:#6d28d9;font-weight:800}
+  .rd-card strong{font-weight:800}
+
+  .rd-title{text-align:center;padding:32px 36px}
+  .rd-eyebrow{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8b5cf6}
+  .rd-title h1{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:800;font-size:34px;line-height:1.2;margin:10px 0 14px;color:var(--h-head);text-wrap:pretty}
+  .rd-title .by{font-size:14px;font-weight:700;color:var(--h-body);margin:-6px 0 12px}
+  .rd-tags{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;font-size:13px;font-weight:700}
+  .rd-tags span{padding:5px 12px;border-radius:999px}
+
+  .rd-callout{margin-top:16px;background:#fff8ec;border:1px solid #fde4b8;border-radius:16px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start}
+  .rd-callout .ic{font-size:26px;line-height:1}
+  .rd-callout p{font-size:17px;line-height:1.7;color:#7a5410}
+
+  .rd-step{display:flex;flex-direction:column;gap:14px}
+  .rd-stephead{display:flex;gap:16px;align-items:center}
+  .rd-num{width:48px;height:48px;border-radius:16px;background:#ede9fe;color:#6d28d9;display:grid;place-items:center;font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:800;font-size:22px;flex-shrink:0}
+  .rd-steplbl{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--h-eyebrow)}
+  .rd-step h2{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:700;font-size:22px;margin:2px 0 0;color:var(--h-head)}
+  .rd-quote{background:#f4f0ff;border-left:4px solid #8b5cf6;border-radius:12px;padding:14px 18px;font-size:18px;line-height:1.6;font-weight:700;color:#4c3591;font-style:italic}
+  .rd-bullets{display:flex;flex-direction:column;gap:10px}
+  .rd-bullet{display:flex;gap:12px;align-items:flex-start;border-radius:14px;padding:14px 16px}
+  .rd-bullet .dot{width:12px;height:12px;border-radius:50%;margin-top:7px;flex-shrink:0}
+  .rd-bullet p{font-size:17px;line-height:1.65}
+
+  .rd-mark{font-family:inherit;font-weight:800;font-size:15px;color:#6d28d9;background:#fff;border:2px solid #d9ccf8;border-radius:999px;padding:9px 20px;cursor:pointer;align-self:flex-start;transition:background .15s ease}
+  .rd-mark:hover{background:#f4f0ff}
+  .rd-mark.done{color:#fff;background:#16a34a;border-color:#16a34a}
+  .rd-mark.done:hover{background:#15803d}
+
+  .rd-closing{background:linear-gradient(120deg,#f4f0ff,#eef6ff);border:1px solid #ded3f9;border-radius:24px;padding:26px 30px;display:flex;gap:14px;align-items:flex-start}
+  .rd-closing .ic{font-size:28px;line-height:1}
+  .rd-closing p{margin:0;font-size:18px;line-height:1.75;color:var(--h-head)}
+
+  .rd-celebrate{background:#e8f7ee;border:2px solid #86d9a5;border-radius:24px;padding:22px 28px;text-align:center}
+  .rd-celebrate .big{font-size:32px}
+  .rd-celebrate .h{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:800;font-size:22px;color:#15803d}
+  .rd-celebrate .s{font-size:15px;font-weight:600;color:#3f7a53;margin-top:4px}
+
+  .rd-foot{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:6px}
+  .rd-btn{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:700;font-size:16px;border-radius:999px;padding:12px 24px;cursor:pointer;transition:background .15s ease,filter .15s ease}
+  .rd-btn.back{color:#4c3591;background:#fff;border:2px solid #ded3f9}
+  .rd-btn.back:hover{background:#f4f0ff}
+  .rd-btn.locked{color:var(--h-eyebrow);background:#ece7f8;border:2px solid #ece7f8;cursor:not-allowed}
+  .rd-btn.finish{color:#4a2c00;background:linear-gradient(180deg,#fbbf24,#f59e0b);border:2px solid #f59e0b;padding:12px 26px;box-shadow:0 3px 0 #d97706}
+  .rd-btn.finish:hover{filter:brightness(1.05)}
+  .rd-orig{font-size:14px;font-weight:700;margin-left:auto;color:#6d28d9}
+  .rd-orig:hover{color:#5b21b6}
+
+  .rd-card .passage{background:none;padding:0;border:none}
+  .rd-card .ptext{font-size:18px;line-height:1.75;white-space:pre-wrap}
+  .rd-card .poem .ptext{font-style:italic}
+  .rd-card .ingredients{line-height:1.8}
+
+  @media(max-width:520px){
+    .rd-hero{padding:16px 18px 14px}
+    .rd-body{padding:22px 18px 48px}
+    .rd-card{padding:22px 20px}
+    .rd-title{padding:26px 22px}
+    .rd-title h1{font-size:27px}
+    .rd-card p,.rd-quote,.rd-closing p{font-size:17px}
+    .rd-prog{padding:10px 18px}
+    .rd-prog .lbl{font-size:13px}
+    .rd-orig{margin-left:0}
+  }
 </style>
 </head>
 <body>
@@ -179,7 +346,7 @@
 const DATA = {
   subjects: [
   {
-    id:"fil5", name:"Filipino 5", short:"Filipino", emoji:"📚", color:"#4f46e5",
+    id:"fil5", name:"Filipino 5", short:"Filipino", emoji:"📚", color:"#4f46e5", accent:"#d6455f", tint:"#fdeef0",
     tagline:"Magbasa, magsanay, at subukan ang iyong sarili!",
     lessons: [
     {
@@ -497,7 +664,7 @@ Pagwawangis kang laging nasa isipan.`
     ]
   },
   {
-    id:"epp", name:"EPP · ICT", short:"EPP ICT", emoji:"💻", color:"#0d9488",
+    id:"epp", name:"EPP · ICT", short:"EPP ICT", emoji:"💻", color:"#0d9488", accent:"#0f8a6d", tint:"#e6f6f1",
     tagline:"Edukasyong Pantahanan at Pangkabuhayan · Information & Communication Technology",
     lessons: [
       {
@@ -697,7 +864,7 @@ Mga Bahagi ng Email: Recipient, Cc at Bcc, Subject Line, Salutation, Email Body,
     ]
   },
   {
-    id:"math", lang:"en", name:"Math 5", short:"Math", emoji:"➗", color:"#ea580c",
+    id:"math", lang:"en", name:"Math 5", short:"Math", emoji:"➗", color:"#ea580c", accent:"#c26a00", tint:"#fff3e2",
     tagline:"Clocks, time zones, GMDAS, and multiplying fractions!",
     lessons: [
       {
@@ -1231,7 +1398,7 @@ Properties of an isosceles trapezoid:
   }
   ,
   {
-    id:"sci", lang:"en", name:"Science 5", short:"Science", emoji:"🔬", color:"#0284c7",
+    id:"sci", lang:"en", name:"Science 5", short:"Science", emoji:"🔬", color:"#0284c7", accent:"#2563eb", tint:"#e9f1fe",
     tagline:"Investigate, measure, and classify the living world!",
     lessons: [
       {
@@ -1245,30 +1412,38 @@ Properties of an isosceles trapezoid:
             desc:"Chapter 2 · Lesson 2 (pp. 35-38)",
             orig:"img/science/IMG_20260827_121835.jpg",
             heading:"How Do You Conduct Scientific Investigations?", by:"Chapter 2 · Lesson 2",
-            body:
-`Scientists work systematically. They follow a set of step-by-step procedures to solve a problem. This is known as a scientific investigation. It is a method that lets you plan, organize, and carry out a strategy to find a solution to a problem. Imagine you want to make ice candy at home that is as tasty as the one sold in stores, that freezes faster, and that stays frozen longer. To do that, you have to think and work like a scientist.
-
-Step 1: Identify the problem. The first step is to ask yourself, "What is it that I would want to find out?" The questions you ask can be about what you observe around you. For the ice candy, you may state the problem as: How long should I freeze the liquid mixture before it turns into an ice pop?
-
-Step 2: Gather information about the problem. Obtain information from printed materials such as books and magazines, from reliable materials on the internet, and even from people who have expertise in your topic of interest. Take down notes and organize them, and be sure to acknowledge all your sources. You can also apply other skills such as observing.
-
-Step 3: Make a hypothesis. A hypothesis is an intelligent guess that needs to be tested by conducting an experiment. In making a hypothesis, state the effect of the variable that you will need to change. A variable is a factor or condition that can be controlled or manipulated. There are three kinds:
-- independent variable - the factor that is changed or manipulated;
-- dependent variable - the factor affected by the change in the independent variable; and
-- controlled variable - the factors held constant or fixed.
-In sentence form, a hypothesis may be written this way: "If the ice pop liquid mixture is placed in the freezer for three hours, then it will turn into solid ice pop."
-
-Step 4: Conduct an experiment. An experiment is conducted to test whether the hypothesis can be supported by actual observations. Before proceeding, prepare the needed materials, then decide which conditions you will keep the same for all trials and which one condition you will change. Remember to change only one condition at a time. In the ice candy example, the experimental setup receives the change - the mixture is placed in the freezer for three hours. The control setup receives no treatment. The amount of liquid mixture, the flavor, the shape of the mold, and the temperature of the freezer are kept the same for both setups.
-
-Step 5: Organize the data. Record your quantitative and qualitative observations in an organized manner so that patterns and relationships are easier to see. Charts, tables, and graphs help you organize your data, make your report neat and systematic, and communicate better with your audience.
-
-Step 6: Repeat the experiment. Conduct several trials of the same experiment. This confirms that the results you get are accurate.
-
-Step 7: Analyze and interpret the results. Look for patterns or trends. Describe the relationships among the data you obtained. Your interpretation and findings will be the basis for drawing a logical and systematic conclusion, which is also your proposed solution to the problem.
-
-Step 8: Write a conclusion. Based on your interpretation of the data, draw a conclusion. A conclusion means answering the problem you identified in Step 1. State whether your conclusion supports or rejects your hypothesis. If your conclusion does not support your hypothesis, test the hypothesis again using a different experiment and a different hypothesis.
-
-Even young learners like you benefit from the scientific investigation. It trains you to think logically and reason systematically. It enables you to provide evidence for ideas you wish to present or support. Most importantly, you might become a scientist one day by following the footsteps of scientists.`
+            tags:[
+              {t:"🔬 8 steps", bg:"#f1ecff", c:"#6d28d9"},
+              {t:"🍦 Ice candy example", bg:"#fff4e0", c:"#b45309"},
+              {t:"✓ Check off each step as you read", bg:"#e8f7ee", c:"#15803d"}
+            ],
+            intro:"Scientists work systematically. They follow a set of step-by-step procedures to solve a problem. This is known as a <b>scientific investigation</b>. It is a method that lets you plan, organize, and carry out a strategy to find a solution to a problem.",
+            callout:{ic:"🍦", text:"Imagine you want to make ice candy at home that is as tasty as the one sold in stores, that freezes faster, and that stays frozen longer. To do that, you have to think and work like a scientist."},
+            steps:[
+              {ic:"🔍", title:"Identify the problem",
+               body:"The first step is to ask yourself, “What is it that I would want to find out?” The questions you ask can be about what you observe around you. For the ice candy, you may state the problem as:",
+               quote:"How long should I freeze the liquid mixture before it turns into an ice pop?"},
+              {ic:"📚", title:"Gather information about the problem",
+               body:"Obtain information from printed materials such as books and magazines, from reliable materials on the internet, and even from people who have expertise in your topic of interest. Take down notes and organize them, and be sure to <b>acknowledge all your sources</b>. You can also apply other skills such as observing."},
+              {ic:"💡", title:"Make a hypothesis",
+               body:"A <b>hypothesis</b> is an intelligent guess that needs to be tested by conducting an experiment. In making a hypothesis, state the effect of the variable that you will need to change. A <b>variable</b> is a factor or condition that can be controlled or manipulated. There are three kinds:",
+               bullets:[
+                 {bg:"#f4f0ff", dot:"#7c3aed", text:"<strong>Independent variable</strong> — the factor that is changed or manipulated"},
+                 {bg:"#eef6ff", dot:"#2563eb", text:"<strong>Dependent variable</strong> — the factor affected by the change in the independent variable"},
+                 {bg:"#e8f7ee", dot:"#16a34a", text:"<strong>Controlled variable</strong> — the factors held constant or fixed"}
+               ]},
+              {ic:"🧪", title:"Test the hypothesis",
+               body:"Conduct an experiment to test your hypothesis. Prepare an <b>experimental setup</b> and a <b>control setup</b>. Remember to <strong>change only one condition at a time</strong>. In the ice candy example, the experimental setup receives the change - the mixture is placed in the freezer for three hours. The control setup receives no treatment. The amount of liquid mixture, the flavor, the shape of the mold, and the temperature of the freezer are kept the same for both setups."},
+              {ic:"📊", title:"Organize the data",
+               body:"Record your quantitative and qualitative observations in an organized manner so that patterns and relationships are easier to see. <b>Charts, tables, and graphs</b> help you organize your data, make your report neat and systematic, and communicate better with your audience."},
+              {ic:"🔁", title:"Repeat the experiment",
+               body:"Conduct <b>several trials</b> of the same experiment. This confirms that the results you get are accurate."},
+              {ic:"🧠", title:"Analyze and interpret the results",
+               body:"Look for <b>patterns or trends</b>. Describe the relationships among the data you obtained. Your interpretation and findings will be the basis for drawing a logical and systematic conclusion, which is also your proposed solution to the problem."},
+              {ic:"✍️", title:"Write a conclusion",
+               body:"Based on your interpretation of the data, draw a <b>conclusion</b>. A conclusion means answering the problem you identified in Step 1. State whether your conclusion <strong>supports or rejects your hypothesis</strong>. If your conclusion does not support your hypothesis, test the hypothesis again using a different experiment and a different hypothesis."}
+            ],
+            closing:{ic:"🌟", text:"Even young learners like you benefit from the scientific investigation. It trains you to think logically and reason systematically. It enables you to provide evidence for ideas you wish to present or support. Most importantly, you might become a scientist one day by following the footsteps of scientists."}
           },
           {
             id:"sci1-seq", type:"sequencing", tag:"auto", icon:"🔢",
@@ -2116,24 +2291,55 @@ function setLang(s){ LANG=(s&&s.lang)||'fil'; }
 
 /* ---------- HOME: pick a subject ---------- */
 function home(){
+  document.body.classList.add('home-theme'); document.body.classList.remove('read-theme');
   const cards = DATA.subjects.map(s=>{
     const soon = s.comingSoon || !s.lessons.length;
     const pct = subjectPct(s);
-    return `<button class="lesson-card" style="background:linear-gradient(135deg,${s.color},#0000002e);${soon?'opacity:.72':''}" ${soon?'':`onclick="subject('${s.id}')"`}>
-      <span class="emoji">${s.emoji}</span>
-      <div class="num">ASIGNATURA</div>
-      <h3>${esc(s.name)}</h3>
-      <div class="meta">${soon?'⏳ Malapit nang idagdag…':`${s.lessons.length} na aralin`}</div>
-      ${soon?'':`<div class="prog"><i style="width:${pct}%"></i></div><div class="meta" style="margin-top:6px">${pct}% tapos</div>`}
+    const accent = s.accent||s.color;
+    const tint = s.tint||'#f2edfc';
+    const meter = soon ? '' : `
+        <div class="hs-meter">
+          <div class="hs-stat">
+            <span class="lessons">${s.lessons.length} na aralin</span>
+            <span style="color:${accent}">${pct}% tapos</span>
+          </div>
+          <div class="hs-bar"><i style="width:${pct}%;background:${accent}"></i></div>
+        </div>
+        <div class="hs-go" style="color:${accent}">Simulan →</div>`;
+    return `<button class="hs-card${soon?' soon':''}" ${soon?'disabled':`onclick="subject('${s.id}')"`}>
+      <div class="hs-top">
+        <div class="hs-ico" style="background:${tint}">${s.emoji}</div>
+        <div>
+          <div class="hs-eyebrow">Asignatura</div>
+          <div class="hs-name">${esc(s.name)}</div>
+        </div>
+      </div>
+      ${soon?'<div class="hs-soon">⏳ Malapit nang idagdag…</div>':meter}
     </button>`;
   }).join('');
   app.innerHTML = `
-    <div class="card">
-      <h2 class="title">Kumusta, mag-aaral! 👋</h2>
-      <p class="sub">Pumili ng asignatura sa ibaba. Ang iyong progreso at mga nasagutan ay awtomatikong naiaalala sa device na ito.</p>
+    <div class="hs-hero">
+      <div class="hs-hero-in">
+        <button class="hs-brand" onclick="home()">
+          <div class="mark">📚</div>
+          <div>
+            <div class="name">Interaktibong Reviewer</div>
+            <div class="sub">Grade 5 · Reviewer para sa apat na asignatura</div>
+          </div>
+        </button>
+        <div>
+          <h1>Kumusta, mag-aaral! 👋</h1>
+          <p>Pumili ng asignatura sa ibaba. Ang iyong progreso at mga nasagutan ay awtomatikong naiaalala sa device na ito.</p>
+        </div>
+      </div>
     </div>
-    <div class="grid">${cards}</div>
-    <div class="card note">Tandaan: Ang ilang tanong (sanaysay, repleksiyon, pagguhit) ay <b>sarili mong ususuriin</b> — isulat ang sagot sa papel, tapos ihambing sa modelong sagot.</div>
+    <div class="hs-body">
+      <div class="hs-grid">${cards}</div>
+      <div class="hs-note">
+        <div class="ic">📝</div>
+        <p>Tandaan: Ang ilang tanong (sanaysay, repleksiyon, pagguhit) ay <strong>sarili mong ususuriin</strong> — isulat ang sagot sa papel, tapos ihambing sa modelong sagot.</p>
+      </div>
+    </div>
   `;
   window.scrollTo(0,0);
 }
@@ -2141,7 +2347,7 @@ function home(){
 /* ---------- SUBJECT: list its lessons ---------- */
 function subject(sid){
   const s=DATA.subjects.find(x=>x.id===sid);
-  setLang(s);
+  setLang(s); document.body.classList.remove('home-theme'); document.body.classList.remove('read-theme');
   if(!s.lessons.length){
     app.innerHTML=`<div class="crumbs"><a onclick="home()">🏠 Home</a> <span>›</span> <span>${esc(s.name)}</span></div>
       <div class="card center"><div style="font-size:52px">${s.emoji}</div>
@@ -2177,7 +2383,7 @@ function subject(sid){
 /* ---------- LESSON MENU ---------- */
 function lesson(id){
   const {l,s}=findLesson(id);
-  setLang(s);
+  setLang(s); document.body.classList.remove('home-theme'); document.body.classList.remove('read-theme');
   const idx=s.lessons.indexOf(l)+1;
   const items=l.activities.map(a=>{
     const done=(progress[keyFor(a)]||{}).done;
@@ -2209,6 +2415,8 @@ function openAct(lid,aid){
   const {l,s}=findLesson(lid);
   const a=l.activities.find(x=>x.id===aid);
   CTX={l,a,s,review:false}; LASTWRONG=null; setLang(s);
+  document.body.classList.remove('home-theme');
+  document.body.classList.toggle('read-theme', a.type==='passage');
   _seed=7; // reset pseudo-shuffle each open for consistency
   ({passage:renderPassage, mcq:renderMCQ, matching:renderMatching,
     sequencing:renderSeq, fillblank:renderFill, truefalse:renderTF,
@@ -2223,28 +2431,115 @@ function backBtn(){return `<button class="btn secondary" onclick="lesson('${CTX.
 
 /* ---------- PASSAGE ---------- */
 function renderPassage(){
-  const a=CTX.a; let bodyHtml='';
-  if(a.recipe){
-    bodyHtml=`<div class="passage">
-      <h4>${esc(a.heading)}</h4><div class="by">${esc(a.by)}</div>
-      <b>Mga Sangkap:</b>
-      <ul class="ingredients">${a.ingredients.map(i=>`<li>${esc(i)}</li>`).join('')}</ul>
-      <b>Paraan ng Pagluluto:</b>
-      <ol style="line-height:1.7;margin-top:8px">${a.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol>
-    </div>`;
-  } else {
-    bodyHtml=`<div class="passage ${a.poem?'poem':''}">
-      <h4>${esc(a.heading)}</h4><div class="by">${esc(a.by)}</div><div class="ptext">${esc(a.body)}</div></div>`;
+  const a=CTX.a, s=CTX.s, l=CTX.l;
+  const idx=s.lessons.indexOf(l)+1;
+  const steps=(Array.isArray(a.steps)&&a.steps.length&&typeof a.steps[0]==='object')?a.steps:null;
+  const dkey=a.id;
+  const d=getDraft(dkey);
+  let read = (d&&Array.isArray(d.read)&&steps&&d.read.length===steps.length) ? d.read.slice()
+           : (steps?steps.map(()=>false):[]);
+
+  function saveD(){ if(steps) setDraft(dkey,{read:read.slice()}); }
+  window._rdStep=function(i){ read[i]=!read[i]; saveD(); draw(); };
+
+  function bodyCards(){
+    if(steps) return '';
+    if(a.recipe){
+      return `<div class="rd-card">
+        <b style="font-size:17px">Mga Sangkap:</b>
+        <ul class="ingredients">${a.ingredients.map(i=>`<li>${esc(i)}</li>`).join('')}</ul>
+        <b style="font-size:17px">Paraan ng Pagluluto:</b>
+        <ol style="line-height:1.8;margin-top:8px">${(a.steps||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ol>
+      </div>`;
+    }
+    return `<div class="rd-card"><div class="passage ${a.poem?'poem':''}"><div class="ptext">${esc(a.body)}</div></div></div>`;
   }
-  app.innerHTML=`${crumbs()}
-    <div class="card">
-      ${bodyHtml}
-      ${a.orig?`<a class="origlink" href="${a.orig}" target="_blank">${t('viewOrig')}</a>`:''}
-      <div class="mt" style="display:flex;gap:10px;flex-wrap:wrap">
-        ${backBtn()}
-        <button class="btn" onclick="finishRead()">${t('doneReading')}</button>
+
+  function stepCards(){
+    return steps.map((st,i)=>`
+      <div class="rd-card rd-step">
+        <div class="rd-stephead">
+          <div class="rd-num">${i+1}</div>
+          <div>
+            <div class="rd-steplbl">Step ${i+1} · ${st.ic||''}</div>
+            <h2>${esc(st.title)}</h2>
+          </div>
+        </div>
+        <p>${st.body}</p>
+        ${st.quote?`<div class="rd-quote">${esc(st.quote)}</div>`:''}
+        ${st.bullets?`<div class="rd-bullets">${st.bullets.map(b=>`
+          <div class="rd-bullet" style="background:${b.bg}"><div class="dot" style="background:${b.dot}"></div><p>${b.text}</p></div>`).join('')}</div>`:''}
+        <button class="rd-mark ${read[i]?'done':''}" onclick="window._rdStep(${i})">${read[i]?"✓ Done reading!":"☐ I've read this step"}</button>
+      </div>`).join('');
+  }
+
+  function draw(){
+    const count=read.filter(Boolean).length;
+    const total=steps?steps.length:0;
+    const pct=total?Math.round(count/total*100):0;
+    const allRead=!steps||count===total;
+
+    app.innerHTML=`
+      <div class="rd-hero">
+        <div class="rd-hero-in">
+          <button class="rd-brand" onclick="home()">
+            <div class="mark">📚</div>
+            <div>
+              <div class="name">Interaktibong Reviewer</div>
+              <div class="sub">Piliin ang asignatura at magsimulang mag-aral!</div>
+            </div>
+          </button>
+          <div class="rd-crumbs">
+            <button class="rd-chip" onclick="subject('${s.id}')">🏠 ${esc(s.short||s.name)}</button>
+            <span class="sep">›</span>
+            <button class="rd-chip" onclick="lesson('${l.id}')">${t('Lesson')} ${idx}</button>
+            <span class="sep">›</span>
+            <span class="rd-chip here">${a.icon||'📖'} ${t('tagRead')}</span>
+          </div>
+        </div>
       </div>
-    </div>`;
+
+      ${steps?`<div class="rd-prog">
+        <div class="rd-prog-in">
+          <div class="lbl">📖 ${count} of ${total} steps read</div>
+          <div class="track"><i style="width:${pct}%"></i></div>
+          <div class="pc">${pct}%</div>
+        </div>
+      </div>`:''}
+
+      <div class="rd-body">
+        <div class="rd-card rd-title">
+          <div class="rd-eyebrow">${esc(a.desc||'')}</div>
+          <h1>${esc(a.heading)}</h1>
+          ${a.by&&!a.tags?`<div class="by">${esc(a.by)}</div>`:''}
+          ${a.tags?`<div class="rd-tags">${a.tags.map(x=>`<span style="background:${x.bg};color:${x.c}">${esc(x.t)}</span>`).join('')}</div>`:''}
+        </div>
+
+        ${a.intro?`<div class="rd-card">
+          <p>${a.intro}</p>
+          ${a.callout?`<div class="rd-callout"><div class="ic">${a.callout.ic}</div><p>${esc(a.callout.text)}</p></div>`:''}
+        </div>`:''}
+
+        ${steps?stepCards():bodyCards()}
+
+        ${a.closing?`<div class="rd-closing"><div class="ic">${a.closing.ic}</div><p>${esc(a.closing.text)}</p></div>`:''}
+
+        ${(steps&&allRead)?`<div class="rd-celebrate">
+          <div class="big">🎉</div>
+          <div class="h">Great job! You finished the reading.</div>
+          <div class="s">You're ready for the quiz. Press “${t('doneReading')}” to continue.</div>
+        </div>`:''}
+
+        <div class="rd-foot">
+          <button class="rd-btn back" onclick="lesson('${l.id}')">${t('backLesson')}</button>
+          ${allRead
+            ?`<button class="rd-btn finish" onclick="finishRead()">${t('doneReading')}</button>`
+            :`<button class="rd-btn locked" disabled>🔒 Read all ${total} steps to finish (${total-count} to go)</button>`}
+          ${a.orig?`<a class="rd-orig" href="${a.orig}" target="_blank">${t('viewOrig')}</a>`:''}
+        </div>
+      </div>`;
+  }
+  draw();
 }
 function finishRead(){ clearDraft(CTX.a.id); markDone(CTX.a); lesson(CTX.l.id); }
 
@@ -2491,6 +2786,7 @@ function renderShort(){
 
 /* ---------- RESULTS ---------- */
 function finishQuiz(score,total){
+  document.body.classList.remove('read-theme');
   const pct=Math.round(score/total*100);
   if(!CTX.review){ setBest(CTX.a,pct); clearDraft(CTX.a.id); }
   const stars = pct>=90?'⭐⭐⭐':pct>=70?'⭐⭐':pct>=50?'⭐':'✨';

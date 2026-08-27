@@ -51,6 +51,24 @@ Three lessons (Aralin), each with a reading passage plus interactive practice:
 - 🌐 **Per-subject interface language** — Filipino subjects render in Filipino, Math and Science in English
 - 📱 Kid-friendly, mobile-responsive UI
 
+## Disenyo (Design)
+
+The **home screen** and the **reading pages** follow the Claude Design project
+*"Interactive app redesign for students"* (`Homepage.dc.html`, `Reading Page.dc.html`):
+a purple gradient hero, Baloo 2 + Nunito typography, and rounded white cards on a lavender page.
+
+- The canvas-only constructs in those files (`<x-dc>`, `<helmet>`, `<sc-if>`, `{{ }}` bindings,
+  `style-hover`, the `DCLogic` script) are design-runtime syntax from `support.js`. They are
+  translated here into ordinary CSS classes and app code.
+- Each theme is opt-in per screen (`body.home-theme`, `body.read-theme`), so the lesson menus and
+  quiz screens keep their original look.
+- Fonts load from Google Fonts. Offline, the pages fall back to the system sans stack and stay
+  fully usable.
+- A reading page gets the step-by-step layout — sticky progress bar, numbered step cards, per-step
+  "I've read this step" buttons, and a completion celebration — when its activity defines `steps`.
+  Science Aralin 1 does; every other passage renders in the same theme without the step mechanics.
+  Per-step progress is remembered like any other in-progress answer.
+
 ## Paalala (Notes)
 
 - The original scanned module pages (`IMG_*.jpg`) are **not** included in this repository, except for
