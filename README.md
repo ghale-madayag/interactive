@@ -17,8 +17,8 @@ Pick a **subject** from the home screen, then a lesson. Currently:
 
 Each subject carries an optional `lang` field. With `lang:"en"` the whole interface for that
 subject — lesson cards, activity tags, instructions, buttons, feedback, and the score screen —
-renders in English; without it, the default Filipino strings are used. **Science 5** is set to
-`en`; Filipino, EPP·ICT, and Math keep the Filipino interface. The strings live in the `STR`
+renders in English; without it, the default Filipino strings are used. **Math 5** and **Science 5**
+are set to `en`; Filipino 5 and EPP·ICT keep the Filipino interface. The strings live in the `STR`
 table near the top of the app script, so flipping another subject is a one-line change.
 
 ## Paano gamitin (How to use)
@@ -48,7 +48,8 @@ Three lessons (Aralin), each with a reading passage plus interactive practice:
   or complete the activity, so leaving and coming back never loses your work
 - ✍️ **Self-check items** (essays, reflections) reveal a model answer to compare against
 - 🌟 Progress tracking, best scores, and star rewards — all saved locally
-- 📱 Kid-friendly, mobile-responsive Filipino UI
+- 🌐 **Per-subject interface language** — Filipino subjects render in Filipino, Math and Science in English
+- 📱 Kid-friendly, mobile-responsive UI
 
 ## Paalala (Notes)
 

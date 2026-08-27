@@ -697,8 +697,8 @@ Mga Bahagi ng Email: Recipient, Cc at Bcc, Subject Line, Salutation, Email Body,
     ]
   },
   {
-    id:"math", name:"Math 5", short:"Math", emoji:"➗", color:"#ea580c",
-    tagline:"Oras, time zones, GMDAS, at pagpaparami ng praksiyon!",
+    id:"math", lang:"en", name:"Math 5", short:"Math", emoji:"➗", color:"#ea580c",
+    tagline:"Clocks, time zones, GMDAS, and multiplying fractions!",
     lessons: [
       {
         id:"m1", color:"#ea580c", emoji:"⏰",
@@ -752,9 +752,9 @@ To convert 12-hour to 24-hour: keep the hour for morning (a.m.) times and remove
           {
             id:"m1-tf", type:"truefalse", tag:"auto", icon:"✅",
             name:"True or False: Clock Conversions",
-            desc:"Piliin ang Tama o Mali",
-            prompt:"Piliin ang <b>Tama</b> kung palaging tama ang pahayag, <b>Mali</b> kung hindi.",
-            tLabel:"Tama (True)", fLabel:"Mali (False)", tWord:"Tama (True)", fWord:"Mali (False)",
+            desc:"Choose True or False",
+            prompt:"Choose <b>True</b> if the statement is always correct, <b>False</b> if it is not.",
+            tLabel:"True", fLabel:"False", tWord:"True", fWord:"False",
             items:[
               {st:"14:00 in the 24-hour clock is the same as 2:00 p.m. in the 12-hour clock.", a:true},
               {st:"00:00 is the same as 12:00 a.m.", a:true},
@@ -766,7 +766,7 @@ To convert 12-hour to 24-hour: keep the hour for morning (a.m.) times and remove
           {
             id:"m1-match", type:"matching", tag:"auto", icon:"🔗",
             name:"Match: 12-hour to 24-hour Time",
-            desc:"Itugma ang 12-hour sa tamang 24-hour na oras",
+            desc:"Match each 12-hour time to the correct 24-hour time",
             left:["11:30 a.m.","4:00 p.m.","8:45 p.m.","12:15 a.m.","6:20 a.m."],
             right:["00:15","16:00","20:45","06:20","11:30"],
             answer:[4,1,2,0,3]
@@ -774,7 +774,7 @@ To convert 12-hour to 24-hour: keep the hour for morning (a.m.) times and remove
           {
             id:"m1-comp", type:"shortcheck", tag:"self", icon:"✍️",
             name:"Word Problems: Elapsed Time",
-            desc:"Isulat ang sagot, saka i-check sa modelong sagot",
+            desc:"Write your answer, then compare it with the model answer",
             items:[
               {q:"A PNR train departs at 23:15 and travels for 8 hours. What time will it arrive? Give both the 12-hour and 24-hour answers.",
                m:"23:15 + 8 hours = 31:15. Subtract 24: 31:15 - 24:00 = 07:15 the next day, which is 7:15 a.m."},
@@ -842,7 +842,7 @@ Understanding time zones helps with travel, calling family who live abroad, and 
           {
             id:"m2-fill", type:"fillblank", tag:"auto", icon:"🧩",
             name:"Fill in the Blank: Time Zone Facts",
-            desc:"Piliin ang tamang sagot para sa bawat patlang",
+            desc:"Choose the correct answer for each blank",
             wordbox:["24","11:00 a.m.","15-degree longitude","Coordinated Universal Time (UTC)","8 hours"],
             items:[
               {before:"The Earth is divided into ", after:" time zones, each representing a 15-degree longitude section.", a:"24"},
@@ -855,9 +855,9 @@ Understanding time zones helps with travel, calling family who live abroad, and 
           {
             id:"m2-tf", type:"truefalse", tag:"auto", icon:"✅",
             name:"True or False: Time Zones",
-            desc:"Piliin ang Tama o Mali",
-            prompt:"Piliin ang <b>Tama</b> kung tama ang pahayag, <b>Mali</b> kung hindi.",
-            tLabel:"Tama (True)", fLabel:"Mali (False)", tWord:"Tama (True)", fWord:"Mali (False)",
+            desc:"Choose True or False",
+            prompt:"Choose <b>True</b> if the statement is correct, <b>False</b> if it is not.",
+            tLabel:"True", fLabel:"False", tWord:"True", fWord:"False",
             items:[
               {st:"The Philippines operates in the UTC+8 time zone.", a:true},
               {st:"Tokyo, Japan (UTC+9) is 1 hour behind Manila.", a:false},
@@ -869,7 +869,7 @@ Understanding time zones helps with travel, calling family who live abroad, and 
           {
             id:"m2-comp", type:"shortcheck", tag:"self", icon:"✍️",
             name:"Word Problems: Time Zone Calls",
-            desc:"Isulat ang sagot, saka i-check sa modelong sagot",
+            desc:"Write your answer, then compare it with the model answer",
             items:[
               {q:"Jenine needs to call her mother in Beijing, China (UTC+8). If it is 2:00 p.m. in Manila, what time is it in Beijing?",
                m:"Beijing is also UTC+8, the same as Manila, so it is 2:00 p.m. in Beijing."},
@@ -968,7 +968,7 @@ GMDAS is useful in real life - budgeting money, adjusting a recipe, or planning 
           {
             id:"m3-fill", type:"fillblank", tag:"auto", icon:"🧩",
             name:"Fill in the Blank: What GMDAS Stands For",
-            desc:"Piliin ang tamang salita para sa bawat letra",
+            desc:"Choose the correct word for each letter",
             wordbox:["Grouping symbols","Multiplication","Division","Addition","Subtraction"],
             items:[
               {before:"In GMDAS, the letter G stands for ", after:".", a:"Grouping symbols"},
@@ -981,7 +981,7 @@ GMDAS is useful in real life - budgeting money, adjusting a recipe, or planning 
           {
             id:"m3-comp", type:"shortcheck", tag:"self", icon:"✍️",
             name:"Word Problems: GMDAS in Real Life",
-            desc:"Isulat ang sagot, saka i-check sa modelong sagot",
+            desc:"Write your answer, then compare it with the model answer",
             items:[
               {q:"Kieffer solved 5 + (3 × 2) ÷ 3 - 1 and got 4. Is he correct? If not, correct the mistake.",
                m:"Not correct. GMDAS: (3 × 2) = 6; 6 ÷ 3 = 2; 5 + 2 = 7; 7 - 1 = 6. The correct answer is 6, not 4."},
@@ -1049,7 +1049,7 @@ To multiply a whole number by a fraction, write the whole number over 1. Example
           {
             id:"m4-fill", type:"fillblank", tag:"auto", icon:"🧩",
             name:"Fill in the Blank: Fraction Concepts",
-            desc:"Piliin ang tamang salita para sa bawat patlang",
+            desc:"Choose the correct word for each blank",
             wordbox:["numerators","denominators","of","area model","cancellation"],
             items:[
               {before:"To multiply fractions, you first multiply the ", after:" (the top numbers).", a:"numerators"},
@@ -1062,7 +1062,7 @@ To multiply a whole number by a fraction, write the whole number over 1. Example
           {
             id:"m4-comp", type:"shortcheck", tag:"self", icon:"✍️",
             name:"Word Problems: Fractions Around Us",
-            desc:"Isulat ang sagot, saka i-check sa modelong sagot",
+            desc:"Write your answer, then compare it with the model answer",
             items:[
               {q:"Lyza's puto recipe requires 2/3 cup of sugar. If she makes 3/4 of the recipe, how much sugar does she need?",
                m:"2/3 × 3/4 = 6/12 = 1/2 cup of sugar."},
@@ -1163,9 +1163,9 @@ Properties of an isosceles trapezoid:
           {
             id:"m5-tf", type:"truefalse", tag:"auto", icon:"✅",
             name:"True or False: Shape Facts",
-            desc:"Piliin ang Tama o Mali",
-            prompt:"Piliin ang <b>Tama</b> kung palaging tama ang pahayag, <b>Mali</b> kung hindi.",
-            tLabel:"Tama (True)", fLabel:"Mali (False)", tWord:"Tama (True)", fWord:"Mali (False)",
+            desc:"Choose True or False",
+            prompt:"Choose <b>True</b> if the statement is always correct, <b>False</b> if it is not.",
+            tLabel:"True", fLabel:"False", tWord:"True", fWord:"False",
             items:[
               {st:"The height of a triangle is always perpendicular to the base.", a:true},
               {st:"Any one of a triangle's three sides can be chosen as the base.", a:true},
@@ -1180,7 +1180,7 @@ Properties of an isosceles trapezoid:
           {
             id:"m5-match", type:"matching", tag:"auto", icon:"🔗",
             name:"Match: Shape to Its Description",
-            desc:"Itugma ang hugis sa tamang paglalarawan",
+            desc:"Match each shape to the correct description",
             left:["Equilateral triangle","Isosceles triangle","Scalene triangle","Parallelogram","Trapezoid","Midsegment"],
             right:[
               "Exactly one pair of parallel sides",
@@ -1195,7 +1195,7 @@ Properties of an isosceles trapezoid:
           {
             id:"m5-fill", type:"fillblank", tag:"auto", icon:"🧩",
             name:"Fill in the Blank: Shape Vocabulary",
-            desc:"Piliin ang tamang salita para sa bawat patlang",
+            desc:"Choose the correct word for each blank",
             wordbox:["polygon","base","height","perpendicular","180","bases","legs","bisect"],
             items:[
               {before:"A triangle is a ", after:" with three sides and three angles.", a:"polygon"},
@@ -1211,7 +1211,7 @@ Properties of an isosceles trapezoid:
           {
             id:"m5-comp", type:"shortcheck", tag:"self", icon:"✍️",
             name:"Problem Solving: Shapes Around Us",
-            desc:"Isulat ang sagot, saka i-check sa modelong sagot",
+            desc:"Write your answer, then compare it with the model answer",
             items:[
               {q:"A trapezoid has bases measuring 12 cm and 18 cm. How long is its midsegment?",
                m:"The midsegment is the average of the two bases: (12 + 18) / 2 = 30 / 2 = 15 cm."},
