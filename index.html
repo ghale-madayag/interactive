@@ -3331,6 +3331,7 @@ function renderTF(){
   window._tfAgain=function(){ openAct(CTX.l.id,CTX.a.id); };
 
   function draw(){
+    const keepY=window.scrollY;   // answering re-renders the list — do not jump to the top
     const answered=a.items.filter((_,i)=>picks[i]!=null).length;
     let score=0; a.items.forEach((it,i)=>{ if(picks[i]===it.a) score++; });
     const allDone=answered===total;
@@ -3394,7 +3395,7 @@ function renderTF(){
       LASTWRONG = wrongItems.length?{type:'truefalse', items:wrongItems}:null;
       if(!CTX.review){ setBest(CTX.a,Math.round(score/total*100)); markDone(CTX.a); clearDraft(dkey); }
     }
-    window.scrollTo(0,0);
+    window.scrollTo(0,keepY);
   }
   draw();
 }
