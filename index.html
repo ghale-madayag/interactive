@@ -1061,6 +1061,159 @@ Mahalaga ang panang-ayon at pagsalungat sa mga talakayan. Sa pamamagitan nito, n
           ]
         }
       ]
+    },
+    {
+      id:"a5", color:"#0891b2", emoji:"🎭",
+      title:"Elemento ng Maikling Kuwento",
+      blurb:"Tauhan, paningin, suliranin, tagpuan, tunggalian, kakalasan at kasukdulan",
+      activities:[
+        {
+          id:"a5-read", type:"passage", tag:"read", icon:"📖",
+          name:"Basahin: Ang Maikling Kuwento at ang mga Elemento Nito",
+          desc:"Aralin 1 · Alamin (pp. 5-8)",
+          orig:"img/filipino/IMG_20260827_201818.jpg",
+          heading:"Ang Maikling Kuwento at ang mga Elemento Nito", by:"Aralin 1 · Alamin",
+          introP:[0,0],
+          sections:[
+            {ic:"🧍", title:"1. Tauhan", p:[1,1]},
+            {ic:"👀", title:"2. Paningin", p:[2,2]},
+            {ic:"❓", title:"3. Suliranin", p:[3,3]},
+            {ic:"📍", title:"4. Tagpuan", p:[4,4]},
+            {ic:"⚔️", title:"5. Tunggalian", p:[5,5]},
+            {ic:"🔓", title:"6. Kakalasan", p:[6,6]},
+            {ic:"🔥", title:"7. Kasukdulan", p:[7,7]}
+          ],
+          closingP:[8,8], closingIc:"👻",
+          body:
+`Ang maikling kuwento ay isang akdang pampanitikan na maikli lamang ngunit buo ang banghay. May mga elementong bumubuo rito. Kapag nakilala mo ang bawat elemento, mas madali mong mauunawaan at masusuri ang anumang kuwentong iyong babasahin.
+
+Sila ang mga gumaganap sa kuwento, maaaring bida o kontrabida. Ang kanilang katangian ay maaaring magbago mula sa simula hanggang wakas, ngunit mayroon ding pagkakataon na nanatili ang kanilang pagkatao. Halimbawa: Si Lando ang matalinong mag-aaral mula sa binasang kuwento.
+
+Ito ang punto de vista ng mambabasa, na nagtatakda ng karanasan sa kuwento. Halimbawa: Habang binabasa ko ang isang kuwento tungkol sa pagkawala ng ama at ina, nakaramdam ako nang lungkot. Para bang ako ang kasama niya sa bawat suliraning kaniyang kinahaharap. Bilang mambabasa, natutuhan ko kung paano harapin ang mga pagsubok sa buhay.
+
+Ito ang problemang kinahaharap ng mga tauhan. Ipinahahayag dito ang kanilang mga saloobin at damdamin. Halimbawa: Magkalayo ang loob nina Linda at Lando kahit sila ay magkapatid. Paano kaya nila mapag-iisa ang kanilang layunin?
+
+Panahon kung kailan at saan naganap ang maikling kuwento. Halimbawa: Lunes nang maagang-maaga ay lumusong na sila sa bukid upang mabilis nilang matapos ang pagtatanim ng palay.
+
+Hindi pagkakasundo ng mga tauhan, na nagdadala ng tensiyon sa kuwento. Halimbawa: Hindi niya malaman kung sino ang kaniyang susundin: ang puso at isip ba niya o ang inang madalas na nagbibilin sa kaniya?
+
+Ito ang resulta ng tunggalian, na naglalantad ng mga epekto ng mga desisyon ng tauhan. Halimbawa: Masaya silang nagsama ng pamilya matapos ang mahabang panahon ng pagkakahiwalay.
+
+Ito ang kapana-panabik na bahagi ng kuwento na sinusundan agad ng wakas. Halimbawa: Sa huling tanong ng paligsahan, nanginginig si Arkin habang hinihintay ang sagot ng hurado.
+
+Isang uri ng maikling kuwento ang kuwentong kababalaghan. Ang mga pangyayari dito ay mahirap ipaliwanag at kadalasang hindi makatotohanan. Halimbawa nito ang mga nilalang tulad ng kapre at tikbalang na madalas na inilalarawan sa mga kuwentong bayan.`
+        },
+        {
+          id:"a5-match", type:"matching", tag:"auto", icon:"🔗",
+          name:"Tugma-tugma: Elemento at Kahulugan",
+          desc:"Itugma ang pahayag sa tamang elemento (Panimulang Pagtataya)",
+          left:[
+            "Ito ang pagkakasunod-sunod ng mga pangyayari sa kuwento mula simula hanggang wakas. Halimbawa: una, ikalawa, ikatlo.",
+            "Ang mga tao, hayop, o nilalang na gumaganap sa maikling kuwento. Halimbawa: si Mang Isko, isang matandang mangingisda.",
+            "Ang lugar at panahong pinagganapan ng maikling kuwento. Halimbawa: sa bundok, sa kaharian, noong unang panahon.",
+            "Mga pangyayaring hindi nangyayari sa tunay na buhay at likha lamang ng imahinasyon. Halimbawa: mga diwata at higante.",
+            "Ang aral o mensahe na nais iparating ng binasang maikling kuwento. Halimbawa: Matutong magpatawad."
+          ],
+          right:["banghay","tauhan","tagpuan","pantasya","diwa"],
+          answer:[0,1,2,3,4]
+        },
+        {
+          id:"a5-tf", type:"truefalse", tag:"auto", icon:"✅",
+          name:"Tama o Mali: Mga Elemento",
+          desc:"Piliin ang Tama o Mali",
+          prompt:"Piliin ang <b>Tama</b> kung wasto ang pahayag, <b>Mali</b> kung hindi.",
+          tLabel:"Tama", fLabel:"Mali", tWord:"Tama", fWord:"Mali",
+          items:[
+            {st:"Ang tauhan ay maaaring bida o kontrabida sa isang kuwento.", a:true,
+             e:"Sila ang mga gumaganap sa kuwento, at maaaring bida o kontrabida ang kanilang papel."},
+            {st:"Hindi na maaaring magbago ang katangian ng tauhan mula simula hanggang wakas.", a:false,
+             e:"Maaari itong magbago, bagaman may pagkakataon ding nananatili ang kanilang pagkatao."},
+            {st:"Ang tagpuan ay tumutukoy sa lugar at panahon kung saan naganap ang kuwento.", a:true,
+             e:"Tagpuan ang sagot sa tanong na saan at kailan naganap ang kuwento."},
+            {st:"Ang kasukdulan ang pinakaunang bahagi ng maikling kuwento.", a:false,
+             e:"Ang kasukdulan ang kapana-panabik na bahagi na sinusundan agad ng wakas, hindi ang simula."},
+            {st:"Ang kakalasan ang resulta ng tunggalian sa kuwento.", a:true,
+             e:"Dito nalalantad ang mga epekto ng mga desisyon ng tauhan."},
+            {st:"Ang suliranin ang problemang kinahaharap ng mga tauhan.", a:true,
+             e:"Sa suliranin ipinahahayag ang mga saloobin at damdamin ng mga tauhan."},
+            {st:"Ang tunggalian ay nangangahulugang pagkakasundo ng mga tauhan.", a:false,
+             e:"Kabaligtaran ito — ang tunggalian ay hindi pagkakasundo na nagdadala ng tensiyon."},
+            {st:"Ang paningin ay ang punto de vista na nagtatakda ng karanasan sa kuwento.", a:true,
+             e:"Ito ang pananaw kung saan nakikita at nararanasan ng mambabasa ang kuwento."},
+            {st:"Sa kuwentong kababalaghan, kadalasang hindi makatotohanan ang mga pangyayari.", a:true,
+             e:"Mahirap ipaliwanag ang mga pangyayari rito, tulad ng mga kuwento tungkol sa kapre at tikbalang."},
+            {st:"Ang diwa ng kuwento ay ang bilang ng mga tauhan dito.", a:false,
+             e:"Ang diwa ay ang aral o mensaheng nais iparating ng kuwento, hindi ang bilang ng tauhan."}
+          ]
+        },
+        {
+          id:"a5-mcq", type:"mcq", tag:"auto", icon:"✅",
+          name:"Pagtataya: Kilalanin ang Elemento",
+          desc:"10 tanong tungkol sa mga elemento ng maikling kuwento",
+          items:[
+            {q:"Alin ang tumutukoy sa maayos na pagkakasunod-sunod ng mga pangyayari sa kuwento?",
+             o:["banghay","tagpuan","diwa","paningin"],a:0,
+             e:"Ang banghay ang pagkakasunod-sunod ng pangyayari mula simula hanggang wakas."},
+            {q:"“Lunes nang maagang-maaga ay lumusong na sila sa bukid.” Anong elemento ang ipinakikita nito?",
+             o:["tauhan","tagpuan","kakalasan","tunggalian"],a:1,
+             e:"Nakasaad dito ang panahon at lugar, kaya tagpuan ito."},
+            {q:"“Sa huling tanong ng paligsahan, nanginginig si Arkin habang hinihintay ang sagot ng hurado.” Anong elemento ito?",
+             o:["simula","kasukdulan","kakalasan","tagpuan"],a:1,
+             e:"Ito ang pinakakapana-panabik na bahagi bago ang wakas — ang kasukdulan."},
+            {q:"Ano ang tawag sa resulta ng tunggalian na naglalantad ng epekto ng mga desisyon ng tauhan?",
+             o:["suliranin","kasukdulan","kakalasan","paningin"],a:2,
+             e:"Ang kakalasan ang bahaging naglalantad ng bunga ng tunggalian."},
+            {q:"Alin ang PINAKAMAHUSAY na paglalarawan sa suliranin ng kuwento?",
+             o:["ang lugar kung saan naganap ang kuwento","ang problemang kinahaharap ng mga tauhan","ang aral na iniiwan ng manunulat","ang bilang ng mga saknong"],a:1,
+             e:"Sa suliranin ipinakikita ang problema at ang damdamin ng mga tauhan."},
+            {q:"“Hindi niya malaman kung sino ang susundin: ang puso at isip ba niya o ang inang nagbibilin sa kaniya?” Anong elemento ito?",
+             o:["tunggalian","tagpuan","diwa","banghay"],a:0,
+             e:"May hindi pagkakasundo o alitan sa loob ng tauhan — tunggalian ito."},
+            {q:"Ano ang tawag sa aral o mensaheng nais iparating ng kuwento?",
+             o:["paningin","diwa","tauhan","pantasya"],a:1,
+             e:"Ang diwa ang aral o mensaheng iniiwan ng kuwento sa mambabasa."},
+            {q:"Alin ang halimbawa ng pantasya sa isang kuwento?",
+             o:["isang batang pumapasok sa paaralan","isang magsasakang nagtatanim ng palay","isang diwatang nagbibigay ng mahiwagang bato","isang guro na nagtuturo ng Filipino"],a:2,
+             e:"Ang pantasya ay likha lamang ng imahinasyon, tulad ng diwata at higante."},
+            {q:"Bakit mahalagang makilala ang mga elemento ng maikling kuwento?",
+             o:["upang mabilis na matapos ang pagbabasa","upang mas maunawaan at masuri nang mabuti ang kuwento","upang hindi na kailangang basahin ang buong akda","upang mabilang ang mga pahina"],a:1,
+             e:"Ang pagkilala sa elemento ang nagbibigay-daan sa mas malalim na pag-unawa at pagsusuri."},
+            {q:"Anong uri ng maikling kuwento ang naglalaman ng mga pangyayaring mahirap ipaliwanag at hindi makatotohanan?",
+             o:["kuwentong kababalaghan","tekstong impormatibo","talumpati","liham"],a:0,
+             e:"Ang kuwentong kababalaghan ang may mga pangyayaring hindi makatotohanan, tulad ng kapre at tikbalang."}
+          ]
+        },
+        {
+          id:"a5-fill", type:"fillblank", tag:"auto", icon:"🧩",
+          name:"Punan: Anong Elemento?",
+          desc:"Piliin ang tamang elemento mula sa kahon",
+          wordbox:["tauhan","tagpuan","suliranin","kasukdulan","kakalasan"],
+          items:[
+            {before:"Si Mang Isko, isang matandang mangingisda, ay isang halimbawa ng ", after:" sa kuwento.", a:"tauhan"},
+            {before:"Ang “sa kaharian, noong unang panahon” ay nagsasaad ng ", after:" ng kuwento.", a:"tagpuan"},
+            {before:"Ang pagkakalayo ng loob ng magkapatid ay ang ", after:" na kinahaharap nila.", a:"suliranin"},
+            {before:"Ang pinakakapana-panabik na bahagi bago ang wakas ay ang ", after:".", a:"kasukdulan"},
+            {before:"Ang muling pagsasama ng pamilya matapos ang matagal na paghihiwalay ay ang ", after:" ng kuwento.", a:"kakalasan"}
+          ]
+        },
+        {
+          id:"a5-comp", type:"shortcheck", tag:"self", icon:"✍️",
+          name:"Pagtalakay: Suriin ang Kuwento",
+          desc:"Isulat ang sagot, saka i-check sa modelong sagot",
+          items:[
+            {q:"Ano ang maikling kuwento at bakit mahalagang kilalanin ang mga elemento nito?",
+             m:"Ito ay isang maikling akdang pampanitikan na buo pa rin ang banghay. Mahalagang kilalanin ang mga elemento nito dahil sa pamamagitan ng tauhan, tagpuan, suliranin, tunggalian, kasukdulan, kakalasan, at diwa ay mas nauunawaan at nasusuri nang mabuti ang kuwento."},
+            {q:"Ipaliwanag ang pagkakaiba ng suliranin at tunggalian.",
+             m:"Ang suliranin ang problemang kinahaharap ng mga tauhan at dito ipinahahayag ang kanilang saloobin at damdamin. Ang tunggalian naman ay ang hindi pagkakasundo na nagdadala ng tensiyon — maaari itong tao laban sa tao, tao laban sa sarili, o tao laban sa kalikasan."},
+            {q:"Paano magkaugnay ang tunggalian, kasukdulan, at kakalasan?",
+             m:"Ang tunggalian ang nagpapasimula ng tensiyon. Umaabot ito sa kasukdulan, ang pinakakapana-panabik na bahagi. Pagkatapos ay dumarating ang kakalasan, ang resulta ng tunggalian na naglalantad ng epekto ng mga desisyon ng tauhan."},
+            {q:"Balikan ang kuwentong “Ang Aswang ng San Andres.” Sino ang mga tauhan, ano ang tagpuan, at ano ang tunggalian?",
+             m:"Halimbawang sagot: Ang mga tauhan ay ang batang tagapagsalaysay, si Lolo Lope, si Manolo, at si Soleng. Ang tagpuan ay ang maliit na nayon ng San Andres sa Bisayas noong bakasyon. Ang tunggalian ay tao laban sa tao — ang bata at ang mga taganayon laban kay Soleng."},
+            {q:"Sumulat ng maikling talata tungkol sa isang karanasan mo, at tukuyin ang tagpuan at suliranin nito.",
+             m:"Halimbawang sagot: Isang hapon sa aming bakuran (tagpuan), nasira ang paborito kong bisikleta bago pa man ako makarating sa paaralan (suliranin). Naisip kong humingi ng tulong sa aking kuya sa halip na sumuko."}
+          ]
+        }
+      ]
     }
     ]
   },

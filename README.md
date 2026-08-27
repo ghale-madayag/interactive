@@ -5,7 +5,7 @@ learning modules. Everything lives in a single file: [`index.html`](index.html) 
 no dependencies, no internet required.
 
 Pick a **subject** from the home screen, then a lesson. Currently:
-- **Filipino 5** — 4 lessons (Kuwentong Kababalaghan, Metapora, Tekstong Impormatibo, Pang-abay na Panang-ayon at Pagsalungat)
+- **Filipino 5** — 5 lessons (Kuwentong Kababalaghan, Metapora, Tekstong Impormatibo, Pang-abay na Panang-ayon at Pagsalungat, Elemento ng Maikling Kuwento)
 - **EPP · ICT** — 2 lessons (Digital Citizenship & Netiquette, Responsableng Paggamit ng Internet)
 - **Math 5** — 5 lessons (12- & 24-Hour Clocks, World Time Zones, GMDAS / Order of Operations, Multiplying Fractions, Exploring Shapes)
 - **Science 5** — 7 lessons (Simple Science Investigations, Scientific Units & Measurement, Classification of Plants, Classification of Animals, Microorganisms, Specialized Structures of Plants, Life Cycle of Plants)
@@ -39,6 +39,7 @@ The Filipino lessons, each with a reading passage plus interactive practice:
 | **2 — Metapora / Pagwawangis** | Tulang *"Diwa ng Metapora o Pagwawangis"* | multiple choice · punan ang patlang · dalawang pinagtutulad · sariling-suri |
 | **3 — Tekstong Impormatibo** | Resetang *"Tinolang Manok ni Ruthie"* | tama/mali (B/HB) · multiple choice · sariling-suri |
 | **4 — Pang-abay na Panang-ayon at Pagsalungat** | Palaging Tandaan (Aralin 6, p. 48) | panang-ayon/pagsalungat · multiple choice · tugma-tugma · punan ang patlang · sariling-suri |
+| **5 — Elemento ng Maikling Kuwento** | Alamin (Aralin 1, pp. 5-8) | tugma-tugma · tama/mali · multiple choice · punan ang patlang · sariling-suri |
 
 ## Mga Tampok (Features)
 
