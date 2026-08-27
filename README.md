@@ -8,9 +8,10 @@ Pick a **subject** from the home screen, then a lesson. Currently:
 - **Filipino 5** — 3 lessons (Kuwentong Kababalaghan, Metapora, Tekstong Impormatibo)
 - **EPP · ICT** — 2 lessons (Digital Citizenship & Netiquette, Responsableng Paggamit ng Internet)
 - **Math 5** — 5 lessons (12- & 24-Hour Clocks, World Time Zones, GMDAS / Order of Operations, Multiplying Fractions, Exploring Shapes)
+- **Science 5** — 7 lessons (Simple Science Investigations, Scientific Units & Measurement, Classification of Plants, Classification of Animals, Microorganisms, Specialized Structures of Plants, Life Cycle of Plants)
 
-> The Math content is in **English**, matching its English-medium source module (Philippine Grade 5
-> Math is taught in English). The app's navigation labels stay in Filipino.
+> The Math and Science content is in **English**, matching their English-medium source modules
+> (Philippine Grade 5 Math and Science are taught in English). The app's navigation labels stay in Filipino.
 
 ## Paano gamitin (How to use)
 
@@ -43,7 +44,14 @@ Three lessons (Aralin), each with a reading passage plus interactive practice:
 
 ## Paalala (Notes)
 
-- The original scanned module pages (`IMG_*.jpg`) are **not** included in this repository. The
-  "Tingnan ang orihinal na pahina" links therefore work only where those scans are present locally.
+- The original scanned module pages (`IMG_*.jpg`) are **not** included in this repository, except for
+  the Science scans under `img/science/`. The "Tingnan ang orihinal na pahina" links therefore work
+  only where those scans are present locally.
 - The scans contain no printed answer key; the correct answers were derived from the module content.
   A few interpretation-based items are marked in the data (`flag:true`) for a teacher to confirm.
+- **Science coverage gap.** The supplied scans cover Chapter 2 (measurement, investigations),
+  Chapter 4 Lesson 1 (plants), and Chapter 5 Lesson 2 (plant life cycle). They do **not** include
+  Chapter 4 Lesson 2 (animals), Chapter 4 Lesson 3 (fungi and bacteria), or any pages on specialized
+  plant structures. Aralin 4, 5, and 6 were therefore written from the standard MATATAG Grade 5
+  Science competencies rather than from the scans, and carry no `orig` link. A teacher should check
+  them against the actual module pages before use.
