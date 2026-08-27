@@ -1231,8 +1231,8 @@ Properties of an isosceles trapezoid:
   }
   ,
   {
-    id:"sci", name:"Science 5", short:"Science", emoji:"🔬", color:"#0284c7",
-    tagline:"Mag-imbestiga, sumukat, at uriin ang mga bagay na may buhay!",
+    id:"sci", lang:"en", name:"Science 5", short:"Science", emoji:"🔬", color:"#0284c7",
+    tagline:"Investigate, measure, and classify the living world!",
     lessons: [
       {
         id:"sci1", color:"#0284c7", emoji:"🧪",
@@ -1272,7 +1272,7 @@ Even young learners like you benefit from the scientific investigation. It train
           },
           {
             id:"sci1-seq", type:"sequencing", tag:"auto", icon:"🔢",
-            name:"Pagkakasunod-sunod: The Eight Steps",
+            name:"Put In Order: The Eight Steps",
             desc:"Arrange the steps of a scientific investigation in order",
             items:[
               "Identify the problem by asking what you want to find out.",
@@ -1331,9 +1331,9 @@ Even young learners like you benefit from the scientific investigation. It train
           {
             id:"sci1-tf", type:"truefalse", tag:"auto", icon:"✅",
             name:"True or False: Investigating Like a Scientist",
-            desc:"Piliin ang Tama o Mali",
-            prompt:"Piliin ang <b>Tama</b> kung wasto ang pahayag, <b>Mali</b> kung hindi.",
-            tLabel:"Tama (True)", fLabel:"Mali (False)", tWord:"Tama (True)", fWord:"Mali (False)",
+            desc:"Choose True or False",
+            prompt:"Choose <b>True</b> if the statement is correct, <b>False</b> if it is not.",
+            tLabel:"True", fLabel:"False", tWord:"True", fWord:"False",
             items:[
               {st:"A hypothesis is an intelligent guess that needs to be tested by conducting an experiment.", a:true},
               {st:"In a fair experiment, you may change several conditions at the same time.", a:false},
@@ -1346,7 +1346,7 @@ Even young learners like you benefit from the scientific investigation. It train
           {
             id:"sci1-match", type:"matching", tag:"auto", icon:"🔗",
             name:"Match: Step to Its Description",
-            desc:"Itugma ang paglalarawan sa tamang hakbang",
+            desc:"Match each description to the correct step",
             left:[
               "Asking yourself, “What is it that I would want to find out?” about something you observe.",
               "Reading books and magazines, searching reliable websites, and asking people with expertise.",
@@ -1360,7 +1360,7 @@ Even young learners like you benefit from the scientific investigation. It train
           {
             id:"sci1-comp", type:"shortcheck", tag:"self", icon:"✍️",
             name:"Think About It: Investigations in Daily Life",
-            desc:"Isulat ang sagot, saka i-check sa modelong sagot",
+            desc:"Write your answer, then compare it with the model answer",
             items:[
               {q:"What are the steps in experimenting? List them in order.",
                m:"Identify the problem, gather information about the problem, make a hypothesis, conduct an experiment, organize the data, repeat the experiment, analyze and interpret the results, and write a conclusion."},
@@ -1442,7 +1442,7 @@ Why measuring matters. Measuring is a crucial skill in cooking and baking. If yo
           {
             id:"sci2-match", type:"matching", tag:"auto", icon:"🔗",
             name:"Match: Object to the Right Instrument",
-            desc:"Itugma ang sinusukat sa tamang kagamitan",
+            desc:"Match each object to the right instrument",
             left:[
               "mass of flour",
               "volume of ink",
@@ -1455,8 +1455,8 @@ Why measuring matters. Measuring is a crucial skill in cooking and baking. If yo
           },
           {
             id:"sci2-fill", type:"fillblank", tag:"auto", icon:"🧩",
-            name:"Punan: The Right Unit",
-            desc:"Piliin ang tamang yunit para sa bawat patlang",
+            name:"Fill In the Blank: The Right Unit",
+            desc:"Choose the correct unit for each blank",
             wordbox:["centimeters (cm)","milliliters (mL)","grams (g)","degrees Celsius","kilograms (kg)"],
             items:[
               {before:"The length of your science notebook is measured with a ruler and expressed in ", after:".", a:"centimeters (cm)"},
@@ -1469,9 +1469,9 @@ Why measuring matters. Measuring is a crucial skill in cooking and baking. If yo
           {
             id:"sci2-tf", type:"truefalse", tag:"auto", icon:"✅",
             name:"True or False: Measuring Matter",
-            desc:"Piliin ang Tama o Mali",
-            prompt:"Piliin ang <b>Tama</b> kung wasto ang pahayag, <b>Mali</b> kung hindi.",
-            tLabel:"Tama (True)", fLabel:"Mali (False)", tWord:"Tama (True)", fWord:"Mali (False)",
+            desc:"Choose True or False",
+            prompt:"Choose <b>True</b> if the statement is correct, <b>False</b> if it is not.",
+            tLabel:"True", fLabel:"False", tWord:"True", fWord:"False",
             items:[
               {st:"One cubic centimeter is the same as one milliliter.", a:true},
               {st:"A beaker gives a more exact volume than a graduated cylinder.", a:false},
@@ -1484,7 +1484,7 @@ Why measuring matters. Measuring is a crucial skill in cooking and baking. If yo
           {
             id:"sci2-comp", type:"shortcheck", tag:"self", icon:"✍️",
             name:"Let's Review: Measuring in Real Life",
-            desc:"Isulat ang sagot, saka i-check sa modelong sagot",
+            desc:"Write your answer, then compare it with the model answer",
             items:[
               {q:"Identify the measuring tool and unit of measurement for the mass of a fruit bowl.",
                m:"Tool: platform balance or weighing scale. Unit: grams (g) or kilograms (kg)."},
@@ -1587,9 +1587,9 @@ Ferns are another type of nonflowering plant that reproduce using spores. They c
           {
             id:"sci3-tf", type:"truefalse", tag:"auto", icon:"✅",
             name:"True or False: Plant Groups",
-            desc:"Piliin ang Tama o Mali",
-            prompt:"Piliin ang <b>Tama</b> kung wasto ang pahayag, <b>Mali</b> kung hindi.",
-            tLabel:"Tama (True)", fLabel:"Mali (False)", tWord:"Tama (True)", fWord:"Mali (False)",
+            desc:"Choose True or False",
+            prompt:"Choose <b>True</b> if the statement is correct, <b>False</b> if it is not.",
+            tLabel:"True", fLabel:"False", tWord:"True", fWord:"False",
             items:[
               {st:"Angiosperms are plants that bear flowers.", a:true},
               {st:"Gymnosperm seeds are enclosed inside fruits.", a:false},
@@ -1602,7 +1602,7 @@ Ferns are another type of nonflowering plant that reproduce using spores. They c
           {
             id:"sci3-match", type:"matching", tag:"auto", icon:"🔗",
             name:"Match: Plant to Its Group",
-            desc:"Itugma ang halaman sa tamang pangkat",
+            desc:"Match each plant to its correct group",
             left:["gumamela","pine tree","fern","moss","sago palm","Ginkgo biloba"],
             right:[
               "angiosperm, a flowering plant with seeds inside a fruit",
@@ -1617,7 +1617,7 @@ Ferns are another type of nonflowering plant that reproduce using spores. They c
           {
             id:"sci3-comp", type:"shortcheck", tag:"self", icon:"✍️",
             name:"Let's Review: Comparing Plants",
-            desc:"Isulat ang sagot, saka i-check sa modelong sagot",
+            desc:"Write your answer, then compare it with the model answer",
             items:[
               {q:"How do you compare a gumamela plant to a fern?",
                m:"A gumamela is a flowering plant, or angiosperm. It bears flowers and reproduces by seeds that develop after the flower is pollinated. A fern is a nonflowering plant. It has no flowers or seeds and reproduces by spores found in sporangia on the underside of its fronds. Both, however, have true roots, stems, and leaves and make their own food."},
@@ -1700,9 +1700,9 @@ Fishes are vertebrates that live in water. Their body is covered with scales, an
           {
             id:"sci4-tf", type:"truefalse", tag:"auto", icon:"✅",
             name:"True or False: Animal Characteristics",
-            desc:"Piliin ang Tama o Mali",
-            prompt:"Piliin ang <b>Tama</b> kung wasto ang pahayag, <b>Mali</b> kung hindi.",
-            tLabel:"Tama (True)", fLabel:"Mali (False)", tWord:"Tama (True)", fWord:"Mali (False)",
+            desc:"Choose True or False",
+            prompt:"Choose <b>True</b> if the statement is correct, <b>False</b> if it is not.",
+            tLabel:"True", fLabel:"False", tWord:"True", fWord:"False",
             items:[
               {st:"Sharks are mammals.", a:false},
               {st:"Some mammals lay eggs.", a:true},
@@ -1715,7 +1715,7 @@ Fishes are vertebrates that live in water. Their body is covered with scales, an
           {
             id:"sci4-match", type:"matching", tag:"auto", icon:"🔗",
             name:"Match: Animal to Its Group",
-            desc:"Itugma ang hayop sa tamang pangkat",
+            desc:"Match each animal to its correct group",
             left:["butterfly","chicken","crocodile","dog","frog","shark"],
             right:["amphibian","bird","fish","insect, an invertebrate","mammal","reptile"],
             answer:[3,1,5,4,0,2]
@@ -1723,7 +1723,7 @@ Fishes are vertebrates that live in water. Their body is covered with scales, an
           {
             id:"sci4-comp", type:"shortcheck", tag:"self", icon:"✍️",
             name:"Let's Review: Describing Animal Groups",
-            desc:"Isulat ang sagot, saka i-check sa modelong sagot",
+            desc:"Write your answer, then compare it with the model answer",
             items:[
               {q:"What are the classifications of vertebrates based on their similar characteristics? Describe each.",
                m:"Mammals have hair or fur, are endothermic, breathe through lungs, and feed their young with milk. Birds have feathers and a beak, are endothermic, breathe through lungs, and lay hard-shelled eggs. Reptiles have dry scales or bony plates, are ectothermic, breathe through lungs, and lay leathery eggs. Amphibians have moist smooth skin, are ectothermic, breathe through gills when young and through lungs and skin as adults, and lay jelly-like eggs in water. Fishes have scales and fins, are ectothermic, live in water, and breathe through gills."},
@@ -1794,9 +1794,9 @@ Bacteria can also be helpful or harmful. Helpful bacteria turn milk into yogurt,
           {
             id:"sci5-tf", type:"truefalse", tag:"auto", icon:"✅",
             name:"True or False: Helpful and Harmful",
-            desc:"Piliin ang Tama o Mali",
-            prompt:"Piliin ang <b>Tama</b> kung wasto ang pahayag, <b>Mali</b> kung hindi.",
-            tLabel:"Tama (True)", fLabel:"Mali (False)", tWord:"Tama (True)", fWord:"Mali (False)",
+            desc:"Choose True or False",
+            prompt:"Choose <b>True</b> if the statement is correct, <b>False</b> if it is not.",
+            tLabel:"True", fLabel:"False", tWord:"True", fWord:"False",
             items:[
               {st:"All microorganisms are harmful and cause disease.", a:false},
               {st:"Yeast is a one-celled fungus.", a:true},
@@ -1809,7 +1809,7 @@ Bacteria can also be helpful or harmful. Helpful bacteria turn milk into yogurt,
           {
             id:"sci5-comp", type:"shortcheck", tag:"self", icon:"✍️",
             name:"Let's Review: Small but Important",
-            desc:"Isulat ang sagot, saka i-check sa modelong sagot",
+            desc:"Write your answer, then compare it with the model answer",
             items:[
               {q:"What are some examples of microorganisms?",
                m:"Fungi such as yeast, molds, and mushrooms; bacteria such as bacilli, cocci, and spirilla; and other tiny living things such as protists and algae. Viruses are also studied with them, although they are not considered fully living."},
@@ -1884,7 +1884,7 @@ Each of these structures is an adaptation, which means a feature that helps a li
           {
             id:"sci6-match", type:"matching", tag:"auto", icon:"🔗",
             name:"Match: Structure to Its Job",
-            desc:"Itugma ang bahagi sa tamang gawain nito",
+            desc:"Match each structure to the job it does",
             left:["tendril","thorn or spine","bulb","tuber","rhizome","pitcher-shaped leaf"],
             right:[
               "coils around a support so a vine can climb toward the sunlight",
@@ -1898,8 +1898,8 @@ Each of these structures is an adaptation, which means a feature that helps a li
           },
           {
             id:"sci6-fill", type:"fillblank", tag:"auto", icon:"🧩",
-            name:"Punan: Adaptations at Work",
-            desc:"Piliin ang tamang bahagi para sa bawat patlang",
+            name:"Fill In the Blank: Adaptations at Work",
+            desc:"Choose the correct plant part for each blank",
             wordbox:["tendrils","spines","buttress roots","waxy cuticle","aerial roots"],
             items:[
               {before:"Ampalaya and patola climb on trellises using their ", after:".", a:"tendrils"},
@@ -1912,7 +1912,7 @@ Each of these structures is an adaptation, which means a feature that helps a li
           {
             id:"sci6-comp", type:"shortcheck", tag:"self", icon:"✍️",
             name:"Let's Review: Why the Structure Fits the Place",
-            desc:"Isulat ang sagot, saka i-check sa modelong sagot",
+            desc:"Write your answer, then compare it with the model answer",
             items:[
               {q:"What is an adaptation, and how is it related to specialized structures?",
                m:"An adaptation is a feature that helps a living thing survive in its particular environment. A specialized structure is an adaptation in a plant: a root, stem, or leaf that has been modified to do a special job such as storing food or water, giving support, climbing, protecting the plant, or catching insects."},
@@ -1952,7 +1952,7 @@ Some flowers develop into fruits, which contain the seeds that are also essentia
           },
           {
             id:"sci7-seq", type:"sequencing", tag:"auto", icon:"🔢",
-            name:"Pagkakasunod-sunod: Seed to Seed",
+            name:"Put In Order: Seed to Seed",
             desc:"Arrange the stages of a plant's life cycle in order",
             items:[
               "A seed lands on good soil and takes in water, oxygen, and the right warmth.",
@@ -1999,7 +1999,7 @@ Some flowers develop into fruits, which contain the seeds that are also essentia
           {
             id:"sci7-comp", type:"shortcheck", tag:"self", icon:"✍️",
             name:"Let's Review: Growing Plants",
-            desc:"Isulat ang sagot, saka i-check sa modelong sagot",
+            desc:"Write your answer, then compare it with the model answer",
             items:[
               {q:"Why is a seed important for some plants?",
                m:"The seed carries the embryo, the immature plant, along with the stored food in the cotyledon that keeps it alive until it can make its own food. It is how seed-bearing plants reproduce and how new plants reach new places."},
@@ -2059,6 +2059,61 @@ function lessonPct(l){
   acts.forEach(a=>{ if((progress[keyFor(a)]||{}).done) done++; });
   return Math.round(done/acts.length*100);
 }
+/* ---------- LANGUAGE (per subject) ---------- */
+let LANG='fil';
+const STR={
+  fil:{
+    lessons:"Mga Aralin", subjProgress:"🌟 Progreso sa asignatura", done:"tapos",
+    LESSON:"ARALIN", Lesson:"Aralin",
+    tagAuto:"Iiskoran", tagSelf:"Sariling suri", tagRead:"Babasahin",
+    best:"Pinakamataas", inprog:"may naiwang sagot",
+    backLesson:"‹ Bumalik sa aralin", backLesson2:"Bumalik sa aralin ›",
+    viewOrig:"🖼️ Tingnan ang orihinal na pahina", doneReading:"Tapos na akong magbasa ✓",
+    question:"Tanong", points:"Puntos", next:"Susunod ›", finish:"Tapusin",
+    right:"✅ Tama!", wrong:"❌ Mali.", teacherNote:"(Maaaring talakayin ng guro.)",
+    check:"Suriin", showScore:"Ipakita ang iskor",
+    matchHint:"Pindutin ang isang pahayag sa <b>Hanay A</b>, tapos ang katugma nito sa <b>Hanay B</b>.",
+    matchResult:"Resulta ng pagtutugma", answerLbl:"Sagot",
+    seqHint:"Iayos ang mga pangyayari mula <b>una (1)</b> hanggang <b>huli</b>. Gamitin ang ▲▼.",
+    seqNote:"Ang ilang gitnang pangyayari ay maaaring bahagyang magkaiba ang pagkakasunod — tanungin ang iyong guro kung may pagdududa.",
+    fillHint:"Piliin ang angkop na salita mula sa kahon.", choose:"— pumili —",
+    tfRight:"✓ Tama", tfWrong:"✗ Tamang sagot:",
+    scPlaceholder:"Isulat dito ang iyong sagot…", scShow:"👁️ Ipakita ang modelong sagot",
+    scModel:"Modelong sagot:", scDone:"Tapos na ✓",
+    scHint:"Ito ay <b>sariling pagsusuri</b>. Isulat muna ang iyong sagot, saka ihambing sa modelong sagot. Naiaalala ang iyong sinulat hanggang pindutin ang “Tapos na”.",
+    msg90:"Napakahusay! Bihasa ka na!", msg70:"Magaling! Kaunti na lang!",
+    msg50:"Mabuti! Ulitin pa natin.", msg0:"Kaya mo ’yan — subukan muli!",
+    retryWrong:"🎯 Balikan ang mali", reviewPill:"🎯 Balik-aral sa mga naunang mali",
+    allFixed:" Lahat ay naitama na! 🌟", retryAll:"🔁 Ulitin lahat"
+  },
+  en:{
+    lessons:"Lessons", subjProgress:"🌟 Subject progress", done:"done",
+    LESSON:"LESSON", Lesson:"Lesson",
+    tagAuto:"Scored", tagSelf:"Self-check", tagRead:"Reading",
+    best:"Best", inprog:"answers saved",
+    backLesson:"‹ Back to lesson", backLesson2:"Back to lesson ›",
+    viewOrig:"🖼️ View the original page", doneReading:"I'm done reading ✓",
+    question:"Question", points:"Score", next:"Next ›", finish:"Finish",
+    right:"✅ Correct!", wrong:"❌ Not quite.", teacherNote:"(Your teacher may discuss this one.)",
+    check:"Check", showScore:"Show my score",
+    matchHint:"Tap an item in <b>Column A</b>, then tap its match in <b>Column B</b>.",
+    matchResult:"Matching results", answerLbl:"Answer",
+    seqHint:"Put the steps in order from <b>first (1)</b> to <b>last</b>. Use the ▲▼ buttons.",
+    seqNote:"Some of the middle steps may be ordered slightly differently — ask your teacher if you are unsure.",
+    fillHint:"Choose the right word from the box.", choose:"— choose —",
+    tfRight:"✓ Correct", tfWrong:"✗ Correct answer:",
+    scPlaceholder:"Write your answer here…", scShow:"👁️ Show the model answer",
+    scModel:"Model answer:", scDone:"Done ✓",
+    scHint:"This is a <b>self-check</b>. Write your own answer first, then compare it with the model answer. What you type is saved until you press “Done”.",
+    msg90:"Excellent! You have mastered this!", msg70:"Well done! Almost there!",
+    msg50:"Good! Let's go over it again.", msg0:"You can do this — try again!",
+    retryWrong:"🎯 Retry the ones you missed", reviewPill:"🎯 Reviewing the items you missed",
+    allFixed:" All corrected now! 🌟", retryAll:"🔁 Start over"
+  }
+};
+function t(k){ const d=STR[LANG]||STR.fil; return d[k]!=null?d[k]:STR.fil[k]; }
+function setLang(s){ LANG=(s&&s.lang)||'fil'; }
+
 /* ---------- HOME: pick a subject ---------- */
 function home(){
   const cards = DATA.subjects.map(s=>{
@@ -2086,6 +2141,7 @@ function home(){
 /* ---------- SUBJECT: list its lessons ---------- */
 function subject(sid){
   const s=DATA.subjects.find(x=>x.id===sid);
+  setLang(s);
   if(!s.lessons.length){
     app.innerHTML=`<div class="crumbs"><a onclick="home()">🏠 Home</a> <span>›</span> <span>${esc(s.name)}</span></div>
       <div class="card center"><div style="font-size:52px">${s.emoji}</div>
@@ -2099,20 +2155,20 @@ function subject(sid){
     const pct=lessonPct(l);
     return `<button class="lesson-card" style="background:linear-gradient(135deg,${l.color},#0000002e)" onclick="lesson('${l.id}')">
       <span class="emoji">${l.emoji}</span>
-      <div class="num">ARALIN ${i+1}</div>
+      <div class="num">${t('LESSON')} ${i+1}</div>
       <h3>${esc(l.title)}</h3>
       <div class="meta">${esc(l.blurb)}</div>
       <div class="prog"><i style="width:${pct}%"></i></div>
-      <div class="meta" style="margin-top:6px">${pct}% tapos</div>
+      <div class="meta" style="margin-top:6px">${pct}% ${t('done')}</div>
     </button>`;
   }).join('');
   app.innerHTML=`
     <div class="crumbs"><a onclick="home()">🏠 Home</a> <span>›</span> <span>${esc(s.name)}</span></div>
     <div class="card">
       <span class="pill">${s.emoji} ${esc(s.name)}</span>
-      <h2 class="title" style="margin-top:10px">Mga Aralin</h2>
+      <h2 class="title" style="margin-top:10px">${t('lessons')}</h2>
       <p class="sub">${esc(s.tagline)}</p>
-      <div class="pill">🌟 Progreso sa asignatura: ${subjectPct(s)}%</div>
+      <div class="pill">${t('subjProgress')}: ${subjectPct(s)}%</div>
     </div>
     <div class="grid">${cards}</div>`;
   window.scrollTo(0,0);
@@ -2121,24 +2177,25 @@ function subject(sid){
 /* ---------- LESSON MENU ---------- */
 function lesson(id){
   const {l,s}=findLesson(id);
+  setLang(s);
   const idx=s.lessons.indexOf(l)+1;
   const items=l.activities.map(a=>{
     const done=(progress[keyFor(a)]||{}).done;
     const best=(progress[keyFor(a)]||{}).best;
     const inprog=!!getDraft(a.id);
-    const tagTxt = a.tag==='auto'?'Iiskoran':a.tag==='self'?'Sariling suri':'Babasahin';
-    const bestTxt = (a.tag==='auto'&&best!=null)?` · Pinakamataas: ${best}%`:'';
+    const tagTxt = a.tag==='auto'?t('tagAuto'):a.tag==='self'?t('tagSelf'):t('tagRead');
+    const bestTxt = (a.tag==='auto'&&best!=null)?` · ${t('best')}: ${best}%`:'';
     return `<button class="act-item" onclick="openAct('${l.id}','${a.id}')">
       <div class="ic">${a.icon}</div>
-      <div class="txt"><b>${esc(a.name)}</b><span>${esc(a.desc)}${bestTxt}${inprog?' · ⏳ may naiwang sagot':''}</span></div>
+      <div class="txt"><b>${esc(a.name)}</b><span>${esc(a.desc)}${bestTxt}${inprog?' · ⏳ '+t('inprog'):''}</span></div>
       <div class="tag ${a.tag}">${tagTxt}</div>
       ${done?'<div class="tick">✓</div>':''}
     </button>`;
   }).join('');
   app.innerHTML=`
-    <div class="crumbs"><a onclick="home()">🏠</a> <span>›</span> <a onclick="subject('${s.id}')">${esc(s.short||s.name)}</a> <span>›</span> <span>Aralin ${idx}</span></div>
+    <div class="crumbs"><a onclick="home()">🏠</a> <span>›</span> <a onclick="subject('${s.id}')">${esc(s.short||s.name)}</a> <span>›</span> <span>${t('Lesson')} ${idx}</span></div>
     <div class="card">
-      <span class="pill">${l.emoji} Aralin ${idx}</span>
+      <span class="pill">${l.emoji} ${t('Lesson')} ${idx}</span>
       <h2 class="title" style="margin-top:10px">${esc(l.title)}</h2>
       <p class="sub">${esc(l.blurb)}</p>
       ${items}
@@ -2151,7 +2208,7 @@ let CTX={}; let LASTWRONG=null;
 function openAct(lid,aid){
   const {l,s}=findLesson(lid);
   const a=l.activities.find(x=>x.id===aid);
-  CTX={l,a,s,review:false}; LASTWRONG=null;
+  CTX={l,a,s,review:false}; LASTWRONG=null; setLang(s);
   _seed=7; // reset pseudo-shuffle each open for consistency
   ({passage:renderPassage, mcq:renderMCQ, matching:renderMatching,
     sequencing:renderSeq, fillblank:renderFill, truefalse:renderTF,
@@ -2160,9 +2217,9 @@ function openAct(lid,aid){
 }
 function crumbs(){
   const s=CTX.s; const idx=s.lessons.indexOf(CTX.l)+1;
-  return `<div class="crumbs"><a onclick="home()">🏠</a> <span>›</span> <a onclick="subject('${s.id}')">${esc(s.short||s.name)}</a> <span>›</span> <a onclick="lesson('${CTX.l.id}')">Aralin ${idx}</a> <span>›</span> <span>${esc(CTX.a.name)}</span></div>`;
+  return `<div class="crumbs"><a onclick="home()">🏠</a> <span>›</span> <a onclick="subject('${s.id}')">${esc(s.short||s.name)}</a> <span>›</span> <a onclick="lesson('${CTX.l.id}')">${t('Lesson')} ${idx}</a> <span>›</span> <span>${esc(CTX.a.name)}</span></div>`;
 }
-function backBtn(){return `<button class="btn secondary" onclick="lesson('${CTX.l.id}')">‹ Bumalik sa aralin</button>`;}
+function backBtn(){return `<button class="btn secondary" onclick="lesson('${CTX.l.id}')">${t('backLesson')}</button>`;}
 
 /* ---------- PASSAGE ---------- */
 function renderPassage(){
@@ -2182,10 +2239,10 @@ function renderPassage(){
   app.innerHTML=`${crumbs()}
     <div class="card">
       ${bodyHtml}
-      ${a.orig?`<a class="origlink" href="${a.orig}" target="_blank">🖼️ Tingnan ang orihinal na pahina</a>`:''}
+      ${a.orig?`<a class="origlink" href="${a.orig}" target="_blank">${t('viewOrig')}</a>`:''}
       <div class="mt" style="display:flex;gap:10px;flex-wrap:wrap">
         ${backBtn()}
-        <button class="btn" onclick="finishRead()">Tapos na akong magbasa ✓</button>
+        <button class="btn" onclick="finishRead()">${t('doneReading')}</button>
       </div>
     </div>`;
 }
@@ -2201,12 +2258,12 @@ function renderMCQ(){
     const it=items[i];
     app.innerHTML=`${crumbs()}
       <div class="card">
-        <div class="qhead"><span class="qcount">Tanong ${i+1} / ${items.length}</span><span class="qcount">Puntos: ${score}</span></div>
+        <div class="qhead"><span class="qcount">${t('question')} ${i+1} / ${items.length}</span><span class="qcount">${t('points')}: ${score}</span></div>
         <div class="qbar"><i style="width:${(i)/items.length*100}%"></i></div>
         <div class="qtext"><span class="idx">${i+1}.</span> ${esc(it.q)}</div>
-        <div id="opts">${it.o.map((o,k)=>`<button class="opt" onclick="window._pick(${k})"><span class="lead">${'ABCD'[k]}.</span>${esc(o)}</button>`).join('')}</div>
+        <div id="opts">${it.o.map((o,k)=>`<button class="opt" onclick="window._pick(${k})"><span class="lead">${'ABCDEF'[k]}.</span>${esc(o)}</button>`).join('')}</div>
         <div id="fb"></div>
-        <div class="navq"><span></span><button class="btn" id="nx" disabled onclick="window._next()">${i+1<items.length?'Susunod ›':'Tapusin'}</button></div>
+        <div class="navq"><span></span><button class="btn" id="nx" disabled onclick="window._next()">${i+1<items.length?t('next'):t('finish')}</button></div>
       </div>`;
   }
   function reveal(k){
@@ -2215,7 +2272,7 @@ function renderMCQ(){
       if(idx===it.a)el.classList.add('correct');
       if(idx===k&&k!==it.a)el.classList.add('wrong');});
     const ok=k===it.a;
-    document.getElementById('fb').innerHTML=`<div class="fb ${ok?'ok':'no'}">${ok?'✅ Tama!':'❌ Mali.'} ${it.e?esc(it.e):''}${it.flag?' <em>(Maaaring talakayin ng guro.)</em>':''}</div>`;
+    document.getElementById('fb').innerHTML=`<div class="fb ${ok?'ok':'no'}">${ok?t('right'):t('wrong')} ${it.e?esc(it.e):''}${it.flag?' <em>'+t('teacherNote')+'</em>':''}</div>`;
     document.getElementById('nx').disabled=false;
     return ok;
   }
@@ -2261,12 +2318,12 @@ function renderMatching(){
     const all=Object.keys(pairs).length===left.length;
     app.innerHTML=`${crumbs()}
       <div class="card">
-        <div class="qtext" style="font-size:16px">Pindutin ang isang pahayag sa <b>Hanay A</b>, tapos ang katugma nito sa <b>Hanay B</b>.</div>
+        <div class="qtext" style="font-size:16px">${t('matchHint')}</div>
         <div class="match-wrap">
           <div class="match-col"><h5>Hanay A</h5>${leftHtml}</div>
           <div class="match-col"><h5>Hanay B</h5>${rightHtml}</div>
         </div>
-        <div class="navq mt">${backBtn()}<button class="btn" ${all?'':'disabled'} onclick="window._check()">Suriin</button></div>
+        <div class="navq mt">${backBtn()}<button class="btn" ${all?'':'disabled'} onclick="window._check()">${t('check')}</button></div>
       </div>`;
   }
   window._L=function(i){ if(pairs[i]!=null){delete pairs[i];selLeft=null;saveD();draw();return;} selLeft=i; draw(); };
@@ -2280,10 +2337,10 @@ function renderMatching(){
     const rows=left.map((t,i)=>{
       const ok=pairs[i]===a.answer[i];
       return `<div class="seq-item ${ok?'ok':'bad'}"><span class="pos">${ok?'✓':'✗'}</span>
-        <div class="body">${esc(t)}<br><small style="color:var(--muted)">Sagot: <b>${esc(a.right[a.answer[i]])}</b></small></div></div>`;
+        <div class="body">${esc(t)}<br><small style="color:var(--muted)">${t('answerLbl')}: <b>${esc(a.right[a.answer[i]])}</b></small></div></div>`;
     }).join('');
-    app.innerHTML=`${crumbs()}<div class="card"><h3>Resulta ng pagtutugma</h3>${rows}
-      <div class="navq mt">${backBtn()}<button class="btn" onclick="finishQuiz(${score},${left.length})">Ipakita ang iskor</button></div></div>`;
+    app.innerHTML=`${crumbs()}<div class="card"><h3>${t('matchResult')}</h3>${rows}
+      <div class="navq mt">${backBtn()}<button class="btn" onclick="finishQuiz(${score},${left.length})">${t('showScore')}</button></div></div>`;
   };
   draw();
 }
@@ -2311,12 +2368,12 @@ function renderSeq(){
     }).join('');
     app.innerHTML=`${crumbs()}
       <div class="card">
-        <div class="qtext" style="font-size:16px">Iayos ang mga pangyayari mula <b>una (1)</b> hanggang <b>huli</b>. Gamitin ang ▲▼.</div>
+        <div class="qtext" style="font-size:16px">${t('seqHint')}</div>
         ${rows}
-        ${a.flag&&checked?'<div class="note">Ang ilang gitnang pangyayari ay maaaring bahagyang magkaiba ang pagkakasunod — tanungin ang iyong guro kung may pagdududa.</div>':''}
+        ${a.flag&&checked?'<div class="note">'+t('seqNote')+'</div>':''}
         <div class="navq mt">${backBtn()}
-        ${checked?`<button class="btn" onclick="finishQuiz(${order.filter((ci,pos)=>ci===pos).length},${order.length})">Ipakita ang iskor</button>`
-                 :`<button class="btn" onclick="window._chk()">Suriin</button>`}</div>
+        ${checked?`<button class="btn" onclick="finishQuiz(${order.filter((ci,pos)=>ci===pos).length},${order.length})">${t('showScore')}</button>`
+                 :`<button class="btn" onclick="window._chk()">${t('check')}</button>`}</div>
       </div>`;
   }
   window._chk=function(){ if(useDraft) clearDraft(dkey); draw(true); };
@@ -2332,15 +2389,15 @@ function renderFill(){
     const rows=a.items.map((it,i)=>{
       return `<div class="fbq">${i+1}. ${esc(it.before)}
         <select id="s${i}" onchange="window._fv()">
-          <option value="">— pumili —</option>
+          <option value="">${t('choose')}</option>
           ${opts.map(w=>`<option value="${esc(w)}">${esc(w)}</option>`).join('')}
         </select>${esc(it.after)}</div>`;
     }).join('');
     app.innerHTML=`${crumbs()}
       <div class="card">
-        <div class="qtext" style="font-size:16px">Piliin ang angkop na salita mula sa kahon.</div>
+        <div class="qtext" style="font-size:16px">${t('fillHint')}</div>
         ${box}${rows}
-        <div class="navq mt">${backBtn()}<button class="btn" onclick="window._chk()">Suriin</button></div>
+        <div class="navq mt">${backBtn()}<button class="btn" onclick="window._chk()">${t('check')}</button></div>
       </div>`;
     const d=useDraft?getDraft(dkey):null;
     if(d&&d.values){ a.items.forEach((_,i)=>{ const el=document.getElementById('s'+i); if(el&&d.values[i]) el.value=d.values[i]; }); }
@@ -2361,7 +2418,7 @@ function renderFill(){
     });
     LASTWRONG = w.length?{type:'fillblank', items:w}:null;
     const bar=document.querySelector('.navq');
-    bar.innerHTML=`${backBtn()}<button class="btn" onclick="finishQuiz(${score},${a.items.length})">Ipakita ang iskor</button>`;
+    bar.innerHTML=`${backBtn()}<button class="btn" onclick="finishQuiz(${score},${a.items.length})">${t('showScore')}</button>`;
   };
   draw();
 }
@@ -2388,7 +2445,7 @@ function renderTF(){
       <div class="card">
         <div class="qtext" style="font-size:16px">${prompt}</div>
         ${rows}
-        <div class="navq mt">${backBtn()}<button class="btn" ${all?'':'disabled'} onclick="window._chk()">Suriin</button></div>
+        <div class="navq mt">${backBtn()}<button class="btn" ${all?'':'disabled'} onclick="window._chk()">${t('check')}</button></div>
       </div>`;
   }
   window._p=function(i,v){picks[i]=v;saveD();draw();};
@@ -2401,11 +2458,11 @@ function renderTF(){
       row.classList.add(ok?'ok':'bad');
       const s=document.createElement('div'); s.style.marginTop='6px'; s.style.fontWeight='700';
       s.style.color=ok?'var(--good)':'var(--bad)';
-      s.innerHTML= ok?'✓ Tama':`✗ Tamang sagot: ${it.a?(a.tWord||'B (Binanggit)'):(a.fWord||'HB (Hindi binanggit)')}`;
+      s.innerHTML= ok?t('tfRight'):`${t('tfWrong')} ${it.a?(a.tWord||'B (Binanggit)'):(a.fWord||'HB (Hindi binanggit)')}`;
       row.appendChild(s);
     });
     LASTWRONG = w.length?{type:'truefalse', items:w}:null;
-    document.querySelector('.navq').innerHTML=`${backBtn()}<button class="btn" onclick="finishQuiz(${score},${a.items.length})">Ipakita ang iskor</button>`;
+    document.querySelector('.navq').innerHTML=`${backBtn()}<button class="btn" onclick="finishQuiz(${score},${a.items.length})">${t('showScore')}</button>`;
   };
   draw();
 }
@@ -2416,15 +2473,15 @@ function renderShort(){
   const rows=a.items.map((it,i)=>`
     <div>
       <div class="sc-q"><span class="n">${i+1}.</span> ${esc(it.q)}</div>
-      <textarea id="ta${i}" oninput="window._sc()" placeholder="Isulat dito ang iyong sagot…"></textarea>
-      <div style="margin:8px 0 4px"><button class="btn small secondary" onclick="window._rev(${i})">👁️ Ipakita ang modelong sagot</button></div>
-      <div class="model hide" id="m${i}"><b>Modelong sagot:</b> ${esc(it.m)}</div>
+      <textarea id="ta${i}" oninput="window._sc()" placeholder="${t('scPlaceholder')}"></textarea>
+      <div style="margin:8px 0 4px"><button class="btn small secondary" onclick="window._rev(${i})">${t('scShow')}</button></div>
+      <div class="model hide" id="m${i}"><b>${t('scModel')}</b> ${esc(it.m)}</div>
     </div>`).join('');
   app.innerHTML=`${crumbs()}
     <div class="card">
-      <div class="qtext" style="font-size:16px">Ito ay <b>sariling pagsusuri</b>. Isulat muna ang iyong sagot, saka ihambing sa modelong sagot. Naiaalala ang iyong sinulat hanggang pindutin ang “Tapos na”.</div>
+      <div class="qtext" style="font-size:16px">${t('scHint')}</div>
       ${rows}
-      <div class="navq mt">${backBtn()}<button class="btn" onclick="finishRead();">Tapos na ✓</button></div>
+      <div class="navq mt">${backBtn()}<button class="btn" onclick="finishRead();">${t('scDone')}</button></div>
     </div>`;
   window._rev=function(i){ document.getElementById('m'+i).classList.remove('hide'); };
   window._sc=function(){ setDraft(dkey,{texts:a.items.map((_,i)=>{const el=document.getElementById('ta'+i);return el?el.value:'';})}); };
@@ -2437,22 +2494,22 @@ function finishQuiz(score,total){
   const pct=Math.round(score/total*100);
   if(!CTX.review){ setBest(CTX.a,pct); clearDraft(CTX.a.id); }
   const stars = pct>=90?'⭐⭐⭐':pct>=70?'⭐⭐':pct>=50?'⭐':'✨';
-  const msg = pct>=90?'Napakahusay! Bihasa ka na!':pct>=70?'Magaling! Kaunti na lang!':pct>=50?'Mabuti! Ulitin pa natin.':'Kaya mo ’yan — subukan muli!';
+  const msg = pct>=90?t('msg90'):pct>=70?t('msg70'):pct>=50?t('msg50'):t('msg0');
   const emoji = pct>=90?'🏆':pct>=70?'🎉':pct>=50?'👍':'💪';
   const w=LASTWRONG; const wc = w?(w.items?w.items.length:(w.left?w.left.length:0)):0;
-  const reviewBtn = wc>0 ? `<button class="btn" style="background:var(--accent2);box-shadow:0 4px 0 #a21c6b;color:#fff" onclick="reviewWrong()">🎯 Balikan ang mali (${wc})</button>` : '';
+  const reviewBtn = wc>0 ? `<button class="btn" style="background:var(--accent2);box-shadow:0 4px 0 #a21c6b;color:#fff" onclick="reviewWrong()">${t('retryWrong')} (${wc})</button>` : '';
   app.innerHTML=`${crumbs()}
     <div class="card result">
-      ${CTX.review?'<span class="pill" style="margin-bottom:10px">🎯 Balik-aral sa mga naunang mali</span>':''}
+      ${CTX.review?'<span class="pill" style="margin-bottom:10px">'+t('reviewPill')+'</span>':''}
       <div class="big">${emoji}</div>
       <div class="stars">${stars}</div>
       <div class="score">${score}<small>/${total}</small></div>
       <div class="score" style="font-size:22px;color:var(--accent2);margin-top:-6px">${pct}%</div>
-      <div class="msg">${msg}${(wc===0&&CTX.review)?' Lahat ay naitama na! 🌟':''}</div>
+      <div class="msg">${msg}${(wc===0&&CTX.review)?t('allFixed'):''}</div>
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
         ${reviewBtn}
-        <button class="btn secondary" onclick="openAct('${CTX.l.id}','${CTX.a.id}')">🔁 Ulitin lahat</button>
-        <button class="btn" onclick="lesson('${CTX.l.id}')">Bumalik sa aralin ›</button>
+        <button class="btn secondary" onclick="openAct('${CTX.l.id}','${CTX.a.id}')">${t('retryAll')}</button>
+        <button class="btn" onclick="lesson('${CTX.l.id}')">${t('backLesson2')}</button>
       </div>
     </div>`;
   window.scrollTo(0,0);

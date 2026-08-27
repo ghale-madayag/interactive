@@ -11,7 +11,15 @@ Pick a **subject** from the home screen, then a lesson. Currently:
 - **Science 5** — 7 lessons (Simple Science Investigations, Scientific Units & Measurement, Classification of Plants, Classification of Animals, Microorganisms, Specialized Structures of Plants, Life Cycle of Plants)
 
 > The Math and Science content is in **English**, matching their English-medium source modules
-> (Philippine Grade 5 Math and Science are taught in English). The app's navigation labels stay in Filipino.
+> (Philippine Grade 5 Math and Science are taught in English).
+
+### Per-subject interface language
+
+Each subject carries an optional `lang` field. With `lang:"en"` the whole interface for that
+subject — lesson cards, activity tags, instructions, buttons, feedback, and the score screen —
+renders in English; without it, the default Filipino strings are used. **Science 5** is set to
+`en`; Filipino, EPP·ICT, and Math keep the Filipino interface. The strings live in the `STR`
+table near the top of the app script, so flipping another subject is a one-line change.
 
 ## Paano gamitin (How to use)
 
