@@ -927,6 +927,140 @@ Pagwawangis kang laging nasa isipan.`
           ]
         }
       ]
+    },
+    {
+      id:"a4", color:"#e11d48", emoji:"💬",
+      title:"Pang-abay na Panang-ayon at Pagsalungat",
+      blurb:"Mga salitang ginagamit sa pagsang-ayon at hindi pagsang-ayon sa isang pahayag",
+      activities:[
+        {
+          id:"a4-read", type:"passage", tag:"read", icon:"📖",
+          name:"Basahin: Panang-ayon at Pagsalungat",
+          desc:"Aralin 6 · Palaging Tandaan (p. 48)",
+          orig:"img/filipino/IMG_20260827_195038.jpg",
+          heading:"Pang-abay na Panang-ayon at Pagsalungat", by:"Aralin 6",
+          introP:[0,0],
+          sections:[
+            {ic:"👍", title:"Ang Panang-ayon", p:[1,1]},
+            {ic:"👎", title:"Ang Pagsalungat", p:[2,2]},
+            {ic:"💡", title:"Bakit Ito Mahalaga", p:[3,3]}
+          ],
+          body:
+`Ang panang-ayon at pagsalungat ay mahalagang kasanayan sa pagpapahayag ng opinyon at paninindigan. Ang pang-abay na ginagamit dito ay nagsasabi kung sumasang-ayon ka ba o hindi sa isang ideya o pahayag.
+
+Sa panang-ayon, ipinahahayag ang pagsang-ayon sa isang ideya o pahayag. Ginagamit dito ang mga salitang tulad ng oo, opo, tama, tunay, talaga, sadya, at ang mga pahayag na sumasang-ayon ako at ayon sa aking pananaw. Ang mga ito ay nagpapatibay sa sinasabi ng kausap.
+
+Samantala, ang pagsalungat ay nagpapakita ng hindi pagsang-ayon sa isang ideya. Kadalasang ginagamit ang mga salitang hindi, di, ayaw, o huwag. Sa pamamagitan ng mga ito, malinaw na naipapahayag na iba ang iyong paniniwala sa sinasabi ng iba.
+
+Mahalaga ang panang-ayon at pagsalungat sa mga talakayan. Sa pamamagitan nito, naipakikita ang mga magkakaibang pananaw ng mga tao at nakatutulong ito sa pagbuo ng mas malalim na pag-unawa sa isang isyu. Ang maayos na paggamit ng panang-ayon at pagsalungat ay nagpapalawak ng kritikal na pag-iisip, kaya nagiging mas organisado ang pagpapalitan ng mga ideya.`
+        },
+        {
+          id:"a4-tf", type:"truefalse", tag:"auto", icon:"✅",
+          name:"Panang-ayon ba o Pagsalungat?",
+          desc:"Uriin ang pang-abay sa bawat pangungusap",
+          prompt:"Piliin ang <b>Panang-ayon</b> kung ang pang-abay ay sumasang-ayon, <b>Pagsalungat</b> kung hindi.",
+          tLabel:"Panang-ayon", fLabel:"Pagsalungat", tWord:"Panang-ayon", fWord:"Pagsalungat",
+          items:[
+            {st:"Talagang makauuwi na siya ng Bulacan.", a:true, e:"Ang pang-abay na talaga ay nagpapatibay sa pahayag, kaya panang-ayon."},
+            {st:"Oo, babalik na kami sa aming tahanan.", a:true, e:"Ang oo ang pinakatuwirang salitang panang-ayon."},
+            {st:"Sadyang mahusay siyang umawit kaya nananalo.", a:true, e:"Ang sadya ay nagbibigay-diin at sumasang-ayon sa sinasabi."},
+            {st:"Tunay na mabilis ang pag-unlad ng kanilang pamumuhay.", a:true, e:"Ang tunay ay nagpapatotoo sa pahayag, kaya panang-ayon."},
+            {st:"Opo, masaya kami kung magpa-Pasko.", a:true, e:"Ang opo ay magalang na anyo ng oo — panang-ayon."},
+            {st:"Hindi siya maaaring maging pabigat sa pamilya.", a:false, e:"Ang hindi ay tumatanggi sa pahayag, kaya pagsalungat."},
+            {st:"Sa lahat ng ayoko ay ninanakawan ako.", a:false, e:"Ang ayoko ay mula sa ayaw — nagpapakita ng hindi pagsang-ayon."},
+            {st:"Tama ka, sobra ang saya ko kapag kasama kita.", a:true, e:"Ang tama ka ay pagsang-ayon sa sinabi ng kausap."},
+            {st:"Hindi maayos ang takbo ng mga sasakyan sa kalsada.", a:false, e:"Muli, ang hindi ang nagpapakita ng pagsalungat."},
+            {st:"Sadyang dumarami ang kaniyang pinakikisamahan.", a:true, e:"Ang sadya rito ay nagbibigay-diin at sumasang-ayon sa pahayag."}
+          ]
+        },
+        {
+          id:"a4-mcq", type:"mcq", tag:"auto", icon:"✅",
+          name:"Pagtataya: Pang-abay sa Pangungusap",
+          desc:"Piliin ang tamang sagot",
+          items:[
+            {q:"Ano ang tawag sa pang-abay na nagpapakita ng pagsang-ayon sa isang ideya o pahayag?",
+             o:["pang-abay na panang-ayon","pang-abay na pagsalungat","pang-abay na pamanahon","pang-abay na panlunan"],a:0,
+             e:"Ang pang-abay na panang-ayon ang nagsasaad ng pagsang-ayon."},
+            {q:"Alin sa mga sumusunod ang pawang mga salitang panang-ayon?",
+             o:["hindi, di, ayaw","oo, opo, tama","huwag, ayaw, di","kahapon, ngayon, bukas"],a:1,
+             e:"Ang oo, opo, at tama ay mga salitang sumasang-ayon."},
+            {q:"Alin sa mga sumusunod ang salitang pagsalungat?",
+             o:["tunay","sadya","huwag","talaga"],a:2,
+             e:"Ang huwag ay tumatanggi, kaya ito ay pagsalungat."},
+            {q:"“Opo, tutulong ako sa gawaing bahay.” Anong uri ng pang-abay ang ginamit?",
+             o:["panang-ayon","pagsalungat","pamanahon","pamaraan"],a:0,
+             e:"Ang opo ay magalang na pagsang-ayon."},
+            {q:"“Ayaw niyang sumama sa lakad ng klase.” Anong uri ng pang-abay ang ginamit?",
+             o:["panang-ayon","pagsalungat","panggaano","panlunan"],a:1,
+             e:"Ang ayaw ay nagsasaad ng hindi pagsang-ayon."},
+            {q:"Alin ang pinakaangkop na panang-ayon sa pahayag na “Dapat tayong magtipid ng tubig.”?",
+             o:["Hindi, marami namang tubig.","Huwag na lang natin gawin.","Ayoko sa ideyang iyan.","Tama ka, mahalagang magtipid tayo."],a:3,
+             e:"Ang tama ka ay malinaw na pagsang-ayon sa ideya."},
+            {q:"Bakit mahalaga ang panang-ayon at pagsalungat sa isang talakayan?",
+             o:["upang mapatunayan na palaging tama ang isang tao","upang matapos agad ang usapan","upang maipakita ang magkakaibang pananaw at mas maunawaan ang isyu","upang hindi na kailangang makinig sa iba"],a:2,
+             e:"Naipakikita nito ang iba-ibang pananaw at napapalalim ang pag-unawa sa isyu."},
+            {q:"Alin ang WASTONG paraan ng pagsalungat sa isang talakayan?",
+             o:["Sumigaw at insultuhin ang kausap.","Magpahayag nang magalang ng hindi pagsang-ayon at magbigay ng dahilan.","Huwag nang magsalita kahit iba ang paniniwala.","Tumawa sa opinyon ng iba."],a:1,
+             e:"Ang maayos na pagsalungat ay magalang at may sapat na katwiran.",flag:true},
+            {q:"“Tunay na masipag ang aking kapatid.” Anong salita ang pang-abay na panang-ayon?",
+             o:["Tunay","masipag","aking","kapatid"],a:0,
+             e:"Ang tunay ang pang-abay na nagpapatotoo sa pahayag."},
+            {q:"“Hindi ako sang-ayon sa panukalang iyon.” Anong salita ang nagpapakita ng pagsalungat?",
+             o:["ako","Hindi","panukalang","iyon"],a:1,
+             e:"Ang hindi ang salitang tumatanggi sa panukala."}
+          ]
+        },
+        {
+          id:"a4-match", type:"matching", tag:"auto", icon:"🔗",
+          name:"Tugma-tugma: Salita at Uri",
+          desc:"Itugma ang pahayag sa uri ng pang-abay",
+          left:[
+            "“Oo, sasama ako sa inyo.”",
+            "“Huwag mong kalimutan ang iyong pangako.”",
+            "“Tunay na matalino ang batang iyon.”",
+            "“Ayaw kong sumali sa paligsahan.”",
+            "“Tama ka, kailangan nating magsanay.”"
+          ],
+          right:[
+            "panang-ayon — gumagamit ng oo",
+            "pagsalungat — gumagamit ng huwag",
+            "panang-ayon — gumagamit ng tunay",
+            "pagsalungat — gumagamit ng ayaw",
+            "panang-ayon — gumagamit ng tama"
+          ],
+          answer:[0,1,2,3,4]
+        },
+        {
+          id:"a4-fill", type:"fillblank", tag:"auto", icon:"🧩",
+          name:"Punan ng Angkop na Pang-abay",
+          desc:"Piliin ang tamang salita mula sa kahon",
+          wordbox:["Opo","Hindi","Tunay","Huwag","Sadyang"],
+          items:[
+            {before:"", after:", susunod po ako sa inyong bilin, Nanay.", a:"Opo"},
+            {before:"", after:" ako sumasang-ayon sa mungkahing iyon dahil mataas ang gastos.", a:"Hindi"},
+            {before:"", after:" na mahusay ang pagtatanghal ng aming klase.", a:"Tunay"},
+            {before:"", after:" kang maglaro sa kalsada dahil delikado ito.", a:"Huwag"},
+            {before:"", after:" maingat si Lola sa paghawak ng mga baso.", a:"Sadyang"}
+          ]
+        },
+        {
+          id:"a4-comp", type:"shortcheck", tag:"self", icon:"✍️",
+          name:"Pagtalakay: Paggamit sa Tunay na Usapan",
+          desc:"Isulat ang sagot, saka i-check sa modelong sagot",
+          items:[
+            {q:"Ano ang pang-abay na panang-ayon? Magbigay ng tatlong halimbawa.",
+             m:"Ito ang pang-abay na nagpapakita ng pagsang-ayon sa isang ideya o pahayag. Halimbawa: oo, opo, tama, tunay, talaga, at sadya."},
+            {q:"Ano ang pang-abay na pagsalungat? Magbigay ng tatlong halimbawa.",
+             m:"Ito ang pang-abay na nagpapakita ng hindi pagsang-ayon. Halimbawa: hindi, di, ayaw, at huwag."},
+            {q:"Bilang mag-aaral, paano mo ginagamit ang panang-ayon at pagsalungat sa pakikipag-usap?",
+             m:"Halimbawang sagot: Ginagamit ko ang panang-ayon kapag sang-ayon ako sa mungkahi ng kagrupo, at ang pagsalungat kapag may ibang panukala ako. Sa magalang na pagsagot, naipapahayag ko ang aking pananaw nang hindi nakasasakit ng damdamin."},
+            {q:"Sumulat ng dalawang pangungusap tungkol sa paglilinis ng silid-aralan — isang panang-ayon at isang pagsalungat. Bilugan ang pang-abay.",
+             m:"Halimbawang sagot: (panang-ayon) Tama ka, kailangan nating linisin ang silid-aralan araw-araw. (pagsalungat) Hindi dapat itapon ang basura sa sulok ng silid."},
+            {q:"Bakit mahalagang maging magalang kahit tayo ay sumasalungat?",
+             m:"Halimbawang sagot: Dahil ang layunin ng talakayan ay magpalitan ng ideya, hindi manalo sa away. Kapag magalang ang pagsalungat, nakikinig pa rin ang iba at mas malalim ang nabubuong pag-unawa sa isyu."}
+          ]
+        }
+      ]
     }
     ]
   },

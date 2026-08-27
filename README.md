@@ -5,7 +5,7 @@ learning modules. Everything lives in a single file: [`index.html`](index.html) 
 no dependencies, no internet required.
 
 Pick a **subject** from the home screen, then a lesson. Currently:
-- **Filipino 5** — 3 lessons (Kuwentong Kababalaghan, Metapora, Tekstong Impormatibo)
+- **Filipino 5** — 4 lessons (Kuwentong Kababalaghan, Metapora, Tekstong Impormatibo, Pang-abay na Panang-ayon at Pagsalungat)
 - **EPP · ICT** — 2 lessons (Digital Citizenship & Netiquette, Responsableng Paggamit ng Internet)
 - **Math 5** — 5 lessons (12- & 24-Hour Clocks, World Time Zones, GMDAS / Order of Operations, Multiplying Fractions, Exploring Shapes)
 - **Science 5** — 7 lessons (Simple Science Investigations, Scientific Units & Measurement, Classification of Plants, Classification of Animals, Microorganisms, Specialized Structures of Plants, Life Cycle of Plants)
@@ -31,13 +31,14 @@ Student progress (best scores + completion) is saved automatically in the browse
 
 ## Nilalaman (Content)
 
-Three lessons (Aralin), each with a reading passage plus interactive practice:
+The Filipino lessons, each with a reading passage plus interactive practice:
 
 | Aralin | Babasahin | Pagsasanay |
 |--------|-----------|------------|
 | **1 — Kuwentong Kababalaghan** | Kuwentong *"Ang Aswang ng San Andres"* | 10-item multiple choice · tugma-tugma (matching) · pagkakasunod-sunod · sariling-suri |
 | **2 — Metapora / Pagwawangis** | Tulang *"Diwa ng Metapora o Pagwawangis"* | multiple choice · punan ang patlang · dalawang pinagtutulad · sariling-suri |
 | **3 — Tekstong Impormatibo** | Resetang *"Tinolang Manok ni Ruthie"* | tama/mali (B/HB) · multiple choice · sariling-suri |
+| **4 — Pang-abay na Panang-ayon at Pagsalungat** | Palaging Tandaan (Aralin 6, p. 48) | panang-ayon/pagsalungat · multiple choice · tugma-tugma · punan ang patlang · sariling-suri |
 
 ## Mga Tampok (Features)
 
@@ -69,14 +70,16 @@ Each screen opens with the same full-bleed hero — brand on top, breadcrumb chi
   fully usable.
 - A reading page gets the step-by-step layout — sticky progress bar, numbered step cards, per-step
   "I've read this step" buttons, and a completion celebration — when its activity defines `steps`.
-  Science Aralin 1 does; every other passage renders in the same theme without the step mechanics.
-  Per-step progress is remembered like any other in-progress answer.
+  Science Aralin 1 carries hand-authored `steps`; 17 other readings label ranges of their own body
+  paragraphs with `sections` and the cards are derived from those, so no module text is duplicated.
+  The Filipino story, poem and recipe keep their flowing layout. Per-step progress is remembered
+  like any other in-progress answer.
 
 ## Paalala (Notes)
 
 - The original scanned module pages (`IMG_*.jpg`) are **not** included in this repository, except for
-  the Science scans under `img/science/`. The "Tingnan ang orihinal na pahina" links therefore work
-  only where those scans are present locally.
+  the Science scans under `img/science/` and the Filipino scans under `img/filipino/`. The
+  "Tingnan ang orihinal na pahina" links therefore work only where those scans are present locally.
 - The scans contain no printed answer key; the correct answers were derived from the module content.
   A few interpretation-based items are marked in the data (`flag:true`) for a teacher to confirm.
 - **Science coverage gap.** The supplied scans cover Chapter 2 (measurement, investigations),
