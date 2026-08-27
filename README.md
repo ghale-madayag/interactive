@@ -53,15 +53,18 @@ Three lessons (Aralin), each with a reading passage plus interactive practice:
 
 ## Disenyo (Design)
 
-The **home screen** and the **reading pages** follow the Claude Design project
-*"Interactive app redesign for students"* (`Homepage.dc.html`, `Reading Page.dc.html`):
-a purple gradient hero, Baloo 2 + Nunito typography, and rounded white cards on a lavender page.
+**Every screen** follows the Claude Design project *"Interactive app redesign for students"*
+(`Homepage.dc.html`, `Reading Page.dc.html`): a purple gradient hero, Baloo 2 + Nunito typography,
+and rounded white cards on a lavender page.
+
+Each screen opens with the same full-bleed hero — brand on top, breadcrumb chips below — built by
+`heroBar()`. Subject, lesson, quiz, and result screens then lay out a centred column of cards.
 
 - The canvas-only constructs in those files (`<x-dc>`, `<helmet>`, `<sc-if>`, `{{ }}` bindings,
   `style-hover`, the `DCLogic` script) are design-runtime syntax from `support.js`. They are
   translated here into ordinary CSS classes and app code.
-- Each theme is opt-in per screen (`body.home-theme`, `body.read-theme`), so the lesson menus and
-  quiz screens keep their original look.
+- The home and reading screens manage their own full-bleed layout via `body.home-theme` /
+  `body.read-theme`; every other screen uses the shared `#app` column and `.pg-hero`.
 - Fonts load from Google Fonts. Offline, the pages fall back to the system sans stack and stay
   fully usable.
 - A reading page gets the step-by-step layout — sticky progress bar, numbered step cards, per-step

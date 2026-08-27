@@ -17,13 +17,24 @@
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
   body{
-    font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
-    color:var(--ink);
-    background:linear-gradient(135deg,var(--bg1),var(--bg2)) fixed;
+    font-family:"Nunito","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+    color:var(--h-ink);
+    background:linear-gradient(180deg,#f1ecff 0%,#f8f6ff 340px,#f8f6ff 100%) fixed;
     min-height:100vh;
+    overflow-x:clip;
     -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:820px;margin:0 auto;padding:18px 16px 60px}
+  .wrap{max-width:none;margin:0;padding:0}
+  /* every screen is a centred column of cards under a full-bleed hero */
+  #app{max-width:860px;margin:0 auto;padding:28px 24px 60px;display:flex;flex-direction:column;gap:18px}
+  body.home-theme #app,body.read-theme #app{max-width:none;margin:0;padding:0;display:block}
+  .pg-hero{width:100vw;margin:-28px calc(50% - 50vw) 8px;background:linear-gradient(120deg,#6d28d9,#7c3aed 55%,#8b5cf6);padding:18px 0 16px}
+  .pg-hero-in{max-width:860px;margin:0 auto;padding:0 24px;display:flex;flex-direction:column;gap:12px}
+  @media(max-width:520px){
+    #app{padding:22px 18px 48px}
+    .pg-hero{margin-top:-22px}
+    .pg-hero-in{padding:0 18px}
+  }
   .topbar{display:flex;align-items:center;gap:12px;color:#fff;margin:6px 2px 18px}
   .topbar .logo{font-size:34px;line-height:1}
   .topbar h1{font-size:20px;margin:0;font-weight:800;letter-spacing:.2px}
@@ -327,17 +338,161 @@
     .rd-prog .lbl{font-size:13px}
     .rd-orig{margin-left:0}
   }
+
+  /* =========================================================
+     SHARED COMPONENTS — restyled to the Claude Design language
+     ========================================================= */
+  .topbar{display:none}
+  .card{background:#fff;border:1px solid var(--h-line);border-radius:24px;padding:26px 30px;
+    box-shadow:0 2px 12px rgba(109,40,217,.05);margin-bottom:0}
+  .card.center{text-align:center}
+  h2.title{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:800;font-size:26px;
+    margin:2px 0 4px;color:var(--h-head);line-height:1.2}
+  .sub{color:var(--h-body);font-size:15px;font-weight:600;margin:0 0 14px;line-height:1.6}
+  .pill{display:inline-flex;align-items:center;gap:6px;background:#f1ecff;color:#6d28d9;
+    border-radius:999px;padding:5px 12px;font-size:13px;font-weight:700}
+
+  .btn{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:700;font-size:16px;
+    border-radius:999px;padding:12px 26px;box-shadow:0 3px 0 #d97706;
+    background:linear-gradient(180deg,#fbbf24,#f59e0b);border:2px solid #f59e0b;color:#4a2c00}
+  .btn:hover{filter:brightness(1.05)}
+  .btn:active{transform:translateY(2px);box-shadow:0 1px 0 #d97706}
+  .btn.secondary{background:#fff;border:2px solid #ded3f9;color:#4c3591;box-shadow:none}
+  .btn.secondary:hover{background:#f4f0ff;filter:none}
+  .btn.secondary:active{transform:translateY(1px);box-shadow:none}
+  .btn.ghost{background:rgba(255,255,255,.16);border:none;color:#fff;box-shadow:none}
+  .btn.small{font-size:14px;padding:9px 18px}
+  .btn[disabled]{opacity:1;cursor:not-allowed;background:#ece7f8;border-color:#ece7f8;
+    color:var(--h-eyebrow);box-shadow:none;filter:none}
+
+  /* subject screen — lesson cards */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  @media(min-width:620px){.grid{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}}
+  .lesson-card{background:#fff;border:1px solid var(--h-line);border-radius:24px;padding:22px 24px;
+    box-shadow:0 4px 16px rgba(109,40,217,.08);display:flex;flex-direction:column;gap:14px;
+    text-align:left;font:inherit;color:inherit;cursor:pointer;overflow:visible;
+    transition:transform .15s ease,box-shadow .15s ease}
+  .lesson-card:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(109,40,217,.14)}
+  .lesson-card:active{transform:translateY(-1px)}
+  .lesson-card:focus-visible{outline:3px solid #8b5cf6;outline-offset:3px}
+  .lesson-card .blurb{font-size:14px;line-height:1.6;color:var(--h-body);font-weight:600}
+  .lesson-card .hs-meter{margin-top:auto}
+
+  /* lesson screen — activity rows */
+  .act-item{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:#fff;
+    border:1px solid var(--h-line);border-radius:18px;padding:16px 18px;cursor:pointer;
+    margin-bottom:12px;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
+  .act-item:hover{transform:translateY(-2px);border-color:#d9ccf8;box-shadow:0 6px 18px rgba(109,40,217,.1)}
+  .act-item:focus-visible{outline:3px solid #8b5cf6;outline-offset:2px}
+  .act-item .ic{width:46px;height:46px;border-radius:14px;background:#f4f0ff;display:grid;
+    place-items:center;font-size:24px;flex-shrink:0}
+  .act-item .txt b{display:block;font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;
+    font-weight:700;font-size:17px;color:var(--h-head);line-height:1.25}
+  .act-item .txt span{font-size:13px;color:var(--h-body);font-weight:600}
+  .act-item .tag{font-size:11px;font-weight:800;padding:5px 11px;border-radius:999px;
+    letter-spacing:.04em;white-space:nowrap}
+  .tag.auto{background:#e8f7ee;color:#15803d}
+  .tag.self{background:#fff4e0;color:#b45309}
+  .tag.read{background:#f1ecff;color:#6d28d9}
+  .tick{color:#16a34a;font-weight:800;font-size:20px}
+
+  /* passages (non-reading-theme fallback) */
+  .passage{background:#faf8ff;border:1px solid var(--h-line);border-radius:16px;padding:20px;
+    line-height:1.75;font-size:17px}
+  .passage h4{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:800;
+    margin:0 0 2px;font-size:21px;text-align:center;color:var(--h-head)}
+  .passage .by{text-align:center;color:var(--h-body);font-size:13px;margin-bottom:14px;font-weight:700}
+  .ingredients{background:#fff;border:1px solid var(--h-line);border-radius:12px;padding:12px 16px;margin-top:12px}
+
+  /* quiz */
+  .qcount{font-size:13px;color:var(--h-eyebrow);font-weight:800}
+  .qbar{height:12px;background:#ede8fb;border-radius:999px;overflow:hidden;margin-bottom:18px}
+  .qbar>i{background:linear-gradient(90deg,#8b5cf6,#6d28d9);transition:width .4s ease}
+  .qtext{font-size:19px;font-weight:700;line-height:1.5;margin:2px 0 16px;color:var(--h-head)}
+  .qtext .idx{color:#8b5cf6}
+  .qtext b{color:#6d28d9}
+  .opt{display:block;width:100%;text-align:left;background:#fff;border:2px solid #e9e2fb;
+    border-radius:16px;padding:15px 18px;margin-bottom:10px;font-size:16.5px;font-family:inherit;
+    font-weight:600;color:var(--h-ink);cursor:pointer;transition:.12s}
+  .opt:hover{border-color:#c4b0f5;background:#faf8ff}
+  .opt.correct{border-color:#16a34a;background:#e8f7ee}
+  .opt.wrong{border-color:#dc2626;background:#fef2f2}
+  .opt .lead{font-weight:800;color:#8a7fb0;margin-right:8px}
+  .opt.correct .lead{color:#15803d}
+  .opt.wrong .lead{color:#b91c1c}
+  .fb{border-radius:14px;padding:14px 16px;font-size:15px;margin:4px 0 14px;font-weight:600;line-height:1.6}
+  .fb.ok{background:#e8f7ee;color:#15803d}
+  .fb.no{background:#fef2f2;color:#991b1b}
+  .navq{display:flex;justify-content:space-between;gap:10px;margin-top:6px;flex-wrap:wrap}
+
+  /* matching */
+  .match-col h5{margin:0 0 8px;font-size:12px;color:var(--h-eyebrow);text-transform:uppercase;
+    letter-spacing:.12em;font-weight:800}
+  .chip{display:block;width:100%;text-align:left;border:2px solid #e9e2fb;background:#fff;
+    border-radius:14px;padding:12px 14px;margin-bottom:9px;cursor:pointer;font-size:14.5px;
+    font-family:inherit;font-weight:600;color:var(--h-ink);transition:.12s}
+  .chip:hover{border-color:#c4b0f5;background:#faf8ff}
+  .chip.sel{border-color:#8b5cf6;background:#f4f0ff}
+  .chip.done{border-color:#16a34a;background:#e8f7ee;cursor:default;opacity:.9}
+  .chip .badge{float:right;font-weight:800;color:#6d28d9}
+  .chip.done .badge{color:#15803d}
+
+  /* sequencing */
+  .seq-item{background:#fff;border:2px solid #e9e2fb;border-radius:14px;padding:12px 14px;margin-bottom:9px}
+  .seq-item .pos{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:800;
+    background:#ede9fe;color:#6d28d9;border-radius:12px;min-width:34px;height:34px;font-size:16px}
+  .seq-item .body{font-size:15px;line-height:1.5}
+  .seq-item .arrows button{background:#f4f0ff;color:#6d28d9;border-radius:8px;width:32px;height:24px;font-weight:800}
+  .seq-item .arrows button:hover{background:#ede9fe}
+  .seq-item.ok{border-color:#16a34a;background:#e8f7ee}
+  .seq-item.bad{border-color:#dc2626;background:#fef2f2}
+
+  /* fillblank */
+  .fbq{font-size:17px;line-height:2.2;margin-bottom:14px;font-weight:600}
+  .fbq select{font-size:15px;font-family:inherit;font-weight:700;padding:7px 10px;border-radius:12px;
+    border:2px solid #d9ccf8;background:#fff;color:#4c3591;margin:0 4px}
+  .fbq select.ok{border-color:#16a34a;background:#e8f7ee;color:#15803d}
+  .fbq select.no{border-color:#dc2626;background:#fef2f2;color:#991b1b}
+  .wordbox span{background:#f1ecff;color:#6d28d9;border-radius:999px;padding:7px 14px;font-size:13.5px;font-weight:800}
+
+  /* truefalse */
+  .tf-row{background:#fff;border:2px solid #e9e2fb;border-radius:16px;padding:14px 16px;margin-bottom:10px}
+  .tf-row .st{font-size:16px;margin-bottom:10px;line-height:1.5;font-weight:600}
+  .tf-row .opts button{flex:1;border:2px solid #e9e2fb;background:#fff;border-radius:999px;padding:10px;
+    font-family:inherit;font-weight:800;cursor:pointer;font-size:14px;color:var(--h-body);transition:.12s}
+  .tf-row .opts button:hover{border-color:#c4b0f5;background:#faf8ff}
+  .tf-row .opts button.pick{border-color:#8b5cf6;background:#f4f0ff;color:#6d28d9}
+  .tf-row.ok{border-color:#16a34a;background:#e8f7ee}
+  .tf-row.bad{border-color:#dc2626;background:#fef2f2}
+
+  /* shortcheck */
+  .sc-q{font-size:17px;font-weight:700;margin:16px 0 8px;line-height:1.5;color:var(--h-head)}
+  .sc-q .n{color:#8b5cf6}
+  textarea{border:2px solid #e9e2fb;border-radius:14px;padding:14px;font-size:16px;background:#fff}
+  textarea:focus{outline:none;border-color:#8b5cf6}
+  .model{background:#f4f0ff;border:1px solid #ded3f9;border-radius:14px;padding:14px 16px;
+    font-size:15px;line-height:1.65}
+  .model b{color:#6d28d9}
+
+  /* results */
+  .btn.retry{background:linear-gradient(180deg,#a78bfa,#7c3aed);border-color:#7c3aed;color:#fff;box-shadow:0 3px 0 #5b21b6}
+  .btn.retry:active{box-shadow:0 1px 0 #5b21b6}
+  .result{padding:14px 4px}
+  .result .score{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-size:46px;color:var(--h-head)}
+  .result .score small{color:var(--h-eyebrow)}
+  .result .msg{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-size:19px;font-weight:700;
+    color:var(--h-head);margin-bottom:20px}
+  .result .stars{font-size:30px;letter-spacing:6px}
+
+  .note{background:#fff8ec;border:1px solid #fde4b8;border-radius:16px;padding:14px 18px;
+    font-size:14.5px;color:#7a5410;font-weight:600;line-height:1.65;margin-top:12px}
+  a.origlink{color:#6d28d9;font-size:14px}
+  a.origlink:hover{color:#5b21b6}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="topbar">
-    <div class="logo">📚</div>
-    <div style="cursor:pointer" onclick="home()">
-      <h1>Interaktibong Reviewer</h1>
-      <p>Piliin ang asignatura at magsimulang mag-aral!</p>
-    </div>
-  </div>
+  <!-- the brand now lives in each screen's hero (see heroBar) -->
   <div id="app"></div>
 </div>
 
@@ -2238,7 +2393,7 @@ function lessonPct(l){
 let LANG='fil';
 const STR={
   fil:{
-    lessons:"Mga Aralin", subjProgress:"🌟 Progreso sa asignatura", done:"tapos",
+    lessons:"Mga Aralin", subjProgress:"🌟 Progreso sa asignatura", done:"tapos", activities:"gawain",
     LESSON:"ARALIN", Lesson:"Aralin",
     tagAuto:"Iiskoran", tagSelf:"Sariling suri", tagRead:"Babasahin",
     best:"Pinakamataas", inprog:"may naiwang sagot",
@@ -2248,7 +2403,7 @@ const STR={
     right:"✅ Tama!", wrong:"❌ Mali.", teacherNote:"(Maaaring talakayin ng guro.)",
     check:"Suriin", showScore:"Ipakita ang iskor",
     matchHint:"Pindutin ang isang pahayag sa <b>Hanay A</b>, tapos ang katugma nito sa <b>Hanay B</b>.",
-    matchResult:"Resulta ng pagtutugma", answerLbl:"Sagot",
+    matchResult:"Resulta ng pagtutugma", answerLbl:"Sagot", colA:"Hanay A", colB:"Hanay B",
     seqHint:"Iayos ang mga pangyayari mula <b>una (1)</b> hanggang <b>huli</b>. Gamitin ang ▲▼.",
     seqNote:"Ang ilang gitnang pangyayari ay maaaring bahagyang magkaiba ang pagkakasunod — tanungin ang iyong guro kung may pagdududa.",
     fillHint:"Piliin ang angkop na salita mula sa kahon.", choose:"— pumili —",
@@ -2262,7 +2417,7 @@ const STR={
     allFixed:" Lahat ay naitama na! 🌟", retryAll:"🔁 Ulitin lahat"
   },
   en:{
-    lessons:"Lessons", subjProgress:"🌟 Subject progress", done:"done",
+    lessons:"Lessons", subjProgress:"🌟 Subject progress", done:"done", activities:"activities",
     LESSON:"LESSON", Lesson:"Lesson",
     tagAuto:"Scored", tagSelf:"Self-check", tagRead:"Reading",
     best:"Best", inprog:"answers saved",
@@ -2272,7 +2427,7 @@ const STR={
     right:"✅ Correct!", wrong:"❌ Not quite.", teacherNote:"(Your teacher may discuss this one.)",
     check:"Check", showScore:"Show my score",
     matchHint:"Tap an item in <b>Column A</b>, then tap its match in <b>Column B</b>.",
-    matchResult:"Matching results", answerLbl:"Answer",
+    matchResult:"Matching results", answerLbl:"Answer", colA:"Column A", colB:"Column B",
     seqHint:"Put the steps in order from <b>first (1)</b> to <b>last</b>. Use the ▲▼ buttons.",
     seqNote:"Some of the middle steps may be ordered slightly differently — ask your teacher if you are unsure.",
     fillHint:"Choose the right word from the box.", choose:"— choose —",
@@ -2349,7 +2504,7 @@ function subject(sid){
   const s=DATA.subjects.find(x=>x.id===sid);
   setLang(s); document.body.classList.remove('home-theme'); document.body.classList.remove('read-theme');
   if(!s.lessons.length){
-    app.innerHTML=`<div class="crumbs"><a onclick="home()">🏠 Home</a> <span>›</span> <span>${esc(s.name)}</span></div>
+    app.innerHTML=`${heroBar([chipHome(),SEP,chipHere(s.name)].join(''))}
       <div class="card center"><div style="font-size:52px">${s.emoji}</div>
       <h2 class="title">${esc(s.name)}</h2>
       <p class="sub">${esc(s.tagline)}</p>
@@ -2357,19 +2512,29 @@ function subject(sid){
       <div class="mt"><button class="btn secondary" onclick="home()">‹ Bumalik</button></div></div>`;
     window.scrollTo(0,0); return;
   }
+  const accent=s.accent||s.color, tint=s.tint||'#f4f0ff';
   const cards=s.lessons.map((l,i)=>{
     const pct=lessonPct(l);
-    return `<button class="lesson-card" style="background:linear-gradient(135deg,${l.color},#0000002e)" onclick="lesson('${l.id}')">
-      <span class="emoji">${l.emoji}</span>
-      <div class="num">${t('LESSON')} ${i+1}</div>
-      <h3>${esc(l.title)}</h3>
-      <div class="meta">${esc(l.blurb)}</div>
-      <div class="prog"><i style="width:${pct}%"></i></div>
-      <div class="meta" style="margin-top:6px">${pct}% ${t('done')}</div>
+    return `<button class="lesson-card" onclick="lesson('${l.id}')">
+      <div class="hs-top">
+        <div class="hs-ico" style="background:${tint}">${l.emoji}</div>
+        <div>
+          <div class="hs-eyebrow">${t('LESSON')} ${i+1}</div>
+          <div class="hs-name">${esc(l.title)}</div>
+        </div>
+      </div>
+      <div class="blurb">${esc(l.blurb)}</div>
+      <div class="hs-meter">
+        <div class="hs-stat">
+          <span class="lessons">${l.activities.length} ${t('activities')}</span>
+          <span style="color:${accent}">${pct}% ${t('done')}</span>
+        </div>
+        <div class="hs-bar"><i style="width:${pct}%;background:${accent}"></i></div>
+      </div>
     </button>`;
   }).join('');
   app.innerHTML=`
-    <div class="crumbs"><a onclick="home()">🏠 Home</a> <span>›</span> <span>${esc(s.name)}</span></div>
+    ${heroBar([chipHome(),SEP,chipHere(s.name)].join(''))}
     <div class="card">
       <span class="pill">${s.emoji} ${esc(s.name)}</span>
       <h2 class="title" style="margin-top:10px">${t('lessons')}</h2>
@@ -2399,7 +2564,7 @@ function lesson(id){
     </button>`;
   }).join('');
   app.innerHTML=`
-    <div class="crumbs"><a onclick="home()">🏠</a> <span>›</span> <a onclick="subject('${s.id}')">${esc(s.short||s.name)}</a> <span>›</span> <span>${t('Lesson')} ${idx}</span></div>
+    ${heroBar([chipHome(),SEP,chipSubject(s),SEP,chipHere(t('Lesson')+' '+idx)].join(''))}
     <div class="card">
       <span class="pill">${l.emoji} ${t('Lesson')} ${idx}</span>
       <h2 class="title" style="margin-top:10px">${esc(l.title)}</h2>
@@ -2423,9 +2588,30 @@ function openAct(lid,aid){
     shortcheck:renderShort})[a.type]();
   window.scrollTo(0,0);
 }
+/* full-bleed purple hero with breadcrumb chips — shared by every screen */
+function heroBar(chips){
+  return `<div class="pg-hero">
+    <div class="pg-hero-in">
+      <button class="rd-brand" onclick="home()">
+        <div class="mark">📚</div>
+        <div>
+          <div class="name">Interaktibong Reviewer</div>
+          <div class="sub">Piliin ang asignatura at magsimulang mag-aral!</div>
+        </div>
+      </button>
+      <div class="rd-crumbs">${chips}</div>
+    </div>
+  </div>`;
+}
+function chipHome(){ return `<button class="rd-chip" onclick="home()">🏠 Home</button>`; }
+function chipSubject(s){ return `<button class="rd-chip" onclick="subject('${s.id}')">${esc(s.short||s.name)}</button>`; }
+function chipLesson(s,l){ return `<button class="rd-chip" onclick="lesson('${l.id}')">${t('Lesson')} ${s.lessons.indexOf(l)+1}</button>`; }
+function chipHere(txt){ return `<span class="rd-chip here">${esc(txt)}</span>`; }
+const SEP = '<span class="sep">›</span>';
+
 function crumbs(){
-  const s=CTX.s; const idx=s.lessons.indexOf(CTX.l)+1;
-  return `<div class="crumbs"><a onclick="home()">🏠</a> <span>›</span> <a onclick="subject('${s.id}')">${esc(s.short||s.name)}</a> <span>›</span> <a onclick="lesson('${CTX.l.id}')">${t('Lesson')} ${idx}</a> <span>›</span> <span>${esc(CTX.a.name)}</span></div>`;
+  const s=CTX.s;
+  return heroBar([chipHome(),SEP,chipSubject(s),SEP,chipLesson(s,CTX.l),SEP,chipHere(CTX.a.name)].join(''));
 }
 function backBtn(){return `<button class="btn secondary" onclick="lesson('${CTX.l.id}')">${t('backLesson')}</button>`;}
 
@@ -2490,7 +2676,9 @@ function renderPassage(){
             </div>
           </button>
           <div class="rd-crumbs">
-            <button class="rd-chip" onclick="subject('${s.id}')">🏠 ${esc(s.short||s.name)}</button>
+            <button class="rd-chip" onclick="home()">🏠 Home</button>
+            <span class="sep">›</span>
+            <button class="rd-chip" onclick="subject('${s.id}')">${esc(s.short||s.name)}</button>
             <span class="sep">›</span>
             <button class="rd-chip" onclick="lesson('${l.id}')">${t('Lesson')} ${idx}</button>
             <span class="sep">›</span>
@@ -2615,8 +2803,8 @@ function renderMatching(){
       <div class="card">
         <div class="qtext" style="font-size:16px">${t('matchHint')}</div>
         <div class="match-wrap">
-          <div class="match-col"><h5>Hanay A</h5>${leftHtml}</div>
-          <div class="match-col"><h5>Hanay B</h5>${rightHtml}</div>
+          <div class="match-col"><h5>${t('colA')}</h5>${leftHtml}</div>
+          <div class="match-col"><h5>${t('colB')}</h5>${rightHtml}</div>
         </div>
         <div class="navq mt">${backBtn()}<button class="btn" ${all?'':'disabled'} onclick="window._check()">${t('check')}</button></div>
       </div>`;
@@ -2793,7 +2981,7 @@ function finishQuiz(score,total){
   const msg = pct>=90?t('msg90'):pct>=70?t('msg70'):pct>=50?t('msg50'):t('msg0');
   const emoji = pct>=90?'🏆':pct>=70?'🎉':pct>=50?'👍':'💪';
   const w=LASTWRONG; const wc = w?(w.items?w.items.length:(w.left?w.left.length:0)):0;
-  const reviewBtn = wc>0 ? `<button class="btn" style="background:var(--accent2);box-shadow:0 4px 0 #a21c6b;color:#fff" onclick="reviewWrong()">${t('retryWrong')} (${wc})</button>` : '';
+  const reviewBtn = wc>0 ? `<button class="btn retry" onclick="reviewWrong()">${t('retryWrong')} (${wc})</button>` : '';
   app.innerHTML=`${crumbs()}
     <div class="card result">
       ${CTX.review?'<span class="pill" style="margin-bottom:10px">'+t('reviewPill')+'</span>':''}
