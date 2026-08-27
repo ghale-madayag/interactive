@@ -9,6 +9,7 @@ Pick a **subject** from the home screen, then a lesson. Currently:
 - **EPP · ICT** — 2 lessons (Digital Citizenship & Netiquette, Responsableng Paggamit ng Internet)
 - **Math 5** — 5 lessons (12- & 24-Hour Clocks, World Time Zones, GMDAS / Order of Operations, Multiplying Fractions, Exploring Shapes)
 - **Science 5** — 7 lessons (Simple Science Investigations, Scientific Units & Measurement, Classification of Plants, Classification of Animals, Microorganisms, Specialized Structures of Plants, Life Cycle of Plants)
+- **Araling Panlipunan 5** — 3 lessons (Sinaunang Paniniwala at Kaugalian, Pagdating at Paglaganap ng Islam, Ugnayang Asyano at Impluwensiya)
 
 > The Math and Science content is in **English**, matching their English-medium source modules
 > (Philippine Grade 5 Math and Science are taught in English).
@@ -18,7 +19,7 @@ Pick a **subject** from the home screen, then a lesson. Currently:
 Each subject carries an optional `lang` field. With `lang:"en"` the whole interface for that
 subject — lesson cards, activity tags, instructions, buttons, feedback, and the score screen —
 renders in English; without it, the default Filipino strings are used. **Math 5** and **Science 5**
-are set to `en`; Filipino 5 and EPP·ICT keep the Filipino interface. The strings live in the `STR`
+are set to `en`; Filipino 5, EPP·ICT and Araling Panlipunan 5 keep the Filipino interface. The strings live in the `STR`
 table near the top of the app script, so flipping another subject is a one-line change.
 
 ## Paano gamitin (How to use)
@@ -79,10 +80,15 @@ Each screen opens with the same full-bleed hero — brand on top, breadcrumb chi
 ## Paalala (Notes)
 
 - The original scanned module pages (`IMG_*.jpg`) are **not** included in this repository, except for
-  the Science scans under `img/science/` and the Filipino scans under `img/filipino/`. The
+  the Science scans under `img/science/`, the Filipino scans under `img/filipino/`, and the
+  Araling Panlipunan scans under `img/araling_panlipunan/`. The
   "Tingnan ang orihinal na pahina" links therefore work only where those scans are present locally.
 - The scans contain no printed answer key; the correct answers were derived from the module content.
   A few interpretation-based items are marked in the data (`flag:true`) for a teacher to confirm.
+- **Araling Panlipunan source.** This subject was built from a two-page *"AP — Pointers to Review
+  for Term 1 Exam"* sheet rather than from module pages, so it is revision material: the reviewer's
+  own answers are preserved, and the three lessons follow its own grouping (sinaunang paniniwala,
+  Islam, ugnayang Asyano). A teacher should check it against the full module before use.
 - **Science coverage gap.** The supplied scans cover Chapter 2 (measurement, investigations),
   Chapter 4 Lesson 1 (plants), and Chapter 5 Lesson 2 (plant life cycle). They do **not** include
   Chapter 4 Lesson 2 (animals), Chapter 4 Lesson 3 (fungi and bacteria), or any pages on specialized
