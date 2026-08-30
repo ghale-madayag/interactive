@@ -508,8 +508,24 @@
   .id-fb.ok{background:#e8f7ee;border:1px solid #a9e3bf;color:#166534}
   .id-fb.no{background:#fdeef0;border:1px solid #f5b8c4;color:#9f1239}
   .id-fb .ans{font-weight:800}
-  .idq.one{min-height:210px}
+  .idq.one{min-height:210px;scroll-margin-top:76px}
   .idq.one .idq-head p{font-size:19px}
+  /* On a phone, lift the question above the lesson/title card so the answer box
+     stays clear of the on-screen keyboard. Scoped to the paged answering view only. */
+  @media(max-width:520px){
+    body.idpage #app > .pg-hero{order:0}
+    body.idpage #app > .rd-prog{order:1}
+    body.idpage #app > .idq.one{order:2;min-height:0}
+    body.idpage #app > .id-dots{order:3}
+    body.idpage #app > .card{order:4}
+    body.idpage #app > .id-nav{order:5}
+    .idq.one .idq-head p{font-size:18px}
+    /* three buttons will not fit on one narrow row: Previous/Next together, Back beneath */
+    .id-nav{flex-wrap:wrap}
+    .id-nav .btn{white-space:nowrap}
+    .id-nav .right{order:1;margin-left:0;width:100%;justify-content:space-between}
+    .id-nav > .btn.secondary{order:2;width:100%}
+  }
   .id-nav{display:flex;gap:10px;align-items:center;margin-top:6px}
   .id-nav .right{margin-left:auto;display:flex;gap:10px}
   .id-dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:2px}
@@ -5007,6 +5023,7 @@ function openAct(lid,aid){
   CTX={l,a,s,review:false}; LASTWRONG=null; setLang(s);
   document.body.classList.remove('home-theme');
   document.body.classList.toggle('read-theme', a.type==='passage');
+  document.body.classList.remove('idpage');
   _seed=7; // reset pseudo-shuffle each open for consistency
   ({passage:renderPassage, mcq:renderMCQ, matching:renderMatching,
     sequencing:renderSeq, fillblank:renderFill, truefalse:renderTF,
@@ -5463,6 +5480,24 @@ function renderFill(){
 /* ---------- IDENTIFICATION (type the answer) ---------- */
 /* accepts the answer in any case/spacing, ignores accents and trailing punctuation,
    and any string in an item's `alt` array counts as correct too */
+/* On a phone the software keyboard covers the lower third of the screen, which
+   can hide the answer box entirely. Keep the focused field in the part of the
+   viewport that is actually visible (visualViewport excludes the keyboard). */
+function idKeepVisible(){
+  const el=document.getElementById('idIn');
+  if(!el||document.activeElement!==el) return;
+  const vv=window.visualViewport;
+  const vh=vv?vv.height:window.innerHeight;
+  const headTop=(document.querySelector('.rd-prog')||{}).offsetHeight||56;
+  const r=el.getBoundingClientRect();
+  const top=headTop+12, bottom=vh-16;
+  if(r.bottom>bottom || r.top<top) window.scrollBy(0, r.top-top);
+}
+if(window.visualViewport){
+  window.visualViewport.addEventListener('resize', idKeepVisible);
+  window.visualViewport.addEventListener('scroll', idKeepVisible);
+}
+
 function normAns(s){
   return String(s==null?'':s)
     .normalize('NFD').replace(/[\u0300-\u036f]/g,'')   // strip accents
@@ -5531,6 +5566,7 @@ function renderIdent(){
 
     /* ---------- answering: one question per card ---------- */
     if(!checked){
+      document.body.classList.add('idpage');
       const it=a.items[idx];
       const dots=a.items.map((_,i)=>{
         const filled=vals[i]&&vals[i].trim()?' filled':'';
@@ -5544,8 +5580,10 @@ function renderIdent(){
             <div class="idq-num">${idx+1}</div>
             <p>${esc(it.q)}</p>
           </div>
-          <input id="idIn" type="text" autocomplete="off" spellcheck="false"
-            placeholder="${t('idPlaceholder')}" oninput="window._idIn()" onkeydown="window._idKey(event)">
+          <input id="idIn" type="text" autocomplete="off" autocorrect="off" autocapitalize="off"
+            spellcheck="false" inputmode="text" enterkeyhint="${idx<total-1?'next':'done'}"
+            placeholder="${t('idPlaceholder')}" oninput="window._idIn()" onkeydown="window._idKey(event)"
+            onfocus="setTimeout(idKeepVisible,50)">
         </div>
         <div class="id-dots">${dots}</div>
         <div class="id-nav">
@@ -5556,10 +5594,17 @@ function renderIdent(){
           </span>
         </div>`;
       const el=document.getElementById('idIn');
-      if(el){ el.value=vals[idx]||''; el.focus(); el.setSelectionRange(el.value.length,el.value.length); }
+      if(el){
+        el.value=vals[idx]||'';
+        try{ el.focus({preventScroll:true}); }catch(_){ el.focus(); }
+        try{ el.setSelectionRange(el.value.length,el.value.length); }catch(_){}
+        idKeepVisible();
+        setTimeout(idKeepVisible,120);   // again once the keyboard has animated in
+      }
       return;
     }
 
+    document.body.classList.remove('idpage');
     /* ---------- checked: every answer with the correct one ---------- */
     let score=0; a.items.forEach((it,i)=>{ if(identOK(it,vals[i])) score++; });
     const cards=a.items.map((it,i)=>{
