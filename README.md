@@ -36,7 +36,7 @@ The Filipino lessons, each with a reading passage plus interactive practice:
 
 | Aralin | Babasahin | Pagsasanay |
 |--------|-----------|------------|
-| **1 — Kuwentong Kababalaghan** | Kuwentong *"Ang Aswang ng San Andres"* | 10-item multiple choice · tugma-tugma (matching) · pagkakasunod-sunod · sariling-suri |
+| **1 — Kuwentong Kababalaghan** | Kuwentong *"Ang Aswang ng San Andres"* | pagkilala (identification) × 3 · sariling-suri |
 | **2 — Metapora / Pagwawangis** | Tulang *"Diwa ng Metapora o Pagwawangis"* | multiple choice · punan ang patlang · dalawang pinagtutulad · sariling-suri |
 | **3 — Tekstong Impormatibo** | Resetang *"Tinolang Manok ni Ruthie"* | tama/mali (B/HB) · multiple choice · sariling-suri |
 | **4 — Pang-abay na Panang-ayon at Pagsalungat** | Palaging Tandaan (Aralin 6, p. 48) | panang-ayon/pagsalungat · multiple choice · tugma-tugma · punan ang patlang · sariling-suri |
@@ -45,7 +45,8 @@ The Filipino lessons, each with a reading passage plus interactive practice:
 ## Mga Tampok (Features)
 
 - 📚 **Subject switcher** — one app, multiple subjects, each with its own lessons and progress
-- ✅ **Auto-graded quizzes** with instant feedback and short explanations
+- ✅ **Identification quizzes** — every quiz asks the learner to type the term; answers are matched
+  ignoring case, spacing, accents and trailing punctuation, and each item may accept alternates
 - 🎯 **"Balikan ang mali"** — retry only the questions you missed, drilling down until all are correct
 - ⏳ **Session answer-memory** — in-progress answers (and typed essays) are remembered until you submit
   or complete the activity, so leaving and coming back never loses your work
