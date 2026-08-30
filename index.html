@@ -508,6 +508,17 @@
   .id-fb.ok{background:#e8f7ee;border:1px solid #a9e3bf;color:#166534}
   .id-fb.no{background:#fdeef0;border:1px solid #f5b8c4;color:#9f1239}
   .id-fb .ans{font-weight:800}
+  .idq.one{min-height:210px}
+  .idq.one .idq-head p{font-size:19px}
+  .id-nav{display:flex;gap:10px;align-items:center;margin-top:6px}
+  .id-nav .right{margin-left:auto;display:flex;gap:10px}
+  .id-dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:2px}
+  .id-dot{width:10px;height:10px;border-radius:50%;background:#e0d7f7;border:none;padding:0;cursor:pointer}
+  .id-dot:hover{background:#c4b0f5}
+  .id-dot.filled{background:#8b5cf6}
+  .id-dot.at{outline:3px solid #ddd2ff;background:#6d28d9}
+  .id-review-h{font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;font-weight:800;font-size:20px;
+    color:var(--h-head);margin:2px 0 -4px}
   @media(max-width:520px){ .idq{padding:20px} .idq-head p{font-size:17px} }
 
   /* true or false — from True or False Quiz.dc.html */
@@ -4779,6 +4790,7 @@ const STR={
     tfAnswered:"✅ %c sa %n nasagutan", tfScore:"⭐ Puntos: %s",
     idHint:"Isulat ang <b>tamang salita o parirala</b> na tinutukoy ng bawat pahayag.",
     idPlaceholder:"Isulat ang sagot…", idAnswered:"✍️ %c sa %n nasagot",
+    idPos:"✍️ %c / %n", idAnsShort:"%c nasagot", idPrev:"‹ Nakaraan", idReview:"Mga sagot mo",
     idCorrect:"🎉 Tama!", idIncorrect:"Ang tamang sagot ay <span class=\"ans\">%a</span>.",
     idBlank:"Walang isinagot. Ang tamang sagot ay <span class=\"ans\">%a</span>.",
     tfCorrect:"🎉 Tama!", tfIncorrect:"Hindi tama — ang sagot ay <b>%a</b>.",
@@ -4829,6 +4841,7 @@ const STR={
     tfAnswered:"✅ %c of %n answered", tfScore:"⭐ Score: %s",
     idHint:"Write the <b>word or phrase</b> that each statement describes.",
     idPlaceholder:"Type your answer…", idAnswered:"✍️ %c of %n answered",
+    idPos:"✍️ %c / %n", idAnsShort:"%c answered", idPrev:"‹ Previous", idReview:"Your answers",
     idCorrect:"🎉 Correct!", idIncorrect:"The correct answer is <span class=\"ans\">%a</span>.",
     idBlank:"Nothing written. The correct answer is <span class=\"ans\">%a</span>.",
     tfCorrect:"🎉 Correct!", tfIncorrect:"Not quite — the answer is <b>%a</b>.",
@@ -5469,85 +5482,125 @@ function renderIdent(){
   const total=a.items.length;
   const d=useDraft?getDraft(dkey):null;
   let vals=(d&&Array.isArray(d.vals)&&d.vals.length===total)?d.vals.slice():a.items.map(()=>'');
-  let checked=false, recorded=false;
+  let idx=0, checked=false, recorded=false;
 
-  function readInputs(){
-    a.items.forEach((_,i)=>{ const el=document.getElementById('id'+i); if(el) vals[i]=el.value; });
+  function stash(){
+    const el=document.getElementById('idIn');
+    if(el){ vals[idx]=el.value; if(useDraft) setDraft(dkey,{vals:vals.slice()}); }
   }
   window._idIn=function(){
-    readInputs(); if(useDraft) setDraft(dkey,{vals:vals.slice()});
-    const answered=vals.filter(v=>v&&v.trim()).length;
-    const lbl=document.querySelector('.rd-prog .lbl');
-    const bar=document.querySelector('.rd-prog .track i');
-    if(lbl) lbl.innerHTML=tf('idAnswered',{c:answered,n:total});
-    if(bar) bar.style.width=(total?Math.round(answered/total*100):0)+'%';
-    const btn=document.getElementById('idCheck');
-    if(btn) btn.disabled=answered===0;
+    const el=document.getElementById('idIn'); if(!el)return;
+    vals[idx]=el.value; if(useDraft) setDraft(dkey,{vals:vals.slice()});
+    const c=vals.filter(v=>v&&v.trim()).length;
+    const n=document.getElementById('idAns'); if(n) n.textContent=tf('idAnsShort',{c});
+    const dot=document.querySelector('.id-dot.at');
+    if(dot) dot.classList.toggle('filled', !!(el.value&&el.value.trim()));
   };
-  window._idCheck=function(){ readInputs(); if(useDraft) clearDraft(dkey); checked=true; draw(); };
+  window._idGo=function(n){ stash(); idx=Math.max(0,Math.min(total-1,n)); draw(); };
+  window._idNext=function(){ if(idx<total-1) window._idGo(idx+1); else window._idFinish(); };
+  window._idFinish=function(){ stash(); if(useDraft) clearDraft(dkey); checked=true; draw(); };
   window._idAgain=function(){ openAct(CTX.l.id,CTX.a.id); };
+  window._idKey=function(ev){ if(ev.key==='Enter'){ ev.preventDefault(); window._idNext(); } };
+
+  function head(posLabel, rightLabel, pct){
+    return `<div class="rd-prog">
+      <div class="rd-prog-in">
+        <div class="lbl">${posLabel}</div>
+        <div class="track"><i style="width:${pct}%"></i></div>
+        <div class="${checked?'sc':'save'}" id="idAns">${rightLabel}</div>
+      </div>
+    </div>`;
+  }
+  function titleCard(){
+    return `<div class="card">
+      <div class="rd-eyebrow">${esc(CTX.s.short||CTX.s.name)} · ${t('Lesson')} ${CTX.s.lessons.indexOf(CTX.l)+1}</div>
+      <h2 class="title" style="margin-top:8px">${esc(a.name)}</h2>
+      <p class="sub" style="margin:0">${a.prompt||t('idHint')}</p>
+    </div>`;
+  }
+  function feedback(it,i){
+    const ok=identOK(it,vals[i]);
+    const blank=!vals[i]||!vals[i].trim();
+    return ok
+      ? `<div class="id-fb ok">${t('idCorrect')}${it.e?' '+esc(it.e):''}</div>`
+      : `<div class="id-fb no">${tf(blank?'idBlank':'idIncorrect',{a:esc(it.a)})}${it.e?' '+esc(it.e):''}</div>`;
+  }
 
   function draw(){
     const answered=vals.filter(v=>v&&v.trim()).length;
-    const pct=total?Math.round(answered/total*100):0;
-    let score=0; a.items.forEach((it,i)=>{ if(identOK(it,vals[i])) score++; });
 
+    /* ---------- answering: one question per card ---------- */
+    if(!checked){
+      const it=a.items[idx];
+      const dots=a.items.map((_,i)=>{
+        const filled=vals[i]&&vals[i].trim()?' filled':'';
+        return `<button class="id-dot${filled}${i===idx?' at':''}" title="${i+1}" onclick="window._idGo(${i})"></button>`;
+      }).join('');
+      app.innerHTML=`${crumbs()}
+        ${head(tf('idPos',{c:idx+1,n:total}), tf('idAnsShort',{c:answered}), Math.round((idx+1)/total*100))}
+        ${titleCard()}
+        <div class="idq one">
+          <div class="idq-head">
+            <div class="idq-num">${idx+1}</div>
+            <p>${esc(it.q)}</p>
+          </div>
+          <input id="idIn" type="text" autocomplete="off" spellcheck="false"
+            placeholder="${t('idPlaceholder')}" oninput="window._idIn()" onkeydown="window._idKey(event)">
+        </div>
+        <div class="id-dots">${dots}</div>
+        <div class="id-nav">
+          ${backBtn()}
+          <span class="right">
+            <button class="btn secondary" ${idx===0?'disabled':''} onclick="window._idGo(${idx-1})">${t('idPrev')}</button>
+            <button class="btn" onclick="window._idNext()">${idx<total-1?t('next'):t('finish')}</button>
+          </span>
+        </div>`;
+      const el=document.getElementById('idIn');
+      if(el){ el.value=vals[idx]||''; el.focus(); el.setSelectionRange(el.value.length,el.value.length); }
+      return;
+    }
+
+    /* ---------- checked: every answer with the correct one ---------- */
+    let score=0; a.items.forEach((it,i)=>{ if(identOK(it,vals[i])) score++; });
     const cards=a.items.map((it,i)=>{
-      const ok=checked&&identOK(it,vals[i]);
-      const blank=!vals[i]||!vals[i].trim();
-      const fb = !checked ? '' : (ok
-        ? `<div class="id-fb ok">${t('idCorrect')}${it.e?' '+esc(it.e):''}</div>`
-        : `<div class="id-fb no">${tf(blank?'idBlank':'idIncorrect',{a:esc(it.a)})}${it.e?' '+esc(it.e):''}</div>`);
+      const ok=identOK(it,vals[i]);
       return `<div class="idq">
         <div class="idq-head">
           <div class="idq-num">${i+1}</div>
           <p>${esc(it.q)}</p>
         </div>
-        <input id="id${i}" type="text" autocomplete="off" spellcheck="false"
-          class="${checked?(ok?'ok':'no'):''}" ${checked?'disabled':''}
-          placeholder="${t('idPlaceholder')}" oninput="window._idIn()">
-        ${fb}
+        <input type="text" disabled class="${ok?'ok':'no'}" value="${esc(vals[i]||'')}"
+          placeholder="${t('idPlaceholder')}">
+        ${feedback(it,i)}
       </div>`;
     }).join('');
-
     const emoji = score===total?'🏆':(score/total>=.8?'🎉':(score/total>=.5?'💪':'📖'));
     const msg = score===total?t('tfMsgTop'):(score/total>=.5?t('tfMsgMid'):t('tfMsgLow'));
     const wrongItems=a.items.filter((it,i)=>!identOK(it,vals[i]));
 
     app.innerHTML=`${crumbs()}
-      <div class="rd-prog">
-        <div class="rd-prog-in">
-          <div class="lbl">${tf('idAnswered',{c:answered,n:total})}</div>
-          <div class="track"><i style="width:${pct}%"></i></div>
-          ${checked?`<div class="sc">${tf('tfScore',{s:score})}</div>`:''}
-        </div>
-      </div>
-      <div class="card">
-        <div class="rd-eyebrow">${esc(CTX.s.short||CTX.s.name)} · ${t('Lesson')} ${CTX.s.lessons.indexOf(CTX.l)+1}</div>
-        <h2 class="title" style="margin-top:8px">${esc(a.name)}</h2>
-        <p class="sub" style="margin:0">${a.prompt||t('idHint')}</p>
-      </div>
-      ${cards}
-      ${checked?`<div class="tf-done">
+      ${head(tf('idAnswered',{c:answered,n:total}), tf('tfScore',{s:score}), 100)}
+      ${titleCard()}
+      <div class="tf-done">
         <div class="em">${emoji}</div>
         <div class="h">${tf('tfScored',{s:score,n:total})}</div>
         <div class="s">${msg}</div>
         <div class="acts">
+          ${wrongItems.length?`<button class="btn retry" onclick="reviewWrong()">${t('retryWrong')} (${wrongItems.length})</button>`:''}
           <button class="tf-again" onclick="window._idAgain()">${t('tfAgain')}</button>
           <button class="btn secondary" onclick="lesson('${CTX.l.id}')">${t('backLesson')}</button>
         </div>
-      </div>`
-      :`<div class="navq mt">${backBtn()}
-        <button class="btn" id="idCheck" ${answered?'':'disabled'} onclick="window._idCheck()">${t('check')} ✓</button>
-      </div>`}`;
+      </div>
+      <div class="id-review-h">${t('idReview')}</div>
+      ${cards}
+      <div class="navq mt">${backBtn()}<span></span></div>`;
 
-    a.items.forEach((_,i)=>{ const el=document.getElementById('id'+i); if(el) el.value=vals[i]||''; });
-
-    if(checked&&!recorded){
+    if(!recorded){
       recorded=true;
       LASTWRONG = wrongItems.length?{type:'identification', items:wrongItems}:null;
       if(!CTX.review){ setBest(CTX.a,Math.round(score/total*100)); markDone(CTX.a); }
     }
+    window.scrollTo(0,0);
   }
   draw();
 }
